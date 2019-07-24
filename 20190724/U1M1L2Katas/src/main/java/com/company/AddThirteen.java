@@ -4,14 +4,20 @@ import java.util.Scanner;
 
 public class AddThirteen {
 
+    /** Task:
+     * Store input for a number and add 13.
+     * Will need Scanner for input ( System.in ).
+     * Two integers.
+     */
+
     public static void main(String[] args) {
-        // declare scanner instance
+
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Hi! please input a number.");
-        int userInput = Integer.parseInt(scanner.nextLine());
+        System.out.println("Pick any number.");
+        int num = Integer.parseInt(scanner.nextLine());
 
-        int sum = userInput + 13;
+        int sum = num + 13;
 
         System.out.println("The sum is " + sum + ".");
     }

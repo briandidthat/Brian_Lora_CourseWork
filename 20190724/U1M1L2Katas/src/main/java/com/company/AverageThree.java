@@ -1,23 +1,34 @@
 package com.company;
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class AverageThree {
 
+    /** Task:
+     * Take input for three numbers.
+     * Will need Scanner for input ( System.in ) and DecimalFormat formatter.
+     * Four doubles.
+     * Assignment didn't say print, but i'm going to print it anyways.
+     */
+
     public static void main(String[] args) {
 
-        // declare scanner instance
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Hi! please input a first number.");
-        int firstNumber = Integer.parseInt(scanner.nextLine());
-        System.out.println("Hi! please input a second number.");
-        int secondNumber = Integer.parseInt(scanner.nextLine());
-        System.out.println("Hi! please input a third number.");
-        int thirdNumber = Integer.parseInt(scanner.nextLine());
+        System.out.println("Pick any number.");
+        double firstNum = scanner.nextDouble();
 
-        int sum = firstNumber + secondNumber + thirdNumber / 3;
+        System.out.println("Now, pick a  second number.");
+        double secondNum = scanner.nextDouble();
 
-        // output the sum of the three numbers the user provided.
-        System.out.println("The sum of the three numbers is " +sum+".");
+        System.out.println("Finally, pick a third number.");
+        double thirdNum = scanner.nextDouble();
+
+        double average = ( firstNum + secondNum + thirdNum ) / 3;
+
+        DecimalFormat newSum = new DecimalFormat("0.00");
+
+        System.out.println("The average of the three numbers you provided is " + newSum.format(average) + ".");
+
     }
 }

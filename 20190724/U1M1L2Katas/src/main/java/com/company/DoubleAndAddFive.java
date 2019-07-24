@@ -4,16 +4,22 @@ import java.util.Scanner;
 
 public class DoubleAndAddFive {
 
+    /** Task:
+     * Store input for one number, double then add 5. Print to the console.
+     * Will need Scanner for input ( System.in ).
+     * Two integers.
+     */
+
     public static void main(String[] args) {
 
-        // declare scanner instance
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Hi! please input a number.");
-        int userInput = Integer.parseInt(scanner.nextLine());
-        int newTotal = userInput * 2 + 5;
+        System.out.println("Pick any number.");
+        int num = Integer.parseInt(scanner.nextLine());
 
-        System.out.println("The new total is " + newTotal+".");
+        int newNum = (num * 2) + 5;
+
+        System.out.println("The new total is " + newNum + ".");
 
     }
 }

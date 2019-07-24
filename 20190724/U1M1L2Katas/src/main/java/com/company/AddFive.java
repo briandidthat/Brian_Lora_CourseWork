@@ -4,25 +4,35 @@ import java.util.Scanner;
 
 public class AddFive {
 
+    /** Task:
+     * Store input for five integers and print the sum.
+     * Will need Scanner for input ( System.in ).
+     * Five integers.
+     * Assignment didn't say print, but i'm going to print it anyways.
+     */
+
     public static void main(String[] args) {
 
-        // declare scanner instance
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Hi! please input a first number.");
-        int firstNumber = Integer.parseInt(scanner.nextLine());
-        System.out.println("Now, input a second number.");
-        int secondNumber = Integer.parseInt(scanner.nextLine());
-        System.out.println("Now, input a third number.");
-        int thirdNumber = Integer.parseInt(scanner.nextLine());
-        System.out.println("Now, input a fourth number.");
-        int fourthNumber = Integer.parseInt(scanner.nextLine());
-        System.out.println("Now, input a fifth number.");
-        int fifthNumber = Integer.parseInt(scanner.nextLine());
+        System.out.println("Pick any number.");
+        int firstNum = Integer.parseInt(scanner.nextLine());
 
-        int sum = firstNumber + secondNumber + thirdNumber + fourthNumber + fifthNumber;
+        System.out.println("Now pick a second number.");
+        int secondNum = Integer.parseInt(scanner.nextLine());
+
+        System.out.println("Now pick a third number.");
+        int thirdNum = Integer.parseInt(scanner.nextLine());
+
+        System.out.println("Now pick a fourth number.");
+        int fourthNum = Integer.parseInt(scanner.nextLine());
+
+        System.out.println("Finally, pick a fifth number.");
+        int fifthNum = Integer.parseInt(scanner.nextLine());
+
+        int sum = firstNum + secondNum + thirdNum + fourthNum + fifthNum;
 
         // output the numbers the user provided
-        System.out.println("The sum of the five numbers is " +sum+".");
+        System.out.println("The sum of the five values you entered is " + sum + ".");
     }
 }
