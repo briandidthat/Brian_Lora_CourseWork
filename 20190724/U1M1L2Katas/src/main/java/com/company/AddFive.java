@@ -9,6 +9,7 @@ public class AddFive {
      * Will need Scanner for input ( System.in ).
      * Five integers.
      * Assignment didn't say print, but i'm going to print it anyways.
+     * Probably could have used one int to save memory, but this is a relatively small program so it's OK.
      */
 
     public static void main(String[] args) {
