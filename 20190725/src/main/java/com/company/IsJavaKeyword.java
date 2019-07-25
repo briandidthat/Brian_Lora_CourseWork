@@ -5,7 +5,7 @@ import java.util.List;
 
 /**Task:
  * Write a program that takes user input (integer) and checks if it is a Java keyword.
- * Will need Scanner (System.in), Test input val against array of keywords.
+ * Will need Scanner (System.in), Array => List
  */
 
 public class IsJavaKeyword {
@@ -25,7 +25,7 @@ public class IsJavaKeyword {
                 "switch", "synchronized", "this", "throw", "throws", "transient", "try", "void", "volatile", "while"
         };
 
-        // Convert into List to access the contains() method for comparison.
+        // Convert Array into List to access the contains() method for comparison.
         List<String> list = Arrays.asList(keywords);
 
         // Test values and output result

@@ -18,9 +18,10 @@ public class RangeChecker {
         int num = in.nextInt();
 
         do {
-            System.out.println("Invalid selection, please select another number.");
-            num = in.nextInt();
+             System.out.println("Invalid selection, please select another number.");
+             num = in.nextInt();
         } while(num <= 15 || num >= 32);
-            System.out.println(num);
+
+        System.out.println(num);
     }
 }
