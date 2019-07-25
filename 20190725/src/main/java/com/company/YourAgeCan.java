@@ -2,6 +2,7 @@ package com.company;
 import java.util.Scanner;
 
 /**Task:
+ * Ask the user for input, and output if they qualify for any of the following.
  * Vote (18+)
  * Drink alcohol (21+)
  * Be president (35+)
@@ -9,7 +10,7 @@ import java.util.Scanner;
  * Can retire (65+)
  * Is an octogenerian (80-89)
  * Is more than a century old (100+)
- * Will Need Scanner (System.in)
+ * Will Need Scanner (System.in), if statements
  */
 
 public class YourAgeCan {
@@ -55,8 +56,6 @@ public class YourAgeCan {
             System.out.println("You are eligible for AARP.");
             System.out.println("You can retire.");
             System.out.println("You are more than a century old.");
-        } else {
-            System.out.println("You are too young.");
         }
     }
 }

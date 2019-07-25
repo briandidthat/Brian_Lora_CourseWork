@@ -18,6 +18,7 @@ public class UltimateQuestion {
         System.out.println("Hi, please input a number between 1-100");
         int guess = in.nextInt();
 
+        //loop until the correct answer is provided.
         while(guess != num) {
             System.out.println("Please input another number.");
             guess = in.nextInt();

@@ -14,9 +14,9 @@ public class CountByTwo {
         System.out.println("Please enter any number");
         int num = in.nextInt();
 
+        // iterate and increment by 2
         for (int i =0; i <= num; i+=2) {
             System.out.println(i);
-
         }
     }
 }
