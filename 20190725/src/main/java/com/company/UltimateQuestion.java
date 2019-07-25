@@ -1,6 +1,12 @@
 package com.company;
 import java.util.Scanner;
 
+/**Task:
+ * Write a program that continues to ask for input between 1 and 100 until the user enters 42. Once they do, print--
+ * "That's the number I was looking for! 42 is definitely the answer!"
+ * Will need Scanner (System.in)
+ */
+
 public class UltimateQuestion {
 
     public static void main(String[] args) {

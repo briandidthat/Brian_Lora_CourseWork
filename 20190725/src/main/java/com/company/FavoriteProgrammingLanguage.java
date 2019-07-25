@@ -14,13 +14,12 @@ public class FavoriteProgrammingLanguage {
 
         System.out.println("What's your favorite programming language?");
         String favLanguage = in.nextLine();
-        String correctAnswer = "Java";
+        String correctAnswer = "java";
 
-        while (favLanguage != correctAnswer) {
+        while (!favLanguage.equalsIgnoreCase(correctAnswer)) {
             System.out.println("C'mon, there's a better language than that, try again.");
             favLanguage = in.nextLine();
         }
-        System.out.println("That's what I was looking for! Java is definitely the answer.");
-
+        System.out.println("That's what I was looking for! Java is definitely the answer!");
     }
 }
