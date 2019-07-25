@@ -5,7 +5,7 @@ Cognizant Java bootcamp assignment folder.
 Complete assignment Katas.
 
 ## Table of Contents 
-* The assignments are in chronological order, named by the date in which they were due.*
+*The assignments are in chronological order, named by the date in which they were due.*
 
 * Week 1: 20190723 - 20190726  
 * Week 2: 20190729 - 20190802  
