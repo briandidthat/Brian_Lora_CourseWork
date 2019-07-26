@@ -6,6 +6,7 @@ package com.company;
  * subtractOrZero (two params of type int - a, b) if c < 0, return 0
  * max (three params of type int, a, b ,c) return largest
  * min (three params of type int, a, b ,c) return smallest
+ * isLarger (two params of type int, a, b) return bool
  */
 
 public class App {
