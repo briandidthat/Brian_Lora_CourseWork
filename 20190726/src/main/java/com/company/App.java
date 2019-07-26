@@ -1,20 +1,26 @@
 package com.company;
 
+/** Task
+ * Create the following five methods
+ * subtract (two params of type int - a, b) subtract b from a and return val
+ * subtractOrZero (two params of type int - a, b) if c < 0, return 0
+ * max (three params of type int, a, b ,c) return largest
+ * min (three params of type int, a, b ,c) return smallest
+ */
+
 public class App {
 
     public static int subtract(int a, int b) {
-        System.out.println(a - b);
         return a - b;
     }
 
     public static int subtractOrZero(int a, int b) {
-        int c = a-b;
+        int c = a - b;
 
         if (c < 0) {
             c = 0;
         }
 
-        System.out.println(c);
         return c;
     }
 
@@ -29,7 +35,6 @@ public class App {
             largest = b;
         }
 
-        System.out.println(largest);
         return largest;
     }
 
@@ -44,7 +49,6 @@ public class App {
             smallest = b;
         }
 
-        System.out.println(smallest);
         return smallest;
     }
 
@@ -55,15 +59,14 @@ public class App {
             isGreater = true;
         }
 
-        System.out.println(isGreater);
         return isGreater;
     }
 
     public static void main(String[] args) {
-        subtract(-3, 4);
-        subtractOrZero(-2, 15);
-        max(17, 13, 8);
-        min(12, 22, 41);
-        isLarger(7, 12);
+        System.out.println(subtract(-3, 4));
+        System.out.println(subtractOrZero(-2, 15));
+        System.out.println(max(17, 13, 8));
+        System.out.println(min(12, 22, 41));
+        System.out.println(isLarger(7, 12));
     }
 }
