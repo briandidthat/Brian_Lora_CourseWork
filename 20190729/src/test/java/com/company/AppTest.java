@@ -33,80 +33,81 @@ public class AppTest {
         stringTest3 = new String[] {"Dell", "Lenovo"};
     }
 
-     // @Test
-     // public void testTotal() {
-     //     String failMessage = "Expected method to return sum of integers";
-     //     assertEquals(failMessage, 28, App.total(intTest1));
-     //     assertEquals(failMessage, -20, App.total(intTest2));
-     //     assertEquals(failMessage, 2487, App.total(intTest3));
-     //     assertEquals(failMessage, 554, App.total(intTest4));
-     // }
+      @Test
+      public void testTotal() {
+          String failMessage = "Expected method to return sum of integers";
+          assertEquals(failMessage, 28, App.total(intTest1));
+          assertEquals(failMessage, -20, App.total(intTest2));
+          assertEquals(failMessage, 2487, App.total(intTest3));
+          assertEquals(failMessage, 554, App.total(intTest4));
+      }
 
-    // @Test
-    // public void testTotalOdd() {
-    //     String failMessage = "Expected method to return sum of only odd indices";
-    //     assertEquals(failMessage, 16, App.totalOdd(intTest1));
-    //     assertEquals(failMessage, -17, App.totalOdd(intTest2));
-    //     assertEquals(failMessage, 2330, App.totalOdd(intTest3));
-    //     assertEquals(failMessage, 315, App.totalOdd(intTest4));
-    // }
+     @Test
+     public void testTotalOdd() {
+         String failMessage = "Expected method to return sum of only odd indices";
+         assertEquals(failMessage, 16, App.totalOdd(intTest1));
+         assertEquals(failMessage, -17, App.totalOdd(intTest2));
+         assertEquals(failMessage, 2330, App.totalOdd(intTest3));
+         assertEquals(failMessage, 315, App.totalOdd(intTest4));
+     }
 
-    // @Test
-    // public void testTotalEven() {
-    //     String failMessage = "Expected method to return sum of only even indices";
-    //     assertEquals(failMessage, 12, App.totalEven(intTest1));
-    //     assertEquals(failMessage, -3, App.totalEven(intTest2));
-    //     assertEquals(failMessage, 157, App.totalEven(intTest3));
-    //     assertEquals(failMessage, 239, App.totalEven(intTest4));
-    // }
+     @Test
+     public void testTotalEven() {
+         String failMessage = "Expected method to return sum of only even indices";
+         assertEquals(failMessage, 12, App.totalEven(intTest1));
+         assertEquals(failMessage, -3, App.totalEven(intTest2));
+         assertEquals(failMessage, 157, App.totalEven(intTest3));
+         assertEquals(failMessage, 239, App.totalEven(intTest4));
+     }
+//
+//     @Test
+//     public void testSecondLargest() {
+//         String failMessage = "Expected method to return the second largest value in an array";
+//         assertEquals(failMessage, 6, App.secondLargestNumber(intTest1));
+//         assertEquals(failMessage, -17, App.secondLargestNumber(intTest2));
+//         assertEquals(failMessage, 102, App.secondLargestNumber(intTest3));
+//         assertEquals(failMessage, 101, App.secondLargestNumber(intTest4));
+//     }
 
-    // @Test
-    // public void testSecondLargest() {
-    //     String failMessage = "Expected method to return the second largest value in an array";
-    //     assertEquals(failMessage, 6, App.secondLargestNumber(intTest1));
-    //     assertEquals(failMessage, -17, App.secondLargestNumber(intTest2));
-    //     assertEquals(failMessage, 102, App.secondLargestNumber(intTest3));
-    //     assertEquals(failMessage, 101, App.secondLargestNumber(intTest4));
-    // }
+     @Test
+     public void testSwapFirstAndLast() {
+         String[] output1 = new String[] {"qux", "bar", "baz", "foo"};
+         String[] output2 = new String[] {"Apple", "C#", "C++", "Python", "C", "JavaScript", "Java"};
+         String[] output3 = new String[] {"Lenovo", "Dell"};
 
-    // @Test
-    // public void testSwapFirstAndLast() {
-    //     String[] output1 = new String[] {"qux", "bar", "baz", "foo"};
-    //     String[] output2 = new String[] {"Apple", "C#", "C++", "Python", "C", "JavaScript", "Java"};
-    //     String[] output3 = new String[] {"Lenovo", "Dell"};
+         String failMessage = "Expected method to swap first and last indices";
+         assertArrayEquals(failMessage, output1, App.swapFirstAndLast(stringTest1));
+         assertArrayEquals(failMessage, output2, App.swapFirstAndLast(stringTest2));
+         assertArrayEquals(failMessage, output3, App.swapFirstAndLast(stringTest3));
+     }
 
-    //     String failMessage = "Expected method to swap first and last indices";
-    //     assertArrayEquals(failMessage, output1, App.swapFirstAndLast(stringTest1));
-    //     assertArrayEquals(failMessage, output2, App.swapFirstAndLast(stringTest2));
-    //     assertArrayEquals(failMessage, output3, App.swapFirstAndLast(stringTest3));
-    // }
-
-    // @Test
-    // public void testReverse() {
-    //     int[] output1 = new int[] {7, 6, 5, 4, 3, 2, 1, 0};
-    //     int[] output2 = new int[] {-17, -3};
-    //     int[] output3 = new int[] {7, 102, 2323, 55};
-    //     int[] output4 = new int[] {112, 101, 12, 37,
-    //             24, 3, 89, 17,
-    //             43, 56, 13, 10,
-    //             9, 1, 6, 7,
-    //             3, 5, 4, 2};
+     @Test
+     public void testReverse() {
+         int[] output1 = new int[]{7, 6, 5, 4, 3, 2, 1, 0};
+         int[] output2 = new int[]{-17, -3};
+         int[] output3 = new int[]{7, 102, 2323, 55};
+         int[] output4 = new int[]{112, 101, 12, 37,
+                 24, 3, 89, 17,
+                 43, 56, 13, 10,
+                 9, 1, 6, 7,
+                 3, 5, 4, 2};
 
 
-    //     String failMessage = "Expected method to reverse an array of ints";
-    //     assertArrayEquals(failMessage, output1, App.reverse(intTest1));
-    //     assertArrayEquals(failMessage, output2, App.reverse(intTest2));
-    //     assertArrayEquals(failMessage, output3, App.reverse(intTest3));
-    //     assertArrayEquals(failMessage, output4, App.reverse(intTest4));
-    // }
 
-    // @Test
-    // public void testConcatenate() {
-    //     String failMessage = "Expected method to concatenate an array of strings";
-    //     assertEquals(failMessage, "foobarbazqux", App.concatenateString(stringTest1));
-    //     assertEquals(failMessage, "JavaC#C++PythonCJavaScriptApple", App.concatenateString(stringTest2));
-    //     assertEquals(failMessage, "DellLenovo", App.concatenateString(stringTest3));
-    // }
+         String failMessage = "Expected method to reverse an array of ints";
+         assertArrayEquals(failMessage, output1, App.reverse(intTest1));
+         assertArrayEquals(failMessage, output2, App.reverse(intTest2));
+         assertArrayEquals(failMessage, output3, App.reverse(intTest3));
+         assertArrayEquals(failMessage, output4, App.reverse(intTest4));
+     }
+
+     @Test
+     public void testConcatenate() {
+         String failMessage = "Expected method to concatenate an array of strings";
+         assertEquals(failMessage, "foobarbazqux", App.concatenateString(stringTest1));
+         assertEquals(failMessage, "JavaC#C++PythonCJavaScriptApple", App.concatenateString(stringTest2));
+         assertEquals(failMessage, "DellLenovo", App.concatenateString(stringTest3));
+     }
 
     // @Test
     // public void testEveryThird() {
@@ -121,18 +122,18 @@ public class AppTest {
     //     assertArrayEquals(failMessage, output4, App.everyThird(intTest4));
     // }
 
-    // @Test
-    // public void testLessThan5() {
-    //     int[] output1 = new int[] {0, 1, 2, 3, 4};
-    //     int[] output2 = new int[] {-3, -17};
-    //     int[] output4 = new int[] {2, 4, 3, 1, 3};
+     @Test
+     public void testLessThan5() {
+         int[] output1 = new int[] {0, 1, 2, 3, 4};
+         int[] output2 = new int[] {-3, -17};
+         int[] output4 = new int[] {2, 4, 3, 1, 3};
 
-    //     String failMessage = "Expected method to return an array with values less than 5";
-    //     assertArrayEquals(failMessage, output1, App.lessThanFive(intTest1));
-    //     assertArrayEquals(failMessage, output2, App.lessThanFive(intTest2));
-    //     assertNull(failMessage, App.lessThanFive(intTest3));
-    //     assertArrayEquals(failMessage, output4, App.lessThanFive(intTest4));
-    // }
+         String failMessage = "Expected method to return an array with values less than 5";
+         assertArrayEquals(failMessage, output1, App.lessThanFive(intTest1));
+         assertArrayEquals(failMessage, output2, App.lessThanFive(intTest2));
+         assertNull(failMessage, App.lessThanFive(intTest3));
+         assertArrayEquals(failMessage, output4, App.lessThanFive(intTest4));
+     }
 
     // @Test
     // public void testSplitAt5() {
