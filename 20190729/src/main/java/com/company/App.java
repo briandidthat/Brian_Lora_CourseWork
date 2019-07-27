@@ -124,6 +124,8 @@ public class App {
                 newArray[i] = arr[i];
             }
         }
+
+        return newArray;
     }
 
     //
