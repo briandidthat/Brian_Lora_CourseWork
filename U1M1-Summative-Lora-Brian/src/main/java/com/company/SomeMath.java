@@ -12,19 +12,40 @@ package com.company;
 
 public class SomeMath {
 
-//    public static int totalFive(int ... nums) {
-//
-//    }
+    public static int totalFive(int ...nums) {
+        int total = 0;
+        for (int i : nums) {
+            total += i;
+        }
+        return total;
+    }
 
-//    public static double averageFive(int ... nums) {
-//
-//    }
-//
-//    public static double largestFive(int ... nums) {
-//
-//    }
+    public static double averageFive(int ... nums) {
+         double sum = 0;
+         double avg;
+
+         for (int i : nums) {
+            sum += i;
+         }
+         avg = sum / 5;
+         return avg;
+    }
+
+    public static double largestFive(double ... nums) {
+         double max = nums[0];
+
+         for(int i = 1; i < nums.length; i++) {
+             if(nums[i] > max) {
+                 max = nums[i];
+             }
+         }
+
+         return max;
+    }
 
     public static void main(String[] args) {
-
+        System.out.println("The sum is: "+ totalFive(1,2,3,4,5) + ".");
+        System.out.println("The average is: " + averageFive(1,3,5,7,9) + ".");
+        System.out.println("The average is: " + largestFive(42.0, 35.1, 2.3, 40.2, 15.6) + ".");
     }
 }
