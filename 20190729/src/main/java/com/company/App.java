@@ -14,7 +14,7 @@ package com.company;
 
 public class App {
 
-    // return the sum of all the values in an array of ints.
+    // return the sum of all the values in an array of ints. (enhanced for loop)
     public static int total(int[] arr) {
         int sum = 0;
         for (int element : arr) {
