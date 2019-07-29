@@ -11,6 +11,20 @@ package com.company;
 public class ArrayFunReverseIt {
 
     public static void main(String[] args) {
+        // Because the elements of array are predefined, I can use an array literal. We also know the size is 5
+        int[] initialArr = new int[]{1, 2, 3, 4, 5};
+        int j = 5;
+        // Define a new array that will accept the new values, and initialize it to the size of the initial arr
+        int[] reverseArr = new int[j];
 
+        for (int i = 0; i < initialArr.length; i++) {
+            reverseArr[j-1] = initialArr[i];
+            j = j - 1;
+        }
+
+        System.out.println("Array--Reversed");
+        for (int k = 0; k < reverseArr.length; k++) {
+            System.out.println("   " + initialArr[k] + "------" + reverseArr[k]);
+        }
     }
 }
