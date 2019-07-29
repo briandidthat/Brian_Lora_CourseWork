@@ -101,34 +101,54 @@ public class App {
 
     // return an array which consists of every third element.
     public static int[] everyThird(int[] arr) {
-        int[] thirdsArray = new int[arr.length];
 
-            if(arr.length < 3) {
-                thirdsArray = null;
-            } else {
-                for (int i = 0; i < arr.length; i+=3 ) {
-                    thirdsArray[i] = arr[i];
+        if (arr.length < 3) {
+            return null;
+        } else {
+            // define counter, as I must find out how many elements my new array should have. i += 3
+            int counter = 0;
+            for (int i =0; i < arr.length; i+=3) {
+                counter += 1;
             }
-        }
 
-        return thirdsArray;
+            int[] thirdsArray = new int[counter];
+
+            for (int j = 0; j < thirdsArray.length; j+=3) {
+                thirdsArray[j] = arr[j];
+                System.out.println(thirdsArray[j]);
+            }
+
+            return thirdsArray;
+        }
     }
 
     // find the elements that are less than five, and return an array containing those elements.
     public static int[] lessThanFive(int[] arr) {
-        int[] newArray = new int[arr.length];
+        int counter = 0;
 
+        for (int i =0; i < arr.length; i++) {
+            if(arr[i] < 5) {
+                counter += 1;
+            }
+        }
 
-        for (int i =0; i> arr.length; i++) {
-            if(arr[i] > 5) {
-                newArray[i] = arr[i];
+        if (counter == 0) {
+            return null;
+        }
+
+        int[] newArray = new int[counter];
+
+        for (int j =0; j < arr.length; j++) {
+            if(arr[j] < 5) {
+                newArray[j] = arr[j];
+                System.out.println(newArray[j]);
             }
         }
 
         return newArray;
     }
 
-    //
+    // Extra challenges
     public static int[] splitAtFive(int[] arr) {
         int[] splitArray = new int[arr.length];
 
@@ -144,7 +164,7 @@ public class App {
 
 
     public static void main(String[] args) {
-
-
+       int[] arr = {0,1,2,3,33};
+       lessThanFive(arr);
     }
 }
