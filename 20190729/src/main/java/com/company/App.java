@@ -113,9 +113,8 @@ public class App {
 
             int[] thirdsArray = new int[counter];
 
-            for (int j = 0; j < thirdsArray.length; j+=3) {
+            for (int j=1; j < counter; j+=3) {
                 thirdsArray[j] = arr[j];
-                System.out.println(thirdsArray[j]);
             }
 
             return thirdsArray;
@@ -131,17 +130,17 @@ public class App {
                 counter += 1;
             }
         }
-
+        // if there are no elements less than 5, return null.
         if (counter == 0) {
             return null;
         }
 
         int[] newArray = new int[counter];
+        System.out.println(newArray.length);
 
-        for (int j =0; j < arr.length; j++) {
+        for (int j =0; j < counter; j++) {
             if(arr[j] < 5) {
                 newArray[j] = arr[j];
-                System.out.println(newArray[j]);
             }
         }
 
@@ -166,5 +165,6 @@ public class App {
     public static void main(String[] args) {
        int[] arr = {0,1,2,3,33};
        lessThanFive(arr);
+       everyThird(arr);
     }
 }
