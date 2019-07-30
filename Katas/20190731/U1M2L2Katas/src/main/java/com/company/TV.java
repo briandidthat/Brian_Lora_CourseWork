@@ -1,18 +1,19 @@
 package com.company;
 
-public class Radio {
+public class TV {
+
     private String manufacturer;
     private String model;
-    private int numSpeakers;
-    private String station;
+    private int screenSize;
+    private String channel;
     private int volume;
     private boolean powered;
 
-    public Radio(String manufacturer, String model, int numSpeakers, String station, int volume, boolean powered) {
+    public TV(String manufacturer, String model, int screenSize, String channel, int volume, boolean powered) {
         this.manufacturer = manufacturer;
         this.model = model;
-        this.numSpeakers = numSpeakers;
-        this.station = station;
+        this.screenSize = screenSize;
+        this.channel = channel;
         this.volume = volume;
         this.powered = powered;
     }
@@ -37,20 +38,20 @@ public class Radio {
         this.model = model;
     }
 
-    public int getNumSpeakers() {
-        return numSpeakers;
+    public int getScreenSize() {
+        return screenSize;
     }
 
-    public void setNumSpeakers(int numSpeakers) {
-        this.numSpeakers = numSpeakers;
+    public void setScreenSize(int screenSize) {
+        this.screenSize = screenSize;
     }
 
-    public String getStation() {
-        return station;
+    public String getChannel() {
+        return channel;
     }
 
-    public void setStation(String station) {
-        this.station = station;
+    public void setChannel(String channel) {
+        this.channel = channel;
     }
 
     public int getVolume() {
