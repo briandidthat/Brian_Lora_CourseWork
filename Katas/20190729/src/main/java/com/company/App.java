@@ -82,7 +82,7 @@ public class App {
 
         for (int i = 0; i < arr.length; i++ ) {
             reversedArray[j-1] = arr[i];
-            j = j-1;
+            j -= 1;
         }
 
         return reversedArray;
@@ -104,40 +104,26 @@ public class App {
     public static int[] lessThanFive(int[] arr) {
         int counter = 0;
 
-        for (int i =0; i < arr.length; i++) {
+        for (int i = 0; i <arr.length; i++) {
             if(arr[i] < 5) {
-                counter += 1;
+                counter++;
             }
         }
+
         // if there are no elements less than 5, return null.
         if (counter == 0) {
             return null;
-        }
+        } else {
 
-        int[] newArray = new int[counter];
-        System.out.println(newArray.length);
+            int[] newArray = new int[counter];
 
-        for (int j =0; j < counter; j++) {
-            if(arr[j] < 5) {
-                newArray[j] = arr[j];
+            for (int j = 0; j < newArray.length; j++) {
+                if (arr[j] < 5) {
+                    newArray[j] = arr[j];
+                }
             }
+            return newArray;
         }
-
-        return newArray;
-    }
-
-    // Extra challenges
-    public static int[] splitAtFive(int[] arr) {
-        int[] splitArray = new int[arr.length];
-
-
-        return splitArray;
-    }
-
-    public static int[] evensAndOdds(int[] arr) {
-        int[] evensOddsArray = new int[arr.length];
-
-        return evensOddsArray;
     }
 
     // return an array which consists of every third element.
@@ -164,9 +150,22 @@ public class App {
         }
     }
 
+    // Extra challenges
+    public static int[] splitAtFive(int[] arr) {
+        int[] splitArray = new int[arr.length];
 
+
+        return splitArray;
+    }
+
+    public static int[] evensAndOdds(int[] arr) {
+        int[] evensOddsArray = new int[arr.length];
+
+        return evensOddsArray;
+    }
 
     public static void main(String[] args) {
-       //int[] arr = {0,1,2,3,33};
+       int[] arr = {0,1,2,3,33};
+       lessThanFive(arr);
     }
 }
