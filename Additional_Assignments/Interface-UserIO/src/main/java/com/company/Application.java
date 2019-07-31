@@ -1,5 +1,5 @@
 package com.company;
-
+import com.company.classes.Input;
 import com.company.interfaces.UserIO;
 
 public class Application {
