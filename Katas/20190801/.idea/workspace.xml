@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b04eeef8-0435-488d-8b19-ac191d08d309" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/company/AllKatasTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/company/AllKatasTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +36,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559789656858" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -130,44 +130,14 @@
     </task>
     <servers />
   </component>
-  <component name="TestHistory">
-    <history-entry file="AllKatasTest - 2019.06.05 at 22h 23m 39s.xml">
-      <configuration name="AllKatasTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AllKatasTest - 2019.06.05 at 22h 23m 41s.xml">
-      <configuration name="AllKatasTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AllKatasTest - 2019.06.05 at 22h 35m 08s.xml">
-      <configuration name="AllKatasTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AllKatasTest - 2019.06.05 at 22h 37m 44s.xml">
-      <configuration name="AllKatasTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AllKatasTest_testAnalogClock - 2019.06.05 at 22h 38m 23s.xml">
-      <configuration name="AllKatasTest.testAnalogClock" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AllKatasTest - 2019.06.05 at 22h 38m 56s.xml">
-      <configuration name="AllKatasTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AllKatasTest - 2019.06.05 at 22h 40m 01s.xml">
-      <configuration name="AllKatasTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AllKatasTest - 2019.06.05 at 22h 40m 56s.xml">
-      <configuration name="AllKatasTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AllKatasTest - 2019.06.05 at 22h 44m 52s.xml">
-      <configuration name="AllKatasTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AllKatasTest - 2019.06.05 at 22h 54m 18s.xml">
-      <configuration name="AllKatasTest" configurationId="JUnit" />
-    </history-entry>
-  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
