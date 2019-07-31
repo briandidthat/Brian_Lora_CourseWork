@@ -99,27 +99,6 @@ public class App {
         return val;
     }
 
-    // return an array which consists of every third element.
-    public static int[] everyThird(int[] arr) {
-
-        if (arr.length < 3) {
-            return null;
-        } else {
-            // define counter, as I must find out how many elements my new array should have. i += 3
-            int counter = 0;
-            for (int i =0; i < arr.length; i+=3) {
-                counter += 1;
-            }
-
-            int[] thirdsArray = new int[counter];
-
-            for (int j=1; j < counter; j+=3) {
-                thirdsArray[j] = arr[j];
-            }
-
-            return thirdsArray;
-        }
-    }
 
     // find the elements that are less than five, and return an array containing those elements.
     public static int[] lessThanFive(int[] arr) {
@@ -161,10 +140,33 @@ public class App {
         return evensOddsArray;
     }
 
+    // return an array which consists of every third element.
+    public static int[] everyThird(int[] arr) {
+
+        if (arr.length < 3) {
+            return null;
+        } else {
+            // define counter, as I must find out how many elements my new array should have. i += 3;
+            int counter = 0;
+            for (int i=2; i < arr.length; i+=3) {
+                counter += 1;
+            }
+            // array index to mitigate index bug on new array. array++;
+            int arrIdx = 0;
+            int[] thirdsArray = new int[counter];
+
+            for (int j=2; j < arr.length; j+=3) {
+                thirdsArray[arrIdx] = arr[j];
+                arrIdx++;
+            }
+
+            return thirdsArray;
+        }
+    }
+
+
 
     public static void main(String[] args) {
-       int[] arr = {0,1,2,3,33};
-       lessThanFive(arr);
-       everyThird(arr);
+       //int[] arr = {0,1,2,3,33};
     }
 }
