@@ -1,12 +1,12 @@
 package com.company;
-import com.company.classes.Input;
+import com.company.classes.BetterInput;
 import com.company.interfaces.UserIO;
 
 public class Application {
 
     public static void main(String[] args) {
 
-        UserIO userInput = new Input();
+        UserIO userInput = new BetterInput();
 
         int userInt = userInput.readInt("Enter an integer");
 
