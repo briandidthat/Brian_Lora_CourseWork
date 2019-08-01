@@ -6,15 +6,20 @@ import java.util.Scanner;
  */
 public class AddingValuesInALoop {
 
-    public static int addIntegers() {
+    public static int handleInput() {
         Scanner in = new Scanner(System.in);
-        int userInput = in.nextInt();
+        return in.nextInt();
+    }
+
+    public static int calculateSum() {
+        int userInput = handleInput();
         int total = 1;
 
         while (userInput != 0) {
-            System.out.println("Feel Free to enter another while you're at it. ");
-            userInput = in.nextInt();
+            System.out.println("I will add up the numbers you give me.");
+            userInput = handleInput();
             total += userInput;
+            System.out.format("The total so far is %d. \n", total);
         }
 
         return total;
@@ -22,6 +27,6 @@ public class AddingValuesInALoop {
 
     public static void main(String[] args) {
         System.out.println("Enter as many integers as you'd like.");
-        System.out.println("Your total is " + addIntegers());
+        System.out.println("Your total is " + calculateSum());
     }
 }

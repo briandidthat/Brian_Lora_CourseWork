@@ -10,7 +10,7 @@ import java.util.Scanner;
  */
 public class SafeSquareRoot {
 
-    public static boolean testVal(int n) {
+    public static boolean testValue(int n) {
         return n > 0;
     }
 
@@ -19,16 +19,15 @@ public class SafeSquareRoot {
         return in.nextInt();
     }
 
-    public static double getSquareRoot() {
+    public static void getSquareRoot() {
         int input = getInput();
 
-        while(!testVal(input)) {
-            System.out.println("You can't get the square root of a negative number silly.");
-            System.out.println("Enter a number.");
+        while(!testValue(input)) {
+            System.out.println("You can't get the square root of a negative number silly.\n" +
+                    "Enter a number.");
             input = getInput();
         }
-        System.out.println("The square root of " +input+" is " + Math.sqrt(input));
-        return Math.sqrt(input);
+        System.out.println("The square root of " + input +" is " + Math.sqrt(input));
     }
 
     public static void main(String[] args) {

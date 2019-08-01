@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b5682f6-5f44-4f8c-b34c-2b41344a819d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../Additional_Assignments/Interface-UserIO/src/main/java/com/company/classes/BetterInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Additional_Assignments/Interface-UserIO/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Additional_Assignments/Interface-UserIO/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brian_Lora_U1M2L5PBD.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/AddingValuesInALoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/AddingValuesInALoop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/DiceDoubles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/DiceDoubles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/SafeSquareRoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/SafeSquareRoot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/ShorterDoubleDice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/ShorterDoubleDice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/ThreeCardMonte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/ThreeCardMonte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/company/AddingValuesInALoop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/AddingValuesInALoop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/company/RightTriangleChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/RightTriangleChecker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/company/SafeSquareRoot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/SafeSquareRoot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/company/ShorterDoubleDice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/ShorterDoubleDice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/company/ThreeCardMonte.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/ThreeCardMonte.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +61,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.SafeSquareRoot">
+  <component name="RunManager" selected="Application.ShorterDoubleDice">
     <configuration name="AddingValuesInALoop" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.AddingValuesInALoop" />
       <module name="Brian_Lora_U1M2L5PBD" />
@@ -64,8 +75,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DiceDoubles" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.DiceDoubles" />
+      <module name="Brian_Lora_U1M2L5PBD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SafeSquareRoot" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.SafeSquareRoot" />
+      <module name="Brian_Lora_U1M2L5PBD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShorterDoubleDice" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.ShorterDoubleDice" />
       <module name="Brian_Lora_U1M2L5PBD" />
       <extension name="coverage">
         <pattern>
@@ -92,9 +129,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ShorterDoubleDice" />
+        <item itemvalue="Application.DiceDoubles" />
+        <item itemvalue="Application.ThreeCardMonte" />
         <item itemvalue="Application.SafeSquareRoot" />
         <item itemvalue="Application.AddingValuesInALoop" />
-        <item itemvalue="Application.ThreeCardMonte" />
       </list>
     </recent_temporary>
   </component>
@@ -116,7 +155,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
