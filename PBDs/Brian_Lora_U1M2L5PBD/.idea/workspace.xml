@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b5682f6-5f44-4f8c-b34c-2b41344a819d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Additional_Assignments/Interface-UserIO/src/main/java/com/company/classes/BetterInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Additional_Assignments/Interface-UserIO/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Additional_Assignments/Interface-UserIO/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/AddingValuesInALoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/AddingValuesInALoop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/DiceDoubles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/DiceDoubles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/SafeSquareRoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/SafeSquareRoot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/ShorterDoubleDice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/ShorterDoubleDice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/ThreeCardMonte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/ThreeCardMonte.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/AddingValuesInALoop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/AddingValuesInALoop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/RightTriangleChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/RightTriangleChecker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/SafeSquareRoot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/SafeSquareRoot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/ShorterDoubleDice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/ShorterDoubleDice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/ThreeCardMonte.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/ThreeCardMonte.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/RightTriangleChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/RightTriangleChecker.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

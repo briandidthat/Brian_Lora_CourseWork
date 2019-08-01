@@ -13,7 +13,6 @@ public class RightTriangleChecker {
         return in.nextInt();
     }
 
-
     public static void main(String[] args) {
 
     }
