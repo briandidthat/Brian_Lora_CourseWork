@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7b5682f6-5f44-4f8c-b34c-2b41344a819d" name="Default Changelist" comment="" />
+    <list default="true" id="7b5682f6-5f44-4f8c-b34c-2b41344a819d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Additional_Assignments/Interface-UserIO/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Additional_Assignments/Interface-UserIO/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/RightTriangleChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/RightTriangleChecker.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,9 +50,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ShorterDoubleDice">
-    <configuration name="AddingValuesInALoop" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.AddingValuesInALoop" />
+  <component name="RunManager" selected="Application.RightTriangleChecker">
+    <configuration name="DiceDoubles" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.DiceDoubles" />
       <module name="Brian_Lora_U1M2L5PBD" />
       <extension name="coverage">
         <pattern>
@@ -61,8 +64,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DiceDoubles" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.DiceDoubles" />
+    <configuration name="RightTriangleChecker" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.RightTriangleChecker" />
       <module name="Brian_Lora_U1M2L5PBD" />
       <extension name="coverage">
         <pattern>
@@ -115,11 +118,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RightTriangleChecker" />
         <item itemvalue="Application.ShorterDoubleDice" />
         <item itemvalue="Application.DiceDoubles" />
         <item itemvalue="Application.ThreeCardMonte" />
         <item itemvalue="Application.SafeSquareRoot" />
-        <item itemvalue="Application.AddingValuesInALoop" />
       </list>
     </recent_temporary>
   </component>

@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e07ca6a8-a545-4c5c-97c3-14eae1e60ad7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/classes/BetterInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/classes/BetterInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/classes/Input.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/classes/Input.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PBDs/Brian_Lora_U1M2L5PBD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../PBDs/Brian_Lora_U1M2L5PBD/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="e07ca6a8-a545-4c5c-97c3-14eae1e60ad7" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
