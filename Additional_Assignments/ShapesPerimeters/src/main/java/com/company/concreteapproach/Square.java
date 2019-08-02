@@ -1,27 +1,17 @@
 package com.company.concreteapproach;
 
-/*Task:
- *
- */
 public class Square extends Shape {
-    private int length;
-    private int width;
+    private int side;
 
     public int getLength() {
-        return length;
+        return side;
     }
 
-    public int getWidth() {
-        return length;
+    public int getSide() {
+        return side;
     }
 
-    public void setLength(int length) {
-        this.length = length;
+    public void setSide(int side) {
+        this.side = side;
     }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-
 }
