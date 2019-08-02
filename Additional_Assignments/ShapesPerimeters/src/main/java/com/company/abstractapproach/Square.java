@@ -12,12 +12,11 @@ public class Square extends Shape {
     }
 
     public double area() {
-        return (side * 2) * 2;
+        return side * side;
     }
 
     public double perimeter() {
-        return side * 4;
+        return 4 * side;
     }
-
 
 }

@@ -12,7 +12,7 @@ public class Square extends Shape {
     }
 
     public double perimeter() {
-        return 0;
+        return 4 * side;
     }
 
     public double getSide() {

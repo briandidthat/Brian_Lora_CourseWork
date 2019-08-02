@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7fd5933-6bf1-4bf5-b483-6330783f772d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Differences.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/abstractapproach/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/abstractapproach/Circle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/abstractapproach/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/abstractapproach/Square.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/abstractapproach/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/abstractapproach/Triangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/concreteapproach/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/concreteapproach/Circle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/concreteapproach/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/concreteapproach/Square.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/concreteapproach/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/concreteapproach/Triangle.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

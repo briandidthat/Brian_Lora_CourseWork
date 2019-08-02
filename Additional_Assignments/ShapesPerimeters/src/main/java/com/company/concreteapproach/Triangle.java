@@ -20,6 +20,9 @@ public class Triangle extends Shape {
         return Math.sqrt(p * (p - sideA) * (p - sideB) * (p-sideC));
     }
 
+    public double perimeter() {
+        return sideA + sideB + sideC;
+    }
 
     public void setSideA(double sideA) {
         this.sideA = sideA;
