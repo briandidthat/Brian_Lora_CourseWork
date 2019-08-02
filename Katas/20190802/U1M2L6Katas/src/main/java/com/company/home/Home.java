@@ -1,4 +1,4 @@
-package com.company;
+package com.company.home;
 
 public class Home {
     private String name;
@@ -16,7 +16,6 @@ public class Home {
         this.kitchen = kitchen;
         this.numOfBedrooms = numOfBedrooms;
     }
-
 
     // SETTERS
     public void setName(String name) {

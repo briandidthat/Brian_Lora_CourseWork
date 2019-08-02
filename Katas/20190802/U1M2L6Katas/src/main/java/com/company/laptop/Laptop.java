@@ -1,4 +1,4 @@
-package com.company;
+package com.company.laptop;
 
 public class Laptop {
     private String graphicsCard;

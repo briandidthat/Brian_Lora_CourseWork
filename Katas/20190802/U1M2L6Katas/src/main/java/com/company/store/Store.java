@@ -1,4 +1,4 @@
-package com.company;
+package com.company.store;
 
 public class Store {
     private String chips;
