@@ -11,27 +11,29 @@ public class Store {
         this.chocolate = chocolate;
     }
 
-    public String getChips() {
-        return chips;
-    }
-
+    // SETTERS
     public void setChips(String chips) {
         this.chips = chips;
-    }
-
-    public String getSoda() {
-        return soda;
     }
 
     public void setSoda(String soda) {
         this.soda = soda;
     }
 
-    public String getChocolate() {
-        return chocolate;
-    }
-
     public void setChocolate(String chocolate) {
         this.chocolate = chocolate;
+    }
+
+    // GETTERS
+    public String getChips() {
+        return chips;
+    }
+
+    public String getSoda() {
+        return soda;
+    }
+
+    public String getChocolate() {
+        return chocolate;
     }
 }

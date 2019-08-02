@@ -22,60 +22,63 @@ public class VendingMachine {
         this.gum = gum;
         this.popCorn = popCorn;
     }
-
-    public int getOptions() {
-        return options;
-    }
-
+    // SETTERS
     public void setOptions(int options) {
         this.options = options;
-    }
-
-    public String getMake() {
-        return make;
     }
 
     public void setMake(String make) {
         this.make = make;
     }
 
-    public String getChips() {
-        return chips;
-    }
-
     public void setChips(String chips) {
         this.chips = chips;
-    }
-
-    public String getChocolate() {
-        return chocolate;
     }
 
     public void setChocolate(String chocolate) {
         this.chocolate = chocolate;
     }
 
-    public String getMints() {
-        return mints;
-    }
-
     public void setMints(String mints) {
         this.mints = mints;
-    }
-
-    public String getGum() {
-        return gum;
     }
 
     public void setGum(String gum) {
         this.gum = gum;
     }
 
+    public void setPopCorn(String popCorn) {
+        this.popCorn = popCorn;
+    }
+
+    // GETTERS
+    public int getOptions() {
+        return options;
+    }
+
+    public String getMake() {
+        return make;
+    }
+
+    public String getChips() {
+        return chips;
+    }
+
+    public String getChocolate() {
+        return chocolate;
+    }
+
+    public String getMints() {
+        return mints;
+    }
+
+    public String getGum() {
+        return gum;
+    }
+
     public String getPopCorn() {
         return popCorn;
     }
 
-    public void setPopCorn(String popCorn) {
-        this.popCorn = popCorn;
-    }
+
 }
