@@ -4,32 +4,33 @@ package com.company.concreteapproach;
  *
  */
 public class Triangle extends Shape {
-    public int hypotenuse;
-    public int opposite;
-    public int adjacent;
+    private double sideA;
+    private double sideB;
+    private double sideC;
 
-    public int getAdjacent() {
-        return adjacent;
+    public Triangle(double sideA, double sideB, double sideC) {
+        this.sideA = sideA;
+        this.sideB = sideB;
+        this.sideC = sideC;
     }
 
-    public int getOpposite() {
-        return opposite;
+    public double area() {
+        double p = perimeter() / 2;
+
+        return Math.sqrt(p * (p - sideA) * (p - sideB) * (p-sideC));
     }
 
-    public int getHypotenuse() {
-        return hypotenuse;
+
+    public void setSideA(double sideA) {
+        this.sideA = sideA;
     }
 
-    public void setAdjacent(int adjacent) {
-        this.adjacent = adjacent;
+    public void setSideC(double sideC) {
+        this.sideC = sideC;
     }
 
-    public void setHypotenuse(int hypotenuse) {
-        this.hypotenuse = hypotenuse;
-    }
-
-    public void setOpposite(int opposite) {
-        this.opposite = opposite;
+    public void setSideB(double sideB) {
+        this.sideB = sideB;
     }
 
 

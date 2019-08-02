@@ -9,11 +9,11 @@ public class Circle extends Shape {
         this.circumference = circumference;
     }
 
-    public void area() {
-
+    public double area() {
+        return 0;
     }
 
-    public void perimeter() {
-
+    public double perimeter() {
+        return 0;
     }
 }

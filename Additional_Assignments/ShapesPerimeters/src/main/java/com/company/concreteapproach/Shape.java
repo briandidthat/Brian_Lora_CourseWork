@@ -10,11 +10,43 @@ public class Shape {
     private int xCoordinate;
     private int yCoordinate;
 
-    public void area() {
-
+    public double perimeter() {
+        return 0;
     }
 
-    public void perimeter() {
+    public double area() {
+        return 0;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setXCoordinate(int xCoordinate) {
+        this.xCoordinate = xCoordinate;
+    }
+
+    public void setYCoordinate(int yCoordinate) {
+        this.yCoordinate = yCoordinate;
+    }
+
+    public int getXCoordinate() {
+        return xCoordinate;
+    }
+
+    public int getYCoordinate() {
+        return yCoordinate;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public String getName() {
+        return name;
     }
 }
