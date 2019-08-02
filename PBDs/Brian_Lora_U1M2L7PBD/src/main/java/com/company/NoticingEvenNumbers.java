@@ -7,4 +7,7 @@ package com.company;
  */
 public class NoticingEvenNumbers {
 
+    public static void main(String[] args) {
+
+    }
 }

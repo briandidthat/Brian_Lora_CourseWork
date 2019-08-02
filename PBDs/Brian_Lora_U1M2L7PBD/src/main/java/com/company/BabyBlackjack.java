@@ -36,7 +36,7 @@ public class BabyBlackjack {
 
     public static void playGame() {
         System.out.println("WELCOME TO BLACKJACK!!!\n Dealer shuffling......\n Bets taken. Cards coming up\n");
-        System.out.println(calculateSum() );
+        System.out.println(calculateSum());
     }
 
     public static void main(String[] args) {
