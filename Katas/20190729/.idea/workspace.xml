@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3038e220-bc08-4155-9996-c626b18db764" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../20190802/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../20190802/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../20190802/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../20190802/src/main/java/com/company/Home.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/company/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PBDs/Brian_Lora_U1M2L8PBD/src/main/java/com/company/BabyNim.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../PBDs/Brian_Lora_U1M2L8PBD/src/main/java/com/company/BabyNim.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PBDs/Brian_Lora_U1M2L8PBD/src/main/java/com/company/Nim.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../PBDs/Brian_Lora_U1M2L8PBD/src/main/java/com/company/Nim.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +58,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="JUnit.AppTest">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.App" />
       <module name="U1-M1-L6-Katas" />
@@ -129,8 +128,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App" />
         <item itemvalue="JUnit.AppTest" />
+        <item itemvalue="Application.App" />
         <item itemvalue="Application.WordList" />
         <item itemvalue="Application.TotalOdd" />
         <item itemvalue="Application.TotalEven" />
@@ -150,44 +149,14 @@
     </task>
     <servers />
   </component>
-  <component name="TestHistory">
-    <history-entry file="AppTest - 2019.07.30 at 22h 42m 37s.xml">
-      <configuration name="AppTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AppTest - 2019.07.30 at 22h 43m 11s.xml">
-      <configuration name="AppTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AppTest - 2019.07.30 at 22h 51m 36s.xml">
-      <configuration name="AppTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AppTest - 2019.07.30 at 22h 52m 46s.xml">
-      <configuration name="AppTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AppTest - 2019.07.30 at 22h 56m 17s.xml">
-      <configuration name="AppTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AppTest - 2019.07.30 at 22h 56m 40s.xml">
-      <configuration name="AppTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AppTest - 2019.07.30 at 22h 57m 54s.xml">
-      <configuration name="AppTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AppTest - 2019.07.30 at 23h 03m 50s.xml">
-      <configuration name="AppTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AppTest - 2019.07.30 at 23h 04m 44s.xml">
-      <configuration name="AppTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AppTest - 2019.07.30 at 23h 05m 57s.xml">
-      <configuration name="AppTest" configurationId="JUnit" />
-    </history-entry>
-  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
