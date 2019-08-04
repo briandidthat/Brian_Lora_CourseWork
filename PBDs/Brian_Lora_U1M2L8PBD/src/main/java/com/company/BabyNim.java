@@ -16,10 +16,6 @@ public class BabyNim {
         Scanner in = new Scanner(System.in);
         return in.nextLine();
     }
-    //arbitrary func
-    public static int checkPile(int a , int b) {
-        return a + b;
-    }
 
     public static void playGame() {
         int counter1 = 3;
@@ -29,11 +25,12 @@ public class BabyNim {
         String pileChosen;
 
         System.out.println("Welcome to Baby Nim! Pick a pile to remove from. ");
-        System.out.format("A: %d\tB: %d\tC: %d", counter1, counter2, counter3);
+
 
         while (counter1 !=0 || counter2 != 0 || counter3 !=0) {
             System.out.format("A: %d\tB: %d\tC: %d \n", counter1, counter2, counter3);
             pileChosen = handleInput();
+            System.out.println("How much would you like to remove?");
             selection = Integer.parseInt(handleInput());
 
             if (pileChosen.equalsIgnoreCase("a")) {
@@ -46,10 +43,11 @@ public class BabyNim {
                 System.out.println("Choose an actual pile");
             }
         }
+        System.out.format("A: %d\tB: %d\tC: %d \n", counter1, counter2, counter3);
+        System.out.println("GAME OVER!");
     }
 
     public static void main(String[] args) {
         playGame();
-        System.out.println("GAME OVER!");
     }
 }
