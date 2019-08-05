@@ -13,13 +13,44 @@ import java.util.Scanner;
 */
 public class Nim {
 
-    public static int handleInput() {
+    public static String handleInput() {
         Scanner in = new Scanner(System.in);
-        return in.nextInt();
+        return in.nextLine();
     }
 
-    public static void main(String[] args) {
+    public static void playGame() {
+        int counter1 = 3;
+        int counter2 = 3;
+        int counter3 = 3;
+        int selection;
+        String pileChosen;
 
+        System.out.println("Welcome to Baby Nim! Pick a pile to remove from. ");
+
+
+        while (counter1 !=0 || counter2 != 0 || counter3 !=0) {
+            System.out.format("A: %d\tB: %d\tC: %d \n", counter1, counter2, counter3);
+            pileChosen = handleInput();
+            System.out.println("How much would you like to remove?");
+            selection = Integer.parseInt(handleInput());
+
+            if (pileChosen.equalsIgnoreCase("a")) {
+                counter1 = (counter1 - selection);
+            } else if (pileChosen.equalsIgnoreCase("b")) {
+                counter2 = (counter2 - selection);
+            } else if (pileChosen.equalsIgnoreCase("c")) {
+                counter3 = (counter3 - selection);
+            } else {
+                System.out.println("Choose an actual pile");
+            }
+        }
+        System.out.format("A: %d\tB: %d\tC: %d \n", counter1, counter2, counter3);
+        System.out.println("GAME OVER!");
+    }
+
+
+    public static void main(String[] args) {
+        playGame();
     }
 
 }
