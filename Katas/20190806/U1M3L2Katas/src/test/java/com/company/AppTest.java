@@ -84,155 +84,155 @@ public class AppTest {
 
     }
 
-    // @Test
-    // public void shouldPrintKeys() throws Exception {
-    //     Scanner scan = new Scanner(getOutput("keys", 1));
+     @Test
+     public void shouldPrintKeys() throws Exception {
+         Scanner scan = new Scanner(getOutput("keys", 1));
 
-    //     tester.printKeys(test1);
-    //     String output = systemOutRule.getLog();
+         tester.printKeys(test1);
+         String output = systemOutRule.getLog();
 
-    //     while(scan.hasNext()) {
-    //         String failMessage = "Expected to output all keys";
-    //         assertTrue(failMessage, output.contains(scan.nextLine()));
-    //     }
+         while(scan.hasNext()) {
+             String failMessage = "Expected to output all keys";
+             assertTrue(failMessage, output.contains(scan.nextLine()));
+         }
 
-    //     systemOutRule.clearLog();
+         systemOutRule.clearLog();
 
-    //     scan = new Scanner(getOutput("keys", 2));
+         scan = new Scanner(getOutput("keys", 2));
 
-    //     tester.printKeys(test2);
-    //     output = systemOutRule.getLog();
+         tester.printKeys(test2);
+         output = systemOutRule.getLog();
 
-    //     while(scan.hasNext()) {
-    //         String failMessage = "Expected to output all keys";
-    //         assertTrue(failMessage, output.contains(scan.nextLine()));
-    //     }
+         while(scan.hasNext()) {
+             String failMessage = "Expected to output all keys";
+             assertTrue(failMessage, output.contains(scan.nextLine()));
+         }
 
-    //     systemOutRule.clearLog();
+         systemOutRule.clearLog();
 
-    //     scan = new Scanner(getOutput("keys", 3));
+         scan = new Scanner(getOutput("keys", 3));
 
-    //     tester.printKeys(test3);
-    //     output = systemOutRule.getLog();
+         tester.printKeys(test3);
+         output = systemOutRule.getLog();
 
-    //     while(scan.hasNext()) {
-    //         String failMessage = "Expected to output all keys";
-    //         assertTrue(failMessage, output.contains(scan.nextLine()));
-    //     }
+         while(scan.hasNext()) {
+             String failMessage = "Expected to output all keys";
+             assertTrue(failMessage, output.contains(scan.nextLine()));
+         }
 
-    //     systemOutRule.clearLog();
-    // }
+         systemOutRule.clearLog();
+     }
 
-    // @Test
-    // public void shouldPrintValues() throws Exception {
-    //     Scanner scan = new Scanner(getOutput("values", 1));
+     @Test
+     public void shouldPrintValues() throws Exception {
+         Scanner scan = new Scanner(getOutput("values", 1));
 
-    //     tester.printValues(test1);
-    //     String output = systemOutRule.getLog();
+         tester.printValues(test1);
+         String output = systemOutRule.getLog();
 
-    //     while(scan.hasNext()) {
-    //         String failMessage = "Expected to output all values";
-    //         assertTrue(failMessage, output.contains(scan.nextLine()));
-    //     }
+         while(scan.hasNext()) {
+             String failMessage = "Expected to output all values";
+             assertTrue(failMessage, output.contains(scan.nextLine()));
+         }
 
-    //     systemOutRule.clearLog();
+         systemOutRule.clearLog();
 
-    //     scan = new Scanner(getOutput("values", 2));
+         scan = new Scanner(getOutput("values", 2));
 
-    //     tester.printValues(test2);
-    //     output = systemOutRule.getLog();
+         tester.printValues(test2);
+         output = systemOutRule.getLog();
 
-    //     while(scan.hasNext()) {
-    //         String failMessage = "Expected to output all values";
-    //         assertTrue(failMessage, output.contains(scan.nextLine()));
-    //     }
+         while(scan.hasNext()) {
+             String failMessage = "Expected to output all values";
+             assertTrue(failMessage, output.contains(scan.nextLine()));
+         }
 
-    //     systemOutRule.clearLog();
+         systemOutRule.clearLog();
 
-    //     scan = new Scanner(getOutput("values", 3));
+         scan = new Scanner(getOutput("values", 3));
 
-    //     tester.printValues(test3);
-    //     output = systemOutRule.getLog();
+         tester.printValues(test3);
+         output = systemOutRule.getLog();
 
-    //     while(scan.hasNext()) {
-    //         String failMessage = "Expected to output all values";
-    //         assertTrue(failMessage, output.contains(scan.nextLine()));
-    //     }
+         while(scan.hasNext()) {
+             String failMessage = "Expected to output all values";
+             assertTrue(failMessage, output.contains(scan.nextLine()));
+         }
 
-    //     systemOutRule.clearLog();
-    // }
+         systemOutRule.clearLog();
+     }
 
-    // @Test
-    // public void shouldPrintKeysAndValues() throws Exception {
-    //     Scanner scan = new Scanner(getOutput("keysAndValues", 1));
+     @Test
+     public void shouldPrintKeysAndValues() throws Exception {
+         Scanner scan = new Scanner(getOutput("keysAndValues", 1));
 
-    //     tester.printKeysAndValues(test1);
-    //     String output = systemOutRule.getLog();
+         tester.printKeysAndValues(test1);
+         String output = systemOutRule.getLog();
 
-    //     while(scan.hasNext()) {
-    //         String failMessage = "Expected to output all keys and values";
-    //         assertTrue(failMessage, output.contains(scan.nextLine()));
-    //     }
+         while(scan.hasNext()) {
+             String failMessage = "Expected to output all keys and values";
+             assertTrue(failMessage, output.contains(scan.nextLine()));
+         }
 
-    //     systemOutRule.clearLog();
+         systemOutRule.clearLog();
 
-    //     scan = new Scanner(getOutput("keysAndValues", 2));
+         scan = new Scanner(getOutput("keysAndValues", 2));
 
-    //     tester.printKeysAndValues(test2);
-    //     output = systemOutRule.getLog();
+         tester.printKeysAndValues(test2);
+         output = systemOutRule.getLog();
 
-    //     while(scan.hasNext()) {
-    //         String failMessage = "Expected to output all keys and values";
-    //         assertTrue(failMessage, output.contains(scan.nextLine()));
-    //     }
+         while(scan.hasNext()) {
+             String failMessage = "Expected to output all keys and values";
+             assertTrue(failMessage, output.contains(scan.nextLine()));
+         }
 
-    //     systemOutRule.clearLog();
+         systemOutRule.clearLog();
 
-    //     scan = new Scanner(getOutput("keysAndValues", 3));
+         scan = new Scanner(getOutput("keysAndValues", 3));
 
-    //     tester.printKeysAndValues(test3);
-    //     output = systemOutRule.getLog();
+         tester.printKeysAndValues(test3);
+         output = systemOutRule.getLog();
 
-    //     while(scan.hasNext()) {
-    //         String failMessage = "Expected to output all keys and values";
-    //         assertTrue(failMessage, output.contains(scan.nextLine()));
-    //     }
+         while(scan.hasNext()) {
+             String failMessage = "Expected to output all keys and values";
+             assertTrue(failMessage, output.contains(scan.nextLine()));
+         }
 
-    //     systemOutRule.clearLog();
-    // }
+         systemOutRule.clearLog();
+     }
 
-    // @Test
-    // public void shouldModifyAndReturnMap() {
-    //     HashMap<String, Integer> expected1 = new HashMap<>();
+     @Test
+     public void shouldModifyAndReturnMap() {
+         HashMap<String, Integer> expected1 = new HashMap<>();
 
-    //     expected1.put("Toyota Camry", 2012);
-    //     expected1.put("Chevy Camaro", 1969);
-    //     expected1.put("Hyundai Genesis ", 2015);
-    //     expected1.put("Honda Civic", 2018);
-    //     expected1.put("Pontiac GTO", 1964);
-    //     expected1.put("Ford Explorer", 2012);
-    //     expected1.put("Smart Fortwo", 2013);
+         expected1.put("Toyota Camry", 2012);
+         expected1.put("Chevy Camaro", 1969);
+         expected1.put("Hyundai Genesis ", 2015);
+         expected1.put("Honda Civic", 2018);
+         expected1.put("Pontiac GTO", 1964);
+         expected1.put("Ford Explorer", 2012);
+         expected1.put("Smart Fortwo", 2013);
 
-    //     HashMap<String, Integer> expected2 = new HashMap<>();
+         HashMap<String, Integer> expected2 = new HashMap<>();
 
-    //     expected2.put("Toyota Camry", 2012);
-    //     expected2.put("Chevy Camaro", 1969);
-    //     expected2.put("Hyundai Genesis ", 2015);
-    //     expected2.put("Honda Civic", 2018);
-    //     expected2.put("Pontiac GTO", 1964);
-    //     expected2.put("Chevy Silverado", 2013);
-    //     expected2.put("Hyundai Sonata", 2019);
-    //     expected2.put("Nissan Altima", 1964);
-    //     expected2.put("Ford Explorer", 2012);
-    //     expected2.put("Smart Fortwo", 2013);
+         expected2.put("Toyota Camry", 2012);
+         expected2.put("Chevy Camaro", 1969);
+         expected2.put("Hyundai Genesis ", 2015);
+         expected2.put("Honda Civic", 2018);
+         expected2.put("Pontiac GTO", 1964);
+         expected2.put("Chevy Silverado", 2013);
+         expected2.put("Hyundai Sonata", 2019);
+         expected2.put("Nissan Altima", 1964);
+         expected2.put("Ford Explorer", 2012);
+         expected2.put("Smart Fortwo", 2013);
 
-    //     Map<String, Integer> output1 = tester.mapFun(cars1);
-    //     Map<String, Integer> output2 = tester.mapFun(cars2);
+         Map<String, Integer> output1 = tester.mapFun(cars1);
+         Map<String, Integer> output2 = tester.mapFun(cars2);
 
-    //     String failMessage = "Expected Jeep to be removed and Explorer and Fortwo to be added to the Map";
-    //     assertEquals(failMessage, output1, expected1);
-    //     assertEquals(failMessage, output2, expected2);
-    // }
+         String failMessage = "Expected Jeep to be removed and Explorer and Fortwo to be added to the Map";
+         assertEquals(failMessage, output1, expected1);
+         assertEquals(failMessage, output2, expected2);
+     }
 
     // @Test
     // public void shouldReturnCarListMap() {
