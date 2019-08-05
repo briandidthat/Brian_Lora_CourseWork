@@ -32,7 +32,8 @@ public class Nim {
         while (a > 0 || b > 0 || c > 0) {
             //pileChoice - the pile that the user chooses. nChoice - amount the user wants to take away.
             // pileAmount - amount in chosen pile.
-            char pileChoice = 'z'; int nChoice = -1, pileAmount = 0;
+            char pileChoice = 'z';
+            int nChoice = -1, pileAmount = 0;
 
             int atemp = a + 1, btemp = b + 1, ctemp = c + 1;
             int mod = 4;
