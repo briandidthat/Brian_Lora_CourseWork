@@ -3,20 +3,25 @@ import java.util.Scanner;
 
 public class NimComputer {
 
+    public static String handleInput() {
+        Scanner in = new Scanner(System.in);
+        return in.nextLine();
+    }
 
     public static void playGame() {
-        Scanner k = new Scanner(System.in);
         // a,b and c are piles. p1 and p2 are players. cp is current player.
         int a, b, c; a = b = c = 3; String p1 = "", p2 = "", cp = "";
 
         //player name input
-        System.out.print("Nim!\n\nEnter Player Names.\n\n\tPlayer 1: "); p1 = k.next();
-        System.out.print("\n\tPlayer 2: "); p2 = k.next();
+        System.out.print("Nim!\n\nEnter Player Names.\n\n\tPlayer 1: ");
+        p1 = handleInput();
+        System.out.print("\n\tPlayer 2: ");
+        p2 = handleInput();
         cp = p1;
 
-        while (a > 0 || b > 0 || c > 0)
-        {
-            //pileChoice - the pile that the user chooses. nChoice - amount the user wants to take away. pileAmount - amount in chosen pile.
+        while (a > 0 || b > 0 || c > 0) {
+            //pileChoice - the pile that the user chooses. nChoice - amount the user wants to take away.
+            // pileAmount - amount in chosen pile.
             char pileChoice = 'z'; int nChoice = -1, pileAmount = 0;
 
             int atemp = a + 1, btemp = b + 1, ctemp = c + 1;
@@ -37,39 +42,71 @@ public class NimComputer {
             //Handles input for pile choice
             while (pileChoice != 'a' && pileChoice != 'b' && pileChoice != 'c')
             {
-                String temp = k.next(); temp = temp.toLowerCase(); ;pileChoice = temp.charAt(0);
-                if (pileChoice != 'a' && pileChoice != 'b' && pileChoice != 'c') { System.out.print("invalid input, try again: ");}
-                switch (pileChoice)
-                {
-                    case 'a': if (a == 0) { pileChoice = 'z'; System.out.print("Nice try " + cp + ". Try again: "); break;} else {pileAmount = a; break;}
-                    case 'b': if (b == 0) { pileChoice = 'z'; System.out.print("Nice try " + cp + ". Try again: "); break;} else {pileAmount = b; break;}
-                    case 'c': if (c == 0) { pileChoice = 'z'; System.out.print("Nice try " + cp + ". Try again: "); break;} else {pileAmount = c; break;}
+                String temp = handleInput(); temp = temp.toLowerCase(); ;pileChoice = temp.charAt(0);
+                if (pileChoice != 'a' && pileChoice != 'b' && pileChoice != 'c') {
+                    System.out.print("invalid input, try again: ");
+                }
+                switch (pileChoice) {
+                    case 'a': if (a == 0) {
+                        pileChoice = 'z'; System.out.print("Nice try " + cp + ". Try again: ");
+                        break;
+                    } else {
+                        pileAmount = a;
+                        break;
+                    }
+                    case 'b': if (b == 0) {
+                        pileChoice = 'z'; System.out.print("Nice try " + cp + ". Try again: ");
+                        break;
+                    } else {
+                        pileAmount = b; break;
+                    }
+                    case 'c': if (c == 0) {
+                        pileChoice = 'z'; System.out.print("Nice try " + cp + ". Try again: ");
+                        break;
+                    } else {
+                        pileAmount = c;
+                        break;
+                    }
                     default:
                         throw new IllegalStateException("Unexpected value: " + pileChoice);
                 }
             }
 
             //Handles input for the amount you want to take away (nChoice)
-            while (nChoice > pileAmount || nChoice <= 0)
-            {
-                System.out.print("How any counters do you want to take away from pile " + pileChoice + " ? "); nChoice = k.nextInt();
-                if (nChoice > pileAmount) {System.out.println("\nThere aren't even " + nChoice + " counters in " + "pile " + pileChoice);}
-                if (nChoice <= 0) {System.out.println("\nYou need to choose at least 1. How many? ");}
+            while (nChoice > pileAmount || nChoice <= 0) {
+                System.out.print("How any counters do you want to take away from pile " + pileChoice + " ? ");
+                nChoice = Integer.parseInt(handleInput());
+
+                if (nChoice > pileAmount) {
+                    System.out.println("\nThere aren't even " + nChoice + " counters in " + "pile " + pileChoice);
+                }
+                if (nChoice <= 0) {
+                    System.out.println("\nYou need to choose at least 1. How many? ");
+                }
             }
 
             //processes move
-            switch (pileChoice)
-            {
-                case 'a': a -= nChoice; break;
-                case 'b': b -= nChoice; break;
-                case 'c': c -= nChoice; break;
+            switch (pileChoice) {
+                case 'a':
+                    a -= nChoice;
+                    break;
+                case 'b':
+                    b -= nChoice;
+                    break;
+                case 'c':
+                    c -= nChoice;
+                    break;
             }
 
             //checks for win
             if ( a == 0 && b == 0 && c == 1 || a == 0 && b == 1 && c == 0 || a == 1 && b == 0 && c == 0 )
             {
-                if (cp.equals(p1)) {System.out.println("\n" + p2 + " you must take the last remaining counter, so you lose. " + p1 + " wins!");}
-                if (cp.equals(p2)) {System.out.println("\n" + p1 + " you must take the last remaining counter, so you lose. " + p2 + " wins!");}
+                if (cp.equals(p1)) {
+                    System.out.println("\n" + p2 + " you must take the last remaining counter, so you lose. " + p1 + " wins!");
+                }
+                if (cp.equals(p2)) {
+                    System.out.println("\n" + p1 + " you must take the last remaining counter, so you lose. " + p2 + " wins!");
+                }
                 a = b = c = 0;
             }
         }
