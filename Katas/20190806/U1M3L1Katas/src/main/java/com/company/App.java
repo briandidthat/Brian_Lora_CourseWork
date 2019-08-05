@@ -1,33 +1,43 @@
 package com.company;
+import java.lang.reflect.Array;
+import java.util.*;
+import java.util.stream.Collectors;
+
 
 public class App {
 
     public static int total (int[] numbers) {
-
+        List<Integer> list =Arrays.stream(numbers).boxed().collect(Collectors.toList());
         int sum = 0;
-        for(int num : numbers) {
-            sum += num;
+        System.out.println("\n==> List Example..");
+        for (int i : list) {
+            sum += i;
         }
 
         return sum;
     }
 
     public static int totalEven (int[] numbers) {
-
+        List<Integer> list = Arrays.stream(numbers).boxed().collect(Collectors.toList());
         int sum = 0;
-        for(int i = 0; i < numbers.length; i += 2) {
-            sum += numbers[i];
+        for(int i = 0; i < list.size(); i += 2) {
+            sum += list.get(i);
         }
 
         return sum;
     }
 
     public static String[] swapFirstAndLast(String[] strings) {
+        List<String> list = Arrays.asList(strings);
+        String temp = list.get(0);
+        list.set(0,list.get(list.size() - 1));
+        list.set(list.size() - 1, temp);
 
-        String temp = strings[0];
-        strings[0] = strings[ strings.length - 1 ];
-        strings[ strings.length - 1 ] = temp;
+        //convert back to array to send back as the instructions say to return as array
+        String[] newArray = new String[list.size()];
+        newArray = list.toArray(newArray);
 
+        System.out.println(newArray[newArray.length -1] + newArray[0]);
         return strings;
     }
 
@@ -137,5 +147,9 @@ public class App {
         }
 
         return new String[][] { evens, odds };
+    }
+
+    public static void main(String[] args) {
+        swapFirstAndLast(new String[]{"bitch","crio","you","bitvj","hi"});
     }
 }

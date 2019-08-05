@@ -8,7 +8,8 @@
 
 ## Specifications
 
-For all of the below, remember to program to the interface rather than to the concrete class (i.e., declare your variables as `List` instead of `ArrayList`).
+For all of the below, remember to program to the interface rather than to the concrete class (i.e., declare your 
+variables as `List` instead of `ArrayList`).
 
 1. Refactor the following array methods found in `App` to use an `ArrayList` instead: 
     - `total`
