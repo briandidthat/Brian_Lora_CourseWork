@@ -32,8 +32,8 @@ public class City {
     }
 
     public static void checkCity(Map<String, Integer> map) {
-        System.out.println("Hi, I have a map of all the largest cities in the US. What is the minimum population of the" +
-                "cities you'd like to look at?");
+        System.out.println("Hi, I have a map of all the largest cities in the US. What is the minimum population of the"
+                + "cities you'd like to look at?");
         int min = Integer.parseInt(handleInput());
 
         for (Map.Entry<String,Integer> entry : map.entrySet())

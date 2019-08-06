@@ -1,12 +1,10 @@
 package com.company;
-import java.lang.reflect.Array;
 import java.util.*;
-import java.util.stream.Collectors;
 
 
 public class App {
 
-    public static int total (List<Integer> numbers) {
+    public static int total(List<Integer> numbers) {
         int sum = 0;
         System.out.println("\n==> List Example..");
         for (int i : numbers) {
@@ -15,7 +13,7 @@ public class App {
         return sum;
     }
 
-    public static int totalEven (List<Integer> numbers) {
+    public static int totalEven(List<Integer> numbers) {
         int sum = 0;
         for(int i = 0; i < numbers.size(); i += 2) {
             sum += numbers.get(i);
@@ -38,10 +36,10 @@ public class App {
         List<Integer> reversed = new ArrayList<>();
         reversed.addAll(numbers);
 
-        return numbers;
+        return reversed;
     }
 
-    public static int[] lessThanFive(int[] numbers) {
+    public static int[] lessThanFive(List<Integer> numbers) {
 
         int numLessThanFive = 0;
 
