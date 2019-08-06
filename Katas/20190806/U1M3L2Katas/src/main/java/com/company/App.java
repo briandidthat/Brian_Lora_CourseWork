@@ -1,8 +1,5 @@
 package com.company;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class App {
 
@@ -33,12 +30,19 @@ public class App {
         return map;
     }
 
-    public List listCars(List<Car> cars) {
+    public Map<String, Integer> listCars(List<Car> cars) {
         List<Car> fordList = new ArrayList<>();
         List<Car> hondaList = new ArrayList<>();
         List<Car> toyotaList = new ArrayList<>();
 
-        return cars;
+        fordList.add(cars.get(4));
+        toyotaList.add(cars.get(0));
+        toyotaList.add(cars.get(5));
+        hondaList.add(cars.get(4));
+
+
+        Map<String, Integer> newMap = new HashMap<>();
+        return newMap;
     }
 
     public static void main(String[] args) {

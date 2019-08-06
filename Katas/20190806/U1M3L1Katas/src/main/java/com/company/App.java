@@ -6,54 +6,39 @@ import java.util.stream.Collectors;
 
 public class App {
 
-    public static int total (int[] numbers) {
-        List<Integer> list =Arrays.stream(numbers).boxed().collect(Collectors.toList());
+    public static int total (List<Integer> numbers) {
         int sum = 0;
         System.out.println("\n==> List Example..");
-        for (int i : list) {
+        for (int i : numbers) {
             sum += i;
         }
-
         return sum;
     }
 
-    public static int totalEven (int[] numbers) {
-        List<Integer> list = Arrays.stream(numbers).boxed().collect(Collectors.toList());
+    public static int totalEven (List<Integer> numbers) {
         int sum = 0;
-        for(int i = 0; i < list.size(); i += 2) {
-            sum += list.get(i);
+        for(int i = 0; i < numbers.size(); i += 2) {
+            sum += numbers.get(i);
         }
 
         return sum;
     }
 
-    public static String[] swapFirstAndLast(String[] strings) {
-        List<String> list = Arrays.asList(strings);
-        String temp = list.get(0);
-        list.set(0,list.get(list.size() - 1));
-        list.set(list.size() - 1, temp);
+    public static List<String> swapFirstAndLast(List<String> strings) {
+        String temp = strings.get(0);
+        strings.set(0,strings.get(strings.size() - 1));
+        strings.set(strings.size() - 1, temp);
 
-        //convert back to array to send back as the instructions say to return as array
-        String[] newArray = new String[list.size()];
-        newArray = list.toArray(newArray);
-
-        System.out.println(newArray[newArray.length -1] + newArray[0]);
         return strings;
     }
 
-    public static int[] reverse(int[] numbers) {
+    public static List<Integer> reverse(List<Integer> numbers) {
+        // Use Collections utility to reverse for me.
+        Collections.reverse(numbers);
+        List<Integer> reversed = new ArrayList<>();
+        reversed.addAll(numbers);
 
-        int[] reversed = new int[numbers.length];
-
-        for(int i = 0; i < numbers.length; i++) {
-
-            // length - (i + 1) is the n-th to last element
-            // so when i = 0, it would be the last element
-            // when i = 3, it would be the fourth to last element since i=3 is the 4th element, etc
-            reversed[i] = numbers[ numbers.length - (i + 1) ];
-        }
-
-        return reversed;
+        return numbers;
     }
 
     public static int[] lessThanFive(int[] numbers) {
@@ -147,9 +132,5 @@ public class App {
         }
 
         return new String[][] { evens, odds };
-    }
-
-    public static void main(String[] args) {
-        swapFirstAndLast(new String[]{"bitch","crio","you","bitvj","hi"});
     }
 }
