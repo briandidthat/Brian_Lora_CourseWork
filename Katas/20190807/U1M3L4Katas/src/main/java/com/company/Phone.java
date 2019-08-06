@@ -10,43 +10,45 @@ public class Phone {
     private int storage;
     private int price;
 
-    public String getBrand() {
-        return brand;
+    //SETTERS
+    public void setStorage(int storage) {
+        this.storage = storage;
     }
 
     public void setBrand(String brand) {
         this.brand = brand;
     }
 
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public String getProcessor() {
-        return processor;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public void setProcessor(String processor) {
         this.processor = processor;
     }
 
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    //GETTERS
+    public String getModel() {
+        return model;
+    }
+
+    public String getProcessor() {
+        return processor;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
     public int getStorage() {
         return storage;
     }
 
-    public void setStorage(int storage) {
-        this.storage = storage;
-    }
-
     public int getPrice() {
         return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
     }
 }
