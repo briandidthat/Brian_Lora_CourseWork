@@ -2,12 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08f34e99-725a-46c6-9f8e-f9c4d0482509" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../U1M3L4Katas/.idea/google-java-format.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../U1M3L4Katas/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../U1M3L4Katas/src/main/java/com/company/ComputerReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../U1M3L4Katas/src/main/java/com/company/PhoneReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../U1M3L4Katas/src/main/java/com/company/TelevisionReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pets.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/company/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../U1M3L4Katas/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../U1M3L4Katas/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../U1M3L4Katas/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../U1M3L4Katas/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../U1M3L4Katas/U1M3L4Katas.iml" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -111,7 +115,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
