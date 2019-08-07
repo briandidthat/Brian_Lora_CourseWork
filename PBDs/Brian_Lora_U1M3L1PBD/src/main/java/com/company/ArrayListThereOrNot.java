@@ -9,4 +9,7 @@ package com.company;
 
 public class ArrayListThereOrNot {
 
+    public static void main(String[] args) {
+
+    }
 }

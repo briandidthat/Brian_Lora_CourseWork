@@ -7,4 +7,7 @@ package com.company;
  */
 public class BasicArrayLists0 {
 
+    public static void main(String[] args) {
+
+    }
 }

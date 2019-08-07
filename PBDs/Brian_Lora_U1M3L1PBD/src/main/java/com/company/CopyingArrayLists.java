@@ -14,4 +14,7 @@ package com.company;
 
 public class CopyingArrayLists {
 
+    public static void main(String[] args) {
+
+    }
 }

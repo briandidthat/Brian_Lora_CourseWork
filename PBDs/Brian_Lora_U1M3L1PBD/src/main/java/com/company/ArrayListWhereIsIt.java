@@ -10,4 +10,7 @@ package com.company;
 
 public class ArrayListWhereIsIt {
 
+    public static void main(String[] args) {
+
+    }
 }

@@ -9,4 +9,7 @@ package com.company;
 
 public class BasicArrayLists1 {
 
+    public static void main(String[] args) {
+
+    }
 }

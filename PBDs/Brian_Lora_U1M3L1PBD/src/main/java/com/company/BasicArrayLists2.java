@@ -8,4 +8,7 @@ package com.company;
 
 public class BasicArrayLists2 {
 
+    public static void main(String[] args) {
+
+    }
 }
