@@ -31,6 +31,9 @@ public class JSONWriteAndRead {
             writer = new PrintWriter(new FileWriter("cars.json"));
             writer.println(jsonCarList);
 
+            writer.flush();
+            writer.close();
+
             carList = mapper.readValue(new File("cars.json"), new TypeReference<List<Car>>(){});
 
             //Iterate over the files in carList and print to screen

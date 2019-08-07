@@ -34,6 +34,9 @@ public class XMLWriteAndRead {
 
             writer.println(jsonCarList);
 
+            writer.flush();
+            writer.close();
+
             carList = mapper.readValue(new File("cars.xml"), new TypeReference<List<Car>>(){});
 
             for (Car car : carList) {
