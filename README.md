@@ -3,8 +3,10 @@ Cognizant Java bootcamp assignment folder.
 
 
 # Contents
-Complete assignment Katas.
-
+* Assignment Katas
+* PBD's
+* Summative Assignments
+* Additional Assignments
 
 ## Table of Contents 
 *The assignments are in chronological order, named by the date in which they were due.*
