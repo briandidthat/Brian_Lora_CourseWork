@@ -12,6 +12,8 @@ package com.company;
  * Display the contents of both ArrayLists
  */
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class CopyingArrayLists {
@@ -22,6 +24,21 @@ public class CopyingArrayLists {
     }
 
     public static void main(String[] args) {
+        List<Integer> randomList = new ArrayList<Integer>();
+        List<Integer> randomList2;
+
+        // Populate list with 10 random numbers
+        for (int i =0; i < 10; i++) {
+            randomList.add(generateRandom());
+        }
+        // copy contents of array 1 to array 2
+        randomList2 = new ArrayList<>(randomList);
+        // removing the last item and swapping with -7
+        randomList.remove(randomList.size() -1);
+        randomList.add(-7);
+
+        System.out.println("ArrayList1: " + randomList);
+        System.out.println("ArrayList2: " + randomList2);
 
     }
 }

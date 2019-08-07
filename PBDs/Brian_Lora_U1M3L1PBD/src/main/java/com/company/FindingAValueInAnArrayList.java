@@ -7,9 +7,39 @@ package com.company;
  * is in the ArrayList multiple times, it's okay if the program prints the message more than once.
  */
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
+
 public class FindingAValueInAnArrayList {
+    // Generate random number
+    public static int generateRandom() {
+        Random random = new Random();
+        return random.nextInt(50) + 1;
+    }
+
+    public static int handleInput() {
+        Scanner in = new Scanner(System.in);
+        return in.nextInt();
+    }
 
     public static void main(String[] args) {
+        int userSelection;
+        List<Integer> randomList = new ArrayList<Integer>();
+        //Populate list with random values
+        for (int i = 0; i < 10; i++) {
+            randomList.add(generateRandom());
+        }
+        // Ask for input from user to compare
 
+        System.out.println("Value to find: ");
+        userSelection = handleInput();
+
+        System.out.println("Array contents: " + randomList);
+
+        if (randomList.contains(userSelection)) {
+            System.out.println(userSelection + " is in the ArrayList.");
+        }
     }
 }
