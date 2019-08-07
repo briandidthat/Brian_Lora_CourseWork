@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98cb0818-ba6b-4a69-8d1b-42c66b1b57c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/cars.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/Computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/Computer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/Phone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/Phone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/Television.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/Television.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/config/CSVWriteAndRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/config/CSVWriteAndRead.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/config/JSONWriteAndRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/config/JSONWriteAndRead.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/company/readers/ComputerReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/readers/ComputerReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/readers/PhoneReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/readers/PhoneReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/company/readers/TelevisionReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/readers/TelevisionReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/company/readers/ComputerReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/readers/ComputerReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/company/readers/TelevisionReader$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/readers/TelevisionReader$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/company/readers/TelevisionReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/readers/TelevisionReader.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +54,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.PhoneReader (1)">
+  <component name="RunManager" selected="Application.ComputerReader (1)">
     <configuration name="CSVWriteAndRead (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.config.CSVWriteAndRead" />
       <module name="U1M3L4Katas" />
@@ -127,9 +122,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ComputerReader (1)" />
         <item itemvalue="Application.PhoneReader (1)" />
         <item itemvalue="Application.TelevisionReader (1)" />
-        <item itemvalue="Application.ComputerReader (1)" />
         <item itemvalue="Application.CSVWriteAndRead (1)" />
         <item itemvalue="Application.PhoneReader" />
       </list>

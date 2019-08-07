@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class TelevisionReader {
+
     public static void main(String[] args) {
         try {
             ObjectMapper mapper = new ObjectMapper();
@@ -29,7 +30,6 @@ public class TelevisionReader {
         } catch (IOException e) {
             System.out.println("ERROR: Problem encountered reading JSON file - " + e.getMessage());
         }
-
     }
 
 }
