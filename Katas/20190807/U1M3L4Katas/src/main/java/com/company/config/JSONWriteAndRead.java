@@ -4,16 +4,12 @@ import com.company.Car;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.opencsv.bean.CsvToBeanBuilder;
-
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/*Task:
- *
- */
+
 public class JSONWriteAndRead {
 
     public static void main(String[] args) {

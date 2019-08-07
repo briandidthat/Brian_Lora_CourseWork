@@ -9,9 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-/*Task:
- *
- */
+
 public class PhoneReader {
 
     public static void main(String[] args) {

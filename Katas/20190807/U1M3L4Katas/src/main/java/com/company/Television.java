@@ -1,8 +1,6 @@
 package com.company;
 
-/*Task:
- *
- */
+
 public class Television {
     private String brand;
     private String model;

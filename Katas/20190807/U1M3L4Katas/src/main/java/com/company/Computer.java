@@ -1,9 +1,7 @@
 package com.company;
 import com.opencsv.bean.CsvBindByName;
 
-/*Task:
- *
- */
+
 public class Computer {
     @CsvBindByName(column = "Brand")
     private String brand;

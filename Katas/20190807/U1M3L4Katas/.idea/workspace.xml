@@ -2,21 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98cb0818-ba6b-4a69-8d1b-42c66b1b57c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/cars.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cars.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/Car.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/company/Computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/Computer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/company/Phone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/Phone.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/company/Television.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/Television.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/config/CSVWriteAndRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/config/CSVWriteAndRead.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/company/config/JSONWriteAndRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/config/JSONWriteAndRead.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/config/XMLWriteAndRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/config/XMLWriteAndRead.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/Computer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/Computer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/Phone.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/Phone.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/Television.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/Television.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/config/JSONWriteAndRead.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/config/JSONWriteAndRead.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/config/XMLWriteAndRead.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/config/XMLWriteAndRead.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/readers/ComputerReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/readers/ComputerReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/readers/ComputerReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/readers/ComputerReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/readers/PhoneReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/readers/PhoneReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/readers/TelevisionReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/readers/TelevisionReader.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
