@@ -9,6 +9,17 @@ public class Television {
     private int price;
     private int screenSize;
 
+    public Television(String brand, String model, int price, int screenSize) {
+        this.brand = brand;
+        this.model = model;
+        this.price = price;
+        this.screenSize = screenSize;
+    }
+
+
+    public Television() {
+
+    }
     //SETTERS
     public void setBrand(String brand) {
         this.brand = brand;

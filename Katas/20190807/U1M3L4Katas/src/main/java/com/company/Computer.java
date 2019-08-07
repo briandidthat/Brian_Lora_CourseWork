@@ -16,6 +16,18 @@ public class Computer {
     @CsvBindByName(column = "StorageSize")
     private int storageSize;
 
+    public Computer(String brand, String model, String cpu, int ram, int storageSize) {
+        this.brand = brand;
+        this.model = model;
+        this.cpu = cpu;
+        this.ram = ram;
+        this.storageSize = storageSize;
+    }
+
+    public Computer() {
+
+    }
+
     //SETTERS
     public void setBrand(String brand) {
         this.brand = brand;

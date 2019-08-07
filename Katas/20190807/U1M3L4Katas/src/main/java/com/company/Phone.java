@@ -10,6 +10,17 @@ public class Phone {
     private int storage;
     private int price;
 
+    public Phone(String brand, String model, String processor, int storage, int price) {
+        this.brand = brand;
+        this.model = model;
+        this.processor = processor;
+        this.storage = storage;
+        this.price = price;
+    }
+
+    public Phone() {
+
+    }
     //SETTERS
     public void setStorage(int storage) {
         this.storage = storage;

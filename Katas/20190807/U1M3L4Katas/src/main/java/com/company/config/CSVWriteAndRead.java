@@ -24,7 +24,7 @@ public class CSVWriteAndRead {
         carList.add(new Car(1964, "Ford", "Mustang", "Red"));
 
         try {
-            //Write to files with FileWriter
+            // Write to csv
             Writer writer = new FileWriter("cars.csv");
             StatefulBeanToCsv beanToCsv = new StatefulBeanToCsvBuilder(writer).build();
             beanToCsv.write(carList);

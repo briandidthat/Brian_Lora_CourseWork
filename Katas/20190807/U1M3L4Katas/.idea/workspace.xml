@@ -2,12 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98cb0818-ba6b-4a69-8d1b-42c66b1b57c9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/cars.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cars.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/readers/ComputerReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/readers/ComputerReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/readers/TelevisionReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/readers/TelevisionReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/Computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/Computer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/Phone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/Phone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/Television.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/Television.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/config/CSVWriteAndRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/config/CSVWriteAndRead.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/config/JSONWriteAndRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/config/JSONWriteAndRead.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/config/XMLWriteAndRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/config/XMLWriteAndRead.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/company/Computer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/Computer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/company/Phone.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/Phone.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/company/Television.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/Television.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/company/config/JSONWriteAndRead.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/config/JSONWriteAndRead.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/company/config/XMLWriteAndRead.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/config/XMLWriteAndRead.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/company/readers/ComputerReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/readers/ComputerReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/readers/TelevisionReader$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/readers/TelevisionReader$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/readers/TelevisionReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/readers/TelevisionReader.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +63,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ComputerReader (1)">
+  <component name="RunManager" selected="Application.XMLWriteAndRead">
     <configuration name="CSVWriteAndRead (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.config.CSVWriteAndRead" />
       <module name="U1M3L4Katas" />
@@ -81,6 +90,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="JSONWriteAndRead" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.config.JSONWriteAndRead" />
+      <module name="U1M3L4Katas" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.config.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PhoneReader (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.readers.PhoneReader" />
       <module name="U1M3L4Katas" />
@@ -94,25 +116,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PhoneReader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.PhoneReader" />
+    <configuration name="XMLWriteAndRead" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.config.XMLWriteAndRead" />
       <module name="U1M3L4Katas" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.company.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TelevisionReader (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.readers.TelevisionReader" />
-      <module name="U1M3L4Katas" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.company.readers.*" />
+          <option name="PATTERN" value="com.company.config.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -122,11 +131,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ComputerReader (1)" />
-        <item itemvalue="Application.PhoneReader (1)" />
-        <item itemvalue="Application.TelevisionReader (1)" />
+        <item itemvalue="Application.XMLWriteAndRead" />
+        <item itemvalue="Application.JSONWriteAndRead" />
         <item itemvalue="Application.CSVWriteAndRead (1)" />
-        <item itemvalue="Application.PhoneReader" />
+        <item itemvalue="Application.PhoneReader (1)" />
+        <item itemvalue="Application.ComputerReader (1)" />
       </list>
     </recent_temporary>
   </component>
