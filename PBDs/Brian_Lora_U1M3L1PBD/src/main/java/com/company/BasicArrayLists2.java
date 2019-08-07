@@ -14,7 +14,7 @@ public class BasicArrayLists2 {
     // Generate random number
     public static int generateRandom() {
         Random random = new Random();
-        return random.nextInt(100 + 1);
+        return random.nextInt(100) + 1;
     }
 
     public static void main(String[] args) {
@@ -22,7 +22,8 @@ public class BasicArrayLists2 {
         // Loop over list and add random number to list
         for (int i =0; i < 10; i ++) {
             randomList.add(generateRandom());
-            System.out.println(randomList.get(i));
         }
+
+        System.out.println( "ArrayList: " + randomList );
     }
 }

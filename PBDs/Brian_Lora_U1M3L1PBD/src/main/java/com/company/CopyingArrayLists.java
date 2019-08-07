@@ -12,7 +12,14 @@ package com.company;
  * Display the contents of both ArrayLists
  */
 
+import java.util.Random;
+
 public class CopyingArrayLists {
+    // Generate random number
+    public static int generateRandom() {
+        Random random = new Random();
+        return random.nextInt(100) + 1;
+    }
 
     public static void main(String[] args) {
 
