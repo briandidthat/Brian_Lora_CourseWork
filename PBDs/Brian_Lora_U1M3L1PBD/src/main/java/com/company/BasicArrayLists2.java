@@ -1,4 +1,7 @@
 package com.company;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 /*Task:
 * Create an ArrayList of Integers. Fill up the list with ten random numbers, each from 1 to 100.
@@ -8,7 +11,18 @@ package com.company;
 
 public class BasicArrayLists2 {
 
-    public static void main(String[] args) {
+    // Generate random number
+    public static int generateRandom() {
+        Random random = new Random();
+        return random.nextInt(100 + 1);
+    }
 
+    public static void main(String[] args) {
+        List<Integer> randomList = new ArrayList<Integer>();
+        // Loop over list and add random number to list
+        for (int i =0; i < 10; i ++) {
+            randomList.add(generateRandom());
+            System.out.println(randomList.get(i));
+        }
     }
 }
