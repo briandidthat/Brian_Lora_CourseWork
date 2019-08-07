@@ -31,12 +31,12 @@ public class FindingAValueInAnArrayList {
         for (int i = 0; i < 10; i++) {
             randomList.add(generateRandom());
         }
-        // Ask for input from user to compare
-
-        System.out.println("Value to find: ");
-        userSelection = handleInput();
 
         System.out.println("Array contents: " + randomList);
+
+        // Ask for input from user to compare
+        System.out.println("Value to find: ");
+        userSelection = handleInput();
 
         if (randomList.contains(userSelection)) {
             System.out.println(userSelection + " is in the ArrayList.");

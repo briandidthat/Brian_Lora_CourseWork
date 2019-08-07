@@ -7,9 +7,39 @@ package com.company;
 * if the value is present more than once, you may display the message as many times as necessary.
 */
 
+import java.util.*;
+
 public class ArrayListThereOrNot {
 
-    public static void main(String[] args) {
+    // Generate random number
+    public static int generateRandom() {
+        Random random = new Random();
+        return random.nextInt(50) + 1;
+    }
 
+    public static int handleInput() {
+        Scanner in = new Scanner(System.in);
+        return in.nextInt();
+    }
+
+    public static void main(String[] args) {
+        int userSelection;
+        List<Integer> randomList = new ArrayList<Integer>();
+
+        //Populate list with random values
+        for (int i = 0; i < 10; i++) {
+            randomList.add(generateRandom());
+        }
+
+        System.out.println("Array contents: " + randomList);
+        // Ask for input from user to compare
+        System.out.println("Value to find: ");
+        userSelection = handleInput();
+
+        if (randomList.contains(userSelection)) {
+            System.out.println(userSelection + " is in the ArrayList.");
+        } else {
+            System.out.println(userSelection + " is not in the ArrayList.");
+        }
     }
 }
