@@ -7,9 +7,21 @@ package com.company;
 * Instead you should use the size() of your ArrayList.
 */
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BasicArrayLists1 {
 
     public static void main(String[] args) {
+        List<Integer> tenInts = new ArrayList<Integer>();
+        //Loop to add values to list
+        for (int i =0; i < 10; i++) {
+            tenInts.add(-113);
+        }
 
+        //Loop to print values of said list
+        for (int i=0; i < tenInts.size(); i++) {
+            System.out.println("Slot " + i +" contains a " +tenInts.get(i));
+        }
     }
 }
