@@ -44,8 +44,4 @@ public class App {
         Map<String, Integer> newMap = new HashMap<>();
         return newMap;
     }
-
-    public static void main(String[] args) {
-
-    }
 }

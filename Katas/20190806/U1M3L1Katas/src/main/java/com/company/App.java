@@ -39,7 +39,7 @@ public class App {
         return reversed;
     }
 
-    public static int[] lessThanFive(List<Integer> numbers) {
+    public static List<Integer>lessThanFive(List<Integer> numbers) {
 
         int numLessThanFive = 0;
 
@@ -53,19 +53,19 @@ public class App {
             return null;
         }
 
-        int[] lessThan = new int[numLessThanFive];
+        List<Integer> lessThanFive = new ArrayList<>();
 
         for(int num : numbers) {
             if ( num < 5 ) {
 
                 // subtracting numLessThanFive from length then decrementing numLessThanFive
                 // allows us to go from 0 to length - 1 in order without additional variables
-                lessThan[lessThan.length - numLessThanFive] = num;
+                lessThanFive.add(num);
                 numLessThanFive--;
             }
         }
 
-        return lessThan;
+        return lessThanFive;
     }
 
     //challenge
