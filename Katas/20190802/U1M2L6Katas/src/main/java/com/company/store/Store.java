@@ -1,6 +1,8 @@
 package com.company.store;
 
-public class Store {
+import com.company.interfaces.Vendor;
+
+public class Store implements Vendor {
     private String chips;
     private String soda;
     private String chocolate;
@@ -36,4 +38,13 @@ public class Store {
     public String getChocolate() {
         return chocolate;
     }
+
+    public void orderSoda(String soda) {
+        System.out.println("Ice cold " + soda + " coming right up!");
+    }
+
+    public void chargeCustomer(int total) {
+
+    }
+
 }

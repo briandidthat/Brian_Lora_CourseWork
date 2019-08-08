@@ -1,9 +1,11 @@
 package com.company.store;
 
+import com.company.interfaces.Vendor;
+
 /*Task:
  *
  */
-public class VendingMachine {
+public class VendingMachine implements Vendor {
     private int options;
     private String make;
     private String chips;
@@ -80,5 +82,12 @@ public class VendingMachine {
         return popCorn;
     }
 
+    public void orderSoda(String soda) {
+        System.out.println("Ice cold " + soda + " coming right up!");
+    }
 
+    @Override
+    public void chargeCustomer(int total) {
+
+    }
 }

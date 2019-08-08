@@ -3,16 +3,15 @@ package com.company.home;
 public class Home {
     private String name;
     private String address;
-    private String bathroom;
-    private String livingRoom;
-    private String kitchen;
+    private Bathroom bathroom;
+    private Patio patio;
+    private Kitchen kitchen;
     private int numOfBedrooms;
 
-    public Home(String name, String address, String bathroom, String livingRoom, String kitchen, int numOfBedrooms) {
-        this.name = name;
+    public Home(String address, int numOfBedrooms, Bathroom bathroom, Patio patio, Kitchen kitchen) {
         this.address = address;
         this.bathroom = bathroom;
-        this.livingRoom = livingRoom;
+        this.patio = patio;
         this.kitchen = kitchen;
         this.numOfBedrooms = numOfBedrooms;
     }
@@ -21,21 +20,17 @@ public class Home {
     public void setName(String name) {
         this.name = name;
     }
-
     public void setAddress(String address) {
         this.address = address;
     }
-
-    public void setBathroom(String bathroom) {
+    public void setBathroom(Bathroom bathroom) {
         this.bathroom = bathroom;
     }
-
-    public void setLivingRoom(String livingRoom) {
-        this.livingRoom = livingRoom;
-    }
-
-    public void setKitchen(String kitchen) {
+    public void setKitchen(Kitchen kitchen) {
         this.kitchen = kitchen;
+    }
+    public void setPatio(Patio patio) {
+        this.patio = patio;
     }
 
     // GETTERS
@@ -43,27 +38,24 @@ public class Home {
         this.numOfBedrooms = numOfBedrooms;
     }
 
-    public String getName() {
-        return name;
-    }
     public String getAddress() {
         return address;
     }
-
-    public String getBathroom() {
-        return bathroom;
-    }
-
-    public String getLivingRoom() {
-        return livingRoom;
-    }
-
-    public String getKitchen() {
-        return kitchen;
-    }
-
     public int getNumOfBedrooms() {
         return numOfBedrooms;
     }
+
+    public Bathroom getBathroom() {
+        return bathroom;
+    }
+
+    public Patio getPatio() {
+        return patio;
+    }
+
+    public Kitchen getKitchen() {
+        return kitchen;
+    }
+
 
 }
