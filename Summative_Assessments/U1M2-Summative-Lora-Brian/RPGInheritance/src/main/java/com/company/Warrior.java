@@ -14,7 +14,7 @@ public class Warrior extends Character {
     }
 
     public Warrior() {
-
+        super();
     }
 
     @Override

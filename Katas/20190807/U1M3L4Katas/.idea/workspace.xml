@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98cb0818-ba6b-4a69-8d1b-42c66b1b57c9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/cars.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cars.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/config/JSONWriteAndRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/config/JSONWriteAndRead.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/config/XMLWriteAndRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/config/XMLWriteAndRead.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/Car.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/Computer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/Computer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/Phone.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/Phone.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/Television.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/Television.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/config/JSONWriteAndRead$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/config/JSONWriteAndRead$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/config/JSONWriteAndRead.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/config/JSONWriteAndRead.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/config/XMLWriteAndRead$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/config/XMLWriteAndRead$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/config/XMLWriteAndRead.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/config/XMLWriteAndRead.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/readers/ComputerReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/readers/ComputerReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/readers/PhoneReader$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/readers/PhoneReader$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/readers/PhoneReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/readers/PhoneReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/readers/TelevisionReader$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/readers/TelevisionReader$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/company/readers/TelevisionReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/company/readers/TelevisionReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Summative_Assessments/U1M2-Summative-Lora-Brian/RPGInheritance/src/main/java/com/company/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Summative_Assessments/U1M2-Summative-Lora-Brian/RPGInheritance/src/main/java/com/company/Warrior.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.readers.JsonReaderAndWriter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +9,7 @@ import java.util.List;
  *
  */
 public class InventoryManager {
-    private List<Car> carList;
+    private List<Car> carList = new ArrayList<>();
 
     public InventoryManager(List<Car> carList) {
         this.carList = carList;
@@ -17,12 +19,21 @@ public class InventoryManager {
 
     }
 
-    public void addCar(Car car) {
-        this.carList.add(car);
+    public List<Car> initializeInventory() {
+        JsonReaderAndWriter json = new JsonReaderAndWriter();
+        return json.readFile();
     }
 
-    public void removeCar(Car car) {
-        this.carList.remove(car);
+    public void deleteCar(int id){
+        this.carList.remove(id);
+    }
+
+    public void addCar(Car car){
+        if (car != null) {
+            this.carList.add(car);
+        } else {
+            System.out.println("buggy");
+        }
     }
 
     public List<Car> listCars() {
