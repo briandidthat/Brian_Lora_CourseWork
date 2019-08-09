@@ -1,6 +1,0 @@
-/*Task:
- *
- */
-public class Customer {
-
-}

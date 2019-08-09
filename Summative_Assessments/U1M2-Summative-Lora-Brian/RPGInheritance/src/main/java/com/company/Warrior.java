@@ -6,6 +6,17 @@ package com.company;
 public class Warrior extends Character {
     private int shieldStrength;
 
+    public Warrior(int shieldStrength, String name, int strength, int health, int stamina, int speed,
+                   int attackPower)
+    {
+        super(name, strength, health, stamina, speed, attackPower);
+        this.shieldStrength = shieldStrength;
+    }
+
+    public Warrior() {
+
+    }
+
     @Override
     public void run(int distance) {
 
