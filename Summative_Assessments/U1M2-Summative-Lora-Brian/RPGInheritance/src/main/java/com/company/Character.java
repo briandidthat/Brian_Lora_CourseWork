@@ -1,6 +1,7 @@
 package com.company;
 
-public abstract class Character {
+public class Character {
+
     private String name;
     private int strength;
     private int health;
@@ -20,11 +21,73 @@ public abstract class Character {
     public Character() {
 
     }
+    // SETTERS
+    public void setAttackPower(int attackPower) {
+        this.attackPower = attackPower;
+    }
 
-    public abstract void run(int distance);
-    public abstract void heal();
-    public abstract void decreaseHealth(int num);
-    public abstract void increaseStamina(int num);
-    public abstract void decreaseStamina(int num);
-    public abstract void attack();
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setStrength(int strength) {
+        this.strength = strength;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public void setStamina(int stamina) {
+        this.stamina = stamina;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    // GETTERS
+    public String getName() {
+        return name;
+    }
+
+    public int getStrength() {
+        return strength;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public int getStamina() {
+        return stamina;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public int getAttackPower() {
+        return attackPower;
+    }
+
+    // shared methods
+    public void run(int distance) {
+        this.stamina -= distance;
+    }
+    public void heal() {
+
+    }
+    public void decreaseHealth(int num) {
+        this.health -= num;
+    }
+    public void increaseStamina(int num) {
+        this.stamina += num;
+    }
+    public void decreaseStamina(int num) {
+        this.stamina -= num;
+    }
+    public void attack() {
+
+    }
 }
