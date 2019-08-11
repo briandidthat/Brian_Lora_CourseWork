@@ -11,17 +11,8 @@ import java.util.List;
 public class InventoryManager {
     private List<Car> carList = new ArrayList<>();
 
-    public InventoryManager(List<Car> carList) {
-        this.carList = carList;
-    }
-
     public InventoryManager() {
 
-    }
-
-    public List<Car> initializeInventory() {
-        JsonReaderAndWriter json = new JsonReaderAndWriter();
-        return json.readFile();
     }
 
     public void deleteCar(int id){
@@ -42,7 +33,7 @@ public class InventoryManager {
 
     public List<Car> searchCarsByMake(String make) {
         List<Car> carsByMake = new ArrayList<>();
-        carList
+        this.carList
                 .stream()
                 .filter(mk -> mk.getMake().equalsIgnoreCase(make))
                 .forEach(mk -> {

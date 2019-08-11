@@ -1,5 +1,9 @@
 package com.company;
 
+import com.company.readers.JsonReaderAndWriter;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Application {
@@ -10,6 +14,7 @@ public class Application {
     }
 
     public static void addCarPrompt(InventoryManager inventory) {
+        JsonReaderAndWriter json = new JsonReaderAndWriter();
         String make, model, color;
         int year,mile;
 
@@ -26,10 +31,11 @@ public class Application {
 
         Car newCar=new Car(make,model,color,year,mile);
         inventory.addCar(newCar);
+        json.writeToFile(newCar);
     }
 
     public static void searchCarPrompt(InventoryManager inventory) {
-
+        JsonReaderAndWriter json = new JsonReaderAndWriter();
         String search, make,model, color;
         int year, mile;
 
@@ -92,13 +98,16 @@ public class Application {
             System.out.println("There are no cars to remove.");
         } else {
             for (Car car : inventory.listCars()) {
-                System.out.println("id:  " + inventory.listCars().indexOf(car));
+                System.out.println("id: " + inventory.listCars().indexOf(car));
                 printCars(car);
             }
             id = Integer.parseInt(handleInput());
             inventory.deleteCar(id);
         }
     }
+
+
+
 
     public static void printCars(Car car) {
         System.out.println("Make: " + car.getMake());
@@ -110,14 +119,16 @@ public class Application {
 
     public static void main(String[] args) {
 
-        InventoryManager inventory= new InventoryManager();
+        JsonReaderAndWriter json = new JsonReaderAndWriter();
+        InventoryManager inventory = new InventoryManager();
+
 //        inventory.initializeInventory();
         System.out.println("Enter a number according to your purpose from below");
 
         System.out.println("[1] Add [2] Search [3] Remove [4] Exit ");
-        int firstInput=Integer.parseInt(handleInput());
+        int firstInput = Integer.parseInt(handleInput());
 
-        switch (firstInput){
+        switch (firstInput) {
             case 1:
                 addCarPrompt(inventory);
             case 2:
