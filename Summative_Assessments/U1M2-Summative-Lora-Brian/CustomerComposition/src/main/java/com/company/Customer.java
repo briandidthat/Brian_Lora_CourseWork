@@ -28,7 +28,6 @@ public class Customer {
 
     }
 
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -56,6 +55,7 @@ public class Customer {
         this.billingAddress = billingAddress;
     }
 
+    // GETTERS
     public String getFirstName() {
         return firstName;
     }
@@ -64,7 +64,6 @@ public class Customer {
         return lastName;
     }
 
-    //
     public String getEmail() {
         return email;
     }

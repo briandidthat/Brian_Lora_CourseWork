@@ -12,7 +12,7 @@ public class Farmer extends Character {
     }
 
     public Farmer() {
-
+        
     }
 
     public void harvest(String item) {
