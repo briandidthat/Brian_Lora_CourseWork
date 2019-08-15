@@ -1,6 +1,8 @@
 # States and Cities Design and Build Activity
 
-In this activity you will design and build a simple application based on the specification below. This specification is intentionally vague, this exercise is meant to force you to think about the design of the application and to ask good questions about the requirements.
+In this activity you will design and build a simple application based on the specification below. This specification is 
+intentionally vague, this exercise is meant to force you to think about the design of the application and to ask good 
+questions about the requirements.
 
 ## Requirements
 
@@ -26,8 +28,10 @@ In this activity you will design and build a simple application based on the spe
     1. List the capital of a state
     1. Search for cities less than or greater than a certain population for a state
 1. The user interface for this application must be the command line
-1. The initial version of this application must store all data in memory, a later version must persist the data to file using one of the techniques shown in class
+1. The initial version of this application must store all data in memory, a later version must persist the data to file 
+using one of the techniques shown in class.
 
-You are to use Collections, Lists, Maps, lambdas, streams and everything else you've learned thus far in the course to solve this problem.        
+You are to use Collections, Lists, Maps, lambdas, streams and everything else you've learned thus far in the course to 
+solve this problem.        
 
 
