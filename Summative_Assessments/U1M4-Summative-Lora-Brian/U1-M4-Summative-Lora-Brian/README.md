@@ -13,7 +13,8 @@ Your solution must have the following structural elements:
 
 ## Requirements/Features
 
-This web service is a quote-of-the-day, word-of-the-day, and magic 8-ball service. You must implement and document the following REST APIs:
+This web service is a quote-of-the-day, word-of-the-day, and magic 8-ball service. You must implement and document the 
+following REST APIs:
 
 * Quote API:
   * URI: /quote

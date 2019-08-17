@@ -6,4 +6,3 @@ info:
 servers:
   - url: http://localhost:8080
     description: my local dev server
-    
