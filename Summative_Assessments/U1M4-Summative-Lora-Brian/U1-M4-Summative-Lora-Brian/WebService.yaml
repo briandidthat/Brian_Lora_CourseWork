@@ -1,0 +1,9 @@
+openapi: 3.0.0
+info:
+  title: Cities and States
+  description: A simple web service to store City and State info.
+  version: 0.0.1
+servers:
+  - url: http://localhost:8080
+    description: my local dev server
+    
