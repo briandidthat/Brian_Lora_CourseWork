@@ -6,3 +6,63 @@ info:
 servers:
   - url: http://localhost:8080
     description: my local dev server
+paths:
+  /magic:
+    post:
+      summary: Magic Eight Ball game. Post a question, and recieve an answer.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/'
+  /quote:
+    get:
+      summary: Get the quote of the day.
+      responses:
+        '200':
+          description: returns the word of the day.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quote'
+  /word:
+    get:
+      summary: Get the word of the day.
+      responses:
+        '200':
+          description: returns the word of the day.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Word'
+
+components:
+  schemas:
+    Magic:
+      properties:
+        answer:
+          type: string
+        question:
+          type: string
+      required:
+        - answer
+        - question
+    Quote:
+      properties:
+        author:
+          type: string
+        quote:
+          type: string
+      required:
+        - author
+        - quote
+    Word:
+      properties:
+        word:
+          type: string
+        definition:
+          type: string
+      required:
+        - word
+        - definition

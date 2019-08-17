@@ -6,7 +6,7 @@ import java.util.List;
 /*Task:
  *
  */
-public class EightBall {
+public class Magic {
     private List<String> answers = new ArrayList<>();
     private List<String> questions = new ArrayList<>();
 
