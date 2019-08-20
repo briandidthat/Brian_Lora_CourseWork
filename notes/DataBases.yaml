@@ -1,4 +1,4 @@
-RELATIONAL DATABASES (SQL to be exact)
+RELATIONAL DATABASES (SQL)
 ---------------------------------------
 Foreign_Key will refer to the primary key of a related DATABASES.
 column headers are considered METADATA. METADATA helps you define the data inside the column.
@@ -6,7 +6,7 @@ column headers are considered METADATA. METADATA helps you define the data insid
 Rows of the database tables are often refered to as tuples. 
 For SQL, we will use the snake_case naming convention.
 
-Types of relationships
+**Types of relationships**
   - ONE TO ONE (ex. Student to Car relationship)
     - defined as the relationship between two tables where both the tables should be associated with each other based on 
       only one matching row.
@@ -17,7 +17,7 @@ Types of relationships
   - MANY TO MANY (Often broken down to Two, one to many relationships due to difficulty of supporting)
       - will ALWAYS have bridge entities to help the intersection
 ---------------------------------------
-Normalization
+**Normalization**
   - First Normal Form (1NF) 
     - is satisfied if and only if the domain of each attribute contains only atomic values, and the value of each attribute 
       contains only a single value from that domain.
@@ -36,4 +36,16 @@ Normalization
     - Every column must only have a single value 
     - All the columns must be related to the primary key (functional dependency)
     - Interdependencies between entity columns must not exist
+---------------------------------------
+
+**SQL Joins**
+  - Inner Joins
+    - returns records that have matching values in both tables.
+  - Left Outer Joins 
+    - returns all records from the left table (table1), and the matched records from the right table (table2). 
+      The result is NULL from the right side, if there is no match.
+  - Right Outer Joins
+    - returns all records from the right table (table2), and the matched records from the left table (table1). 
+      The result is NULL from the left side, when there is no match.
+
 ---------------------------------------
