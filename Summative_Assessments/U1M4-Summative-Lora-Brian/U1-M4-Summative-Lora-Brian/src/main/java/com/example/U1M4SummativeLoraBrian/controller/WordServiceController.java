@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class WordServiceController {
-
+    @GetMapping(value = "/word")
+    @ResponseStatus(value = HttpStatus.OK)
+    public String getWord() {
+        return "hey";
+    }
 
 }

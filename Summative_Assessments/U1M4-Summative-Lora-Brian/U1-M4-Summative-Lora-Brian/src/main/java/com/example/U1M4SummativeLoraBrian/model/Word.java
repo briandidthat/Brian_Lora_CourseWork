@@ -1,17 +1,18 @@
 package com.example.U1M4SummativeLoraBrian.model;
 
-import java.util.HashMap;
-import java.util.Map;
+
+import java.util.*;
 
 public class Word {
-    private Map<String, String> wordsOfTheDay = new HashMap<>();
+    private List<String> wordsList;
 
-    public void setWordsOfTheDay(Map<String, String> wordsOfTheDay) {
-        this.wordsOfTheDay = wordsOfTheDay;
+    public int getRandom() {
+        Random random = new Random();
+        return random.nextInt(10)+1;
     }
 
-    public Map<String, String> getWordsOfTheDay() {
-        return wordsOfTheDay;
-    }
 
+    public void setWordsList(List<String> wordsList) {
+        this.wordsList = wordsList;
+    }
 }

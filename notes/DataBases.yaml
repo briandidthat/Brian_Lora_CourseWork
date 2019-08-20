@@ -1,0 +1,39 @@
+RELATIONAL DATABASES (SQL to be exact)
+---------------------------------------
+Foreign_Key will refer to the primary key of a related DATABASES.
+column headers are considered METADATA. METADATA helps you define the data inside the column.
+"Rule of one" you want to track single entities not, groupings.
+Rows of the database tables are often refered to as tuples. 
+For SQL, we will use the snake_case naming convention.
+
+Types of relationships
+  - ONE TO ONE (ex. Student to Car relationship)
+    - defined as the relationship between two tables where both the tables should be associated with each other based on 
+      only one matching row.
+  - ONE TO MANY (ex. Student to Car, Student to ClassRoom)
+      - one record in a table can be associated with one or more records in another table. Parent to child relationship.
+  - MANY TO ONE (each city exists in exactly one state, but a state may have many cities, hence the term "many-to-one.")
+      - contains values that refer to another entity (a column or set of columns) that has unique values.
+  - MANY TO MANY (Often broken down to Two, one to many relationships due to difficulty of supporting)
+      - will ALWAYS have bridge entities to help the intersection
+---------------------------------------
+Normalization
+  - First Normal Form (1NF) 
+    - is satisfied if and only if the domain of each attribute contains only atomic values, and the value of each attribute 
+      contains only a single value from that domain.
+    - each entity must have a Primary key.
+  - Second Normal Form (2NF)
+    - requires 1NF to be satisfied 
+    - Does not have any non-prime attribute that is functionally dependent on any subset of any candidate key of the relation. 
+      A non-prime attribute of a relation is an attribute that is not a part of any candidate key of the relation.
+  - Third Normal Form (3NF)
+    - requires 1NF & 2NF to be satisfied 
+    - Only foreign key columns should be used to reference another table, and no other columns from the parent table should exist 
+      in the referenced table.
+
+  - CAVEATS
+    - Each entity must have a primary key (natural or artificial)
+    - Every column must only have a single value 
+    - All the columns must be related to the primary key (functional dependency)
+    - Interdependencies between entity columns must not exist
+---------------------------------------
