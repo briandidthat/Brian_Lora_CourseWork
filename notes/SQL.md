@@ -1,4 +1,4 @@
-#SQL
+# SQL
 
 - Foreign_Key will refer to the primary key of a related DATABASES.
 - Column headers are considered METADATA. METADATA helps you define the data inside the column.
@@ -7,7 +7,7 @@
 - For SQL, we will use the snake_case naming convention.
 - SQL is both a data definition language and a data manipulation language.
 
-*Types of relationships*
+>Types of relationships
   - ONE TO ONE (ex. Student to Car relationship)
     - defined as the relationship between two tables where both the tables should be associated with each other based on 
       only one matching row.
@@ -19,7 +19,7 @@
       - will ALWAYS have bridge entities to help the intersection
 
 
-*Normalization*
+>Normalization
   - First Normal Form (1NF) 
     - is satisfied if and only if the domain of each attribute contains only atomic values, and the value of each attribute 
       contains only a single value from that domain.
@@ -33,14 +33,14 @@
     - Only foreign key columns should be used to reference another table, and no other columns from the parent table should exist 
       in the referenced table.
 
-  - CAVEATS
+  *CAVEATS*
     - Each entity must have a primary key (natural or artificial)
     - Every column must only have a single value 
     - All the columns must be related to the primary key (functional dependency)
     - Interdependencies between entity columns must not exist
 
 
-*SQL Joins*
+>SQL Joins
   - Inner Joins
     - returns records that have matching values in both tables.
   - Left Outer Joins 
@@ -52,7 +52,7 @@
   - Full Join
     - returns all records when there is a match in left (table1) or right (table2) table records.
 
-*Acid Properties*
+>Acid Properties
   - ATOMIC 
     - RDBMS will guarantee that a group of statements that run together will either all run or none will run
       this group of statements is called a transaction.
