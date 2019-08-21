@@ -1,13 +1,13 @@
-SQL
----------------------------------------
-Foreign_Key will refer to the primary key of a related DATABASES.
-column headers are considered METADATA. METADATA helps you define the data inside the column.
-"Rule of one" you want to track single entities not, groupings.
-Rows of the database tables are often refered to as tuples. 
-For SQL, we will use the snake_case naming convention.
-SQL is both a data definition language and a data manipulation language.
+#SQL
 
-**Types of relationships**
+- Foreign_Key will refer to the primary key of a related DATABASES.
+- Column headers are considered METADATA. METADATA helps you define the data inside the column.
+- "Rule of one" you want to track single entities not, groupings.
+- Rows of the database tables are often referred to as tuples. 
+- For SQL, we will use the snake_case naming convention.
+- SQL is both a data definition language and a data manipulation language.
+
+*Types of relationships*
   - ONE TO ONE (ex. Student to Car relationship)
     - defined as the relationship between two tables where both the tables should be associated with each other based on 
       only one matching row.
@@ -17,9 +17,9 @@ SQL is both a data definition language and a data manipulation language.
       - contains values that refer to another entity (a column or set of columns) that has unique values.
   - MANY TO MANY (Often broken down to Two, one to many relationships due to difficulty of supporting)
       - will ALWAYS have bridge entities to help the intersection
----------------------------------------
 
-**Normalization**
+
+*Normalization*
   - First Normal Form (1NF) 
     - is satisfied if and only if the domain of each attribute contains only atomic values, and the value of each attribute 
       contains only a single value from that domain.
@@ -38,9 +38,9 @@ SQL is both a data definition language and a data manipulation language.
     - Every column must only have a single value 
     - All the columns must be related to the primary key (functional dependency)
     - Interdependencies between entity columns must not exist
----------------------------------------
 
-**SQL Joins**
+
+*SQL Joins*
   - Inner Joins
     - returns records that have matching values in both tables.
   - Left Outer Joins 
@@ -52,10 +52,10 @@ SQL is both a data definition language and a data manipulation language.
   - Full Join
     - returns all records when there is a match in left (table1) or right (table2) table records.
 
-**Acid Properties**
+*Acid Properties*
   - ATOMIC 
-    - RDBMS will guarantee that a group of statements thta run together will either all run or none will run
-      this group of sttements is called a transcaction.
+    - RDBMS will guarantee that a group of statements that run together will either all run or none will run
+      this group of statements is called a transaction.
   - Consistency
     - Data entered will not break rules, often called constraints.
   - Isolated
@@ -64,13 +64,13 @@ SQL is both a data definition language and a data manipulation language.
     - If not done, this could result in lost updates or dirty reads. 
     - Locking is the most common approach to becoming isolated.
   - Durable
-    - even if the server loses power, the commited trnsactions will be saved
+    - even if the server loses power, the committed transactions will be saved
 
-    - Transcaction Log
-      - most modertn RDBMS use it durabilitly and support commits and rollbaxcks of transcactions.
+    - Transaction Log
+      - most modern RDBMS use it durability and support commits and rollbacks of transactions.
       - stored on disk and keeps a list of all tx applied. 
       - helps the RDBMS be durable 
----------------------------------------
+
 
 
 
