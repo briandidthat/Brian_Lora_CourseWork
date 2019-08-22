@@ -3,9 +3,7 @@ package com.example.U1M4SummativeLoraBrian.model;
 import java.util.ArrayList;
 import java.util.List;
 
-/*Task:
- *
- */
+
 public class Magic {
     private List<String> answers = new ArrayList<>();
     private List<String> questions = new ArrayList<>();
