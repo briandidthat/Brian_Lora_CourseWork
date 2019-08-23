@@ -19,6 +19,8 @@ public class MagicEightBallController {
     public Magic postQuestion(@RequestBody String question) {
         MagicList magicList = new MagicList();
         Magic magic = magicList.getMagic(generateRandom());
+        // is there  a better way to achieve this so I dont have to do all of this voodoo? If so, please provide a link
+        // or a method. Thank you!
         question = question.replaceAll("\\{", "").replaceAll("\\}","")
                 .replaceAll("question", "").replaceAll("\"", "")
                 .replaceAll(":", "");
