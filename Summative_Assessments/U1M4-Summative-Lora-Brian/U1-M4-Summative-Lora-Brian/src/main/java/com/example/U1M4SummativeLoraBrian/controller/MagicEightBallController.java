@@ -2,7 +2,10 @@ package com.example.U1M4SummativeLoraBrian.controller;
 
 import com.example.U1M4SummativeLoraBrian.model.Magic;
 import com.example.U1M4SummativeLoraBrian.model.MagicList;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import jdk.nashorn.internal.parser.JSONParser;
+import org.springframework.boot.jackson.JsonObjectDeserializer;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
