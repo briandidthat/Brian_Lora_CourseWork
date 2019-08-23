@@ -5,22 +5,27 @@ import com.example.U1M4SummativeLoraBrian.model.MagicList;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import jdk.nashorn.internal.parser.JSONParser;
+import org.json.JSONException;
 import org.springframework.boot.jackson.JsonObjectDeserializer;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Random;
 
 @RestController
 public class MagicEightBallController {
 
-    @PostMapping(value = "/magic")
+    @RequestMapping(value = "/magic", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
     public Magic postQuestion(@RequestBody String question) {
         MagicList magicList = new MagicList();
         Magic magic = magicList.getMagic(generateRandom());
-
+        question = question.replaceAll("\\{", "").replaceAll("\\}","")
+                .replaceAll("question", "").replaceAll("\"", "")
+                .replaceAll(":", "");
+        question = question.trim();
         magic.setQuestion(question);
+
+        System.out.println(question);
 
         return magic;
     }
