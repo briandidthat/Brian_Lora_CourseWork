@@ -14,13 +14,10 @@ public class MagicEightBallController {
     @ResponseStatus(value = HttpStatus.OK)
     public Magic postQuestion(@RequestBody String question) {
         MagicList magicList = new MagicList();
-        Magic magic = new Magic();
-
-        int randomId = generateRandom();
+        Magic magic = magicList.getMagic(generateRandom());
         magic.setQuestion(question);
-        magicList.updateListElement(randomId, magic);
 
-        return magicList.getMagic(randomId);
+        return magic;
     }
 
     private int generateRandom() {

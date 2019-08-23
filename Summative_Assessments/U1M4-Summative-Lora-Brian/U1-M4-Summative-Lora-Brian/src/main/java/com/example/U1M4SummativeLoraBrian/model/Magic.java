@@ -1,8 +1,5 @@
 package com.example.U1M4SummativeLoraBrian.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class Magic {
     private String question;
@@ -17,7 +14,7 @@ public class Magic {
         this.question = question;
     }
 
-    public String getAnswers() {
+    public String getAnswer() {
         return answer;
     }
 
