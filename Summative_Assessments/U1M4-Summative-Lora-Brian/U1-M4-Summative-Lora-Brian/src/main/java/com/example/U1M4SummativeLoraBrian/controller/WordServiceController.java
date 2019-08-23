@@ -20,7 +20,7 @@ public class WordServiceController {
 
     public int generateRandom() {
         Random random = new Random();
-        return random.nextInt(10);
+        return random.nextInt(10)+ 1;
     }
 
 }

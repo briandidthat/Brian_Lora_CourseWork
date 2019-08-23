@@ -5,30 +5,23 @@ import java.util.List;
 
 
 public class Magic {
-    private List<String> answers = new ArrayList<>();
-    private List<String> questions = new ArrayList<>();
+    private String question;
+    private String answer;
 
-    public void setAnswers(List<String> answers) {
-        this.answers = answers;
+
+    public String getQuestion() {
+        return question;
     }
 
-    public List<String> getAnswers() {
-        return answers;
+    public void setQuestion(String question) {
+        this.question = question;
     }
 
-    public void setQuestions(List<String> questions) {
-        this.questions = questions;
+    public String getAnswers() {
+        return answer;
     }
 
-    public List<String> getQuestions() {
-        return questions;
-    }
-
-    public void addAnswer(String answer) {
-        this.answers.add(answer);
-    }
-
-    public void addQuestion(String question) {
-        this.answers.add(question);
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 }
