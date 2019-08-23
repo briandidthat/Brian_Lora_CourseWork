@@ -50,11 +50,10 @@ public class MagicList {
 
     }
 
-    public void updateListElement(int index, Magic magic) {
-        magicEightBallList.set(index, magic);
-    }
-
     public Magic getMagic(int idx) {
+        if (idx == 10) {
+            idx -=1;
+        }
         return magicEightBallList.get(idx);
     }
 }

@@ -2,6 +2,7 @@ package com.example.U1M4SummativeLoraBrian.controller;
 
 import com.example.U1M4SummativeLoraBrian.model.Magic;
 import com.example.U1M4SummativeLoraBrian.model.MagicList;
+import jdk.nashorn.internal.parser.JSONParser;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +16,7 @@ public class MagicEightBallController {
     public Magic postQuestion(@RequestBody String question) {
         MagicList magicList = new MagicList();
         Magic magic = magicList.getMagic(generateRandom());
+
         magic.setQuestion(question);
 
         return magic;
