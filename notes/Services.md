@@ -9,4 +9,4 @@
             - An artist object (rather than just the id)
             - A label object (rather than just the id)
             - A list of associated tracks (the album dto does not contain any reference to the tracks.)
-            This type of model is more convenient for the end user. 
+            **This type of model is more convenient for the end user.**
