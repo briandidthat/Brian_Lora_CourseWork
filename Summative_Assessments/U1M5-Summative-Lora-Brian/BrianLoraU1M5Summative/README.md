@@ -5,7 +5,8 @@ This project involves the creation of a Java DAO for an existing database struct
 ## Structure
 Your solution must have the following structural elements:
 
-* Your solution must be in an IntelliJ project called ```FirstnameLastU1M5Summative``` where Firstname and Lastname are your first and last name respectively.
+* Your solution must be in an IntelliJ project called ```FirstnameLastU1M5Summative``` where Firstname and Lastname are 
+    your first and last name respectively.
 * Your solution must use JdbcTemplates and prepared statements.
 * Your solution must contain a full set of unit/integration tests.
 
@@ -18,7 +19,8 @@ Your solution must have the following structural elements:
 
 This project is a DAO and relational database that keeps track of books in a bookstore. 
 
-* Your DAO API must allow callers to create, read, read all, update, and delete Books, Authors, and Publishers in the system. The system must also allow callers to find Books by Author.
+* Your DAO API must allow callers to create, read, read all, update, and delete Books, Authors, and Publishers 
+    in the system. The system must also allow callers to find Books by Author.
 * Your solution must be based on the database created by the following SQL script:
 
 ```sql

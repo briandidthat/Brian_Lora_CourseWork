@@ -8,5 +8,70 @@ servers:
     description: my local dev server
 paths:
   /books:
+    get:
+      summary: Get a list of all available books.
+      requestBody:
+        responses:
+          '200':
+            description: Returns a list of all available books.
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Book'
+    post:
+      summary: Add a new book to the store inventory.
 
-    
+
+components:
+  schemas:
+    Book:
+      properties:
+        bookId:
+          type: integer
+        isBn:
+          type: integer
+        publishDate:
+          type: string
+        authorId:
+          type: integer
+        title:
+          type: string
+        publisherId:
+          type: integer
+        price:
+          type: decimal
+      required:
+        - bookId
+        - isBn
+        - publishDate
+        - authorId
+        - title
+        - publisherId
+        - price
+    Author:
+      properties:
+        authorId:
+          type: integer
+        firstName:
+          type: string
+        lastName:
+          type: string
+        street:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        postalCode:
+          type: string
+        email:
+          type: string
+      required:
+        - authorId
+        - firstName
+        - lastName
+        - street
+        - city
+        - state
+        - postalCode
+        - email
