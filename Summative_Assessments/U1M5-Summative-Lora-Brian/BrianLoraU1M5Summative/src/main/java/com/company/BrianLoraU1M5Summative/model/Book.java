@@ -1,7 +1,7 @@
 package com.company.BrianLoraU1M5Summative.model;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 
 
@@ -9,7 +9,7 @@ public class Book {
 
     private int bookId;
     private String isBn;
-    private LocalDate date;
+    private Date publishDate;
     private int authorId;
     private String title;
     private int publisherId;
@@ -24,8 +24,8 @@ public class Book {
         this.isBn = isBn;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setPublishDate(Date date) {
+        this.publishDate = publishDate;
     }
 
     public void setAuthorId(int authorId) {
@@ -53,8 +53,8 @@ public class Book {
         return isBn;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public Date getPublishDate() {
+        return publishDate;
     }
 
     public int getAuthorId() {
@@ -82,13 +82,14 @@ public class Book {
                 getAuthorId() == book.getAuthorId() &&
                 getPublisherId() == book.getPublisherId() &&
                 Objects.equals(getIsBn(), book.getIsBn()) &&
-                Objects.equals(getDate(), book.getDate()) &&
+                Objects.equals(getPublishDate(), book.getPublishDate()) &&
                 Objects.equals(getTitle(), book.getTitle()) &&
                 Objects.equals(getPrice(), book.getPrice());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getBookId(), getIsBn(), getDate(), getAuthorId(), getTitle(), getPublisherId(), getPrice());
+        return Objects.hash(getBookId(), getIsBn(), getPublishDate(), getAuthorId(),
+                getTitle(), getPublisherId(), getPrice());
     }
 }
