@@ -6,9 +6,11 @@ import java.util.List;
 
 public interface BookDao {
     List<Book> getBooks();
-    List<Book> getBooksByAuthor(String firstName, String lastName);
+    List<Book> getBooksByAuthor(int author_id);
+
     Book getBookByTitle(String title);
     Book addBook(Book book);
 
     void deleteBook(int id);
+    void updateBook(Book book);
 }

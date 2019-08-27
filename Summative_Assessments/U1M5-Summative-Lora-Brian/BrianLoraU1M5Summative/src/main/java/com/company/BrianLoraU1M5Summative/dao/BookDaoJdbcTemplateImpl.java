@@ -4,6 +4,7 @@ import com.company.BrianLoraU1M5Summative.model.Book;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -40,7 +41,7 @@ public class BookDaoJdbcTemplateImpl implements BookDao {
     }
 
     @Override
-    public List<Book> getBooksByAuthor(String firstName, String lastName) {
+    public List<Book> getBooksByAuthor(int id) {
         return null;
     }
 
@@ -54,13 +55,37 @@ public class BookDaoJdbcTemplateImpl implements BookDao {
     }
 
     @Override
+    @Transactional
     public Book addBook(Book book) {
-        return null;
+        jdbcTemplate.update(INSERT_BOOK_SQL,
+                book.getIsBn(),
+                book.getPublishDate(),
+                book.getAuthorId(),
+                book.getTitle(),
+                book.getPublisherId(),
+                book.getPrice());
+
+        int id = jdbcTemplate.queryForObject("select last_insert_id()", Integer.class);
+        book.setBookId(id);
+
+        return book;
     }
 
     @Override
     public void deleteBook(int id) {
+        jdbcTemplate.update(DELETE_BOOK_SQL, id);
+    }
 
+    @Override
+    public void updateBook(Book book) {
+        jdbcTemplate.update(INSERT_BOOK_SQL,
+                book.getIsBn(),
+                book.getPublishDate(),
+                book.getAuthorId(),
+                book.getTitle(),
+                book.getPublisherId(),
+                book.getPrice(),
+                book.getBookId());
     }
 
     // HELPER FUNCTION TO LINK CLASS PROPERTIES TO ENTITY COLUMNS
