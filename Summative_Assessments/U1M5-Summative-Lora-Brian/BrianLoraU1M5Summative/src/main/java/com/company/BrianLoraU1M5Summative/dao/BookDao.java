@@ -6,7 +6,8 @@ import java.util.List;
 
 public interface BookDao {
     List<Book> getBooks();
-    List<Book> getBooksByAuthor(int author_id);
+    List<Book> getBooksByAuthor(int authorId);
+    List<Book> getBooksByPublisher(int publisherId);
 
     Book getBookByTitle(String title);
     Book addBook(Book book);

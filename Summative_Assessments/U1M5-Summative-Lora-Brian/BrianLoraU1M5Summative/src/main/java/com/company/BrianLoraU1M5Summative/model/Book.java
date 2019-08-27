@@ -1,6 +1,7 @@
 package com.company.BrianLoraU1M5Summative.model;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
@@ -9,7 +10,7 @@ public class Book {
 
     private int bookId;
     private String isBn;
-    private Date publishDate;
+    private LocalDate publishDate;
     private int authorId;
     private String title;
     private int publisherId;
@@ -24,8 +25,8 @@ public class Book {
         this.isBn = isBn;
     }
 
-    public void setPublishDate(Date date) {
-        this.publishDate = publishDate;
+    public void setPublishDate(LocalDate date) {
+        this.publishDate = date;
     }
 
     public void setAuthorId(int authorId) {
@@ -53,7 +54,7 @@ public class Book {
         return isBn;
     }
 
-    public Date getPublishDate() {
+    public LocalDate getPublishDate() {
         return publishDate;
     }
 

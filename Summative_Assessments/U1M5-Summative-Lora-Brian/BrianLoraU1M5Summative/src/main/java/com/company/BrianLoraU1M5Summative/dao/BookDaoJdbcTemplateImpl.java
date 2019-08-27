@@ -29,6 +29,9 @@ public class BookDaoJdbcTemplateImpl implements BookDao {
     private static final String SELECT_BOOK_BY_TITLE_SQL =
             "select * from book where title = ?";
 
+    private static final String SELECT_BOOK_BY_PUBLISHER_SQL =
+            "select * from book where title = ?";
+
     private JdbcTemplate jdbcTemplate;
 
     public BookDaoJdbcTemplateImpl(JdbcTemplate jdbcTemplate) {
@@ -41,8 +44,13 @@ public class BookDaoJdbcTemplateImpl implements BookDao {
     }
 
     @Override
-    public List<Book> getBooksByAuthor(int id) {
+    public List<Book> getBooksByAuthor(int authorId) {
         return null;
+    }
+
+    @Override
+    public List<Book> getBooksByPublisher(int publisherId) {
+        return jdbcTemplate.query(SELECT_BOOK_BY_PUBLISHER_SQL, this::mapRowToBook, publisherId);
     }
 
     @Override
@@ -93,7 +101,7 @@ public class BookDaoJdbcTemplateImpl implements BookDao {
         Book book = new Book();
         book.setBookId(rs.getInt("book_id"));
         book.setIsBn(rs.getString("isbn"));
-        book.setPublishDate(rs.getDate("publish_date"));
+        book.setPublishDate(rs.getDate("publish_date").toLocalDate());
         book.setAuthorId(rs.getInt("author_id"));
         book.setTitle(rs.getString("title"));
         book.setPublisherId(rs.getInt("publisher_id"));
