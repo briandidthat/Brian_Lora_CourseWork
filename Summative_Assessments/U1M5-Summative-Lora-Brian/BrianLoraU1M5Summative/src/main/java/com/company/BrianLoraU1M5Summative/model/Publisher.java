@@ -1,9 +1,14 @@
 package com.company.BrianLoraU1M5Summative.model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Objects;
 
 
 public class Publisher {
+
+    @Id
+    @GeneratedValue
     private int publisherId;
     private String name;
     private String street;

@@ -1,13 +1,15 @@
 package com.company.BrianLoraU1M5Summative.model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
-
 public class Book {
-
+    @Id
+    @GeneratedValue
     private int bookId;
     private String isBn;
     private LocalDate publishDate;

@@ -1,8 +1,12 @@
 package com.company.BrianLoraU1M5Summative.model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Objects;
 
 public class Author {
+    @Id
+    @GeneratedValue
     private int authorId;
     private String firstName;
     private String lastName;
