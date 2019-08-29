@@ -13,15 +13,35 @@ public class AuthorController {
     @Autowired
     AuthorDao authorDao;
 
-    @GetMapping(value ="/authors")
-    @ResponseStatus(value = HttpStatus.OK)
-    public List<Author> getAuthors() {
-        return authorDao.getAuthors();
-    }
-
     @PostMapping(value = "/author")
     @ResponseStatus(value = HttpStatus.OK)
     public Author createAuthor(@RequestBody Author author) {
         return authorDao.addAuthor(author);
     }
+
+    @GetMapping(value ="/author")
+    @ResponseStatus(value = HttpStatus.OK)
+    public List<Author> getAuthors() {
+        return authorDao.getAuthors();
+    }
+
+    @PutMapping(value = "/author")
+    @ResponseStatus(value = HttpStatus.OK)
+    public void updateAuthor(@RequestBody Author author) {
+        authorDao.updateAuthor(author);
+    }
+
+    @GetMapping(value = "/author/{id}")
+    @ResponseStatus(value = HttpStatus.OK)
+    public Author getAuthor(@PathVariable int id) {
+        return authorDao.getAuthor(id);
+    }
+
+    @DeleteMapping(value = "/author/{id}")
+    @ResponseStatus(value = HttpStatus.OK)
+    public void deleteAuthor(int id) {
+        authorDao.deleteAuthor(id);
+    }
+
+
 }

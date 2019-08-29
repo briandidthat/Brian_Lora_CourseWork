@@ -1,6 +1,7 @@
 package com.company.BrianLoraU1M5Summative.dao;
 
 import com.company.BrianLoraU1M5Summative.model.Book;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -30,12 +31,25 @@ public class BookDaoJdbcTemplateImpl implements BookDao {
             "select * from book where title = ?";
 
     private static final String SELECT_BOOK_BY_PUBLISHER_SQL =
-            "select * from book where title = ?";
+            "select * from book where publisher_id = ?";
+
+    private static final String SELECT_BOOK_BY_AUTHOR_SQL =
+            "select * from book where author_id = ?";
 
     private JdbcTemplate jdbcTemplate;
 
+    @Autowired
     public BookDaoJdbcTemplateImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
+    }
+
+    @Override
+    public Book getBook(int id) {
+        try {
+            return jdbcTemplate.queryForObject(SELECT_BOOK_SQL, this::mapRowToBook, id);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
     }
 
     @Override
@@ -45,13 +59,18 @@ public class BookDaoJdbcTemplateImpl implements BookDao {
 
     @Override
     public List<Book> getBooksByAuthor(int authorId) {
-        return null;
+        try {
+            return jdbcTemplate.query(SELECT_BOOK_BY_AUTHOR_SQL, this::mapRowToBook, authorId);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
     }
 
     @Override
     public List<Book> getBooksByPublisher(int publisherId) {
         return jdbcTemplate.query(SELECT_BOOK_BY_PUBLISHER_SQL, this::mapRowToBook, publisherId);
     }
+
 
     @Override
     public Book getBookByTitle(String title) {
