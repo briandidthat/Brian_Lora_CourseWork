@@ -66,8 +66,6 @@ public class PublisherDaoTest {
        publisher1 = publisherDao.getPublisher(publisher.getPublisherId());
 
        assertNull(publisher1);
-
-
     }
 
     @Test
