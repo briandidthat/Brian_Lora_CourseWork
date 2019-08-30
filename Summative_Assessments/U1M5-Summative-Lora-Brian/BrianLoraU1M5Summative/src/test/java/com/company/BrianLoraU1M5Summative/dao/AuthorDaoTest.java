@@ -26,16 +26,17 @@ public class AuthorDaoTest {
 
     @Before
     public void setUp() throws Exception {
-        // clear author db
-        List<Author> authorList = authorDao.getAuthors();
-        for (Author a : authorList) {
-            authorDao.deleteAuthor(a.getAuthorId());
-        }
         // clear book db
         List<Book> bookList = bookDao.getBooks();
         for (Book b : bookList) {
             bookDao.deleteBook(b.getBookId());
         }
+        // clear author db
+        List<Author> authorList = authorDao.getAuthors();
+        for (Author a : authorList) {
+            authorDao.deleteAuthor(a.getAuthorId());
+        }
+
 
         // clear publisher db
         List<Publisher> publisherList = publisherDao.getAllPublishers();

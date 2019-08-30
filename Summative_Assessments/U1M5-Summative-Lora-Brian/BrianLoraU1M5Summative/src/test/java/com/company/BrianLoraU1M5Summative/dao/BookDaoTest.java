@@ -29,7 +29,6 @@ public class BookDaoTest {
 
     @Before
     public void setUp() throws Exception {
-
         // clear book db
         List<Book> bookList = bookDao.getBooks();
         for (Book b : bookList) {
