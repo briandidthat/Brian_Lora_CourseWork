@@ -36,8 +36,6 @@ public class AuthorDaoTest {
         for (Author a : authorList) {
             authorDao.deleteAuthor(a.getAuthorId());
         }
-
-
         // clear publisher db
         List<Publisher> publisherList = publisherDao.getAllPublishers();
         for (Publisher p : publisherList) {
