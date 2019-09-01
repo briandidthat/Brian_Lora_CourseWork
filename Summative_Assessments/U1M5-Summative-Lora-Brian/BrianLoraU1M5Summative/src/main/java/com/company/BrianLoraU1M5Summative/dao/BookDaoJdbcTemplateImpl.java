@@ -33,6 +33,11 @@ public class BookDaoJdbcTemplateImpl implements BookDao {
     private static final String SELECT_BOOK_BY_AUTHOR_SQL =
             "select * from book where author_id = ?";
 
+    private static final String UPDATE_BOOK_SQL =
+            "update book set isBn = ?, publish_date = ?, author_id = ?, title = ?, publisher_id = ?, price =? " +
+                    "where book_id = ?";
+
+
     private JdbcTemplate jdbcTemplate;
 
     @Autowired
@@ -96,7 +101,7 @@ public class BookDaoJdbcTemplateImpl implements BookDao {
 
     @Override
     public void updateBook(Book book) {
-        jdbcTemplate.update(INSERT_BOOK_SQL,
+        jdbcTemplate.update(UPDATE_BOOK_SQL,
                 book.getIsBn(),
                 book.getPublishDate(),
                 book.getAuthorId(),

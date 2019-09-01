@@ -57,7 +57,6 @@ public class AuthorDaoTest {
         author.setEmail("stephawkings@gmail.com");
         authorDao.addAuthor(author);
 
-
         // TESTING GET METHOD
         Author author1 = authorDao.getAuthor(author.getAuthorId());
 
@@ -103,5 +102,6 @@ public class AuthorDaoTest {
 
     @Test
     public void updateAuthor() {
+
     }
 }

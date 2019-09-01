@@ -31,6 +31,7 @@ public class PublisherDaoTest {
         for (Book b : bookList) {
             bookDao.deleteBook(b.getBookId());
         }
+        // clear author db
         List<Author> authorList = authorDao.getAuthors();
         for (Author a : authorList) {
             authorDao.deleteAuthor(a.getAuthorId());
@@ -58,7 +59,7 @@ public class PublisherDaoTest {
 
         // GET PUBLISHER
         Publisher publisher1 = publisherDao.getPublisher(publisher.getPublisherId());
-
+        // TEST RETURNED PUBLISHER FOR EQUALITY
         assertEquals(publisher1, publisher);
 
         // DELETE PUBLISHER

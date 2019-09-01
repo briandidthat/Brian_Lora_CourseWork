@@ -145,5 +145,45 @@ public class BookDaoTest {
 
     @Test
     public void updateBook() {
+        // MUST ADD AUTHOR FIRST
+        Author author = new Author();
+        author.setFirstName("Stephen");
+        author.setLastName("Hawkings");
+        author.setStreet("1102 broadway");
+        author.setCity("NYC");
+        author.setState("NY");
+        author.setPostalCode("10040");
+        author.setPhone("212-345-5432");
+        author.setEmail("stephawkings@gmail.com");
+        author = authorDao.addAuthor(author);
+
+        // ADD PUBLISHER
+        Publisher publisher = new Publisher();
+        publisher.setName("Motown Books");
+        publisher.setStreet("1012 broadway");
+        publisher.setCity("Los Angeles");
+        publisher.setState("CA");
+        publisher.setPostalCode("90201");
+        publisher.setPhone("212-244-2232");
+        publisher.setEmail("moTown@Gmail.com");
+        publisher = publisherDao.addPublisher(publisher);
+
+        // CREATE BOOK
+        Book book = new Book();
+        book.setIsBn("12134asdds");
+        book.setPublishDate(LocalDate.of(1992,11,22));
+        book.setAuthorId(author.getAuthorId());
+        book.setTitle("Charlottes Web");
+        book.setPublisherId(publisher.getPublisherId());
+        book.setPrice(new BigDecimal("20.99"));
+        book = bookDao.addBook(book);
+
+        book.setTitle("NewBook");
+        book.setPrice(new BigDecimal("12.99"));
+
+        bookDao.updateBook(book);
+
+        Book book1 = bookDao.getBook(book.getBookId());
+
     }
 }
