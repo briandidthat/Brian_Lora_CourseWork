@@ -83,7 +83,7 @@ public class BookDaoTest {
 
         Book book1 = bookDao.getBook(book.getBookId());
         // CHECK THAT THE ENTERED BOOK AND COPIED BOOK ARE "EQUAL"
-        assertEquals(book1, book);
+        assertEquals(book, book1);
 
         // DELETE BOOK
         bookDao.deleteBook(book.getBookId());
@@ -129,14 +129,14 @@ public class BookDaoTest {
         book.setPrice(new BigDecimal("20.99"));
         book = bookDao.addBook(book);
 
-        Book book1 = new Book();
-        book1.setIsBn("2345aesdre");
-        book1.setPublishDate(LocalDate.of(2001,11,22));
-        book1.setAuthorId(author.getAuthorId());
-        book1.setTitle("Holes");
-        book1.setPublisherId(publisher.getPublisherId());
-        book1.setPrice(new BigDecimal("30.99"));
-        book1 = bookDao.addBook(book);
+        book = new Book();
+        book.setIsBn("2345aesdre");
+        book.setPublishDate(LocalDate.of(2001,11,22));
+        book.setAuthorId(author.getAuthorId());
+        book.setTitle("Holes");
+        book.setPublisherId(publisher.getPublisherId());
+        book.setPrice(new BigDecimal("30.99"));
+        book = bookDao.addBook(book);
 
         List<Book> bookList = bookDao.getBooks();
 

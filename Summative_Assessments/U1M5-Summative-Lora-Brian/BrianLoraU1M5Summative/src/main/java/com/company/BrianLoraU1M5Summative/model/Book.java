@@ -8,8 +8,8 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class Book {
-    @Id
-    @GeneratedValue
+//    @Id
+////    @GeneratedValue
     private int bookId;
     private String isBn;
     private LocalDate publishDate;
@@ -95,4 +95,5 @@ public class Book {
         return Objects.hash(getBookId(), getIsBn(), getPublishDate(), getAuthorId(),
                 getTitle(), getPublisherId(), getPrice());
     }
+
 }
