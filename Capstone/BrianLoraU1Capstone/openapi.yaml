@@ -1,0 +1,402 @@
+openapi: 3.0.0
+info:
+ title: Game Store
+ description: A simple REST inventory management web service for a video game store.
+ version: 0.0.1
+servers: 
+  - url: http://localhost:8080
+    description: My local machine
+paths:
+  /game:
+    get:
+      summary: Retrieve a list of all available games. 
+      responses:
+        '200': 
+          description: List of games.
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Game'
+    post:
+      summary: Add a new game to the current inventory.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Game'
+      responses:
+        '201': 
+          description: Successful creation of game.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Game'
+        '401':
+          description: Invalid request syntax.
+        '422':
+          description: Incomplete game information. Some required fields are missing.
+    put:
+      summary: Update a specific game.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Game'
+      responses:
+        '201':
+          description: Successful game update.
+        '400':
+          description: Invalid game format.
+        '404':
+          description: Game not found.
+# get/delete games by ID     
+  /game/{gameId}:
+    get:
+      summary: Retrieve a certain game by the given ID.
+      parameters: 
+        - name: gameId
+          in: path
+          required: true
+          description: The ID of the game you'd like to retrieve.
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':
+          description: Game object matching the given id.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Game'
+        '400':
+          description: The specified game ID is invalid (not a number).
+        '404':
+          description: A game with the specified ID was not found.
+    delete:
+      summary: Remove a certain game by the given ID.
+      parameters: 
+        - name: gameId
+          in: path
+          required: true
+          description: The ID of the game you'd like to remove.
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        '204': 
+          description: Successful game deletion.
+        '404':
+          description: A game with the specified ID was not found.
+          
+# Console paths
+  /console:
+    get:
+      summary: Retrieve a list of all available consoles.
+      responses:
+        '200':
+          description: A list of all consoles in inventory.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Console'
+    post:
+      summary: Add a new console to the currenty inventory.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Console'
+      responses:
+        '201':
+          description: Successful creation of console.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Console'
+        '401':
+          description: Invalid request syntax.
+        '422':
+          description: Incomplete console information. Some required fields are missing.
+    put:
+      summary: Update a specific console.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Console'
+      responses:
+        '201':
+          description: Successful console update.
+        '400':
+          description: Invalid console format.
+        '404':
+          description: Console not found.  
+          
+# get/delete console by id
+  /console/{consoleId}:
+    get:
+      summary: Retrieve a certain console by the given ID.
+      parameters: 
+        - name: consoleId
+          in: path
+          required: true
+          description: The ID of the console you'd like to retrieve.
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':
+          description: Game object matching the given id.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Console'
+        '400':
+          description: The specified console ID is invalid (not a number).
+        '404':
+          description: A game with the specified ID was not found.
+    delete:
+      summary: Remove a certain console by the given ID.
+      parameters: 
+        - name: consoleId
+          in: path
+          required: true
+          description: The ID of the console you'd like to remove.
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        '204': 
+          description: Successful console deletion.
+        '404':
+          description: A console with the specified ID was not found.
+        
+# Tshirt paths
+  /tshirt:
+    get:
+      summary: Retrieve a list of all available T-Shirts. 
+      responses:
+        '200':
+          description: A list of all t-shirts.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TShirt'
+    post:
+      summary: Add a new t-shirt to the current inventory.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TShirt'
+      responses:
+        '201': 
+          description: Successful creation of t-shirt object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TShirt'
+        '401':
+          description: Invalid request syntax.
+        '422':
+          description: Incomplete t-shirt information. Some required fields are missing.
+    put:
+      summary: Update a specific t-shirt.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TShirt'
+      responses:
+        '201':
+          description: Successful t-shirt update.
+        '400':
+          description: Invalid t-shirt format.
+        '404':
+          description: TShirt not found.  
+      
+# GET/DELETE T-Shirt by id
+  /tshirt/{tShirtId}:
+    get:
+      summary: Retrieve a certain console by the given ID.
+      parameters: 
+        - name: tShirtId
+          in: path
+          required: true
+          description: The ID of the t-shirt you'd like to retrieve.
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':
+          description: T-Shirt object matching the given id.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TShirt'
+        '400':
+          description: The specified t-shirt ID is invalid (not a number).
+        '404':
+          description: A t-shirt with the specified ID was not found.
+    delete:
+      summary: Remove a certain t-shirt by the given ID.
+      parameters: 
+        - name: tShirtId
+          in: path
+          required: true
+          description: The ID of the t-shirt you'd like to remove.
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        '204': 
+          description: Successful t-shirt deletion.  
+        '404':
+          description: A t-shirt with the specified ID was not found.
+
+# Invoice paths
+  /invoice:
+     post:
+      summary: Create a new invoice based upon provided values.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Invoice'
+      responses:
+        '201': 
+          description: Successful creation of invoice.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+        '401':
+          description: Invalid request syntax.
+        '422':
+          description: Incomplete invoice information. Some required fields are missing.
+      
+components:
+  schemas:
+    Game:
+      properties:
+        gameId:
+          type: number
+        title:
+          type: string
+        esrbRating:
+          type: string
+        description:
+          type: string
+        price: 
+          type: number
+        studio: 
+          type: string
+        quantity: 
+          type: number
+      required:
+        - title
+        - esrbRating
+        - description
+        - price
+        - studio
+        - quantity
+    Console:
+      properties:
+        consoleId:
+          type: number
+        model:
+          type: string
+        manufacturer: 
+          type: string
+        memoryAmount:
+          type: number
+        processor: 
+          type: string
+        price:
+          type: number
+        quantity:
+          type: number
+      required: 
+        - model
+        - manufacturer
+        - memoryAmount
+        - processor
+        - price
+        - quantity
+    TShirt:
+      properties:
+        tShirtId:
+          type: number
+        size: 
+          type: string
+        color: 
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+        quantity:
+          type: number
+      required:
+        - size
+        - color
+        - description
+        - price
+        - quantity
+    Invoice:
+      properties:
+        invoiceId:
+          type: number
+        name:
+          type: string
+        street:
+          type: string
+        city:
+          type: string
+        state: 
+          type: string
+        zipCode: 
+          type: string
+        itemType:
+          type: string
+        itemId:
+          type: number
+        unitPrice:
+          type: number
+        quanitity:
+          type: number
+        subTotal: 
+          type: number
+        tax:
+          type: number
+        processingFee:
+          type: number
+        total:
+          type: number
+      required: 
+        - name
+        - street
+        - city
+        - state
+        - zipCode
+        - itemType
+        - itemId
+        - unitPrice
+        - quantity
+        - subTotal
+        - tax
+        - processingFee
+        - total
