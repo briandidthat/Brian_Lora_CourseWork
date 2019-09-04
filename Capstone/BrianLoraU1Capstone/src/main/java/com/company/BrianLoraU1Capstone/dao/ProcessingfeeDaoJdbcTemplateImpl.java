@@ -2,6 +2,7 @@ package com.company.BrianLoraU1Capstone.dao;
 
 import com.company.BrianLoraU1Capstone.model.ProcessingFee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +24,7 @@ public class ProcessingfeeDaoJdbcTemplateImpl implements ProcessingFeeDao {
             "select * from processing_fee";
     private static final String UPDATE_PROCESSING_FEE_SQL =
             "update processing_fee set fee = ? where product_type = ?";
+
     @Autowired
     public ProcessingfeeDaoJdbcTemplateImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -31,17 +33,26 @@ public class ProcessingfeeDaoJdbcTemplateImpl implements ProcessingFeeDao {
     @Override
     @Transactional
     public ProcessingFee addProcessingFee(ProcessingFee processingFee) {
-        return null;
+        jdbcTemplate.update(INSERT_PROCESSING_FEE_SQL,
+                processingFee.getProductType(),
+                processingFee.getFee());
+        
+        return processingFee;
     }
 
     @Override
     public ProcessingFee getProcessingFee(String productType) {
-        return null;
+        try {
+            return jdbcTemplate.queryForObject(SELECT_PROCESSING_FEE_BY_PRODUCT_TYPE_SQL,
+                    this::mapRowToProcessingFee, productType);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
     }
 
     @Override
     public List<ProcessingFee> getAllProcessingFees() {
-        return null;
+        return jdbcTemplate.query(SELECT_ALL_PROCESSING_FEES_SQL, this::mapRowToProcessingFee);
     }
 
     @Override

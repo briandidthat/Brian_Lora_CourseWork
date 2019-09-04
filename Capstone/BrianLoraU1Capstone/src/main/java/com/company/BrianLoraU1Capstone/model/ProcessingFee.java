@@ -1,6 +1,5 @@
 package com.company.BrianLoraU1Capstone.model;
 
-
 import java.math.BigDecimal;
 import java.util.Objects;
 
