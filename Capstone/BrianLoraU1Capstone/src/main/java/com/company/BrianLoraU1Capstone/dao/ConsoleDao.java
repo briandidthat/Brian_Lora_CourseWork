@@ -9,6 +9,7 @@ public interface ConsoleDao {
     Console getConsoleById(int id);
 
     List<Console> getConsolesByManufacturer(String manufacturer);
+    List<Console> getAllConsoles();
 
     void updateConsole(Console console);
     void deleteConsole(int id);

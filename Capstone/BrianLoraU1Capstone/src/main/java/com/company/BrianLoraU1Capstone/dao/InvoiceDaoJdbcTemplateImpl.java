@@ -3,10 +3,11 @@ package com.company.BrianLoraU1Capstone.dao;
 import com.company.BrianLoraU1Capstone.model.Invoice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-
+@Repository
 public class InvoiceDaoJdbcTemplateImpl implements InvoiceDao {
     private JdbcTemplate jdbcTemplate;
 
