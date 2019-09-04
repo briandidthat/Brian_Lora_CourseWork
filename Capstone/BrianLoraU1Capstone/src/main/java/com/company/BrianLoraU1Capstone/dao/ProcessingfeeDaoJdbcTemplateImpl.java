@@ -36,7 +36,7 @@ public class ProcessingfeeDaoJdbcTemplateImpl implements ProcessingFeeDao {
         jdbcTemplate.update(INSERT_PROCESSING_FEE_SQL,
                 processingFee.getProductType(),
                 processingFee.getFee());
-        
+
         return processingFee;
     }
 
