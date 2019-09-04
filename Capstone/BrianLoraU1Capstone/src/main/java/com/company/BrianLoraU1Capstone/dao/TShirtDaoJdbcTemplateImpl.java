@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -38,6 +39,7 @@ public class TShirtDaoJdbcTemplateImpl implements TShirtDao {
     }
 
     @Override
+    @Transactional
     public TShirt addTShirt(TShirt tShirt) {
         jdbcTemplate.update(INSERT_TSHIRT_SQL,
                 tShirt.getSize(),

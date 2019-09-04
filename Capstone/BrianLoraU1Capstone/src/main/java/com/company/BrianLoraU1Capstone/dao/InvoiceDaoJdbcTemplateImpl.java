@@ -4,6 +4,7 @@ import com.company.BrianLoraU1Capstone.model.Invoice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class InvoiceDaoJdbcTemplateImpl implements InvoiceDao {
     }
 
     @Override
+    @Transactional
     public Invoice addInvoice(Invoice invoice) {
         return null;
     }
