@@ -8,7 +8,6 @@ public class SalesTaxRate {
     private String state;
     private BigDecimal rate;
 
-
     public void setState(String state) {
         this.state = state;
     }
