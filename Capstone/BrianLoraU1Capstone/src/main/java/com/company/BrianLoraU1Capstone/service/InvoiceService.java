@@ -5,6 +5,8 @@ import com.company.BrianLoraU1Capstone.dao.GameDao;
 import com.company.BrianLoraU1Capstone.dao.InvoiceDao;
 import com.company.BrianLoraU1Capstone.dao.TShirtDao;
 
+import com.company.BrianLoraU1Capstone.model.Invoice;
+import com.company.BrianLoraU1Capstone.viewmodel.InvoiceViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,4 +25,17 @@ public class InvoiceService {
         this.invoiceDao = invoiceDao;
     }
 
+    private InvoiceViewModel buildInvoiceViewModel(Invoice invoice) {
+        InvoiceViewModel invoiceViewModel = new InvoiceViewModel();
+        invoiceViewModel.setId(invoice.getInvoiceId());
+        invoiceViewModel.setName(invoice.getName());
+        invoiceViewModel.setItemType(invoice.getItemType());
+        invoiceViewModel.setQuantity(invoice.getQuantity());
+        invoiceViewModel.setSubTotal(invoice.getSubTotal());
+        invoiceViewModel.setTax(invoice.getTax());
+        invoiceViewModel.setProcessingFee(invoice.getProcessingFee());
+        invoiceViewModel.setTotal(invoice.getTotal());
+
+        return invoiceViewModel;
+    }
 }
