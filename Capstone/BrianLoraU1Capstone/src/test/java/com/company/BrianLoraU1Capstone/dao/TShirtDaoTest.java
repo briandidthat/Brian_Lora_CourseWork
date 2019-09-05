@@ -1,11 +1,15 @@
 package com.company.BrianLoraU1Capstone.dao;
 
+import com.company.BrianLoraU1Capstone.model.TShirt;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.math.BigDecimal;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -17,22 +21,84 @@ public class TShirtDaoTest {
 
     @Before
     public void setUp() throws Exception {
+        List<TShirt> tShirts = tShirtDao.getAllTShirts();
+        for (TShirt t : tShirts) {
+            tShirtDao.deleteTShirt(t.getTShirtId());
+        }
     }
 
     @Test
     public void addGetDeleteTShirt() {
+        // add
+        TShirt tShirt = new TShirt();
+        tShirt.setSize("Medium");
+        tShirt.setColor("Blue");
+        tShirt.setDescription("new gucci tee");
+        tShirt.setQuantity(4);
+        tShirt.setPrice(new BigDecimal("20.00"));
+        tShirt = tShirtDao.addTShirt(tShirt);
+        // get
+        TShirt tshirt1 = tShirtDao.getTShirtById(tShirt.getTShirtId());
+        assertEquals(tshirt1, tShirt);
+        // delete
+        tShirtDao.deleteTShirt(tShirt.getTShirtId());
+        tshirt1 = tShirtDao.getTShirtById(tShirt.getTShirtId());
+        // test for null value to verify deletion
+        assertNull(tshirt1);
     }
 
     @Test
     public void getAllTShirts() {
+        // add
+        TShirt tShirt = new TShirt();
+        tShirt.setSize("Medium");
+        tShirt.setColor("Blue");
+        tShirt.setDescription("new gucci tee");
+        tShirt.setQuantity(4);
+        tShirt.setPrice(new BigDecimal("20.00"));
+        tShirt = tShirtDao.addTShirt(tShirt);
+
+        tShirt = new TShirt();
+        tShirt.setSize("Large");
+        tShirt.setColor("red");
+        tShirt.setDescription("new fendi tee");
+        tShirt.setQuantity(4);
+        tShirt.setPrice(new BigDecimal("40.00"));
+        tShirtDao.addTShirt(tShirt);
+        // get all
+        List<TShirt> tShirts = tShirtDao.getAllTShirts();
+        // verify that only 2 tShirts exist in DB
+        assertEquals(2, tShirts.size());
     }
 
     @Test
     public void getTShirtsBySize() {
+        TShirt tShirt = new TShirt();
+        tShirt.setSize("Medium");
+        tShirt.setColor("Blue");
+        tShirt.setDescription("new gucci tee");
+        tShirt.setQuantity(4);
+        tShirt.setPrice(new BigDecimal("20.00"));
+        tShirt = tShirtDao.addTShirt(tShirt);
+        // get all shirts that are size medium
+        List<TShirt> tShirts = tShirtDao.getTShirtsBySize("Medium");
+        // verify that there is only one medium as I have only saved one
+        assertEquals(1, tShirts.size());
     }
 
     @Test
     public void getTShirtsByColor() {
+        TShirt tShirt = new TShirt();
+        tShirt.setSize("Medium");
+        tShirt.setColor("Blue");
+        tShirt.setDescription("new gucci tee");
+        tShirt.setQuantity(4);
+        tShirt.setPrice(new BigDecimal("20.00"));
+        tShirt = tShirtDao.addTShirt(tShirt);
+        // get all shirts that are blue
+        List<TShirt> tShirts = tShirtDao.getTShirtsByColor("Blue");
+        // verify that there is only one red shirt as I have only saved one
+        assertEquals(1, tShirts.size());
     }
 
     @Test
