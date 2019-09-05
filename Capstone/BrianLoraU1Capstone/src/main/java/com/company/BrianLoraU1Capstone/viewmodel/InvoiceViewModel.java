@@ -18,7 +18,6 @@ public class InvoiceViewModel {
     private BigDecimal processingFee;
     private BigDecimal total;
 
-
     // SETTERS
     public void setId(int id) {
         this.id = id;

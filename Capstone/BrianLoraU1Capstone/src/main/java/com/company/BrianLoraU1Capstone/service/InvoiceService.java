@@ -1,15 +1,16 @@
 package com.company.BrianLoraU1Capstone.service;
 
-import com.company.BrianLoraU1Capstone.dao.ConsoleDao;
-import com.company.BrianLoraU1Capstone.dao.GameDao;
-import com.company.BrianLoraU1Capstone.dao.InvoiceDao;
-import com.company.BrianLoraU1Capstone.dao.TShirtDao;
+import com.company.BrianLoraU1Capstone.dao.*;
 
 import com.company.BrianLoraU1Capstone.model.Invoice;
+import com.company.BrianLoraU1Capstone.model.ProcessingFee;
+import com.company.BrianLoraU1Capstone.model.SalesTaxRate;
 import com.company.BrianLoraU1Capstone.viewmodel.InvoiceViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.math.BigDecimal;
 
 @Component
 public class InvoiceService {
@@ -17,13 +18,35 @@ public class InvoiceService {
     TShirtDao tShirtDao;
     ConsoleDao consoleDao;
     InvoiceDao invoiceDao;
+    SalesTaxRateDao salesTaxRateDao;
+    ProcessingFeeDao processingFeeDao;
 
     @Autowired
-    public InvoiceService(GameDao gameDao, TShirtDao tShirtDao, ConsoleDao consoleDao, InvoiceDao invoiceDao) {
+    public InvoiceService(GameDao gameDao, TShirtDao tShirtDao, ConsoleDao consoleDao, InvoiceDao invoiceDao,
+                          SalesTaxRateDao salesTaxRateDao, ProcessingFeeDao processingFeeDao)
+    {
         this.gameDao = gameDao;
         this.tShirtDao = tShirtDao;
         this.consoleDao = consoleDao;
         this.invoiceDao = invoiceDao;
+        this.salesTaxRateDao = salesTaxRateDao;
+        this.processingFeeDao = processingFeeDao;
+    }
+
+    // INVOICE TOTAL METHODS
+    private BigDecimal calculateTax(BigDecimal subtotal, String state) {
+        SalesTaxRate salesTaxRate = salesTaxRateDao.getSalesTaxRate(state);
+        BigDecimal tax = subtotal.multiply(salesTaxRate.getRate());
+        return tax;
+    }
+
+    private BigDecimal getProcessingFee(String itemType, int itemQuantity) {
+        ProcessingFee processingFee = processingFeeDao.getProcessingFee(itemType);
+        BigDecimal fees = processingFee.getFee();
+        if (itemQuantity >= 10) {
+            fees.add(new BigDecimal("15.49"));
+        }
+        return fees;
     }
 
     @Transactional
