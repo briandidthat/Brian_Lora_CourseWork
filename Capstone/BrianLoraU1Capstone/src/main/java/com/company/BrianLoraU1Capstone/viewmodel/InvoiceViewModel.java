@@ -6,6 +6,10 @@ import java.util.Objects;
 public class InvoiceViewModel {
     private int id;
     private String name;
+    private String street;
+    private String city;
+    private String state;
+    private String zipCode;
     private String itemType;
     private int itemId;
     private int quantity;
@@ -22,6 +26,23 @@ public class InvoiceViewModel {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
     }
 
     public void setItemType(String itemType) {
@@ -62,6 +83,22 @@ public class InvoiceViewModel {
         return name;
     }
 
+    public String getStreet() {
+        return street;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
     public String getItemType() {
         return itemType;
     }
@@ -96,10 +133,14 @@ public class InvoiceViewModel {
         if (o == null || getClass() != o.getClass()) return false;
         InvoiceViewModel that = (InvoiceViewModel) o;
         return getId() == that.getId() &&
+                getItemId() == that.getItemId() &&
                 getQuantity() == that.getQuantity() &&
                 Objects.equals(getName(), that.getName()) &&
+                Objects.equals(getStreet(), that.getStreet()) &&
+                Objects.equals(getCity(), that.getCity()) &&
+                Objects.equals(getState(), that.getState()) &&
+                Objects.equals(getZipCode(), that.getZipCode()) &&
                 Objects.equals(getItemType(), that.getItemType()) &&
-                Objects.equals(getItemId(), that.getId()) &&
                 Objects.equals(getSubTotal(), that.getSubTotal()) &&
                 Objects.equals(getTax(), that.getTax()) &&
                 Objects.equals(getProcessingFee(), that.getProcessingFee()) &&
@@ -108,7 +149,7 @@ public class InvoiceViewModel {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getItemType(), getItemId(), getQuantity(),
-                getSubTotal(), getTax(), getProcessingFee(), getTotal());
+        return Objects.hash(getId(), getName(), getStreet(), getCity(), getState(), getZipCode(),
+                getItemType(), getItemId(), getQuantity(), getSubTotal(), getTax(), getProcessingFee(), getTotal());
     }
 }
