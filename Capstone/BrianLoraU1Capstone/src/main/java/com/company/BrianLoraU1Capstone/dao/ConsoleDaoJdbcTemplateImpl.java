@@ -26,7 +26,7 @@ public class ConsoleDaoJdbcTemplateImpl implements ConsoleDao {
     private static final String SELECT_CONSOLES_BY_MANUFACTURER_SQL =
             "select * from console where manufacturer = ?";
     private static final String DELETE_CONSOLE_SQL =
-            "delete from console where id = ?";
+            "delete from console where console_id = ?";
     private static final String UPDATE_CONSOLE_SQL =
             "update console set model = ?, manufacturer = ?, memory_amount = ?, processor = ?, price = ?," +
                     "quantity = ? where console_id = ?";
