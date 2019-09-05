@@ -103,6 +103,20 @@ public class TShirtDaoTest {
 
     @Test
     public void updateTShirt() {
+        TShirt tShirt = new TShirt();
+        tShirt.setSize("Medium");
+        tShirt.setColor("Blue");
+        tShirt.setDescription("new gucci tee");
+        tShirt.setQuantity(4);
+        tShirt.setPrice(new BigDecimal("20.00"));
+        tShirt = tShirtDao.addTShirt(tShirt);
+        // set new values and update DB
+        tShirt.setPrice(new BigDecimal("29.99"));
+        tShirt.setQuantity(2);
+        tShirtDao.updateTShirt(tShirt);
+        // get and compare
+        TShirt tShirt1 = tShirtDao.getTShirtById(tShirt.getTShirtId());
+        assertEquals(tShirt1, tShirt);
     }
 
 }

@@ -30,6 +30,7 @@ public class InvoiceService {
         invoiceViewModel.setId(invoice.getInvoiceId());
         invoiceViewModel.setName(invoice.getName());
         invoiceViewModel.setItemType(invoice.getItemType());
+        invoiceViewModel.setItemId(invoice.getItemId());
         invoiceViewModel.setQuantity(invoice.getQuantity());
         invoiceViewModel.setSubTotal(invoice.getSubTotal());
         invoiceViewModel.setTax(invoice.getTax());

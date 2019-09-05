@@ -65,6 +65,21 @@ public class ConsoleDaoTest {
 
     @Test
     public void updateConsole() {
+        Console console = new Console();
+        console.setModel("PS4");
+        console.setManufacturer("SONY");
+        console.setMemoryAmount("1TB");
+        console.setProcessor("I7");
+        console.setPrice(new BigDecimal("599.99"));
+        console.setQuantity(10);
+        console = consoleDao.addConsole(console);
+        // set new values and update on DB
+        console.setPrice(new BigDecimal("899.99"));
+        console.setMemoryAmount("2TB");
+        consoleDao.updateConsole(console);
+        // get and compare
+        Console console1 = consoleDao.getConsoleById(console.getConsoleId());
+        assertEquals(console1, console);
     }
 
 }

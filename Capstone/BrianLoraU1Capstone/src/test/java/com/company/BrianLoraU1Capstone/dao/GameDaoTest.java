@@ -41,7 +41,6 @@ public class GameDaoTest {
         // get
         Game game1 = gameDao.getGameById(game.getGameId());
         assertEquals(game1, game);
-
         // delete
         gameDao.deleteGame(game.getGameId());
         game1 = gameDao.getGameById(game.getGameId());
@@ -124,7 +123,21 @@ public class GameDaoTest {
 
     @Test
     public void updateGame() {
-
+        Game game = new Game();
+        game.setTitle("DeadPool");
+        game.setEsrbRating("R");
+        game.setDescription("Play as deadpool");
+        game.setPrice(new BigDecimal("59.99"));
+        game.setStudio("Nomad Studios");
+        game.setQuantity(4);
+        game = gameDao.addGame(game);
+        // save new values and update in db
+        game.setPrice(new BigDecimal("49.99"));
+        game.setQuantity(3);
+        gameDao.updateGame(game);
+        // get and compare
+        Game game1 = gameDao.getGameById(game.getGameId());
+        assertEquals(game1, game);
     }
 
 }

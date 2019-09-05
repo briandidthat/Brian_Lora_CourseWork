@@ -7,6 +7,7 @@ public class InvoiceViewModel {
     private int id;
     private String name;
     private String itemType;
+    private int itemId;
     private int quantity;
     private BigDecimal subTotal;
     private BigDecimal tax;
@@ -25,6 +26,10 @@ public class InvoiceViewModel {
 
     public void setItemType(String itemType) {
         this.itemType = itemType;
+    }
+
+    public void setItemId(int itemId) {
+        this.itemId = itemId;
     }
 
     public void setQuantity(int quantity) {
@@ -61,6 +66,10 @@ public class InvoiceViewModel {
         return itemType;
     }
 
+    public int getItemId() {
+        return itemId;
+    }
+
     public int getQuantity() {
         return quantity;
     }
@@ -90,6 +99,7 @@ public class InvoiceViewModel {
                 getQuantity() == that.getQuantity() &&
                 Objects.equals(getName(), that.getName()) &&
                 Objects.equals(getItemType(), that.getItemType()) &&
+                Objects.equals(getItemId(), that.getId()) &&
                 Objects.equals(getSubTotal(), that.getSubTotal()) &&
                 Objects.equals(getTax(), that.getTax()) &&
                 Objects.equals(getProcessingFee(), that.getProcessingFee()) &&
@@ -98,7 +108,7 @@ public class InvoiceViewModel {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getItemType(), getQuantity(), getSubTotal(),
-                getTax(), getProcessingFee(), getTotal());
+        return Objects.hash(getId(), getName(), getItemType(), getItemId(), getQuantity(),
+                getSubTotal(), getTax(), getProcessingFee(), getTotal());
     }
 }

@@ -95,6 +95,28 @@ public class InvoiceDaoTest {
 
     @Test
     public void updateInvoice() {
+        Invoice invoice = new Invoice();
+        invoice.setName("Brian Lora");
+        invoice.setStreet("502 Broadway");
+        invoice.setCity("Los Angeles");
+        invoice.setState("CA");
+        invoice.setZipCode("90201");
+        invoice.setItemType("Console");
+        invoice.setItemId(1);
+        invoice.setUnitPrice(new BigDecimal("599.99"));
+        invoice.setQuantity(2);
+        invoice.setSubTotal(new BigDecimal("11.98"));
+        invoice.setTax(new BigDecimal("17.78"));
+        invoice.setProcessingFee(new BigDecimal("14.99"));
+        invoice.setTotal(new BigDecimal("100.00"));
+        invoice = invoiceDao.addInvoice(invoice);
+        // set new values and update in DB
+        invoice.setTotal(new BigDecimal("200.00"));
+        invoice.setQuantity(3);
+        invoiceDao.addInvoice(invoice);
+        // get and compare
+        Invoice invoice1 = invoiceDao.getInvoiceById(invoice.getInvoiceId());
+        assertEquals(invoice1, invoice);
     }
 
 }

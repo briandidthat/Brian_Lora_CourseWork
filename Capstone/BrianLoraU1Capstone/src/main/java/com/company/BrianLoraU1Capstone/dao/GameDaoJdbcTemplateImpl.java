@@ -2,6 +2,7 @@ package com.company.BrianLoraU1Capstone.dao;
 
 import com.company.BrianLoraU1Capstone.model.Game;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -63,7 +64,11 @@ public class GameDaoJdbcTemplateImpl implements GameDao {
 
     @Override
     public Game getGameById(int id) {
-        return jdbcTemplate.queryForObject(SELECT_GAME_BY_ID_SQL, this::mapRowToGame, id);
+        try {
+            return jdbcTemplate.queryForObject(SELECT_GAME_BY_ID_SQL, this::mapRowToGame, id);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
     }
 
     @Override
