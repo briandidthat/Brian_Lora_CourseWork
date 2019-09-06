@@ -11,4 +11,5 @@ public interface ProcessingFeeDao {
     List<ProcessingFee> getAllProcessingFees();
 
     void updateProcessingFee(ProcessingFee processingFee);
+    void deleteProcessingFee(String productType);
 }

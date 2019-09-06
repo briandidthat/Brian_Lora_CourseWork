@@ -11,4 +11,5 @@ public interface SalesTaxRateDao {
     List<SalesTaxRate> getAllSalesTaxRates();
 
     void updateSalesTaxRate(SalesTaxRate salesTaxRate);
+    void deleteSalesTaxRate(String state);
 }

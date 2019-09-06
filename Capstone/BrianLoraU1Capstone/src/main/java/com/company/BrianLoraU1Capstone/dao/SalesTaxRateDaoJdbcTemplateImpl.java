@@ -23,6 +23,8 @@ public class SalesTaxRateDaoJdbcTemplateImpl implements SalesTaxRateDao {
             "select * from sales_tax_rate where state = ?";
     private static final String UPDATE_SALES_TAX_RATE_SQL =
             "update sales_tax_rate set rate = ? where state = ?";
+    private static final String DELETE_SALES_TAX_RATE_SQL =
+            "delete from sales_tax_rate where state = ?";
 
     @Autowired
     public SalesTaxRateDaoJdbcTemplateImpl(JdbcTemplate jdbcTemplate) {
@@ -54,6 +56,11 @@ public class SalesTaxRateDaoJdbcTemplateImpl implements SalesTaxRateDao {
         jdbcTemplate.update(UPDATE_SALES_TAX_RATE_SQL,
                 salesTaxRate.getRate(),
                 salesTaxRate.getState());
+    }
+
+    @Override
+    public void deleteSalesTaxRate(String state) {
+        jdbcTemplate.update(DELETE_SALES_TAX_RATE_SQL, state);
     }
 
     // HELPER METHODS

@@ -24,6 +24,8 @@ public class ProcessingfeeDaoJdbcTemplateImpl implements ProcessingFeeDao {
             "select * from processing_fee";
     private static final String UPDATE_PROCESSING_FEE_SQL =
             "update processing_fee set fee = ? where product_type = ?";
+    private static final String DELETE_PROCESSING_FEE_SQL =
+            "delete from processing_fee where product_type = ?";
 
     @Autowired
     public ProcessingfeeDaoJdbcTemplateImpl(JdbcTemplate jdbcTemplate) {
@@ -60,6 +62,11 @@ public class ProcessingfeeDaoJdbcTemplateImpl implements ProcessingFeeDao {
         jdbcTemplate.update(UPDATE_PROCESSING_FEE_SQL,
                 processingFee.getFee(),
                 processingFee.getProductType());
+    }
+
+    @Override
+    public void deleteProcessingFee(String productType) {
+        jdbcTemplate.update(DELETE_PROCESSING_FEE_SQL, productType);
     }
 
     // HELPER METHOD
