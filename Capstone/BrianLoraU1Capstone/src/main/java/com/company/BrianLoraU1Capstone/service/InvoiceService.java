@@ -14,20 +14,12 @@ import java.math.BigDecimal;
 
 @Component
 public class InvoiceService {
-    GameDao gameDao;
-    TShirtDao tShirtDao;
-    ConsoleDao consoleDao;
     InvoiceDao invoiceDao;
     SalesTaxRateDao salesTaxRateDao;
     ProcessingFeeDao processingFeeDao;
 
     @Autowired
-    public InvoiceService(GameDao gameDao, TShirtDao tShirtDao, ConsoleDao consoleDao, InvoiceDao invoiceDao,
-                          SalesTaxRateDao salesTaxRateDao, ProcessingFeeDao processingFeeDao)
-    {
-        this.gameDao = gameDao;
-        this.tShirtDao = tShirtDao;
-        this.consoleDao = consoleDao;
+    public InvoiceService(InvoiceDao invoiceDao, SalesTaxRateDao salesTaxRateDao, ProcessingFeeDao processingFeeDao) {
         this.invoiceDao = invoiceDao;
         this.salesTaxRateDao = salesTaxRateDao;
         this.processingFeeDao = processingFeeDao;
@@ -80,8 +72,10 @@ public class InvoiceService {
         }
     }
 
+    @Transactional
     public void updateInvoice(InvoiceViewModel invoiceViewModel) {
         Invoice invoice = new Invoice();
+        invoice.setInvoiceId(invoiceViewModel.getId());
         invoice.setName(invoiceViewModel.getName());
         invoice.setStreet(invoiceViewModel.getStreet());
         invoice.setCity(invoiceViewModel.getCity());
