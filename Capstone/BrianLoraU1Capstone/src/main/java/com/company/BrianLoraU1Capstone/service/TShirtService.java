@@ -50,6 +50,17 @@ public class TShirtService {
         return tvmList;
     }
 
+    public List<TShirtViewModel> findTAllTShirts() {
+        List<TShirt> tShirts = tShirtDao.getAllTShirts();
+        List<TShirtViewModel> tvmList = new ArrayList<>();
+
+        for (TShirt t : tShirts) {
+            TShirtViewModel tModel = buildTShirtModel(t);
+            tvmList.add(tModel);
+        }
+        return tvmList;
+    }
+
     @Transactional
     public TShirtViewModel saveTShirt(TShirtViewModel tShirtViewModel) {
         TShirt tShirt = new TShirt();

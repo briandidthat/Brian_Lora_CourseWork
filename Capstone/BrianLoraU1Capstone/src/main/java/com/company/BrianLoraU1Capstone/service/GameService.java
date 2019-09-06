@@ -59,6 +59,17 @@ public class GameService {
         return gvmList;
     }
 
+    public List<GameViewModel> findAllGames() {
+        List<Game> gameList = gameDao.getAllGames();
+        List<GameViewModel> gvmList = new ArrayList<>();
+
+        for (Game g : gameList) {
+            GameViewModel gModel = buildGameViewModel(g);
+            gvmList.add(gModel);
+        }
+        return gvmList;
+    }
+
     @Transactional
     public GameViewModel saveGame(GameViewModel gameViewModel) {
         Game game = new Game();

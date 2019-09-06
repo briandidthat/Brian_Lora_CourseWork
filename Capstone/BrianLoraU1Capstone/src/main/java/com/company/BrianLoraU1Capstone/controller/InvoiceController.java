@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("invoice")
 public class InvoiceController {
@@ -15,10 +17,11 @@ public class InvoiceController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public InvoiceViewModel createInvoice(@RequestBody InvoiceViewModel invoice) {
-        return invoiceService.saveInvoice(invoice);
+    public InvoiceViewModel createInvoice(@RequestBody InvoiceViewModel invoiceViewModel) {
+        return invoiceService.saveInvoice(invoiceViewModel);
     }
 
+    // ID PATH VARIABLE
     @GetMapping("{id}")
     @ResponseStatus(HttpStatus.OK)
     public InvoiceViewModel getInvoice(@PathVariable("id") int invoiceId) {
@@ -46,7 +49,5 @@ public class InvoiceController {
     public void deleteInvoice(@PathVariable("id") int invoiceId) {
         invoiceService.removeInvoice(invoiceId);
     }
-
-
 
 }
