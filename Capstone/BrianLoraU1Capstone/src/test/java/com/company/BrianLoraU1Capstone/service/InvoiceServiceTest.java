@@ -1,21 +1,20 @@
 package com.company.BrianLoraU1Capstone.service;
 
-import com.company.BrianLoraU1Capstone.dao.*;
-import com.company.BrianLoraU1Capstone.model.SalesTaxRate;
+import com.company.BrianLoraU1Capstone.dao.ConsoleDao;
+import com.company.BrianLoraU1Capstone.dao.GameDao;
+import com.company.BrianLoraU1Capstone.dao.InvoiceDao;
+import com.company.BrianLoraU1Capstone.dao.TShirtDao;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class InvoiceServiceTest {
-
-    ConsoleDao consoleDao;
-    GameDao gameDao;
-    InvoiceDao invoiceDao;
-    TShirtDao tShirtDao;
-    SalesTaxRateDao salesTaxRateDao;
-    ProcessingFeeDao processingFeeDao;
     InvoiceService invoiceService;
+    GameDao gameDao;
+    TShirtDao tShirtDao;
+    ConsoleDao consoleDao;
+    InvoiceDao invoiceDao;
 
     @Before
     public void setUp() throws Exception {

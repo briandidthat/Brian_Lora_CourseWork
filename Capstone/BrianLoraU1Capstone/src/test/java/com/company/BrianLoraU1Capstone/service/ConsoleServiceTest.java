@@ -1,11 +1,15 @@
 package com.company.BrianLoraU1Capstone.service;
 
+import com.company.BrianLoraU1Capstone.dao.ConsoleDao;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class ConsoleServiceTest {
+
+    ConsoleDao consoleDao;
+    ConsoleService consoleService;
 
     @Before
     public void setUp() throws Exception {

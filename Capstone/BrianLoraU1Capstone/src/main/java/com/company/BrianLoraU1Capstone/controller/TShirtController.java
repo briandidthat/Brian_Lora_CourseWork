@@ -34,7 +34,7 @@ public class TShirtController {
     public TShirtViewModel getTShirt(@PathVariable("id") int id) {
         TShirtViewModel tShirtViewModel = tShirtService.findTShirtById(id);
         if (tShirtViewModel == null) {
-            throw new NotFoundException("Unfortunately, we don't have a t-shirt with that id.");
+            throw new NotFoundException("Unfortunately, we don't have a t-shirt with the id: " + id + ".");
         }
         return tShirtViewModel;
     }
@@ -46,23 +46,37 @@ public class TShirtController {
             tShirtViewModel.setId(id);
         }
         if (id != tShirtViewModel.getId()) {
-            throw new IllegalArgumentException("T-Shirt ID on path must match the ID in the t-shirt object");
+            throw new IllegalArgumentException("T-Shirt ID on path must match the ID in the t-shirt object.");
         }
         tShirtService.updateTShirt(tShirtViewModel);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteTShirt(@PathVariable("id") int id) {
+        tShirtService.removeShirt(id);
     }
 
     // COLOR PATH VARIABLE
     @GetMapping("/{color}")
     @ResponseStatus(HttpStatus.OK)
     public List<TShirtViewModel> getTShirtsByColor(@PathVariable("color") String color) {
-        return tShirtService.findTShirtsByColor(color);
+        List<TShirtViewModel> tShirts = tShirtService.findTShirtsByColor(color);
+        if (tShirts != null && tShirts.size() == 0) {
+            throw new NotFoundException("Unfortunately, we could not find any t-shirts of the color: " + color + ".");
+        }
+        return tShirts;
     }
 
     // SIZE PATH VARIABLE
     @GetMapping("/{size}")
     @ResponseStatus(HttpStatus.OK)
     public List<TShirtViewModel> getTShirtsBySize(@PathVariable("size") String size) {
-        return tShirtService.findTShirtsBySize(size);
+        List<TShirtViewModel> tShirts = tShirtService.findTShirtsBySize(size);
+        if (tShirts != null && tShirts.size() == 0) {
+            throw new NotFoundException("Unfortunately, we could not find any t-shirts of size: " + size + ".");
+        }
+        return tShirts;
     }
 
 }

@@ -27,7 +27,7 @@ public class InvoiceController {
     public InvoiceViewModel getInvoice(@PathVariable("id") int invoiceId) {
         InvoiceViewModel invoiceViewModel = invoiceService.findInvoiceById(invoiceId);
         if (invoiceViewModel == null) {
-            throw new NotFoundException("Sorry, an invoice could not be retrieved for id " + invoiceId);
+            throw new NotFoundException("Sorry, an invoice could not be retrieved for id: " + invoiceId + ".");
         }
         return invoiceViewModel;
     }

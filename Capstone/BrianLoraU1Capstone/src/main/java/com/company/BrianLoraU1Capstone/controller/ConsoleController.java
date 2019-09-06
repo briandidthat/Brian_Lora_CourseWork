@@ -34,16 +34,39 @@ public class ConsoleController {
     public ConsoleViewModel getConsoleById(@PathVariable("id") int id) {
         ConsoleViewModel console = consoleService.findConsoleById(id);
         if (console == null) {
-            throw new NotFoundException("Unfortunately, we do not have a console with that id.");
+            throw new NotFoundException("Unfortunately, we do not have a console with the id: " + id + ".");
         }
         return console;
+    }
+
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateConsole(@PathVariable("id") int id, @RequestBody ConsoleViewModel consoleViewModel) {
+        if (consoleViewModel.getId() == 0) {
+            consoleViewModel.setId(id);
+        }
+        if (id != consoleViewModel.getId()) {
+            throw new IllegalArgumentException("Console ID on path must match the ID in the console object");
+        }
+        consoleService.updateConsole(consoleViewModel);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteConsole(@PathVariable("id") int id) {
+        consoleService.removeConsole(id);
     }
 
     // MANUFACTURER PATH VARIABLE
     @GetMapping("/{manufacturer}")
     @ResponseStatus(HttpStatus.OK)
     public List<ConsoleViewModel> getConsolesByManufacturer(@PathVariable("manufacturer") String manufacturer) {
-        return consoleService.findConsolesByManufacturer(manufacturer);
+        List<ConsoleViewModel> consoles = consoleService.findConsolesByManufacturer(manufacturer);
+        if (consoles != null && consoles.size() == 0) {
+            throw new NotFoundException("Unfortunately, we could not find any consoles by the manufacturer: " +
+                    manufacturer + ".");
+        }
+        return consoles;
     }
 
 }

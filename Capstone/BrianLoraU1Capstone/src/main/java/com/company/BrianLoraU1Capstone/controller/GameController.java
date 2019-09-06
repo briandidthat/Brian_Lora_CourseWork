@@ -32,7 +32,7 @@ public class GameController {
     public GameViewModel getGameById(@PathVariable("id") int id) {
         GameViewModel game = gameService.findGameById(id);
         if (game == null) {
-            throw new NotFoundException("Unfortunately, we do not have a game with that id.");
+            throw new NotFoundException("Unfortunately, we do not have a game with that id: " + id + ".");
         }
         return game;
     }
@@ -40,18 +40,30 @@ public class GameController {
     @GetMapping("/{title}")
     @ResponseStatus(HttpStatus.OK)
     public GameViewModel getGameByTitle(@PathVariable("title") String title) {
-        return gameService.findGameByTitle(title);
+        GameViewModel game = gameService.findGameByTitle(title);
+        if (game == null) {
+            throw new NotFoundException("Unfortunately, we could not find a game with the title: " + title + ".");
+        }
+        return game;
     }
 
     @GetMapping("/{studio}")
     @ResponseStatus(HttpStatus.OK)
     public List<GameViewModel> getGamesByStudio(@PathVariable("studio") String studio) {
-        return gameService.findGamesByStudio(studio);
+        List<GameViewModel> games = gameService.findGamesByStudio(studio);
+        if (games != null && games.size() == 0) {
+            throw new NotFoundException("Unfortunately, we could not find any games by the studio: " + studio + ".");
+        }
+        return games;
     }
 
     @GetMapping("/{rating}")
     @ResponseStatus(HttpStatus.OK)
     public List<GameViewModel> getGamesByRating(@PathVariable("rating") String rating) {
+        List<GameViewModel> games = gameService.findGamesByRating(rating);
+        if (games != null && games.size() == 0) {
+            throw new NotFoundException("Unfortunately, we could not find any games with the rating: " + rating + ".");
+        }
         return gameService.findGamesByRating(rating);
     }
 

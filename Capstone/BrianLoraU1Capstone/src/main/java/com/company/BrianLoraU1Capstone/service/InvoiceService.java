@@ -31,7 +31,6 @@ public class InvoiceService {
         this.processingFeeDao = processingFeeDao;
     }
 
-
     @Transactional
     public InvoiceViewModel saveInvoice(InvoiceViewModel invoiceViewModel) {
         Invoice invoice = new Invoice();
