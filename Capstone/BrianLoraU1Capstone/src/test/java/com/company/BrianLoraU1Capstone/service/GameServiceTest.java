@@ -1,10 +1,13 @@
 package com.company.BrianLoraU1Capstone.service;
 
 import com.company.BrianLoraU1Capstone.dao.GameDao;
+import com.company.BrianLoraU1Capstone.dao.GameDaoJdbcTemplateImpl;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.doReturn;
 
 public class GameServiceTest {
 
@@ -13,6 +16,8 @@ public class GameServiceTest {
 
     @Before
     public void setUp() throws Exception {
+        setUpGameDaoMock();
+        gameService = new GameService(gameDao);
     }
 
     @Test
@@ -45,5 +50,9 @@ public class GameServiceTest {
 
     @Test
     public void removeGame() {
+    }
+
+    private void setUpGameDaoMock() {
+        gameDao = mock(GameDaoJdbcTemplateImpl.class);
     }
 }

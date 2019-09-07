@@ -1,10 +1,13 @@
 package com.company.BrianLoraU1Capstone.service;
 
 import com.company.BrianLoraU1Capstone.dao.TShirtDao;
+import com.company.BrianLoraU1Capstone.dao.TShirtDaoJdbcTemplateImpl;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.mock;
 
 public class TShirtServiceTest {
 
@@ -13,6 +16,8 @@ public class TShirtServiceTest {
 
     @Before
     public void setUp() throws Exception {
+        setUpTShirtDaoMock();
+        tShirtService = new TShirtService(tShirtDao);
     }
 
     @Test
@@ -45,5 +50,9 @@ public class TShirtServiceTest {
 
     @Test
     public void buildTShirtModel() {
+    }
+
+    private void setUpTShirtDaoMock() {
+        tShirtDao = mock(TShirtDaoJdbcTemplateImpl.class);
     }
 }
