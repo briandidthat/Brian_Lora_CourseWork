@@ -2,8 +2,13 @@ package com.company.BrianLoraU1Capstone.service;
 
 import com.company.BrianLoraU1Capstone.dao.TShirtDao;
 import com.company.BrianLoraU1Capstone.dao.TShirtDaoJdbcTemplateImpl;
+import com.company.BrianLoraU1Capstone.model.TShirt;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.doReturn;
@@ -21,15 +26,7 @@ public class TShirtServiceTest {
     }
 
     @Test
-    public void findTShirtById() {
-    }
-
-    @Test
-    public void findTShirtsByColor() {
-    }
-
-    @Test
-    public void findTShirtsBySize() {
+    public void findTShirtsBySizeAndColor() {
     }
 
     @Test
@@ -37,22 +34,37 @@ public class TShirtServiceTest {
     }
 
     @Test
-    public void saveTShirt() {
+    public void saveFindTShirtByIdRemove() {
     }
 
     @Test
     public void updateTShirt() {
     }
 
-    @Test
-    public void removeShirt() {
-    }
-
-    @Test
-    public void buildTShirtModel() {
-    }
-
     private void setUpTShirtDaoMock() {
         tShirtDao = mock(TShirtDaoJdbcTemplateImpl.class);
+        TShirt tShirt = new TShirt();
+        tShirt.setTShirtId(1);
+        tShirt.setSize("Medium");
+        tShirt.setColor("Blue");
+        tShirt.setDescription("new gucci tee");
+        tShirt.setQuantity(4);
+        tShirt.setPrice(new BigDecimal("20.00"));
+
+        TShirt tShirt1 = new TShirt();
+        tShirt.setSize("Medium");
+        tShirt.setColor("Blue");
+        tShirt.setDescription("new gucci tee");
+        tShirt.setQuantity(4);
+        tShirt.setPrice(new BigDecimal("20.00"));
+
+        List<TShirt> tList = new ArrayList<>();
+        tList.add(tShirt);
+
+        doReturn(tShirt).when(tShirtDao).addTShirt(tShirt1);
+        doReturn(tShirt).when(tShirtDao).getTShirtById(1);
+        doReturn(tList).when(tShirtDao).getAllTShirts();
+        doReturn(tList).when(tShirtDao).getTShirtsByColor("Blue");
+        doReturn(tList).when(tShirtDao).getTShirtsBySize("Medium");
     }
 }

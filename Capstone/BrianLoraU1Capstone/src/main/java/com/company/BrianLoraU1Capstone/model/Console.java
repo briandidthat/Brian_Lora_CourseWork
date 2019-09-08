@@ -87,7 +87,7 @@ public class Console {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getConsoleId(), getModel(), getManufacturer(), getMemoryAmount(),
-                getProcessor(), getPrice(), getQuantity());
+        return Objects.hash(getConsoleId(), getModel(), getManufacturer(),
+                getMemoryAmount(), getProcessor(), getPrice(), getQuantity());
     }
 }

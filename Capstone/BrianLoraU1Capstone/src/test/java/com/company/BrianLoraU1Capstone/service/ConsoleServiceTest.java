@@ -6,6 +6,8 @@ import com.company.BrianLoraU1Capstone.model.Console;
 import com.company.BrianLoraU1Capstone.viewmodel.ConsoleViewModel;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -28,7 +30,8 @@ public class ConsoleServiceTest {
     }
 
     @Test
-    public void saveConsole() {
+    public void saveFindConsoleByIdRemove() {
+        // save
         ConsoleViewModel cvm = new ConsoleViewModel();
         cvm.setModel("PS4");
         cvm.setManufacturer("Sony");
@@ -36,11 +39,11 @@ public class ConsoleServiceTest {
         cvm.setProcessor("i7");
         cvm.setPrice(new BigDecimal("25.00"));
         cvm.setQuantity(10);
-
         cvm = consoleService.saveConsole(cvm);
+        // find by id
+        System.out.println(cvm.getId());
         ConsoleViewModel fromService = consoleService.findConsoleById(cvm.getId());
         assertEquals(fromService, cvm);
-
     }
 
     @Test
@@ -59,12 +62,9 @@ public class ConsoleServiceTest {
     public void updateConsole() {
     }
 
-    @Test
-    public void removeConsole() {
-    }
-
     private void setUpConsoleDaoMock() {
         consoleDao = mock(ConsoleDaoJdbcTemplateImpl.class);
+        
         Console console = new Console();
         console.setConsoleId(10);
         console.setModel("PS4");
