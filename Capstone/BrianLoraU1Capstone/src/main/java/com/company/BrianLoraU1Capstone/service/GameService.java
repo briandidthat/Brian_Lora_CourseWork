@@ -86,7 +86,6 @@ public class GameService {
         return gameViewModel;
     }
 
-    @Transactional
     public void updateGame(GameViewModel gameViewModel) {
         Game game = new Game();
         game.setGameId(gameViewModel.getId());
@@ -99,7 +98,6 @@ public class GameService {
         gameDao.updateGame(game);
     }
 
-    @Transactional
     public void removeGame(int id) {
         gameDao.deleteGame(id);
     }

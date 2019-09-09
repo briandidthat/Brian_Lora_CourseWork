@@ -40,7 +40,7 @@ public class ConsoleController {
         return console;
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateConsole(@PathVariable("id") int id, @RequestBody @Valid ConsoleViewModel consoleViewModel) {
         if (consoleViewModel.getId() == 0) {
@@ -52,7 +52,7 @@ public class ConsoleController {
         consoleService.updateConsole(consoleViewModel);
     }
 
-    @DeleteMapping("/remove/{id}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteConsole(@PathVariable("id") int id) {
         consoleService.removeConsole(id);

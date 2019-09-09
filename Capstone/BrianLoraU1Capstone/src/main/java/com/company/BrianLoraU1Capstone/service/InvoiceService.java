@@ -79,7 +79,6 @@ public class InvoiceService {
         }
     }
 
-    @Transactional
     public void updateInvoice(InvoiceViewModel invoiceViewModel) {
         Invoice invoice = new Invoice();
         invoice.setInvoiceId(invoiceViewModel.getId());

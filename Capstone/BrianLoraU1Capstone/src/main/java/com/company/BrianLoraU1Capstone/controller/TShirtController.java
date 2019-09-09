@@ -11,7 +11,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/tshirt")
 public class TShirtController {
 
     @Autowired
@@ -40,7 +40,7 @@ public class TShirtController {
         return tShirtViewModel;
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateTShirt(@PathVariable("id") int id, @RequestBody @Valid TShirtViewModel tShirtViewModel) {
         if (tShirtViewModel.getId() == 0) {
@@ -52,7 +52,7 @@ public class TShirtController {
         tShirtService.updateTShirt(tShirtViewModel);
     }
 
-    @DeleteMapping("/remove/{id}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteTShirt(@PathVariable("id") int id) {
         tShirtService.removeShirt(id);

@@ -15,7 +15,7 @@ public class InvoiceViewModel {
     private String city;
     @NotNull(message="Please supply a value for state")
     private String state;
-    @NotNull(message="Please supply a value for state")
+    @NotNull(message="Please supply a value for zip code")
     private String zipCode;
     @NotNull(message="Please supply a value for the item type")
     private String itemType;

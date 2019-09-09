@@ -1,12 +1,11 @@
 package com.company.BrianLoraU1Capstone.viewmodel;
 
-
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 public class OrderViewModel {
     private int id;
-    @NotNull(message="Please supply a value for state")
+    @NotNull(message="Please supply a value for name")
     private String name;
     @NotNull(message="Please supply a value for street")
     private String street;

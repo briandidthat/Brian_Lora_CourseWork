@@ -6,8 +6,6 @@ import com.company.BrianLoraU1Capstone.model.Console;
 import com.company.BrianLoraU1Capstone.viewmodel.ConsoleViewModel;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

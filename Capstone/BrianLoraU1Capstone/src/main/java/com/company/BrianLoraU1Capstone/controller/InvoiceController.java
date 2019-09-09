@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController
 @RequestMapping("invoice")
@@ -24,7 +23,7 @@ public class InvoiceController {
     }
 
     // ID PATH VARIABLE
-    @GetMapping("/invoice/{id}")
+    @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public InvoiceViewModel getInvoice(@PathVariable("id") int invoiceId) {
         InvoiceViewModel invoiceViewModel = invoiceService.findInvoiceById(invoiceId);
@@ -34,7 +33,7 @@ public class InvoiceController {
         return invoiceViewModel;
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateInvoice(@PathVariable("id") int invoiceId, @RequestBody @Valid InvoiceViewModel invoiceViewModel) {
         if (invoiceViewModel.getId() == 0) {
@@ -46,7 +45,7 @@ public class InvoiceController {
         invoiceService.updateInvoice(invoiceViewModel);
     }
 
-    @DeleteMapping("/remove/{id}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteInvoice(@PathVariable("id") int invoiceId) {
         invoiceService.removeInvoice(invoiceId);

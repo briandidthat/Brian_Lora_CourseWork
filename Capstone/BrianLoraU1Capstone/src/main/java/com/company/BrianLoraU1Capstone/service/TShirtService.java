@@ -76,7 +76,6 @@ public class TShirtService {
         return tShirtViewModel;
     }
 
-    @Transactional
     public void updateTShirt(TShirtViewModel tShirtViewModel) {
         TShirt tShirt = new TShirt();
         tShirt.setTShirtId(tShirtViewModel.getId());
@@ -89,7 +88,6 @@ public class TShirtService {
         tShirtDao.updateTShirt(tShirt);
     }
 
-    @Transactional
     public void removeShirt(int id) {
         tShirtDao.deleteTShirt(id);
     }

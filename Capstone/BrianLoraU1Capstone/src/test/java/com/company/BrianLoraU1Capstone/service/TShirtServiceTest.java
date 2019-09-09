@@ -28,7 +28,19 @@ public class TShirtServiceTest {
 
     @Test
     public void findTShirtsBySizeAndColor() {
-
+        TShirtViewModel tShirt = new TShirtViewModel();
+        tShirt.setSize("Medium");
+        tShirt.setColor("Blue");
+        tShirt.setDescription("new gucci tee");
+        tShirt.setQuantity(4);
+        tShirt.setPrice(new BigDecimal("20.00"));
+        tShirt = tShirtService.saveTShirt(tShirt);
+        // GET BY SIZE
+        List<TShirtViewModel> tShirtList = tShirtService.findTShirtsBySize(tShirt.getSize());
+        assertEquals(1,tShirtList.size());
+        // GET BY COLOR
+        List<TShirtViewModel> tShirtList1 = tShirtService.findTShirtsByColor(tShirt.getColor());
+        assertEquals(1, tShirtList1.size());
     }
 
     @Test
@@ -40,20 +52,34 @@ public class TShirtServiceTest {
     @Test
     public void saveFindTShirtByIdRemove() {
         // ADD TSHIRT
-        TShirt tShirt = new TShirt();
+        TShirtViewModel tShirt = new TShirtViewModel();
         tShirt.setSize("Medium");
         tShirt.setColor("Blue");
         tShirt.setDescription("new gucci tee");
         tShirt.setQuantity(4);
         tShirt.setPrice(new BigDecimal("20.00"));
-        tShirt = tShirtDao.addTShirt(tShirt);
+        tShirt = tShirtService.saveTShirt(tShirt);
         // GET TSHIRT
-        TShirt tShirt1 = tShirtDao.getTShirtById(tShirt.getTShirtId());
+        TShirtViewModel tShirt1 = tShirtService.findTShirtById(tShirt.getId());
         assertEquals(tShirt1, tShirt);
     }
 
     @Test
     public void updateTShirt() {
+        TShirtViewModel tShirt = new TShirtViewModel();
+        tShirt.setSize("Medium");
+        tShirt.setColor("Blue");
+        tShirt.setDescription("new gucci tee");
+        tShirt.setQuantity(4);
+        tShirt.setPrice(new BigDecimal("20.00"));
+        tShirt = tShirtService.saveTShirt(tShirt);
+
+        tShirt.setPrice(new BigDecimal("22.00"));
+        tShirt.setDescription("newer gucci Tee");
+        tShirtService.updateTShirt(tShirt);
+
+        TShirtViewModel tShirtViewModel = tShirtService.findTShirtById(tShirt.getId());
+        assertEquals(tShirtViewModel, tShirt);
     }
 
     private void setUpTShirtDaoMock() {

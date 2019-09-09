@@ -66,7 +66,6 @@ public class ConsoleService {
         return cvmList;
     }
 
-    @Transactional
     public void updateConsole(ConsoleViewModel consoleViewModel) {
         Console console = new Console();
         console.setConsoleId(consoleViewModel.getId());
@@ -80,7 +79,6 @@ public class ConsoleService {
         consoleDao.updateConsole(console);
     }
 
-    @Transactional
     public void removeConsole(int id) {
         consoleDao.deleteConsole(id);
     }
