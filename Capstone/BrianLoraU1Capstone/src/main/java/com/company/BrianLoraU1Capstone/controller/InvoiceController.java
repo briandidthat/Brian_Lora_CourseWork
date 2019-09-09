@@ -46,7 +46,7 @@ public class InvoiceController {
         invoiceService.updateInvoice(invoiceViewModel);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/remove/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteInvoice(@PathVariable("id") int invoiceId) {
         invoiceService.removeInvoice(invoiceId);

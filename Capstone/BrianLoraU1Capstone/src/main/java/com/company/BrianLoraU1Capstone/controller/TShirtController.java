@@ -40,7 +40,7 @@ public class TShirtController {
         return tShirtViewModel;
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateTShirt(@PathVariable("id") int id, @RequestBody @Valid TShirtViewModel tShirtViewModel) {
         if (tShirtViewModel.getId() == 0) {
@@ -52,14 +52,14 @@ public class TShirtController {
         tShirtService.updateTShirt(tShirtViewModel);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/remove/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteTShirt(@PathVariable("id") int id) {
         tShirtService.removeShirt(id);
     }
 
     // COLOR PATH VARIABLE
-    @GetMapping("/{color}")
+    @GetMapping("/color/{color}")
     @ResponseStatus(HttpStatus.OK)
     public List<TShirtViewModel> getTShirtsByColor(@PathVariable("color") String color) {
         List<TShirtViewModel> tShirts = tShirtService.findTShirtsByColor(color);
@@ -70,7 +70,7 @@ public class TShirtController {
     }
 
     // SIZE PATH VARIABLE
-    @GetMapping("/{size}")
+    @GetMapping("/size/{size}")
     @ResponseStatus(HttpStatus.OK)
     public List<TShirtViewModel> getTShirtsBySize(@PathVariable("size") String size) {
         List<TShirtViewModel> tShirts = tShirtService.findTShirtsBySize(size);

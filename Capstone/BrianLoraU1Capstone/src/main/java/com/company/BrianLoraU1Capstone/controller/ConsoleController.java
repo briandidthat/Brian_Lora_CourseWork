@@ -40,7 +40,7 @@ public class ConsoleController {
         return console;
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateConsole(@PathVariable("id") int id, @RequestBody @Valid ConsoleViewModel consoleViewModel) {
         if (consoleViewModel.getId() == 0) {
@@ -52,14 +52,14 @@ public class ConsoleController {
         consoleService.updateConsole(consoleViewModel);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/remove/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteConsole(@PathVariable("id") int id) {
         consoleService.removeConsole(id);
     }
 
     // MANUFACTURER PATH VARIABLE
-    @GetMapping("/{manufacturer}")
+    @GetMapping("/manufacturer/{manufacturer}")
     @ResponseStatus(HttpStatus.OK)
     public List<ConsoleViewModel> getConsolesByManufacturer(@PathVariable("manufacturer") String manufacturer) {
         List<ConsoleViewModel> consoles = consoleService.findConsolesByManufacturer(manufacturer);

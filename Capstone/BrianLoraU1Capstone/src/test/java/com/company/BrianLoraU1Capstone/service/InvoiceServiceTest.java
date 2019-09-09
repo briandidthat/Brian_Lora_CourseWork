@@ -1,8 +1,10 @@
 package com.company.BrianLoraU1Capstone.service;
 
 import com.company.BrianLoraU1Capstone.dao.*;
+import com.company.BrianLoraU1Capstone.viewmodel.ConsoleViewModel;
 import com.company.BrianLoraU1Capstone.model.Invoice;
 import com.company.BrianLoraU1Capstone.model.SalesTaxRate;
+import com.company.BrianLoraU1Capstone.viewmodel.TShirtViewModel;
 import com.company.BrianLoraU1Capstone.viewmodel.InvoiceViewModel;
 import com.company.BrianLoraU1Capstone.viewmodel.OrderViewModel;
 import org.junit.Before;
@@ -39,14 +41,16 @@ public class InvoiceServiceTest {
         order.setName("Brian Lora");
         order.setStreet("502 Broadway");
         order.setCity("Los Angeles");
-        order.setState("CA");
+        order.setState("NY");
         order.setZip("90201");
-        order.setItemType("Console");
-        order.setItemId(24);
+        order.setItemType("consoles");
+        order.setItemId(28);
         order.setQuantity(2);
 
         InvoiceViewModel invoice = invoiceService.saveInvoice(order);
         InvoiceViewModel invoiceViewModel = invoiceService.findInvoiceById(invoice.getId());
+
+        assertEquals(invoiceViewModel, invoice);
     }
 
     @Test

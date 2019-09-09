@@ -68,7 +68,7 @@ public class GameController {
         return gameService.findGamesByRating(rating);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/remove/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateGame(@PathVariable("id") int id, @RequestBody @Valid GameViewModel gameViewModel) {
         if (gameViewModel.getId() == 0)

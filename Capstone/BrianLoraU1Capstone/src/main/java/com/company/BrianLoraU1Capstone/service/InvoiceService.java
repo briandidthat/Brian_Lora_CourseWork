@@ -44,23 +44,24 @@ public class InvoiceService {
             invoice.setZipCode(orderViewModel.getZip());
             invoice.setItemType(orderViewModel.getItemType());
             invoice.setItemId(orderViewModel.getItemId());
-            invoice.setUnitPrice(getItemPrice(orderViewModel.getItemId(), orderViewModel.getItemType()));
             invoice.setQuantity(orderViewModel.getQuantity());
 
             // calculate values
-            BigDecimal subTotal = calculateSubTotal(orderViewModel.getItemId(), orderViewModel.getQuantity(),
-                    orderViewModel.getItemType());
+            BigDecimal unitPrice = getItemPrice(orderViewModel.getItemId(), orderViewModel.getItemType());
+            BigDecimal subTotal = calculateSubTotal(orderViewModel.getQuantity(), unitPrice);
             BigDecimal tax = calculateTax(subTotal, orderViewModel.getState());
             BigDecimal processingFee = calculateProcessingFee(orderViewModel.getItemType(), orderViewModel.getQuantity());
             BigDecimal total = calculateTotal(subTotal, tax, processingFee);
 
             // STORE VALUES
+            invoice.setUnitPrice(unitPrice);
             invoice.setSubTotal(subTotal);
             invoice.setTax(tax);
             invoice.setProcessingFee(processingFee);
             invoice.setTotal(total);
 
             invoice = invoiceDao.addInvoice(invoice);
+
 
             return buildInvoiceViewModel(invoice);
 
@@ -89,6 +90,7 @@ public class InvoiceService {
         invoice.setZipCode(invoiceViewModel.getZipCode());
         invoice.setItemType(invoiceViewModel.getItemType());
         invoice.setItemId(invoiceViewModel.getItemId());
+        invoice.setUnitPrice(invoiceViewModel.getUnitPrice());
         invoice.setQuantity(invoiceViewModel.getQuantity());
         invoice.setSubTotal(invoiceViewModel.getSubTotal());
         invoice.setTax(invoiceViewModel.getTax());
@@ -105,9 +107,9 @@ public class InvoiceService {
     // INVOICE CALCULATION METHODS
     private BigDecimal calculateTax(BigDecimal subtotal, String state) {
         SalesTaxRate salesTaxRate = salesTaxRateDao.getSalesTaxRate(state);
-        BigDecimal tax = subtotal.multiply(salesTaxRate.getRate());
-        return tax;
+        return subtotal.multiply(salesTaxRate.getRate());
     }
+
     // calculate the processing fee based on itemType
     private BigDecimal calculateProcessingFee(String itemType, int itemQuantity) {
         ProcessingFee processingFee = processingFeeDao.getProcessingFee(itemType);
@@ -118,16 +120,13 @@ public class InvoiceService {
         return fees;
     }
     // calculate total by checking the itemType and returning
-    private BigDecimal calculateSubTotal(int id, int quantity, String itemType) {
-        BigDecimal subtotal;
-        BigDecimal price = getItemPrice(id, itemType);
-        subtotal = price.multiply(new BigDecimal(quantity));
-
-        return subtotal;
+    private BigDecimal calculateSubTotal(int quantity, BigDecimal price) {
+        BigDecimal subTotal = price.multiply(new BigDecimal(quantity));
+        return subTotal;
     }
     // calculate the total based on the taxRate and subtotal
     private BigDecimal calculateTotal(BigDecimal subTotal, BigDecimal taxRate, BigDecimal processingFee) {
-        BigDecimal postTax = subTotal.multiply(taxRate).add(subTotal);
+        BigDecimal postTax = subTotal.add(taxRate);
         return postTax.add(processingFee);
     }
     // VALIDATE INVENTORY AND UPDATE
@@ -164,15 +163,15 @@ public class InvoiceService {
         String fixedItemType = itemType.toLowerCase();
 
         switch (fixedItemType) {
-            case "console":
-                Console console = consoleDao.getConsoleById(2);
+            case "consoles":
+                Console console = consoleDao.getConsoleById(id);
                 price = console.getPrice();
                 break;
-            case "tshirt":
+            case "tshirts":
                 TShirt tShirt = tShirtDao.getTShirtById(id);
                 price = tShirt.getPrice();
                 break;
-            case "game":
+            case "games":
                 Game game = gameDao.getGameById(id);
                 price = game.getPrice();
                 break;
