@@ -34,6 +34,8 @@ public class GameDaoJdbcTemplateImpl implements GameDao {
                     "quantity = ? where game_id = ?";
     private static final String DELETE_GAME_SQL =
             "delete from game where game_id = ?";
+    private static final String UPDATE_GAME_INVENTORY_SQL =
+            "update game set quantity = ? where game_id = ?";
 
     @Autowired
     public GameDaoJdbcTemplateImpl(JdbcTemplate jdbcTemplate) {
@@ -79,6 +81,13 @@ public class GameDaoJdbcTemplateImpl implements GameDao {
     @Override
     public List<Game> getGamesByRating(String esrbRating) {
         return jdbcTemplate.query(SELECT_GAME_BY_RATING_SQL, this::mapRowToGame, esrbRating);
+    }
+
+    @Override
+    public void updateGameInventory(int id, int quantity) {
+        jdbcTemplate.update(UPDATE_GAME_INVENTORY_SQL,
+                quantity,
+                id);
     }
 
     @Override

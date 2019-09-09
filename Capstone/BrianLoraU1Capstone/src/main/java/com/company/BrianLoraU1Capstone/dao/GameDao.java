@@ -13,6 +13,7 @@ public interface GameDao {
     List<Game> getGamesByStudio(String studio);
     List<Game> getGamesByRating(String esrbRating);
 
+    void updateGameInventory(int id, int quantity);
     void updateGame(Game game);
     void deleteGame(int id);
 }

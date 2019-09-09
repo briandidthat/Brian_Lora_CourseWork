@@ -30,6 +30,8 @@ public class ConsoleDaoJdbcTemplateImpl implements ConsoleDao {
     private static final String UPDATE_CONSOLE_SQL =
             "update console set model = ?, manufacturer = ?, memory_amount = ?, processor = ?, price = ?," +
                     "quantity = ? where console_id = ?";
+    private static final String UPDATE_CONSOLE_INVENTORY_SQL =
+            "update console set quantity = ? where console_id = ?";
 
     @Autowired
     public ConsoleDaoJdbcTemplateImpl(JdbcTemplate jdbcTemplate) {
@@ -70,6 +72,13 @@ public class ConsoleDaoJdbcTemplateImpl implements ConsoleDao {
     @Override
     public List<Console> getAllConsoles() {
         return jdbcTemplate.query(SELECT_ALL_CONSOLES_SQL, this::mapRowToConsole);
+    }
+
+    @Override
+    public void updateConsoleInventory(int id, int quantity) {
+        jdbcTemplate.update(UPDATE_CONSOLE_INVENTORY_SQL,
+                quantity,
+                id);
     }
 
     @Override

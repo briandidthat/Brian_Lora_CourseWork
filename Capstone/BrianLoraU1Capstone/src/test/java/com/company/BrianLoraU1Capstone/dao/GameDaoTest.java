@@ -140,4 +140,22 @@ public class GameDaoTest {
         assertEquals(game1, game);
     }
 
+    @Test
+    public void updateGameInventory() {
+        Game game = new Game();
+        game.setTitle("DeadPool");
+        game.setEsrbRating("R");
+        game.setDescription("Play as deadpool");
+        game.setPrice(new BigDecimal("59.99"));
+        game.setStudio("Nomad Studios");
+        game.setQuantity(10);
+        game = gameDao.addGame(game);
+
+        game.setQuantity(4);
+        gameDao.updateGameInventory(game.getGameId(), game.getQuantity());
+
+        Game game1 = gameDao.getGameById(game.getGameId());
+        assertEquals(game1, game);
+    }
+
 }

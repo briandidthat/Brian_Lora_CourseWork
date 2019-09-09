@@ -139,32 +139,34 @@ public class InvoiceService {
         return postTax.add(processingFee);
     }
 
-    private void updateInventory() {
+//    private void updateInventory() {
+//
+//    }
+//
+//    private void validateInventory(int quantity, String itemType) {
+//        if(itemType.equalsIgnoreCase("console")) {
+//            Console console = new Console()
+//        }
+//    }
 
-    }
-
-    private void validateInventory(int quantity) {
-
-    }
-
-    private BigDecimal getItemPrice(int id, String itemType) {
-        BigDecimal price = new BigDecimal(0.00);
-
-        switch (itemType) {
-            case "console":
-                Console console = consoleDao.getConsoleById(id);
-                price = console.getPrice();
-            case "tshirt":
-                TShirt tShirt = tShirtDao.getTShirtById(id);
-                price = tShirt.getPrice();
-            case "game":
-                Game game = gameDao.getGameById(id);
-                price = game.getPrice();
-            default:
-                break;
-        }
-        return price;
-    }
+//    private BigDecimal getItemPrice(int id, String itemType) {
+//        BigDecimal price = new BigDecimal(0.00);
+//
+//        switch (itemType) {
+//            case "console":
+//                Console console = consoleDao.getConsoleById(id);
+//                price = console.getPrice();
+//            case "tshirt":
+//                TShirt tShirt = tShirtDao.getTShirtById(id);
+//                price = tShirt.getPrice();
+//            case "game":
+//                Game game = gameDao.getGameById(id);
+//                price = game.getPrice();
+//            default:
+//                break;
+//        }
+//        return price;
+//    }
 
     // HELPER METHOD TO CREATE A NEW INVOICE VIEW MODEL
     private InvoiceViewModel buildInvoiceViewModel(Invoice invoice) {

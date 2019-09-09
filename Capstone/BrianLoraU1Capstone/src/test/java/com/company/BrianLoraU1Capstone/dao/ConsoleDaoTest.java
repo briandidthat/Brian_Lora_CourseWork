@@ -82,4 +82,22 @@ public class ConsoleDaoTest {
         assertEquals(console1, console);
     }
 
+    @Test
+    public void updateConsoleInventory() {
+        Console console = new Console();
+        console.setModel("PS4");
+        console.setManufacturer("SONY");
+        console.setMemoryAmount("1TB");
+        console.setProcessor("I7");
+        console.setPrice(new BigDecimal("599.99"));
+        console.setQuantity(10);
+        console = consoleDao.addConsole(console);
+
+        console.setQuantity(4);
+        consoleDao.updateConsoleInventory(console.getConsoleId(), console.getQuantity());
+
+        Console console1 = consoleDao.getConsoleById(console.getConsoleId());
+        assertEquals(console1, console);
+    }
+
 }
