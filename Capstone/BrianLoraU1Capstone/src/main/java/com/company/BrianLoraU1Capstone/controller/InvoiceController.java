@@ -3,6 +3,7 @@ package com.company.BrianLoraU1Capstone.controller;
 import com.company.BrianLoraU1Capstone.exception.NotFoundException;
 import com.company.BrianLoraU1Capstone.service.InvoiceService;
 import com.company.BrianLoraU1Capstone.viewmodel.InvoiceViewModel;
+import com.company.BrianLoraU1Capstone.viewmodel.OrderViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -18,12 +19,12 @@ public class InvoiceController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public InvoiceViewModel createInvoice(@RequestBody @Valid InvoiceViewModel invoiceViewModel) {
-        return invoiceService.saveInvoice(invoiceViewModel);
+    public InvoiceViewModel createInvoice(@RequestBody @Valid OrderViewModel orderViewModel) {
+        return invoiceService.saveInvoice(orderViewModel);
     }
 
     // ID PATH VARIABLE
-    @GetMapping("{id}")
+    @GetMapping("/invoice/{id}")
     @ResponseStatus(HttpStatus.OK)
     public InvoiceViewModel getInvoice(@PathVariable("id") int invoiceId) {
         InvoiceViewModel invoiceViewModel = invoiceService.findInvoiceById(invoiceId);

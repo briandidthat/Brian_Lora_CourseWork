@@ -1,31 +1,35 @@
 package com.company.BrianLoraU1Capstone.viewmodel;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Objects;
 
 public class InvoiceViewModel {
     private int id;
-    @NotEmpty(message="Please supply a value for name")
+    @NotNull(message="Please supply a value for name")
     private String name;
-    @NotEmpty(message="Please supply a value for street")
+    @NotNull(message="Please supply a value for street")
     private String street;
-    @NotEmpty(message="Please supply a value for city")
+    @NotNull(message="Please supply a value for city")
     private String city;
-    @NotEmpty(message="Please supply a value for state")
+    @NotNull(message="Please supply a value for state")
     private String state;
-    @NotEmpty(message="Please supply a value for state")
+    @NotNull(message="Please supply a value for state")
     private String zipCode;
-    @NotEmpty(message="Please supply a value for the item type")
+    @NotNull(message="Please supply a value for the item type")
     private String itemType;
-    @NotEmpty(message="Please supply a value for item id")
+    @NotNull(message="Please supply a value for item id")
     private int itemId;
-    @NotEmpty(message="Please supply a value for quantity")
+    private BigDecimal unitPrice;
+    @NotNull(message="Please supply a value for quantity")
     private int quantity;
     private BigDecimal subTotal;
     private BigDecimal tax;
     private BigDecimal processingFee;
     private BigDecimal total;
+
+
 
     // SETTERS
     public void setId(int id) {
@@ -59,6 +63,10 @@ public class InvoiceViewModel {
 
     public void setItemId(int itemId) {
         this.itemId = itemId;
+    }
+
+    public void setUnitPrice(BigDecimal unitPrice) {
+        this.unitPrice = unitPrice;
     }
 
     public void setQuantity(int quantity) {
@@ -115,6 +123,10 @@ public class InvoiceViewModel {
         return itemId;
     }
 
+    public BigDecimal getUnitPrice() {
+        return unitPrice;
+    }
+
     public int getQuantity() {
         return quantity;
     }
@@ -149,6 +161,7 @@ public class InvoiceViewModel {
                 state.equals(that.state) &&
                 zipCode.equals(that.zipCode) &&
                 itemType.equals(that.itemType) &&
+                Objects.equals(unitPrice, that.unitPrice) &&
                 Objects.equals(subTotal, that.subTotal) &&
                 Objects.equals(tax, that.tax) &&
                 Objects.equals(processingFee, that.processingFee) &&
@@ -157,8 +170,7 @@ public class InvoiceViewModel {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, street, city, state, zipCode, itemType, itemId,
+        return Objects.hash(id, name, street, city, state, zipCode, itemType, itemId, unitPrice,
                 quantity, subTotal, tax, processingFee, total);
     }
-
 }

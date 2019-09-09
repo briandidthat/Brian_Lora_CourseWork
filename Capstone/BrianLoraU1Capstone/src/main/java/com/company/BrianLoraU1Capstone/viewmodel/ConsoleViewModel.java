@@ -1,6 +1,7 @@
 package com.company.BrianLoraU1Capstone.viewmodel;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -8,15 +9,15 @@ import java.util.Objects;
 public class ConsoleViewModel {
 
     private int id;
-    @NotEmpty(message="Please supply a value for model")
+    @NotNull(message="Please supply a value for model")
     private String model;
-    @NotEmpty(message="Please supply a value for manufacturer")
+    @NotNull(message="Please supply a value for manufacturer")
     private String manufacturer;
     private String memoryAmount;
     private String processor;
-    @NotEmpty(message="Please supply a value for price")
+    @NotNull(message="Please supply a value for price")
     private BigDecimal price;
-    @NotEmpty(message="Please supply a value for quantity")
+    @NotNull(message="Please supply a value for quantity")
     private int quantity;
 
     // SETTERS
