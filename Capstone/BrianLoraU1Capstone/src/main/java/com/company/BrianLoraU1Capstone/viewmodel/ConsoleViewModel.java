@@ -87,18 +87,17 @@ public class ConsoleViewModel {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ConsoleViewModel that = (ConsoleViewModel) o;
-        return getId() == that.getId() &&
-                getQuantity() == that.getQuantity() &&
-                Objects.equals(getModel(), that.getModel()) &&
-                Objects.equals(getManufacturer(), that.getManufacturer()) &&
-                Objects.equals(getMemoryAmount(), that.getMemoryAmount()) &&
-                Objects.equals(getProcessor(), that.getProcessor()) &&
-                Objects.equals(getPrice(), that.getPrice());
+        return id == that.id &&
+                quantity == that.quantity &&
+                model.equals(that.model) &&
+                manufacturer.equals(that.manufacturer) &&
+                memoryAmount.equals(that.memoryAmount) &&
+                processor.equals(that.processor) &&
+                price.equals(that.price);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getModel(), getManufacturer(), getMemoryAmount(),
-                getProcessor(), getPrice(), getQuantity());
+        return Objects.hash(id, model, manufacturer, memoryAmount, processor, price, quantity);
     }
 }

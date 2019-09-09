@@ -43,10 +43,10 @@ public class InvoiceService {
         invoice.setItemId(invoiceViewModel.getItemId());
         invoice.setQuantity(invoiceViewModel.getQuantity());
 
-        // calculate totals before storing
+        // PERFORM ALL TOTAL, TAX & PROCESSING CALCULATIONS
         invoice.setSubTotal(calculateSubTotal(invoice.getItemId(), invoice.getQuantity(), invoice.getItemType()));
         invoice.setTax(calculateTax(invoice.getSubTotal(), invoice.getState()));
-        invoice.setProcessingFee(caclculateProcessingFee(invoice.getState(), invoice.getQuantity()));
+        invoice.setProcessingFee(calculateProcessingFee(invoice.getState(), invoice.getQuantity()));
         invoice.setTotal(calculateTotal(invoice.getSubTotal(), invoice.getTax(), invoice.getProcessingFee()));
 
         invoice = invoiceDao.addInvoice(invoice);
@@ -101,7 +101,7 @@ public class InvoiceService {
         return tax;
     }
 
-    private BigDecimal caclculateProcessingFee(String itemType, int itemQuantity) {
+    private BigDecimal calculateProcessingFee(String itemType, int itemQuantity) {
         ProcessingFee processingFee = processingFeeDao.getProcessingFee(itemType);
         BigDecimal fees = processingFee.getFee();
         if (itemQuantity >= 10) {
@@ -137,6 +137,33 @@ public class InvoiceService {
     private BigDecimal calculateTotal(BigDecimal subTotal, BigDecimal taxRate, BigDecimal processingFee) {
         BigDecimal postTax = subTotal.multiply(taxRate).add(subTotal);
         return postTax.add(processingFee);
+    }
+
+    private void updateInventory() {
+
+    }
+
+    private void validateInventory(int quantity) {
+
+    }
+
+    private BigDecimal getItemPrice(int id, String itemType) {
+        BigDecimal price = new BigDecimal(0.00);
+
+        switch (itemType) {
+            case "console":
+                Console console = consoleDao.getConsoleById(id);
+                price = console.getPrice();
+            case "tshirt":
+                TShirt tShirt = tShirtDao.getTShirtById(id);
+                price = tShirt.getPrice();
+            case "game":
+                Game game = gameDao.getGameById(id);
+                price = game.getPrice();
+            default:
+                break;
+        }
+        return price;
     }
 
     // HELPER METHOD TO CREATE A NEW INVOICE VIEW MODEL

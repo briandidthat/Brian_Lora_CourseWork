@@ -139,25 +139,25 @@ public class Invoice {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Invoice invoice = (Invoice) o;
-        return getInvoiceId() == invoice.getInvoiceId() &&
-                getItemId() == invoice.getItemId() &&
-                getQuantity() == invoice.getQuantity() &&
-                Objects.equals(getName(), invoice.getName()) &&
-                Objects.equals(getStreet(), invoice.getStreet()) &&
-                Objects.equals(getCity(), invoice.getCity()) &&
-                Objects.equals(getState(), invoice.getState()) &&
-                Objects.equals(getZipCode(), invoice.getZipCode()) &&
-                Objects.equals(getItemType(), invoice.getItemType()) &&
-                Objects.equals(getUnitPrice(), invoice.getUnitPrice()) &&
-                Objects.equals(getSubTotal(), invoice.getSubTotal()) &&
-                Objects.equals(getTax(), invoice.getTax()) &&
-                Objects.equals(getProcessingFee(), invoice.getProcessingFee()) &&
-                Objects.equals(getTotal(), invoice.getTotal());
+        return invoiceId == invoice.invoiceId &&
+                itemId == invoice.itemId &&
+                quantity == invoice.quantity &&
+                name.equals(invoice.name) &&
+                street.equals(invoice.street) &&
+                city.equals(invoice.city) &&
+                state.equals(invoice.state) &&
+                zipCode.equals(invoice.zipCode) &&
+                itemType.equals(invoice.itemType) &&
+                unitPrice.equals(invoice.unitPrice) &&
+                Objects.equals(subTotal, invoice.subTotal) &&
+                Objects.equals(tax, invoice.tax) &&
+                Objects.equals(processingFee, invoice.processingFee) &&
+                Objects.equals(total, invoice.total);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getInvoiceId(), getName(), getStreet(), getCity(), getState(),
-                getZipCode(), getItemType(), getItemId(), getUnitPrice(), getQuantity(), getSubTotal(), getTax(), getProcessingFee(), getTotal());
+        return Objects.hash(invoiceId, name, street, city, state, zipCode, itemType, itemId,
+                unitPrice, quantity, subTotal, tax, processingFee, total);
     }
 }

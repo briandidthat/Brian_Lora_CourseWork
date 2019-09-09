@@ -7,17 +7,17 @@ import java.util.Objects;
 
 public class GameViewModel {
     private int id;
-    @NotEmpty(message="Please supply a value for name")
+    @NotEmpty(message="Please supply a value for title")
     private String title;
-    @NotEmpty(message="Please supply a value for name")
+    @NotEmpty(message="Please supply a value for rating")
     private String esrbRating;
-    @NotEmpty(message="Please supply a value for name")
+    @NotEmpty(message="Please supply a value for description")
     private String description;
-    @NotEmpty(message="Please supply a value for name")
+    @NotEmpty(message="Please supply a value for price")
     private BigDecimal price;
-    @NotEmpty(message="Please supply a value for name")
+    @NotEmpty(message="Please supply a value for studio")
     private String studio;
-    @NotEmpty(message="Please supply a value for name")
+    @NotEmpty(message="Please supply a value for quantity")
     private int quantity;
 
     // SETTERS
@@ -86,18 +86,17 @@ public class GameViewModel {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GameViewModel that = (GameViewModel) o;
-        return getId() == that.getId() &&
-                getQuantity() == that.getQuantity() &&
-                Objects.equals(getTitle(), that.getTitle()) &&
-                Objects.equals(getEsrbRating(), that.getEsrbRating()) &&
-                Objects.equals(getDescription(), that.getDescription()) &&
-                Objects.equals(getPrice(), that.getPrice()) &&
-                Objects.equals(getStudio(), that.getStudio());
+        return id == that.id &&
+                quantity == that.quantity &&
+                title.equals(that.title) &&
+                esrbRating.equals(that.esrbRating) &&
+                description.equals(that.description) &&
+                price.equals(that.price) &&
+                studio.equals(that.studio);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getTitle(), getEsrbRating(), getDescription(),
-                getPrice(), getStudio(), getQuantity());
+        return Objects.hash(id, title, esrbRating, description, price, studio, quantity);
     }
 }

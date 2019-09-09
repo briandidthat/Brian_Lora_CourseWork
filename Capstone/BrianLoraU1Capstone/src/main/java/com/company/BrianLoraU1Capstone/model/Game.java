@@ -75,17 +75,17 @@ public class Game {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Game game = (Game) o;
-        return getGameId() == game.getGameId() &&
-                getQuantity() == game.getQuantity() &&
-                Objects.equals(getTitle(), game.getTitle()) &&
-                Objects.equals(getEsrbRating(), game.getEsrbRating()) &&
-                Objects.equals(getDescription(), game.getDescription()) &&
-                Objects.equals(getPrice(), game.getPrice()) &&
-                Objects.equals(getStudio(), game.getStudio());
+        return gameId == game.gameId &&
+                quantity == game.quantity &&
+                title.equals(game.title) &&
+                esrbRating.equals(game.esrbRating) &&
+                description.equals(game.description) &&
+                price.equals(game.price) &&
+                studio.equals(game.studio);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getGameId(), getTitle(), getEsrbRating(), getDescription(), getPrice(), getStudio(), getQuantity());
+        return Objects.hash(gameId, title, esrbRating, description, price, studio, quantity);
     }
 }

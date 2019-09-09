@@ -76,18 +76,17 @@ public class Console {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Console console = (Console) o;
-        return getConsoleId() == console.getConsoleId() &&
-                getQuantity() == console.getQuantity() &&
-                Objects.equals(getModel(), console.getModel()) &&
-                Objects.equals(getManufacturer(), console.getManufacturer()) &&
-                Objects.equals(getMemoryAmount(), console.getMemoryAmount()) &&
-                Objects.equals(getProcessor(), console.getProcessor()) &&
-                Objects.equals(getPrice(), console.getPrice());
+        return consoleId == console.consoleId &&
+                quantity == console.quantity &&
+                model.equals(console.model) &&
+                manufacturer.equals(console.manufacturer) &&
+                Objects.equals(memoryAmount, console.memoryAmount) &&
+                Objects.equals(processor, console.processor) &&
+                price.equals(console.price);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getConsoleId(), getModel(), getManufacturer(),
-                getMemoryAmount(), getProcessor(), getPrice(), getQuantity());
+        return Objects.hash(consoleId, model, manufacturer, memoryAmount, processor, price, quantity);
     }
 }

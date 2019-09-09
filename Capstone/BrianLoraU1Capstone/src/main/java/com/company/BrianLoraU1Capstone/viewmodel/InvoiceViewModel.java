@@ -140,24 +140,25 @@ public class InvoiceViewModel {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         InvoiceViewModel that = (InvoiceViewModel) o;
-        return getId() == that.getId() &&
-                getItemId() == that.getItemId() &&
-                getQuantity() == that.getQuantity() &&
-                Objects.equals(getName(), that.getName()) &&
-                Objects.equals(getStreet(), that.getStreet()) &&
-                Objects.equals(getCity(), that.getCity()) &&
-                Objects.equals(getState(), that.getState()) &&
-                Objects.equals(getZipCode(), that.getZipCode()) &&
-                Objects.equals(getItemType(), that.getItemType()) &&
-                Objects.equals(getSubTotal(), that.getSubTotal()) &&
-                Objects.equals(getTax(), that.getTax()) &&
-                Objects.equals(getProcessingFee(), that.getProcessingFee()) &&
-                Objects.equals(getTotal(), that.getTotal());
+        return id == that.id &&
+                itemId == that.itemId &&
+                quantity == that.quantity &&
+                name.equals(that.name) &&
+                street.equals(that.street) &&
+                city.equals(that.city) &&
+                state.equals(that.state) &&
+                zipCode.equals(that.zipCode) &&
+                itemType.equals(that.itemType) &&
+                Objects.equals(subTotal, that.subTotal) &&
+                Objects.equals(tax, that.tax) &&
+                Objects.equals(processingFee, that.processingFee) &&
+                Objects.equals(total, that.total);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getStreet(), getCity(), getState(), getZipCode(),
-                getItemType(), getItemId(), getQuantity(), getSubTotal(), getTax(), getProcessingFee(), getTotal());
+        return Objects.hash(id, name, street, city, state, zipCode, itemType, itemId,
+                quantity, subTotal, tax, processingFee, total);
     }
+
 }

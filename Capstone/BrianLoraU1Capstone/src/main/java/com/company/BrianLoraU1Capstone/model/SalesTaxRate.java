@@ -29,12 +29,12 @@ public class SalesTaxRate {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         SalesTaxRate that = (SalesTaxRate) o;
-        return Objects.equals(getState(), that.getState()) &&
-                Objects.equals(getRate(), that.getRate());
+        return state.equals(that.state) &&
+                rate.equals(that.rate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getState(), getRate());
+        return Objects.hash(state, rate);
     }
 }

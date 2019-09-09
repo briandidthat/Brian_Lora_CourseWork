@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -17,7 +18,7 @@ public class GameController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public GameViewModel createGame(@RequestBody GameViewModel gameViewModel) {
+    public GameViewModel createGame(@RequestBody @Valid GameViewModel gameViewModel) {
         return gameService.saveGame(gameViewModel);
     }
 
@@ -69,7 +70,7 @@ public class GameController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateGame(@PathVariable("id") int id, @RequestBody GameViewModel gameViewModel) {
+    public void updateGame(@PathVariable("id") int id, @RequestBody @Valid GameViewModel gameViewModel) {
         if (gameViewModel.getId() == 0)
             gameViewModel.setId(id);
         if (id != gameViewModel.getId()) {

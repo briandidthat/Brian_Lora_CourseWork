@@ -30,12 +30,12 @@ public class ProcessingFee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProcessingFee that = (ProcessingFee) o;
-        return Objects.equals(getProductType(), that.getProductType()) &&
-                Objects.equals(getFee(), that.getFee());
+        return productType.equals(that.productType) &&
+                Objects.equals(fee, that.fee);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getProductType(), getFee());
+        return Objects.hash(productType, fee);
     }
 }
