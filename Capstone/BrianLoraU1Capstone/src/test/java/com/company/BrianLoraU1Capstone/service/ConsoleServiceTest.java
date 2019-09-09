@@ -64,7 +64,7 @@ public class ConsoleServiceTest {
 
     private void setUpConsoleDaoMock() {
         consoleDao = mock(ConsoleDaoJdbcTemplateImpl.class);
-        
+
         Console console = new Console();
         console.setConsoleId(10);
         console.setModel("PS4");

@@ -74,12 +74,13 @@ public class GameService {
     public GameViewModel saveGame(GameViewModel gameViewModel) {
         Game game = new Game();
         game.setTitle(gameViewModel.getTitle());
-        game.setDescription(gameViewModel.getEsrbRating());
+        game.setEsrbRating(gameViewModel.getEsrbRating());
+        game.setDescription(gameViewModel.getDescription());
         game.setPrice(gameViewModel.getPrice());
         game.setStudio(gameViewModel.getStudio());
         game.setQuantity(gameViewModel.getQuantity());
+        game = gameDao.addGame(game);
 
-        gameDao.addGame(game);
         gameViewModel.setId(game.getGameId());
 
         return gameViewModel;
@@ -108,7 +109,8 @@ public class GameService {
         GameViewModel gameViewModel = new GameViewModel();
         gameViewModel.setId(game.getGameId());
         gameViewModel.setTitle(game.getTitle());
-        gameViewModel.setDescription(game.getEsrbRating());
+        gameViewModel.setEsrbRating(game.getEsrbRating());
+        gameViewModel.setDescription(game.getDescription());
         gameViewModel.setPrice(game.getPrice());
         gameViewModel.setStudio(game.getStudio());
         gameViewModel.setQuantity(game.getQuantity());

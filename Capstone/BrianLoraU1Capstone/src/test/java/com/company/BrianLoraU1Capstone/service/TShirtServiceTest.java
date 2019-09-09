@@ -3,6 +3,7 @@ package com.company.BrianLoraU1Capstone.service;
 import com.company.BrianLoraU1Capstone.dao.TShirtDao;
 import com.company.BrianLoraU1Capstone.dao.TShirtDaoJdbcTemplateImpl;
 import com.company.BrianLoraU1Capstone.model.TShirt;
+import com.company.BrianLoraU1Capstone.viewmodel.TShirtViewModel;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -27,14 +28,28 @@ public class TShirtServiceTest {
 
     @Test
     public void findTShirtsBySizeAndColor() {
+
     }
 
     @Test
     public void findTAllTShirts() {
+        List<TShirt> tShirts = tShirtDao.getAllTShirts();
+        assertEquals(1, tShirts.size());
     }
 
     @Test
     public void saveFindTShirtByIdRemove() {
+        // ADD TSHIRT
+        TShirt tShirt = new TShirt();
+        tShirt.setSize("Medium");
+        tShirt.setColor("Blue");
+        tShirt.setDescription("new gucci tee");
+        tShirt.setQuantity(4);
+        tShirt.setPrice(new BigDecimal("20.00"));
+        tShirt = tShirtDao.addTShirt(tShirt);
+        // GET TSHIRT
+        TShirt tShirt1 = tShirtDao.getTShirtById(tShirt.getTShirtId());
+        assertEquals(tShirt1, tShirt);
     }
 
     @Test

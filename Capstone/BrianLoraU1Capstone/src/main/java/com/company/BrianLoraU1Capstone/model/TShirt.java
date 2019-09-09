@@ -67,15 +67,15 @@ public class TShirt {
         if (o == null || getClass() != o.getClass()) return false;
         TShirt tShirt = (TShirt) o;
         return tShirtId == tShirt.tShirtId &&
-                getQuantity() == tShirt.getQuantity() &&
-                Objects.equals(getSize(), tShirt.getSize()) &&
-                Objects.equals(getColor(), tShirt.getColor()) &&
-                Objects.equals(getDescription(), tShirt.getDescription()) &&
-                Objects.equals(getPrice(), tShirt.getPrice());
+                quantity == tShirt.quantity &&
+                size.equals(tShirt.size) &&
+                color.equals(tShirt.color) &&
+                description.equals(tShirt.description) &&
+                price.equals(tShirt.price);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getTShirtId(), getSize(), getColor(), getDescription(), getPrice(), getQuantity());
+        return Objects.hash(tShirtId, size, color, description, price, quantity);
     }
 }

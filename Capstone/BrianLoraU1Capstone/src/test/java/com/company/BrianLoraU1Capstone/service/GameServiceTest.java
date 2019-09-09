@@ -3,6 +3,7 @@ package com.company.BrianLoraU1Capstone.service;
 import com.company.BrianLoraU1Capstone.dao.GameDao;
 import com.company.BrianLoraU1Capstone.dao.GameDaoJdbcTemplateImpl;
 import com.company.BrianLoraU1Capstone.model.Game;
+import com.company.BrianLoraU1Capstone.viewmodel.GameViewModel;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -27,20 +28,54 @@ public class GameServiceTest {
 
     @Test
     public void saveFindGameByIdRemove() {
+        // SAVE GAME
+        GameViewModel game = new GameViewModel();
+        game.setTitle("Madden 20");
+        game.setEsrbRating("R");
+        game.setDescription("Play NFL simulation games with your friends.");
+        game.setPrice(new BigDecimal("59.99"));
+        game.setStudio("NVMA Studios");
+        game.setQuantity(20);
+        game = gameService.saveGame(game);
+        // FIND BY ID AND COPY VALUES TO NEW OBJECT
+        GameViewModel fromService = gameService.findGameById(game.getId());
+        assertEquals(fromService, game);
+        // DELETE GAME
+        gameService.removeGame(game.getId());
+        fromService = gameService.findGameById(game.getId());
+        assertNull(fromService);
     }
 
     @Test
     public void findGameByTitleRatingStudio() {
+        GameViewModel game = new GameViewModel();
+        game.setTitle("Madden 20");
+        game.setEsrbRating("R");
+        game.setDescription("Play NFL simulation games with your friends.");
+        game.setPrice(new BigDecimal("59.99"));
+        game.setStudio("NVMA Studios");
+        game.setQuantity(20);
+        game = gameService.saveGame(game);
+        // TEST FIND BY TITLE
+        GameViewModel game1 = gameService.findGameByTitle("Madden 20");
+        assertEquals(game1, game);
+        // TEST FIND BY RATING
+        List<GameViewModel> gamesByRating = gameService.findGamesByRating("R");
+        assertEquals(1, gamesByRating.size());
+        // TEST FIND BY STUDIO
+        List<GameViewModel> gamesByStudio = gameService.findGamesByStudio("NVMA Studios");
+        assertEquals(1, gamesByStudio.size());
     }
 
     @Test
     public void findAllGames() {
+        List<GameViewModel> fromService = gameService.findAllGames();
+        assertEquals(1, fromService.size());
     }
 
     @Test
     public void updateGame() {
     }
-
 
     private void setUpGameDaoMock() {
         gameDao = mock(GameDaoJdbcTemplateImpl.class);

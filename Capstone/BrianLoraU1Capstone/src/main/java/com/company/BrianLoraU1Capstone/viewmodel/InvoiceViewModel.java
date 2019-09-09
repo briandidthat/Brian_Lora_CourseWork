@@ -1,17 +1,26 @@
 package com.company.BrianLoraU1Capstone.viewmodel;
 
+import javax.validation.constraints.NotEmpty;
 import java.math.BigDecimal;
 import java.util.Objects;
 
 public class InvoiceViewModel {
     private int id;
+    @NotEmpty(message="Please supply a value for name")
     private String name;
+    @NotEmpty(message="Please supply a value for street")
     private String street;
+    @NotEmpty(message="Please supply a value for city")
     private String city;
+    @NotEmpty(message="Please supply a value for state")
     private String state;
+    @NotEmpty(message="Please supply a value for state")
     private String zipCode;
+    @NotEmpty(message="Please supply a value for the item type")
     private String itemType;
+    @NotEmpty(message="Please supply a value for item id")
     private int itemId;
+    @NotEmpty(message="Please supply a value for quantity")
     private int quantity;
     private BigDecimal subTotal;
     private BigDecimal tax;

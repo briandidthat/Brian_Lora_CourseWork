@@ -1,16 +1,23 @@
 package com.company.BrianLoraU1Capstone.viewmodel;
 
 
+import javax.validation.constraints.NotEmpty;
 import java.math.BigDecimal;
 import java.util.Objects;
 
 public class GameViewModel {
     private int id;
+    @NotEmpty(message="Please supply a value for name")
     private String title;
+    @NotEmpty(message="Please supply a value for name")
     private String esrbRating;
+    @NotEmpty(message="Please supply a value for name")
     private String description;
+    @NotEmpty(message="Please supply a value for name")
     private BigDecimal price;
+    @NotEmpty(message="Please supply a value for name")
     private String studio;
+    @NotEmpty(message="Please supply a value for name")
     private int quantity;
 
     // SETTERS
@@ -90,6 +97,7 @@ public class GameViewModel {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getTitle(), getEsrbRating(), getDescription(), getPrice(), getStudio(), getQuantity());
+        return Objects.hash(getId(), getTitle(), getEsrbRating(), getDescription(),
+                getPrice(), getStudio(), getQuantity());
     }
 }

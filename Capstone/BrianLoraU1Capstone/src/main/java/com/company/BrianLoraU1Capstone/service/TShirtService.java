@@ -69,8 +69,8 @@ public class TShirtService {
         tShirt.setDescription(tShirtViewModel.getDescription());
         tShirt.setPrice(tShirtViewModel.getPrice());
         tShirt.setQuantity(tShirtViewModel.getQuantity());
-
         tShirt = tShirtDao.addTShirt(tShirt);
+
         tShirtViewModel.setId(tShirt.getTShirtId());
 
         return tShirtViewModel;

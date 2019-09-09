@@ -1,6 +1,5 @@
 package com.company.BrianLoraU1Capstone.model;
 
-
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -87,7 +86,6 @@ public class Game {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getGameId(), getTitle(), getEsrbRating(), getDescription(),
-                getPrice(), getStudio(), getQuantity());
+        return Objects.hash(getGameId(), getTitle(), getEsrbRating(), getDescription(), getPrice(), getStudio(), getQuantity());
     }
 }
