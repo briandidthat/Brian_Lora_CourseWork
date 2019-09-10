@@ -45,15 +45,15 @@ public class ConsoleServiceTest {
     }
 
     @Test
-    public void findConsoleById() {
-    }
-
-    @Test
     public void findConsolesByManufacturer() {
+        List<Console> cList = consoleDao.getConsolesByManufacturer("Sony");
+        assertEquals(1, cList.size());
     }
 
     @Test
     public void findAllConsoles() {
+        List<Console> cList = consoleDao.getAllConsoles();
+        assertEquals(1, cList.size());
     }
 
     @Test

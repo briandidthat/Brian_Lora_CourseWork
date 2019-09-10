@@ -56,7 +56,8 @@ public class InvoiceServiceTest {
 
     @Test
     public void findAllInvoices() {
-
+        List<Invoice> invoiceList = invoiceDao.getAllInvoices();
+        assertEquals(1, invoiceList.size());
     }
 
     private void setInvoiceDaoMock() {
