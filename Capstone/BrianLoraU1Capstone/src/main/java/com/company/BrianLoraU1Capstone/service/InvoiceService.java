@@ -175,7 +175,7 @@ public class InvoiceService {
 
     // get the item price based on the itemType
     private BigDecimal getItemPrice(int id, String itemType) {
-        BigDecimal price = new BigDecimal("00.00");
+        BigDecimal price;
         String fixedItemType = itemType.toLowerCase();
 
         switch (fixedItemType) {
@@ -192,7 +192,7 @@ public class InvoiceService {
                 price = game.getPrice();
                 break;
             default:
-                break;
+                throw new NotFoundException("Sorry, we can not find any item type that matches that query.");
         }
         return price;
     }
