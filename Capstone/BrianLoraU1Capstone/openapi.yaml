@@ -146,7 +146,7 @@ paths:
           description: The specified game ID is invalid (not a number).
         '404':
           description: A game with the specified ID was not found.
-  # get/delete games by ID
+  # get games by rating
   /game/rating/{rating}:
     get:
       summary: Retrieve a list of games by the given rating.
