@@ -12,6 +12,15 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 
+/**
+ * Invoice Service
+ * Purpose : Service layer class that will perform all necessary INVOICE operations based on user input.
+ * Private methods : calculateTax(), calculateSubTotal(), calculateTotal(), calculateProcessingFee(),
+ * validateInventory(), getItemPrice(), buildInvoiceModel(). Used to calculate necessary values for invoice generation.
+ * Public methods : saveInvoice(), findInvoiceById(), updateInvoice(), removeInvoice(). Used to perform all CRUD
+ * operations that will be accessed by the InvoiceController.
+ */
+
 @Component
 public class InvoiceService {
     ConsoleDao consoleDao;
@@ -104,6 +113,7 @@ public class InvoiceService {
     }
 
     // INVOICE CALCULATION METHODS
+    // ======================================================================================================
     private BigDecimal calculateTax(BigDecimal subtotal, String state) {
         SalesTaxRate salesTaxRate = salesTaxRateDao.getSalesTaxRate(state);
         return subtotal.multiply(salesTaxRate.getRate());

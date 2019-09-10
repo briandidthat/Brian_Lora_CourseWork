@@ -10,6 +10,14 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * T-Shirt Service
+ * Purpose : Service layer class that will perform all necessary T-SHIRT operations based on user input.
+ * Private methods : buildTShirtViewModel(). Used to build tShirtViewModel for data management in a life-cycle manner.
+ * Public methods : saveTShirt(), findTShirtById(), findTShirtsByColor(), findTShirtsBySize(), findAllTShirts(),
+ * updateGame(), removeGame(). Used to perform all CRUD operations that will be accessed by the GameController.
+ */
+
 @Component
 public class TShirtService {
     TShirtDao tShirtDao;

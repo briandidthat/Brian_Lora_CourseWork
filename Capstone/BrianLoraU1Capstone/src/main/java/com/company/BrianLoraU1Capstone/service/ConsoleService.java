@@ -10,6 +10,14 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Console Service
+ * Purpose : Service layer class that will perform all necessary CONSOLE operations based on user input.
+ * Private methods : buildConsoleViewModel(). Used to build consoleViewModel for data management in a life-cycle manner.
+ * Public methods : saveConsole(), findConsoleById(), findConsoleByManufacturer(), findAllConsoles(),
+ * updateConsole(), removeConsole(). Used to perform all CRUD operations that will be accessed by the ConsoleController.
+ */
+
 @Component
 public class ConsoleService {
     ConsoleDao consoleDao;

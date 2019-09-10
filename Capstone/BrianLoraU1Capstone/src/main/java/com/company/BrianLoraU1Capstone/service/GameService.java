@@ -10,6 +10,14 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Game Service
+ * Purpose : Service layer class that will perform all necessary GAME operations based on user input.
+ * Private methods : buildGameViewModel(). Used to build gameViewModel for data management in a life-cycle manner.
+ * Public methods : saveGame(), findGameById(), findGameByTitle(), findGamesByRating(), findGamesByStudio(),
+ * updateGame(), removeGame(). Used to perform all CRUD operations that will be accessed by the GameController.
+ */
+
 @Component
 public class GameService {
     GameDao gameDao;
