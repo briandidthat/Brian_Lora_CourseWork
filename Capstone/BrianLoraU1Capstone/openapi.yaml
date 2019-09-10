@@ -263,7 +263,29 @@ paths:
           description: Successful console deletion.
         '404':
           description: A console with the specified ID was not found.
-
+# Console by manufacturer
+  /console/manufacturer/{manufacturer}:
+    get:
+      summary: Retrieve a list of consoles by the given manufacturer.
+      parameters:
+        - name: manufacturer
+          in: path
+          required: true
+          description: The manufacturer of the consoles you'd like to retrieve.
+          schema:
+            type: string
+            format: string
+      responses:
+        '200':
+          description: Console list matching the given manufacturer.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Console'
+        '400':
+          description: The specified console manufacturer is invalid (not a string).
+        '404':
+          description: A game with the specified manufacturer was not found.
 # Tshirt paths
   /tshirt:
     get:
@@ -397,7 +419,6 @@ paths:
           description: The specified t-shirt size is invalid (not a string).
         '404':
           description: A t-shirt with the specified size was not found.
-    # T-Shirt by size
 # Invoice paths
   /invoice:
      post:
