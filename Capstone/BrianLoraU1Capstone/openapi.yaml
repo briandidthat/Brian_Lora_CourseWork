@@ -147,28 +147,28 @@ paths:
         '404':
           description: A game with the specified ID was not found.
   # get/delete games by ID
-  /game/studio/studio}:
+  /game/rating/{rating}:
     get:
-      summary: Retrieve a list of games by the given studio.
+      summary: Retrieve a list of games by the given rating.
       parameters:
-        - name: studio
+        - name: rating
           in: path
           required: true
-          description: The studio of the games you'd like to retrieve.
+          description: The rating of the games you'd like to retrieve.
           schema:
             type: string
             format: string
       responses:
         '200':
-          description: Game object matching the given id.
+          description: List of game objects matching the given rating.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Game'
         '400':
-          description: The specified game ID is invalid (not a number).
+          description: The specified game rating is invalid (not a string).
         '404':
-          description: A game with the specified ID was not found.
+          description: A game with the specified rating was not found.
 # Console paths
   /console:
     get:
@@ -331,7 +331,6 @@ paths:
           description: Invalid t-shirt format.
         '404':
           description: TShirt not found.
-
 # GET/DELETE T-Shirt by id
   /tshirt/{tShirtId}:
     get:
@@ -440,7 +439,46 @@ paths:
           description: Invalid request syntax.
         '422':
           description: Incomplete invoice information. Some required fields are missing.
-
+# get/delete invoice by id
+  /invoice/{id}:
+     get:
+       summary: Retrieve an invoice by the given id.
+       parameters:
+         - name: invoiceId
+           in: path
+           required: true
+           description: The id of the invoice you'd like to retrieve.
+           schema:
+             type: integer
+             format: int64
+             minimum: 1
+       responses:
+         '200':
+           description: Invoice object matching the given id.
+           content:
+             application/json:
+               schema:
+                 $ref: '#/components/schemas/Invoice'
+         '400':
+           description: The specified invoice id is invalid (not an integer).
+         '404':
+           description: An invoice with the given id was not found.
+     delete:
+       summary: Remove a certain invoice by the given ID.
+       parameters:
+         - name: invoiceId
+           in: path
+           required: true
+           description: The id of the invoice you'd like to remove.
+           schema:
+             type: integer
+             format: int64
+             minimum: 1
+       responses:
+         '204':
+           description: Successful invoice deletion.
+         '404':
+           description: An invoice with the specified ID was not found.
 components:
   schemas:
     Game:
