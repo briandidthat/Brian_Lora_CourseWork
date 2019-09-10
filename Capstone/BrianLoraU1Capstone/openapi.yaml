@@ -36,22 +36,7 @@ paths:
           description: Invalid request syntax.
         '422':
           description: Incomplete game information. Some required fields are missing.
-    put:
-      summary: Update a specific game.
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Game'
-      responses:
-        '201':
-          description: Successful game update.
-        '400':
-          description: Invalid game format.
-        '404':
-          description: Game not found.
-# get/delete games by ID
+# get/put/delete games by ID
   /game/{gameId}:
     get:
       summary: Retrieve a certain game by the given ID.
@@ -75,6 +60,30 @@ paths:
           description: The specified game ID is invalid (not a number).
         '404':
           description: A game with the specified ID was not found.
+    put:
+      summary: Update a specific game.
+      parameters:
+        - name: gameId
+          in: path
+          required: true
+          description: The id of the game you'd like to update.
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Game'
+      responses:
+        '201':
+          description: Successful game update.
+        '400':
+          description: Invalid game format.
+        '404':
+          description: Game not found.
     delete:
       summary: Remove a certain game by the given ID.
       parameters:
@@ -91,7 +100,75 @@ paths:
           description: Successful game deletion.
         '404':
           description: A game with the specified ID was not found.
-
+  # get games by studio
+  /game/studio/{studio}:
+    get:
+      summary: Retrieve a game with the given studio.
+      parameters:
+        - name: studio
+          in: path
+          required: true
+          description: The title of the game you'd like to retrieve.
+          schema:
+            type: string
+            format: string
+      responses:
+        '200':
+          description: List of games matching by the given studio.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Game'
+        '400':
+          description: The specified game studio is invalid (not a string).
+        '404':
+          description: A game by the specified studio was not found.
+  # get games by title
+  /game/title/{title}:
+    get:
+      summary: Retrieve a game with the given title.
+      parameters:
+        - name: title
+          in: path
+          required: true
+          description: The title of the game you'd like to retrieve.
+          schema:
+            type: string
+            format: string
+      responses:
+        '200':
+          description: Game object matching the given title.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Game'
+        '400':
+          description: The specified game ID is invalid (not a number).
+        '404':
+          description: A game with the specified ID was not found.
+  # get/delete games by ID
+  /game/studio/studio}:
+    get:
+      summary: Retrieve a list of games by the given studio.
+      parameters:
+        - name: studio
+          in: path
+          required: true
+          description: The studio of the games you'd like to retrieve.
+          schema:
+            type: string
+            format: string
+      responses:
+        '200':
+          description: Game object matching the given id.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Game'
+        '400':
+          description: The specified game ID is invalid (not a number).
+        '404':
+          description: A game with the specified ID was not found.
 # Console paths
   /console:
     get:
@@ -122,23 +199,7 @@ paths:
           description: Invalid request syntax.
         '422':
           description: Incomplete console information. Some required fields are missing.
-    put:
-      summary: Update a specific console.
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Console'
-      responses:
-        '201':
-          description: Successful console update.
-        '400':
-          description: Invalid console format.
-        '404':
-          description: Console not found.
-
-# get/delete console by id
+# get/put/delete console by id
   /console/{consoleId}:
     get:
       summary: Retrieve a certain console by the given ID.
@@ -153,7 +214,7 @@ paths:
             minimum: 1
       responses:
         '200':
-          description: Game object matching the given id.
+          description: Console object matching the given id.
           content:
             application/json:
               schema:
@@ -162,6 +223,30 @@ paths:
           description: The specified console ID is invalid (not a number).
         '404':
           description: A game with the specified ID was not found.
+    put:
+      summary: Update a specific console.
+      parameters:
+        - name: consoleId
+          in: path
+          required: true
+          description: The ID of the console you'd like to update.
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Console'
+      responses:
+        '201':
+          description: Successful console update.
+        '400':
+          description: Invalid console format.
+        '404':
+          description: Console not found.
     delete:
       summary: Remove a certain console by the given ID.
       parameters:
