@@ -2,7 +2,6 @@ package com.company.BrianLoraU1Capstone.service;
 
 import com.company.BrianLoraU1Capstone.dao.*;
 import com.company.BrianLoraU1Capstone.model.Invoice;
-import com.company.BrianLoraU1Capstone.model.SalesTaxRate;
 import com.company.BrianLoraU1Capstone.viewmodel.*;
 import org.junit.Before;
 import org.junit.Test;

@@ -142,24 +142,28 @@ public class InvoiceService {
 
     // VALIDATE INVENTORY AND UPDATE
     private boolean validateInventory(int id, int quantity, String itemType) {
+        int currentValue;
         boolean inStock = false;
 
         if (itemType.equalsIgnoreCase("consoles")) {
             Console console = consoleDao.getConsoleById(id);
             if (console.getQuantity() >= quantity) {
                 inStock = true;
-                consoleDao.updateConsoleInventory(id, quantity);
+                currentValue = console.getQuantity() - quantity;
+                consoleDao.updateConsoleInventory(id, currentValue);
             }
         } else if (itemType.equalsIgnoreCase("tshirts")) {
             TShirt tShirt = tShirtDao.getTShirtById(id);
             if (tShirt.getQuantity() >= quantity) {
                 inStock = true;
+                currentValue = tShirt.getQuantity() - quantity;
                 tShirtDao.updateTShirtInventory(id, quantity);
             }
         } else if (itemType.equalsIgnoreCase("games")) {
             Game game = gameDao.getGameById(id);
             if (game.getQuantity() >= quantity) {
                 inStock = true;
+                currentValue = game.getQuantity() - quantity;
                 gameDao.updateGameInventory(id, quantity);
             }
         } else {
