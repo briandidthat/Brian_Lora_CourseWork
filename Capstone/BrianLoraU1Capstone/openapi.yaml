@@ -3,17 +3,17 @@ info:
  title: Game Store
  description: A simple REST inventory management web service for a video game store.
  version: 0.0.1
-servers: 
+servers:
   - url: http://localhost:8080
     description: My local machine
 paths:
   /game:
     get:
-      summary: Retrieve a list of all available games. 
+      summary: Retrieve a list of all available games.
       responses:
-        '200': 
+        '200':
           description: List of games.
-          content: 
+          content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Game'
@@ -26,7 +26,7 @@ paths:
             schema:
               $ref: '#/components/schemas/Game'
       responses:
-        '201': 
+        '201':
           description: Successful creation of game.
           content:
             application/json:
@@ -51,11 +51,11 @@ paths:
           description: Invalid game format.
         '404':
           description: Game not found.
-# get/delete games by ID     
+# get/delete games by ID
   /game/{gameId}:
     get:
       summary: Retrieve a certain game by the given ID.
-      parameters: 
+      parameters:
         - name: gameId
           in: path
           required: true
@@ -77,7 +77,7 @@ paths:
           description: A game with the specified ID was not found.
     delete:
       summary: Remove a certain game by the given ID.
-      parameters: 
+      parameters:
         - name: gameId
           in: path
           required: true
@@ -87,11 +87,11 @@ paths:
             format: int64
             minimum: 1
       responses:
-        '204': 
+        '204':
           description: Successful game deletion.
         '404':
           description: A game with the specified ID was not found.
-          
+
 # Console paths
   /console:
     get:
@@ -136,13 +136,13 @@ paths:
         '400':
           description: Invalid console format.
         '404':
-          description: Console not found.  
-          
+          description: Console not found.
+
 # get/delete console by id
   /console/{consoleId}:
     get:
       summary: Retrieve a certain console by the given ID.
-      parameters: 
+      parameters:
         - name: consoleId
           in: path
           required: true
@@ -164,7 +164,7 @@ paths:
           description: A game with the specified ID was not found.
     delete:
       summary: Remove a certain console by the given ID.
-      parameters: 
+      parameters:
         - name: consoleId
           in: path
           required: true
@@ -174,15 +174,15 @@ paths:
             format: int64
             minimum: 1
       responses:
-        '204': 
+        '204':
           description: Successful console deletion.
         '404':
           description: A console with the specified ID was not found.
-        
+
 # Tshirt paths
   /tshirt:
     get:
-      summary: Retrieve a list of all available T-Shirts. 
+      summary: Retrieve a list of all available T-Shirts.
       responses:
         '200':
           description: A list of all t-shirts.
@@ -199,7 +199,7 @@ paths:
             schema:
               $ref: '#/components/schemas/TShirt'
       responses:
-        '201': 
+        '201':
           description: Successful creation of t-shirt object.
           content:
             application/json:
@@ -223,13 +223,13 @@ paths:
         '400':
           description: Invalid t-shirt format.
         '404':
-          description: TShirt not found.  
-      
+          description: TShirt not found.
+
 # GET/DELETE T-Shirt by id
   /tshirt/{tShirtId}:
     get:
-      summary: Retrieve a certain console by the given ID.
-      parameters: 
+      summary: Retrieve a certain t-shirt by the given ID.
+      parameters:
         - name: tShirtId
           in: path
           required: true
@@ -251,7 +251,7 @@ paths:
           description: A t-shirt with the specified ID was not found.
     delete:
       summary: Remove a certain t-shirt by the given ID.
-      parameters: 
+      parameters:
         - name: tShirtId
           in: path
           required: true
@@ -261,11 +261,58 @@ paths:
             format: int64
             minimum: 1
       responses:
-        '204': 
-          description: Successful t-shirt deletion.  
+        '204':
+          description: Successful t-shirt deletion.
         '404':
           description: A t-shirt with the specified ID was not found.
-
+# T-Shirts by color
+  /tshirt/color/{color}:
+    get:
+      summary: Retrieve a list of t-shirts by the given color.
+      parameters:
+        - name: color
+          in: path
+          required: true
+          description: The color of the t-shirts you'd like to retrieve.
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':
+          description: List of T-Shirt objects matching the given color.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TShirt'
+        '400':
+          description: The specified t-shirt color is invalid (not a string).
+        '404':
+          description: A t-shirt with the specified color was not found.
+# T-Shirts by size
+  /tshirt/size/{size}:
+    get:
+      summary: Retrieve a list of t-shirts by the given size.
+      parameters:
+        - name: size
+          in: path
+          required: true
+          description: The size of the t-shirts you'd like to retrieve.
+          schema:
+            type: string
+            format: string
+      responses:
+        '200':
+          description: List of T-Shirt objects matching the given size.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TShirt'
+        '400':
+          description: The specified t-shirt size is invalid (not a string).
+        '404':
+          description: A t-shirt with the specified size was not found.
+    # T-Shirt by size
 # Invoice paths
   /invoice:
      post:
@@ -277,7 +324,7 @@ paths:
             schema:
               $ref: '#/components/schemas/Invoice'
       responses:
-        '201': 
+        '201':
           description: Successful creation of invoice.
           content:
             application/json:
@@ -287,7 +334,7 @@ paths:
           description: Invalid request syntax.
         '422':
           description: Incomplete invoice information. Some required fields are missing.
-      
+
 components:
   schemas:
     Game:
@@ -300,11 +347,11 @@ components:
           type: string
         description:
           type: string
-        price: 
+        price:
           type: number
-        studio: 
+        studio:
           type: string
-        quantity: 
+        quantity:
           type: number
       required:
         - title
@@ -319,17 +366,17 @@ components:
           type: number
         model:
           type: string
-        manufacturer: 
+        manufacturer:
           type: string
         memoryAmount:
           type: number
-        processor: 
+        processor:
           type: string
         price:
           type: number
         quantity:
           type: number
-      required: 
+      required:
         - model
         - manufacturer
         - memoryAmount
@@ -340,9 +387,9 @@ components:
       properties:
         tShirtId:
           type: number
-        size: 
+        size:
           type: string
-        color: 
+        color:
           type: string
         description:
           type: string
@@ -366,9 +413,9 @@ components:
           type: string
         city:
           type: string
-        state: 
+        state:
           type: string
-        zipCode: 
+        zipCode:
           type: string
         itemType:
           type: string
@@ -378,7 +425,7 @@ components:
           type: number
         quanitity:
           type: number
-        subTotal: 
+        subTotal:
           type: number
         tax:
           type: number
@@ -386,7 +433,7 @@ components:
           type: number
         total:
           type: number
-      required: 
+      required:
         - name
         - street
         - city

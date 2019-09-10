@@ -1,20 +1,21 @@
 package com.company.BrianLoraU1Capstone.viewmodel;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Objects;
 
 public class TShirtViewModel {
     private int id;
-    @NotEmpty(message="Please supply a value for size")
+    @NotNull(message="Please supply a value for size")
     private String size;
-    @NotEmpty(message="Please supply a value for color")
+    @NotNull(message="Please supply a value for color")
     private String color;
-    @NotEmpty(message="Please supply a value for description")
+    @NotNull(message="Please supply a value for description")
     private String description;
-    @NotEmpty(message="Please supply a value for price")
+    @NotNull(message="Please supply a value for price")
     private BigDecimal price;
-    @NotEmpty(message="Please supply a value for quantity")
+    @NotNull(message="Please supply a value for quantity")
     private int quantity;
 
     // SETTERS

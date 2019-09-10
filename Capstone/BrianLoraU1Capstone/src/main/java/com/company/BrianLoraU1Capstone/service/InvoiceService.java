@@ -71,7 +71,6 @@ public class InvoiceService {
 
             invoice = invoiceDao.addInvoice(invoice);
 
-
             return buildInvoiceViewModel(invoice);
 
         } else {
@@ -128,16 +127,19 @@ public class InvoiceService {
         }
         return fees;
     }
-    // calculate total by checking the itemType and returning
+
+    // calculate subtotal by multiplying the quantity x price
     private BigDecimal calculateSubTotal(int quantity, BigDecimal price) {
         BigDecimal subTotal = price.multiply(new BigDecimal(quantity));
         return subTotal;
     }
+
     // calculate the total based on the taxRate and subtotal
     private BigDecimal calculateTotal(BigDecimal subTotal, BigDecimal taxRate, BigDecimal processingFee) {
         BigDecimal postTax = subTotal.add(taxRate);
         return postTax.add(processingFee);
     }
+
     // VALIDATE INVENTORY AND UPDATE
     private boolean validateInventory(int id, int quantity, String itemType) {
         boolean inStock = false;
@@ -166,6 +168,7 @@ public class InvoiceService {
         }
         return inStock;
     }
+
     // get the item price based on the itemType
     private BigDecimal getItemPrice(int id, String itemType) {
         BigDecimal price = new BigDecimal("00.00");
