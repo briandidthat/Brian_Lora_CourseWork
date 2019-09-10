@@ -1,0 +1,14 @@
+Questions:
+
+	1.	What are micro-services? What are the benefits of this architectural style?
+
+
+
+
+	2.	What are the limitations of traditional configuration? What are the advantages of externalizing configuration settings?
+	
+
+
+
+
+	3.     What is Spring Cloud? List and explain five features. 
