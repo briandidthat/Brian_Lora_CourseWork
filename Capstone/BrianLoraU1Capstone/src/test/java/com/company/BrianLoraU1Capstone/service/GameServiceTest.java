@@ -12,8 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.*;
 
 public class GameServiceTest {
 
@@ -43,6 +42,7 @@ public class GameServiceTest {
         // DELETE GAME
         gameService.removeGame(game.getId());
         fromService = gameService.findGameById(game.getId());
+        System.out.println(fromService.getDescription());
         assertNull(fromService);
     }
 
@@ -75,6 +75,21 @@ public class GameServiceTest {
 
     @Test
     public void updateGame() {
+        GameViewModel game = new GameViewModel();
+        game.setTitle("Madden 20");
+        game.setEsrbRating("R");
+        game.setDescription("Play NFL simulation games with your friends.");
+        game.setPrice(new BigDecimal("59.99"));
+        game.setStudio("NVMA Studios");
+        game.setQuantity(20);
+        game = gameService.saveGame(game);
+
+        game.setQuantity(30);
+        game.setEsrbRating("R++");
+        gameService.updateGame(game);
+
+        GameViewModel gameViewModel = gameService.findGameById(game.getId());
+        assertEquals(gameViewModel, game);
     }
 
     private void setUpGameDaoMock() {
@@ -101,6 +116,7 @@ public class GameServiceTest {
 
         doReturn(game).when(gameDao).addGame(game1);
         doReturn(game).when(gameDao).getGameById(1);
+        doNothing().when(gameDao).deleteGame(1);
         doReturn(game).when(gameDao).getGameByTitle("Madden 20");
         doReturn(gList).when(gameDao).getAllGames();
         doReturn(gList).when(gameDao).getGamesByRating("R");

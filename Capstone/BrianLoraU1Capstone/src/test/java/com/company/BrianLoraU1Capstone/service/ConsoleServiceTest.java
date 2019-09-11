@@ -58,6 +58,14 @@ public class ConsoleServiceTest {
 
     @Test
     public void updateConsole() {
+        ConsoleViewModel console = new ConsoleViewModel();
+        console.setId(10);
+        console.setModel("PS4");
+        console.setManufacturer("Sony");
+        console.setMemoryAmount("400 GB");
+        console.setProcessor("i7");
+        console.setPrice(new BigDecimal("25.00"));
+        console.setQuantity(10);
     }
 
     private void setUpConsoleDaoMock() {

@@ -98,6 +98,7 @@ public class GameService {
         Game game = new Game();
         game.setGameId(gameViewModel.getId());
         game.setTitle(gameViewModel.getTitle());
+        game.setEsrbRating(gameViewModel.getEsrbRating());
         game.setDescription(gameViewModel.getDescription());
         game.setPrice(gameViewModel.getPrice());
         game.setStudio(gameViewModel.getStudio());

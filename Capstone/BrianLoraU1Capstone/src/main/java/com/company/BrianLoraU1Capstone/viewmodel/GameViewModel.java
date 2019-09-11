@@ -1,23 +1,22 @@
 package com.company.BrianLoraU1Capstone.viewmodel;
 
-
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Objects;
 
 public class GameViewModel {
     private int id;
-    @NotEmpty(message="Please supply a value for title")
+    @NotNull(message="Please supply a value for title")
     private String title;
-    @NotEmpty(message="Please supply a value for rating")
+    @NotNull(message="Please supply a value for rating")
     private String esrbRating;
-    @NotEmpty(message="Please supply a value for description")
+    @NotNull(message="Please supply a value for description")
     private String description;
-    @NotEmpty(message="Please supply a value for price")
+    @NotNull(message="Please supply a value for price")
     private BigDecimal price;
-    @NotEmpty(message="Please supply a value for studio")
+    @NotNull(message="Please supply a value for studio")
     private String studio;
-    @NotEmpty(message="Please supply a value for quantity")
+    @NotNull(message="Please supply a value for quantity")
     private int quantity;
 
     // SETTERS
