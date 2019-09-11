@@ -45,8 +45,11 @@ public class InvoiceServiceTest {
 
         InvoiceViewModel invoice = invoiceService.saveInvoice(order);
         InvoiceViewModel invoiceViewModel = invoiceService.findInvoiceById(invoice.getId());
-
         assertEquals(invoiceViewModel, invoice);
+
+        invoiceService.removeInvoice(invoice.getId());
+        InvoiceViewModel invoiceViewModel1 = invoiceService.findInvoiceById(invoice.getId());
+        assertNull(invoiceViewModel1);
     }
 
     @Test

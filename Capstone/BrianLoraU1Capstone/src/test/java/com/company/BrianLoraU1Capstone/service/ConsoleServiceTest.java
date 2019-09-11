@@ -42,6 +42,10 @@ public class ConsoleServiceTest {
         System.out.println(cvm.getId());
         ConsoleViewModel fromService = consoleService.findConsoleById(cvm.getId());
         assertEquals(fromService, cvm);
+        // delete
+        consoleService.removeConsole(cvm.getId());
+        ConsoleViewModel deleted = consoleService.findConsoleById(cvm.getId());
+        assertNull(fromService);
     }
 
     @Test
@@ -66,6 +70,13 @@ public class ConsoleServiceTest {
         console.setProcessor("i7");
         console.setPrice(new BigDecimal("25.00"));
         console.setQuantity(10);
+
+        console.setModel("PS5");
+        console.setProcessor("2TB");
+        consoleService.updateConsole(console);
+
+        ConsoleViewModel fromService = consoleService.findConsoleById(console.getId());
+        assertEquals(fromService, console);
     }
 
     private void setUpConsoleDaoMock() {
