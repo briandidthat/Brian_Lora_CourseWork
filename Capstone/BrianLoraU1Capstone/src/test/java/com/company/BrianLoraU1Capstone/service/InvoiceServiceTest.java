@@ -54,6 +54,23 @@ public class InvoiceServiceTest {
 
     @Test
     public void updateInvoice() {
+        OrderViewModel order = new OrderViewModel();
+        order.setName("Brian Lora");
+        order.setStreet("502 Broadway");
+        order.setCity("Los Angeles");
+        order.setState("NY");
+        order.setZip("90201");
+        order.setItemType("consoles");
+        order.setItemId(28);
+        order.setQuantity(2);
+        InvoiceViewModel invoice = invoiceService.saveInvoice(order);
+        // update
+        invoice.setQuantity(3);
+        invoice.setItemType("tshirts");
+        invoiceService.updateInvoice(invoice);
+        // test for equality
+        InvoiceViewModel invoiceViewModel = invoiceService.findInvoiceById(invoice.getId());
+        assertEquals(invoiceViewModel, invoice);
     }
 
     @Test
