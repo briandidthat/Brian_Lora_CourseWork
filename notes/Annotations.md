@@ -25,6 +25,3 @@
   - @Value - indicates a default value expression for the field or parameter, typically something like “#{systemProperties.myProp}”. **C && F && M**
   - @Required - fail the configuration, if the dependency cannot be injected. **C && F && M**
   
-  
-# JdbcTemplate annotations
->
