@@ -43,3 +43,10 @@
   - It must be managed, to ensure that it is reliable and contains the latest information.
   - Is a critical system component—therefore, it needs to be highly available and up-to-date.
   - You must take precautionary measures to ensure that you have a backup in the event that your service registry fails.
+
+
+# Load Balancing
+> What is a load balancer and how does it work?
+- Load balancing is a method for distributing tasks onto multiple computers. For instance, distributing incoming HTTP requests   (tasks) for a web application onto multiple web servers. The primary purpose of load balancing is to distribute the work       load of an application onto multiple computers, so the application can process a higher work load. Load balancing is a way     to scale an application. A secondary goal of load balancing is often (but not always) to provide redundancy in your           application. That is, if one server in a cluster of servers fail, the load balancer can temporarily remove that server from
+  the cluster, and divide the load onto the functioning servers. Having multiple servers help each other in this way is    
+  typically called "redundancy". When an error happens and the tasks is moved from the failing server to a functioning server,   this is typically called "failover".
