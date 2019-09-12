@@ -12,7 +12,7 @@
   - @RequestMapping - specify on the method in the controller, to map a HTTP request to the URL to this method. **M**
   - @RequestParam - bind HTTP parameters into method arguments. **P**
   - @PathVariable - binds placeholder from the URI to the method parameter. **P**
- - **SpringCloud**
+- **SpringCloud**
   - @EnableConfigServer - turns your application into a server other apps can get their configuration from. **T**
   - @EnableEurekaServer - makes your app an Eureka discovery service, other apps can locate services through it. **T**
   - @EnableDiscoveryClient - makes your app register in the service discovery server and discover other services through it. **T**
