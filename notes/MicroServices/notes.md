@@ -3,9 +3,10 @@
 Config Server Project 
 Application.properties file:
 
+```xml
 server.port=9999  
 spring.cloud.config.server.git.uri=THE LINK OF YOUR CONFIG FILE ON GITHUB
-
+```
 Annotations needed on Application class: @EnableConfigServer
 
 dependencies needed: Config Server (git)
@@ -13,42 +14,45 @@ dependencies needed: Config Server (git)
 ================================================================================================
 **Eureka Server Project**
 Application.properties file:
-
+```xml
 server.port=8761
 eureka.instance.hostname=localhost
 
 Shut off the client functionality of the Eureka server (used for HA)
 eureka.client.registerWithEureka=false
 eureka.client.fetchRegistry=false
-
+```
 
 Annotations needed on Application class : @EnableEurekaServer  
 Dependencies needed: spring-cloud-starter-netflix-eureka-server
 
-``` java 
+``` xml
 <dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-dependencies</artifactId>
+			<version>${spring-cloud.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+	</dependencies>
+</dependencyManagement>
 ```
 
 ==========================================================================================================
 >First Microservice that will connect
 
 **Bootstrap.proprerties file**
+
 This file has just enough information so that our application can find the configuration service and its configuration settings.This name must match the name of the properties file for this application in the configuration repository. we are looking for a file that exists on GITHUB.
 
 This is the name && url to the configuration service that we'll use to get our configuration
->spring.application.name=random-greeting-service (file that exists on Github inside config repo, name must match)
->spring.cloud.config.uri=http://localhost:9999
 
+``` xml
+spring.application.name=random-greeting-service (file that exists on Github inside config repo, name must match)
+spring.cloud.config.uri=http://localhost:9999
+```
 
 Annotations needed on Application class: @EnableDiscoveryClient
 
@@ -93,7 +97,7 @@ public class HelloCloudServiceController {
 
 > What a pom.xml for your microservice will typically look like.
 
-``` java
+``` xml
 
 <dependencies>
 	<dependency>
@@ -130,6 +134,5 @@ public class HelloCloudServiceController {
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
 
 ```
