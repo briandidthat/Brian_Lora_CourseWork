@@ -4,7 +4,7 @@ Config Server Project
 Application.properties file:
 
 server.port=9999  
-spring.cloud.config.server.git.uri=https://github.com/coding-boot-camp/enterprise-cloud-config
+spring.cloud.config.server.git.uri=THE LINK OF YOUR CONFIG FILE ON GITHUB
 
 Annotations needed on Application class: @EnableConfigServer
 
@@ -46,7 +46,7 @@ Dependencies needed: spring-cloud-starter-netflix-eureka-server
 This file has just enough information so that our application can find the configuration service and its configuration settings.This name must match the name of the properties file for this application in the configuration repository. we are looking for a file that exists on GITHUB.
 
 This is the name && url to the configuration service that we'll use to get our configuration
->spring.application.name=random-greeting-service (exists on Github, name must match)
+>spring.application.name=random-greeting-service (file that exists on Github inside config repo, name must match)
 >spring.cloud.config.uri=http://localhost:9999
 
 
