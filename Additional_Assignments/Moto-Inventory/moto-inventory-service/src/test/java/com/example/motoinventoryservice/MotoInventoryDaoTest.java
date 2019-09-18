@@ -63,7 +63,7 @@ public class MotoInventoryDaoTest {
         moto.setYear("2019");
         moto.setColor("red");
 
-        dao.addMotorcycle(moto);
+        moto = dao.addMotorcycle(moto);
 
         moto = new Motorcycle();
         moto.setVin("33333");
