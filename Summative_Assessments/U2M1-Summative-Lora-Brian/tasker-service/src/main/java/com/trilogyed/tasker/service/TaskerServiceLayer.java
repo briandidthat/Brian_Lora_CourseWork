@@ -3,25 +3,27 @@ package com.trilogyed.tasker.service;
 import com.trilogyed.tasker.dao.TaskerDao;
 import com.trilogyed.tasker.model.Task;
 import com.trilogyed.tasker.model.TaskViewModel;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
 public class TaskerServiceLayer {
 
-    TaskerDao dao;
+    TaskerDao taskerDao;
+
+    @Autowired
+    public TaskerServiceLayer(TaskerDao taskerDao) {
+        this.taskerDao = taskerDao;
+    }
 
     public TaskViewModel fetchTask(int id) {
 
-        Task task = dao.getTask(id);
-        TaskViewModel tvm = new TaskViewModel();
+        Task task = taskerDao.getTask(id);
+        TaskViewModel tvm = buildTaskViewModel(task);
 
-        tvm.setId(task.getId());
-        tvm.setDescription(task.getDescription());
-        tvm.setCreateDate(task.getCreateDate());
-        tvm.setDueDate(task.getDueDate());
-        tvm.setCategory(task.getCategory());
 
         // TODO - get ad from Adserver and put in tvm
 
@@ -29,11 +31,25 @@ public class TaskerServiceLayer {
     }
 
     public List<TaskViewModel> fetchAllTasks() {
-        return null;
+        List<Task> tasks = taskerDao.getAllTasks();
+        List<TaskViewModel> taskViewModels = new ArrayList<>();
+
+        for (Task t : tasks) {
+            TaskViewModel tvm = buildTaskViewModel(t);
+            taskViewModels.add(tvm);
+        }
+        return taskViewModels;
     }
 
     public List<TaskViewModel> fetchTasksByCategory(String category) {
-        return null;
+        List<Task> tasks = taskerDao.getTasksByCategory(category);
+        List<TaskViewModel> taskViewModels = new ArrayList<>();
+
+        for (Task t : tasks) {
+            TaskViewModel tvm = buildTaskViewModel(t);
+            taskViewModels.add(tvm);
+        }
+        return taskViewModels;
     }
 
     public TaskViewModel newTask(TaskViewModel taskViewModel) {
@@ -44,7 +60,7 @@ public class TaskerServiceLayer {
         task.setDueDate(taskViewModel.getDueDate());
         task.setCategory(taskViewModel.getCategory());
 
-        task = dao.createTask(task);
+        task = taskerDao.createTask(task);
         taskViewModel.setId(task.getId());
 
         // TODO - get ad from Adserver and put in taskViewModel
@@ -52,11 +68,26 @@ public class TaskerServiceLayer {
     }
 
     public void deleteTask(int id) {
-        dao.deleteTask(id);
-
+        taskerDao.deleteTask(id);
     }
 
     public void updateTask(TaskViewModel taskViewModel) {
+        Task task = new Task();
+        task.setId(taskViewModel.getId());
+        task.setDescription(taskViewModel.getDescription());
+        task.setCreateDate(taskViewModel.getCreateDate());
+        task.setDueDate(taskViewModel.getDueDate());
+        task.setCategory(taskViewModel.getCategory());
+    }
 
+    private TaskViewModel buildTaskViewModel(Task task) {
+        TaskViewModel tvm = new TaskViewModel();
+        tvm.setId(task.getId());
+        tvm.setDescription(task.getDescription());
+        tvm.setCreateDate(task.getCreateDate());
+        tvm.setDueDate(task.getDueDate());
+        tvm.setCategory(task.getCategory());
+
+        return tvm;
     }
 }

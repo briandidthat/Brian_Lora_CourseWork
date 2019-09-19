@@ -5,7 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
+@RequestMapping("/tasks")
 public class TaskerController {
 
     @Autowired
@@ -15,8 +18,8 @@ public class TaskerController {
         this.service = service;
     }
 
-    @RequestMapping(value = "/tasks{id}", method = RequestMethod.DELETE)
-    public void deleteTask(@PathVariable int id) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void deleteTask(@PathVariable("id") int id) {
         service.deleteTask(id);
     }
 }

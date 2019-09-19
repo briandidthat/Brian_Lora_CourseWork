@@ -4,6 +4,7 @@ import com.trilogyed.tasker.model.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,16 +22,18 @@ public class TaskerDaoJdbcTemplateImpl implements TaskerDao {
     public static final String UPDATE_TASK =
             "update task set task_description = ?, create_date = ?, due_date = ?, category = ? where task_id = ?";
     public static final String DELETE_TASK =
-            "delete from task";
+            "delete from task where task_id = ?";
 
-    @Autowired
+
     private JdbcTemplate jdbcTemplate;
 
+    @Autowired
     public TaskerDaoJdbcTemplateImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
     @Override
+    @Transactional
     public Task createTask(Task task) {
         return null;
     }
@@ -59,4 +62,6 @@ public class TaskerDaoJdbcTemplateImpl implements TaskerDao {
     public void deleteTask(int id) {
 
     }
+
+
 }
