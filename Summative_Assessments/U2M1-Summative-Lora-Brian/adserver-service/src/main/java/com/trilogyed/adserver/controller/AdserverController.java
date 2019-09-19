@@ -23,7 +23,7 @@ public class AdserverController {
     private Random rnd = new Random();
 
     @RequestMapping(value = "/ad", method = RequestMethod.GET)
-    String getAd() {
+    public String getAd() {
         return ads[rnd.nextInt(8)];
     }
 
