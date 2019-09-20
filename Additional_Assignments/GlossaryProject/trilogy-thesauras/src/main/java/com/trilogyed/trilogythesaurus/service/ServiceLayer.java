@@ -27,10 +27,8 @@ public class ServiceLayer {
     }
 
     public Definition saveDefinition(Definition definition) {
-        if (validateWord(definition.getTerm())) {
-            return thesaurusClient.createDefinition(definition);
-        }
-        
+        validateWord(definition.getTerm());
+        return thesaurusClient.createDefinition(definition);
     }
 
     public Definition getDefinition(int id) {
@@ -45,8 +43,7 @@ public class ServiceLayer {
         thesaurusClient.deleteDefinition(id);
     }
 
-    private boolean validateWord(String term) {
-        boolean isValid = false;
+    private void validateWord(String term) {
         String fixedTerm = term.toLowerCase();
         Map<String,Integer> invalidWords = new HashMap<>();
 
@@ -59,9 +56,6 @@ public class ServiceLayer {
         if(invalidWords.containsKey(fixedTerm)) {
             throw new IllegalArgumentException("Sorry, this is a family friendly thesaurus. " +
                     "Feel Free to pre-order the adult version available next month.");
-        } else {
-            isValid = true;
         }
-        return isValid;
     }
 }
