@@ -3,6 +3,7 @@ package com.trilogyed.tasker.service;
 import com.trilogyed.tasker.dao.TaskerDao;
 import com.trilogyed.tasker.model.Task;
 import com.trilogyed.tasker.model.TaskViewModel;
+import com.trilogyed.tasker.util.feign.AdClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,19 +14,18 @@ import java.util.List;
 public class TaskerServiceLayer {
 
     TaskerDao taskerDao;
+    AdClient adClient;
 
     @Autowired
-    public TaskerServiceLayer(TaskerDao taskerDao) {
+    public TaskerServiceLayer(TaskerDao taskerDao, AdClient adClient) {
         this.taskerDao = taskerDao;
+        this.adClient = adClient;
     }
 
     public TaskViewModel fetchTask(int id) {
-
         Task task = taskerDao.getTask(id);
         TaskViewModel tvm = buildTaskViewModel(task);
-
-
-        // TODO - get ad from Adserver and put in tvm
+        tvm.setAdvertisement(adClient.getAd());
 
         return tvm;
     }
@@ -53,17 +53,16 @@ public class TaskerServiceLayer {
     }
 
     public TaskViewModel newTask(TaskViewModel taskViewModel) {
-
         Task task = new Task();
         task.setDescription(task.getDescription());
         task.setCreateDate(taskViewModel.getCreateDate());
         task.setDueDate(taskViewModel.getDueDate());
         task.setCategory(taskViewModel.getCategory());
-
         task = taskerDao.createTask(task);
-        taskViewModel.setId(task.getId());
 
-        // TODO - get ad from Adserver and put in taskViewModel
+        taskViewModel.setId(task.getId());
+        taskViewModel.setAdvertisement(adClient.getAd());
+
         return taskViewModel;
     }
 
