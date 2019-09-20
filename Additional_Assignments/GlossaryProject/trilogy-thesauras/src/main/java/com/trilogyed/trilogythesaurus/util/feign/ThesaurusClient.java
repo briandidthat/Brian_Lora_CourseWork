@@ -12,7 +12,7 @@ import java.util.List;
  *
  */
 @FeignClient(name="definition-service")
-public interface TheasurusClient {
+public interface ThesaurusClient {
     @RequestMapping(value="/definition", method= RequestMethod.POST)
     public Definition createDefinition(Definition definition);
 

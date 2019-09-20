@@ -5,8 +5,7 @@ import java.util.Objects;
 public class Definition {
     private int id;
     private String term;
-    private int definition;
-
+    private String definition;
 
     public int getId() {
         return id;
@@ -16,7 +15,7 @@ public class Definition {
         return term;
     }
 
-    public int getDefinition() {
+    public String getDefinition() {
         return definition;
     }
 
@@ -28,7 +27,7 @@ public class Definition {
         this.term = term;
     }
 
-    public void setDefinition(int definition) {
+    public void setDefinition(String definition) {
         this.definition = definition;
     }
 
@@ -38,8 +37,8 @@ public class Definition {
         if (o == null || getClass() != o.getClass()) return false;
         Definition that = (Definition) o;
         return id == that.id &&
-                definition == that.definition &&
-                term.equals(that.term);
+                term.equals(that.term) &&
+                definition.equals(that.definition);
     }
 
     @Override
@@ -52,7 +51,7 @@ public class Definition {
         return "Definition{" +
                 "id=" + id +
                 ", term='" + term + '\'' +
-                ", definition=" + definition +
+                ", definition='" + definition + '\'' +
                 '}';
     }
 }
