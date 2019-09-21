@@ -1,12 +1,17 @@
 package com.trilogyed.tasker.model;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 public class TaskViewModel {
     private int id;
+    @NotNull(message = "Please enter a value for description.")
     private String description;
+    @NotNull(message = "Please enter a value for create date.")
     private LocalDate createDate;
+    @NotNull(message = "Please enter a value for due date.")
     private LocalDate dueDate;
+    @NotNull(message = "Please enter a value for category.")
     private String category;
     private String advertisement;
 

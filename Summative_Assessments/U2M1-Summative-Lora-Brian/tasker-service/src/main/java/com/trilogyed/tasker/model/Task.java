@@ -1,5 +1,6 @@
 package com.trilogyed.tasker.model;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.Objects;
 

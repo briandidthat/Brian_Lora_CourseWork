@@ -2,10 +2,13 @@ package com.trilogyed.tasker.dao;
 
 import com.trilogyed.tasker.model.Task;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 @Repository
@@ -35,12 +38,24 @@ public class TaskerDaoJdbcTemplateImpl implements TaskerDao {
     @Override
     @Transactional
     public Task createTask(Task task) {
-        return null;
+        jdbcTemplate.update(INSERT_TASK,
+                task.getDescription(),
+                task.getCreateDate(),
+                task.getDueDate(),
+                task.getCategory());
+        int id = jdbcTemplate.queryForObject("select LAST_INSERT_ID()", Integer.class);
+        task.setId(id);
+
+        return task;
     }
 
     @Override
     public Task getTask(int id) {
-        return null;
+        try {
+            return jdbcTemplate.queryForObject(SELECT_TASK_BY_ID, this::mapRowToTask, id);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
     }
 
     @Override
@@ -63,5 +78,16 @@ public class TaskerDaoJdbcTemplateImpl implements TaskerDao {
 
     }
 
+    // HELPER METHOD
+    private Task mapRowToTask(ResultSet rs, int rowNum) throws SQLException {
+        Task task = new Task();
+        task.setId(rs.getInt("task_id"));
+        task.setDescription(rs.getString("description"));
+        task.setCreateDate(rs.getDate("create_date").toLocalDate());
+        task.setDueDate(rs.getDate("due_date").toLocalDate());
+        task.setCategory(rs.getString("category"));
+
+        return task;
+    }
 
 }
