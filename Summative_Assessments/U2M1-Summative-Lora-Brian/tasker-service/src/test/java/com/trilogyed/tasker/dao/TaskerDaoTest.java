@@ -12,21 +12,33 @@ import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class TaskerDaoTest {
-  @Autowired
-  TaskerDao taskerDao;
+    @Autowired
+    TaskerDao taskerDao;
 
-  @Before
-  public void setUp() throws Exception {}
+    @Before
+    public void setUp() throws Exception {
 
-  @Test
-  public void addGetDeleteTask() {}
+    }
 
-  @Test
-  public void getAllTasks() {}
+    @Test
+    public void addGetDeleteTask() {
 
-  @Test
-  public void getTasksByCategory() {}
+    }
 
-  @Test
-  public void updateTask() {}
+    @Test
+    public void getAllTasks() {
+
+    }
+
+    @Test
+    public void getTasksByCategory() {
+
+    }
+
+    @Test
+    public void updateTask() {
+
+    }
+
+
 }
