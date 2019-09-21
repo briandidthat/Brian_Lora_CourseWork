@@ -24,9 +24,11 @@ public class TaskerServiceLayer {
 
     public TaskViewModel fetchTask(int id) {
         Task task = taskerDao.getTask(id);
-        TaskViewModel tvm = buildTaskViewModel(task);
-
-        return tvm;
+        if (task == null) {
+            return null;
+        } else {
+            return buildTaskViewModel(task);
+        }
     }
 
     public List<TaskViewModel> fetchAllTasks() {

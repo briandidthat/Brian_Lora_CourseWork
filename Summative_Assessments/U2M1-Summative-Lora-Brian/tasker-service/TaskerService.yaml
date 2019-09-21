@@ -1,0 +1,154 @@
+openapi: 3.0.0
+info:
+  title: Tasker Service
+  description: A simple REST service to task management.
+  version: 0.0.1
+servers:
+  - url: http://localhost:9100
+    description: My local dev server.
+paths:
+# GET/POST/PUT TASKS
+  /tasks:
+    get:
+      description: Get a list of tasks.
+      summary: Will retrieve a list of all existing tasks.
+      responses:
+        '200':
+          description: List of tasks.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TaskViewModel'
+    post:
+      description: Post a new task.
+      summary: Create a new task object and store in database.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        '201':
+          description: Successful task creation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskViewModel'
+        '422':
+          description: Invalid task object format.
+    put:
+      description: Update a task.
+      summary: Locate and update a task object in the database.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        '204':
+          description: Successful task update.
+        '400':
+          description: Invalid task object format.
+        '404':
+          description: Task object not found.
+# GET/DELETE TASKS BY ID
+  /tasks/{id}:
+    get:
+      description: Get a task.
+      summary: Retrieve a certain task by the id provided.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The id of the task you'd like to recieve.
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: The task object that matches the given id.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskViewModel'
+    delete:
+      summary: Delete a certain task by the id.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The id of the task you'd like to delete.
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '204':
+          description: Successful task deletion.
+# GET TASKS BY CATEGORY
+  /tasks/category/{category}:
+    get:
+      description: Get a list of tasks.
+      summary: Retrieve a list of tasks by the provided category.
+      parameters:
+        - name: category
+          in: path
+          required: true
+          description: The category of the tasks you'd like to receive.
+          schema:
+            type: string
+            format: String
+      responses:
+        '200':
+          description: A list of tasks that match the given category.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TaskViewModel'
+        '404':
+          description: Tasks with the given category where not found.
+
+components:
+  schemas:
+    Task:
+      properties:
+        taskId:
+          type: number
+        taskDescription:
+          type: string
+        createDate:
+          type: string
+        dueDate:
+          type: string
+        category:
+          type: string
+      required:
+        - taskDescription
+        - createDate
+        - dueDate
+        - category
+    TaskViewModel:
+      properties:
+        id:
+          type: number
+        taskDescription:
+          type: string
+        createDate:
+          type: string
+        dueDate:
+          type: string
+        category:
+          type: string
+        advertisement:
+          type: string
+      required:
+        - taskDescription
+        - createDate
+        - dueDate
+        - category
+        - advertisement
