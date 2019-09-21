@@ -5,6 +5,7 @@ import com.trilogyed.tasker.model.Task;
 import com.trilogyed.tasker.model.TaskViewModel;
 import com.trilogyed.tasker.service.TaskerServiceLayer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +13,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
+@RefreshScope
 @RequestMapping("/tasks")
 public class TaskerController {
     @Autowired

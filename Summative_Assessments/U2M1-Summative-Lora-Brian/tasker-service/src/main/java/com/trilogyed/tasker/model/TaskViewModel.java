@@ -2,11 +2,12 @@ package com.trilogyed.tasker.model;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class TaskViewModel {
     private int id;
-    @NotNull(message = "Please enter a value for description.")
-    private String description;
+    @NotNull(message = "Please enter a value for task description.")
+    private String taskDescription;
     @NotNull(message = "Please enter a value for create date.")
     private LocalDate createDate;
     @NotNull(message = "Please enter a value for due date.")
@@ -23,12 +24,12 @@ public class TaskViewModel {
         this.id = id;
     }
 
-    public String getDescription() {
-        return description;
+    public String getTaskDescription() {
+        return taskDescription;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setTaskDescription(String taskDescription) {
+        this.taskDescription = taskDescription;
     }
 
     public LocalDate getCreateDate() {
@@ -61,5 +62,23 @@ public class TaskViewModel {
 
     public void setAdvertisement(String advertisement) {
         this.advertisement = advertisement;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TaskViewModel that = (TaskViewModel) o;
+        return id == that.id &&
+                taskDescription.equals(that.taskDescription) &&
+                createDate.equals(that.createDate) &&
+                dueDate.equals(that.dueDate) &&
+                category.equals(that.category) &&
+                advertisement.equals(that.advertisement);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, taskDescription, createDate, dueDate, category, advertisement);
     }
 }

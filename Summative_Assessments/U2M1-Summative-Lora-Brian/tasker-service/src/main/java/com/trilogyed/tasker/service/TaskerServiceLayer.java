@@ -25,7 +25,6 @@ public class TaskerServiceLayer {
     public TaskViewModel fetchTask(int id) {
         Task task = taskerDao.getTask(id);
         TaskViewModel tvm = buildTaskViewModel(task);
-        tvm.setAdvertisement(adClient.getAd());
 
         return tvm;
     }
@@ -54,7 +53,7 @@ public class TaskerServiceLayer {
 
     public TaskViewModel newTask(TaskViewModel taskViewModel) {
         Task task = new Task();
-        task.setDescription(task.getDescription());
+        task.setTaskDescription(taskViewModel.getTaskDescription());
         task.setCreateDate(taskViewModel.getCreateDate());
         task.setDueDate(taskViewModel.getDueDate());
         task.setCategory(taskViewModel.getCategory());
@@ -73,19 +72,21 @@ public class TaskerServiceLayer {
     public void updateTask(TaskViewModel taskViewModel) {
         Task task = new Task();
         task.setId(taskViewModel.getId());
-        task.setDescription(taskViewModel.getDescription());
+        task.setTaskDescription(taskViewModel.getTaskDescription());
         task.setCreateDate(taskViewModel.getCreateDate());
         task.setDueDate(taskViewModel.getDueDate());
         task.setCategory(taskViewModel.getCategory());
+        taskerDao.updateTask(task);
     }
 
     private TaskViewModel buildTaskViewModel(Task task) {
         TaskViewModel tvm = new TaskViewModel();
         tvm.setId(task.getId());
-        tvm.setDescription(task.getDescription());
+        tvm.setTaskDescription(task.getTaskDescription());
         tvm.setCreateDate(task.getCreateDate());
         tvm.setDueDate(task.getDueDate());
         tvm.setCategory(task.getCategory());
+        tvm.setAdvertisement(adClient.getAd());
 
         return tvm;
     }

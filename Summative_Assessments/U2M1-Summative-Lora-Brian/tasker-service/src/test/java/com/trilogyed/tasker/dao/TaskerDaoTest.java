@@ -31,7 +31,7 @@ public class TaskerDaoTest {
     public void addGetDeleteTask() {
         // ADD
         Task task = new Task();
-        task.setDescription("Create all unit tests");
+        task.setTaskDescription("Create all unit tests");
         task.setCreateDate(LocalDate.of(2019, 9, 20));
         task.setDueDate(LocalDate.of(2019, 9, 21));
         task.setCategory("Summative");
@@ -49,7 +49,7 @@ public class TaskerDaoTest {
     public void getAllTasks() {
         // ADD TO DB
         Task task = new Task();
-        task.setDescription("Create all unit tests");
+        task.setTaskDescription("Create all unit tests");
         task.setCreateDate(LocalDate.of(2019, 9, 20));
         task.setDueDate(LocalDate.of(2019, 9, 21));
         task.setCategory("Summative");
@@ -63,7 +63,7 @@ public class TaskerDaoTest {
     public void getTasksByCategory() {
         // ADD TO DB
         Task task = new Task();
-        task.setDescription("Create all unit tests");
+        task.setTaskDescription("Create all unit tests");
         task.setCreateDate(LocalDate.of(2019, 9, 20));
         task.setDueDate(LocalDate.of(2019, 9, 21));
         task.setCategory("Summative");
@@ -77,14 +77,14 @@ public class TaskerDaoTest {
     public void updateTask() {
         // ADD TO DB
         Task task = new Task();
-        task.setDescription("Create all unit tests");
+        task.setTaskDescription("Create all unit tests");
         task.setCreateDate(LocalDate.of(2019, 9, 20));
         task.setDueDate(LocalDate.of(2019, 9, 21));
         task.setCategory("Summative");
         task = taskerDao.createTask(task);
         // UPDATE VALUES
         task.setDueDate(LocalDate.of(2019, 9, 22));
-        task.setDescription("Gave myself an extra day cause im lazy.");
+        task.setTaskDescription("Create all unit tests");
         taskerDao.updateTask(task);
         // CHECK TO ENSURE NEW VALUES
         Task task1 = taskerDao.getTask(task.getId());

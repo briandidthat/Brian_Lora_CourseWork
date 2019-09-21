@@ -39,7 +39,7 @@ public class TaskerDaoJdbcTemplateImpl implements TaskerDao {
     @Transactional
     public Task createTask(Task task) {
         jdbcTemplate.update(INSERT_TASK,
-                task.getDescription(),
+                task.getTaskDescription(),
                 task.getCreateDate(),
                 task.getDueDate(),
                 task.getCategory());
@@ -71,7 +71,7 @@ public class TaskerDaoJdbcTemplateImpl implements TaskerDao {
     @Override
     public void updateTask(Task task) {
         jdbcTemplate.update(UPDATE_TASK,
-                task.getDescription(),
+                task.getTaskDescription(),
                 task.getCreateDate(),
                 task.getDueDate(),
                 task.getCategory(),
@@ -87,7 +87,7 @@ public class TaskerDaoJdbcTemplateImpl implements TaskerDao {
     private Task mapRowToTask(ResultSet rs, int rowNum) throws SQLException {
         Task task = new Task();
         task.setId(rs.getInt("task_id"));
-        task.setDescription(rs.getString("description"));
+        task.setTaskDescription(rs.getString("task_description"));
         task.setCreateDate(rs.getDate("create_date").toLocalDate());
         task.setDueDate(rs.getDate("due_date").toLocalDate());
         task.setCategory(rs.getString("category"));
