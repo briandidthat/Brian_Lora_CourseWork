@@ -86,6 +86,7 @@ public class HotelBookingService {
     }
 
     // return points based on isMember. If member, calculate value based on isDoubleDay && canDouble
+    // if not, total rewards points will be the baseRewardsPoints
     private int checkRewardsPoints(boolean isDouble, boolean isMember, Rewards rewards) {
         int totalRewardsPoints = 0;
         if (isMember) {
