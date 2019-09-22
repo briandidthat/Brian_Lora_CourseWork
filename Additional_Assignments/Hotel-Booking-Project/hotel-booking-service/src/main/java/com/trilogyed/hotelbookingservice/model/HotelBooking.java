@@ -7,6 +7,15 @@ public class HotelBooking {
     private boolean rewardsMember;
     private float finalCost;
     private int totalRewardsPoints;
+    private boolean doubleBonusDay;
+
+    public boolean isDoubleBonusDay() {
+        return doubleBonusDay;
+    }
+
+    public void setDoubleBonusDay(boolean doubleBonusDay) {
+        this.doubleBonusDay = doubleBonusDay;
+    }
 
     public int getId() {
         return id;
@@ -48,12 +57,13 @@ public class HotelBooking {
         return id == that.id &&
                 rewardsMember == that.rewardsMember &&
                 Float.compare(that.finalCost, finalCost) == 0 &&
-                totalRewardsPoints == that.totalRewardsPoints;
+                totalRewardsPoints == that.totalRewardsPoints &&
+                doubleBonusDay == that.doubleBonusDay;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, rewardsMember, finalCost, totalRewardsPoints);
+        return Objects.hash(id, rewardsMember, finalCost, totalRewardsPoints, doubleBonusDay);
     }
 
     @Override
@@ -63,6 +73,7 @@ public class HotelBooking {
                 ", rewardsMember=" + rewardsMember +
                 ", finalCost=" + finalCost +
                 ", totalRewardsPoints=" + totalRewardsPoints +
+                ", doubleBonusDay=" + doubleBonusDay +
                 '}';
     }
 }

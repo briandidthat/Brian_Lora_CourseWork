@@ -29,20 +29,6 @@ public class HotelBookingService {
         this.roomClient = roomClient;
     }
 
-    public HotelBookingViewModel getRate(int roomId) {
-        // GET ROOM, REWARDS
-        Room room = getRoom(roomId);
-        Rewards rewards = getRewards(room.getRoomType());
-
-        // SET HOTEL BOOKING VALUES
-        HotelBooking hotelBooking = new HotelBooking();
-        hotelBooking.setRewardsMember(false);
-        hotelBooking.setFinalCost(room.getBaseRate());
-        hotelBooking.setTotalRewardsPoints(0);
-
-        return buildHotelBookingViewModel(hotelBooking, room, rewards);
-    }
-
     public HotelBookingViewModel getRate(int roomId, boolean rewardsMember, boolean doubleBonusDay) {
         // GET ROOM BASED ON ID, GET REWARDS BASED ON ROOMTYPE
         Room room = getRoom(roomId);
@@ -56,6 +42,7 @@ public class HotelBookingService {
         HotelBooking hotelBooking = new HotelBooking();
         hotelBooking.setRewardsMember(rewardsMember);
         hotelBooking.setTotalRewardsPoints(totalRewardsPoints);
+        hotelBooking.setDoubleBonusDay(doubleBonusDay);
         hotelBooking.setFinalCost(finalCost);
 
         return buildHotelBookingViewModel(hotelBooking, room, rewards);
@@ -103,7 +90,7 @@ public class HotelBookingService {
         HotelBookingViewModel hbvm = new HotelBookingViewModel();
         hbvm.setRoomId(room.getNumber());
         hbvm.setRewardsMember(hotelBooking.isRewardsMember());
-        hbvm.setDoubleBonusDay(rewards.getCanDouble());
+        hbvm.setDoubleBonusDay(hotelBooking.isDoubleBonusDay());
         hbvm.setBaseRate(room.getBaseRate());
         hbvm.setMemberDiscount(rewards.getDiscount());
         hbvm.setBaseRewardPoints(rewards.getPoints());
