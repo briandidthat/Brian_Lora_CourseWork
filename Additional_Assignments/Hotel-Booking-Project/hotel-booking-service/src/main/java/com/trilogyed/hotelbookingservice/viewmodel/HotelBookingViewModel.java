@@ -2,9 +2,7 @@ package com.trilogyed.hotelbookingservice.viewmodel;
 
 import java.util.Objects;
 
-/*Task:
- *
- */
+
 public class HotelBookingViewModel {
     private int roomId;
     private boolean rewardsMember;
@@ -12,7 +10,7 @@ public class HotelBookingViewModel {
     private float baseRate;
     private float memberDiscount;
     private int baseRewardPoints;
-    private Boolean canDouble;
+    private boolean canDouble;
     private float finalCost;
     private int totalRewardsPoints;
 
@@ -64,7 +62,7 @@ public class HotelBookingViewModel {
         this.baseRewardPoints = baseRewardPoints;
     }
 
-    public Boolean getCanDouble() {
+    public boolean getCanDouble() {
         return canDouble;
     }
 
@@ -101,11 +99,12 @@ public class HotelBookingViewModel {
                 baseRewardPoints == that.baseRewardPoints &&
                 Float.compare(that.finalCost, finalCost) == 0 &&
                 totalRewardsPoints == that.totalRewardsPoints &&
-                canDouble.equals(that.canDouble);
+                canDouble == that.canDouble;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(roomId, rewardsMember, doubleBonusDay, baseRate, memberDiscount, baseRewardPoints, canDouble, finalCost, totalRewardsPoints);
+        return Objects.hash(roomId, rewardsMember, doubleBonusDay, baseRate, memberDiscount,
+                baseRewardPoints, canDouble, finalCost, totalRewardsPoints);
     }
 }

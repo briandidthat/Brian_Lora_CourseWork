@@ -5,7 +5,6 @@ import java.util.Objects;
 public class HotelBooking {
     private int id;
     private boolean rewardsMember;
-    private float memberDiscount;
     private float finalCost;
     private int totalRewardsPoints;
 
@@ -13,7 +12,7 @@ public class HotelBooking {
         return id;
     }
 
-    public void setBookingId(int bookingId) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -23,14 +22,6 @@ public class HotelBooking {
 
     public void setRewardsMember(boolean rewardsMember) {
         this.rewardsMember = rewardsMember;
-    }
-
-    public float getMemberDiscount() {
-        return memberDiscount;
-    }
-
-    public void setMemberDiscount(float memberDiscount) {
-        this.memberDiscount = memberDiscount;
     }
 
     public float getFinalCost() {
@@ -56,14 +47,13 @@ public class HotelBooking {
         HotelBooking that = (HotelBooking) o;
         return id == that.id &&
                 rewardsMember == that.rewardsMember &&
-                Float.compare(that.memberDiscount, memberDiscount) == 0 &&
                 Float.compare(that.finalCost, finalCost) == 0 &&
                 totalRewardsPoints == that.totalRewardsPoints;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, rewardsMember, memberDiscount, finalCost, totalRewardsPoints);
+        return Objects.hash(id, rewardsMember, finalCost, totalRewardsPoints);
     }
 
     @Override
@@ -71,7 +61,6 @@ public class HotelBooking {
         return "HotelBooking{" +
                 "id=" + id +
                 ", rewardsMember=" + rewardsMember +
-                ", memberDiscount=" + memberDiscount +
                 ", finalCost=" + finalCost +
                 ", totalRewardsPoints=" + totalRewardsPoints +
                 '}';

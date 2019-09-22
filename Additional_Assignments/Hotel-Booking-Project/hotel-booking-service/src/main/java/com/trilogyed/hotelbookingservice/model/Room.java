@@ -2,9 +2,7 @@ package com.trilogyed.hotelbookingservice.model;
 
 import java.util.Objects;
 
-/*Task:
- *
- */
+
 public class Room {
     private Integer number;
     private String roomType;

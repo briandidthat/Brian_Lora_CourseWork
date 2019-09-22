@@ -1,5 +1,6 @@
 package com.trilogyed.hotelbookingservice.model;
 
+import java.util.Objects;
 
 public class Rewards {
     private Integer id;
@@ -46,5 +47,22 @@ public class Rewards {
 
     public void setCanDouble(Boolean canDouble) {
         this.canDouble = canDouble;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Rewards rewards = (Rewards) o;
+        return Objects.equals(id, rewards.id) &&
+                Objects.equals(roomType, rewards.roomType) &&
+                Objects.equals(discount, rewards.discount) &&
+                Objects.equals(points, rewards.points) &&
+                Objects.equals(canDouble, rewards.canDouble);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, roomType, discount, points, canDouble);
     }
 }
