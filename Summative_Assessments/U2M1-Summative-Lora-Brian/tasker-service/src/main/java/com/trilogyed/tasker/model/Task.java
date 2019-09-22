@@ -57,10 +57,10 @@ public class Task {
         if (o == null || getClass() != o.getClass()) return false;
         Task task = (Task) o;
         return id == task.id &&
-                taskDescription.equals(task.taskDescription) &&
-                createDate.equals(task.createDate) &&
-                dueDate.equals(task.dueDate) &&
-                category.equals(task.category);
+                Objects.equals(taskDescription, task.taskDescription) &&
+                Objects.equals(createDate, task.createDate) &&
+                Objects.equals(dueDate, task.dueDate) &&
+                Objects.equals(category, task.category);
     }
 
     @Override

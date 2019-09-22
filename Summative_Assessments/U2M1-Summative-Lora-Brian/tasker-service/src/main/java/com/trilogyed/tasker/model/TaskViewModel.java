@@ -70,11 +70,11 @@ public class TaskViewModel {
         if (o == null || getClass() != o.getClass()) return false;
         TaskViewModel that = (TaskViewModel) o;
         return id == that.id &&
-                taskDescription.equals(that.taskDescription) &&
-                createDate.equals(that.createDate) &&
-                dueDate.equals(that.dueDate) &&
-                category.equals(that.category) &&
-                advertisement.equals(that.advertisement);
+                Objects.equals(taskDescription, that.taskDescription) &&
+                Objects.equals(createDate, that.createDate) &&
+                Objects.equals(dueDate, that.dueDate) &&
+                Objects.equals(category, that.category) &&
+                Objects.equals(advertisement, that.advertisement);
     }
 
     @Override
