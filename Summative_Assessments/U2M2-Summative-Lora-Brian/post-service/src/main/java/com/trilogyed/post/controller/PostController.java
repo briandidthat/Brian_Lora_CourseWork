@@ -21,7 +21,7 @@ public class PostController {
 
     }
 
-    @RequestMapping(value = "/posts/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/posts/{id}", method = RequestMethod.DELETE)
     public void deletePost(@PathVariable int id) {
 
     }
