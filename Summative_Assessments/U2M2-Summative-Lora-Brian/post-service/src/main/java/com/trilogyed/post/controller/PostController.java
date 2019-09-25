@@ -1,12 +1,14 @@
 package com.trilogyed.post.controller;
 
 import com.trilogyed.post.model.Post;
+import com.trilogyed.post.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class PostController {
-
+    @Autowired
+    PostService postService;
 
     @RequestMapping(value = "/posts", method = RequestMethod.POST)
     public Post createPost(@RequestBody Post post) {
