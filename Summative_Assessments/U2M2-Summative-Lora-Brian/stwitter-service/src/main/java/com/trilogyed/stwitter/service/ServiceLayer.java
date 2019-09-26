@@ -71,7 +71,7 @@ public class ServiceLayer {
     }
 
     public List<Comment> findAllCommentsByCommenter(String commenterName) {
-        return commentClient.findCommentsByCommenter(commenterName);
+        return commentClient.getCommentsByCommenter(commenterName);
     }
 
     public List<Comment> findCommentsByPostId(int id) {
@@ -79,13 +79,12 @@ public class ServiceLayer {
     }
 
     public Comment findCommentById(int id) {
-        return commentClient.findCommentById(id);
+        return commentClient.getCommentById(id);
     }
 
     public void removeComment(int id) {
         commentClient.deleteComment(id);
     }
-
 
     private PostViewModel buildPostViewModel(Post post) {
         PostViewModel postViewModel = new PostViewModel();

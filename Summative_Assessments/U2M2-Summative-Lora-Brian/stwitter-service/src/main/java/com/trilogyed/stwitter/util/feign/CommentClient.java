@@ -13,13 +13,13 @@ public interface CommentClient {
     List<Comment> getAllComments();
 
     @GetMapping("/comments/{id}")
-    Comment findCommentById(@PathVariable int id);
+    Comment getCommentById(@PathVariable int id);
 
     @DeleteMapping("/comments/{id}")
     void deleteComment(@PathVariable int id);
 
     @GetMapping("/commenter/{commenterName}")
-    List<Comment> findCommentsByCommenter(@PathVariable String commenterName);
+    List<Comment> getCommentsByCommenter(@PathVariable String commenterName);
 
     @GetMapping("/notes/{postId}")
     List<Comment> getCommentsByPostId(@PathVariable int postId);
