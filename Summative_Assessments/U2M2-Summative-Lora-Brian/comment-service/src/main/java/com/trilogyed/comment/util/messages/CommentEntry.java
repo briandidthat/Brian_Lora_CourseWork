@@ -18,7 +18,6 @@ public class CommentEntry {
     public CommentEntry() {
     }
 
-
     // SETTERS
     public void setCommentId(int commentId) {
         this.commentId = commentId;
@@ -39,7 +38,6 @@ public class CommentEntry {
     public void setComment(String comment) {
         this.comment = comment;
     }
-
 
     // GETTERS
     public int getCommentId() {
