@@ -20,6 +20,12 @@ public class PostDaoJdbcTemplateImpl implements PostDao {
             "select from post where post_id = ?";
     private static final String SELECT_ALL_POSTS_SQL =
             "select * from post";
+    private static final String SELECT_POSTS_BY_POSTER_SQL =
+            "select * from post where poster_name = ?";
+    private static final String UPDATE_POST_SQL =
+            "update post set post_date = ?, poster_name = ?, post = ? where post_id = ?";
+    private static final String DELETE_POST_SQL =
+            "delete from post where post_id = ?";
 
 
     private JdbcTemplate jdbcTemplate;
@@ -59,18 +65,26 @@ public class PostDaoJdbcTemplateImpl implements PostDao {
 
     @Override
     public List<Post> getPostsByPoster(String posterName) {
-        return null;
+        try {
+            return jdbcTemplate.query(SELECT_POSTS_BY_POSTER_SQL, this::mapPostToRow, posterName);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
     }
 
     @Override
     @Transactional
     public void updatePost(Post post) {
-
+        jdbcTemplate.update(UPDATE_POST_SQL,
+                post.getPostDate(),
+                post.getPosterName(),
+                post.getPost(),
+                post.getPostId());
     }
 
     @Override
     public void deletePost(int postId) {
-
+        jdbcTemplate.update(DELETE_POST_SQL, postId);
     }
 
     private Post mapPostToRow(ResultSet rs, int rowNum) throws SQLException {
