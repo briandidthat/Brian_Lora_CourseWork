@@ -6,9 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/*Task:
- *
- */
+
 @FeignClient(name = "post-service")
 public interface PostClient  {
     @PostMapping(value = "/posts")
@@ -27,6 +25,6 @@ public interface PostClient  {
     public void deletePost(@PathVariable int id);
 
     @GetMapping(value = "/posts/poster/{posterName}")
-    public List<Post> getPostsByPoster(@PathVariable int posterName);
+    public List<Post> getPostsByPoster(@PathVariable String posterName);
 
 }
