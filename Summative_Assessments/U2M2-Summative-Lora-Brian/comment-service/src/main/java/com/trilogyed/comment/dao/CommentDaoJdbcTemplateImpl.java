@@ -1,10 +1,13 @@
 package com.trilogyed.comment.dao;
 
 import com.trilogyed.comment.model.Comment;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 
@@ -46,27 +49,51 @@ public class CommentDaoJdbcTemplateImpl implements CommentDao {
     }
 
     @Override
-    public List<Comment> getCommentsByPostId(int postId) {
-        return null;
+    public Comment getComment(int commentId) {
+        try {
+            return jdbcTemplate.queryForObject(SELECT_COMMENT_SQL, this::mapRowToComment, commentId);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
     }
 
     @Override
     public List<Comment> getAllComments() {
-        return null;
+        return jdbcTemplate.query(SELECT_ALL_COMMENTS_SQL, this::mapRowToComment);
     }
 
     @Override
     public List<Comment> getCommentsByCommenter(String commenterName) {
-        return null;
+        try {
+            return jdbcTemplate.query(SELECT_COMMENTS_BY_COMMENTER_SQL, this::mapRowToComment, commenterName);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
     }
 
     @Override
     public void updateComment(Comment comment) {
-
+        jdbcTemplate.update(UPDATE_COMMENT_SQL,
+                comment.getPostId(),
+                comment.getCreateDate(),
+                comment.getCommenterName(),
+                comment.getComment(),
+                comment.getCommentId());
     }
 
     @Override
     public void deleteComment(int id) {
+        jdbcTemplate.update(DELETE_COMMENT_SQL, id);
+    }
 
+    private Comment mapRowToComment(ResultSet rs, int rowNum) throws SQLException {
+        Comment comment = new Comment();
+        comment.setCommentId(rs.getInt("comment_id"));
+        comment.setPostId(rs.getInt("post_id"));
+        comment.setCreateDate(rs.getDate("create_date").toLocalDate());
+        comment.setCommenterName(rs.getString("commenter_name"));
+        comment.setComment(rs.getString("comment"));
+
+        return comment;
     }
 }
