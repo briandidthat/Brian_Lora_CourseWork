@@ -10,6 +10,14 @@ public class Comment {
     private String commenterName;
     private String comment;
 
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
     public int getCommentId() {
         return commentId;
     }
