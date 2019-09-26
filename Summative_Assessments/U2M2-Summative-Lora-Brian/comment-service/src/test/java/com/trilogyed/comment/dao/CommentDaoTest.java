@@ -82,6 +82,7 @@ public class CommentDaoTest {
         comment = commentDao.addComment(comment);
 
         comment.setComment("I changed my mind, this message is trash.");
+        commentDao.updateComment(comment);
 
         Comment comment1 = commentDao.getComment(comment.getCommentId());
         assertEquals(comment1, comment);

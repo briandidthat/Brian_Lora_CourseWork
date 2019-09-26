@@ -17,7 +17,7 @@ public class PostDaoJdbcTemplateImpl implements PostDao {
     private static final String INSERT_POST_SQL =
             "insert into post (post_date, poster_name, post) values (?,?,?)";
     private static final String SELECT_POST_SQL =
-            "select from post where post_id = ?";
+            "select * from post where post_id = ?";
     private static final String SELECT_ALL_POSTS_SQL =
             "select * from post";
     private static final String SELECT_POSTS_BY_POSTER_SQL =
