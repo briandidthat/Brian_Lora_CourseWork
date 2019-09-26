@@ -35,7 +35,11 @@ public class CommentController {
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Comment findCommentById(@PathVariable int id) {
-        return commentDao.getComment(id);
+        Comment comment = commentDao.getComment(id);
+        if (comment == null) {
+            throw new NotFoundException("Sorry, that comment does not exist.");
+        }
+        return comment;
     }
 
     @PutMapping("/{id}")
@@ -45,7 +49,7 @@ public class CommentController {
             comment.setCommentId(id);
         }
         if (id != comment.getCommentId()) {
-            throw new NotFoundException("The path id and commentId do not match.");
+            throw new IllegalArgumentException("The path id and commentId do not match.");
         }
         commentDao.updateComment(comment);
     }
