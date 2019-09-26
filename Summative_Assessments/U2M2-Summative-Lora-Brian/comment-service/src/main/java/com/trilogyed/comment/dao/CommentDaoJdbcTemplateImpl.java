@@ -16,7 +16,7 @@ public class CommentDaoJdbcTemplateImpl implements CommentDao {
     private static final String INSERT_COMMENT_SQL =
             "insert into comment (post_id, create_date, commenter_name, comment) values (?,?,?,?)";
     private static final String SELECT_COMMENT_SQL =
-            "select from comment where comment_id = ?";
+            "select * from comment where comment_id = ?";
     private static final String SELECT_ALL_COMMENTS_SQL =
             "select * from comment";
     private static final String SELECT_COMMENTS_BY_POST_SQL =

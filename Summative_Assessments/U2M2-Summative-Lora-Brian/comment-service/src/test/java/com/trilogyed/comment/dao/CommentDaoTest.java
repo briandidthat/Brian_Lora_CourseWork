@@ -3,13 +3,18 @@ package com.trilogyed.comment.dao;
 import com.trilogyed.comment.model.Comment;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.Assert.*;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringBootTest
 public class CommentDaoTest {
 
     @Autowired
