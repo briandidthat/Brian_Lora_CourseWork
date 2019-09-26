@@ -56,4 +56,17 @@ public class CommentController {
         commentDao.deleteComment(id);
     }
 
+    @GetMapping("/post/{postId}")
+
+    @GetMapping("/commenter/{commenterName}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Comment> findCommentsByCommenter(@PathVariable String commenterName) {
+        List<Comment> comments = commentDao.getCommentsByCommenter(commenterName);
+        if (comments == null) {
+            throw new NotFoundException("Sorry, that user has not left any comments.");
+        } else {
+            return comments;
+        }
+    }
+
 }

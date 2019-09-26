@@ -9,6 +9,7 @@ public interface CommentDao {
     Comment getComment(int id);
 
     List<Comment> getAllComments();
+    List<Comment> getCommentsByPostId(int postId);
     List<Comment> getCommentsByCommenter(String commenterName);
 
     void updateComment(Comment comment);
