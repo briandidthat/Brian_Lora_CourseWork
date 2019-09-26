@@ -1,5 +1,6 @@
 package com.trilogyed.comment.controller;
 
+import com.trilogyed.comment.exception.NotFoundException;
 import org.springframework.hateoas.VndErrors;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ import java.util.List;
 
 @RestControllerAdvice
 @RequestMapping(produces = "application/vnd.error+json")
-public class CommentExceptionHandler {
+public class CommentControllerExceptionHandler {
 
     @ExceptionHandler(value = {MethodArgumentNotValidException.class})
     @ResponseStatus(value = HttpStatus.UNPROCESSABLE_ENTITY)
@@ -40,4 +41,11 @@ public class CommentExceptionHandler {
         return responseEntity;
     }
 
+    @ExceptionHandler(value = {NotFoundException.class})
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ResponseEntity<VndErrors> notFoundException(NotFoundException e, WebRequest request) {
+        VndErrors error = new VndErrors(request.toString(), "Not found : " + e.getMessage());
+        ResponseEntity<VndErrors> responseEntity = new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+        return responseEntity;
+    }
 }
