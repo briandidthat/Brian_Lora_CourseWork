@@ -57,6 +57,15 @@ public class CommentController {
     }
 
     @GetMapping("/post/{postId}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Comment> findCommentsByPostId(@PathVariable int postId) {
+        List<Comment> comments = commentDao.getCommentsByPostId(postId);
+        if (comments == null) {
+            throw new NotFoundException("Sorry, that post does not exist.");
+        } else {
+            return comments;
+        }
+    }
 
     @GetMapping("/commenter/{commenterName}")
     @ResponseStatus(HttpStatus.OK)
