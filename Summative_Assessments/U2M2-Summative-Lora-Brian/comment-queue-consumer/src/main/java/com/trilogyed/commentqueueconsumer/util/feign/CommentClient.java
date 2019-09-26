@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(name = "comment-service")
 public interface CommentClient {
     @PostMapping("/comments")
-    Comment createComment(@RequestBody Comment comment);
+    void saveComment(@RequestBody Comment comment);
 
     @PutMapping("/comments/{id}")
     void updateComment(@PathVariable int id, @RequestBody Comment comment);

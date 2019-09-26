@@ -15,6 +15,7 @@ public class MessageListener {
 
     @RabbitListener(queues = CommentQueueConsumerApplication.QUEUE_NAME)
     public void receiveComment(CommentEntry commentEntry) {
+        System.out.println("Incoming message: " + commentEntry.toString());
         try {
             if (commentEntry.getCommentId() == 0) {
                 Comment comment = new Comment();
@@ -22,8 +23,8 @@ public class MessageListener {
                 comment.setCreateDate(commentEntry.getCreateDate());
                 comment.setCommenterName(commentEntry.getCommenterName());
                 comment.setComment(commentEntry.getComment());
-                commentClient.createComment(comment);
-
+                commentClient.saveComment(comment);
+                System.out.println("Saved comment: " + comment.toString());
             } else {
                 Comment comment = new Comment();
                 comment.setCommentId(commentEntry.getCommentId());
@@ -32,6 +33,7 @@ public class MessageListener {
                 comment.setCommenterName(commentEntry.getCommenterName());
                 comment.setComment(commentEntry.getComment());
                 commentClient.updateComment(commentEntry.getCommentId(),comment);
+                System.out.println("Updated Comment: " + comment.toString());
             }
         } catch (Exception e) {
             System.out.println("There is an exception: " + e.getMessage());

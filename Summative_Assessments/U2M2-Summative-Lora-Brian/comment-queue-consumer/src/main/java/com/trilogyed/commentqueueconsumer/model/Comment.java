@@ -69,4 +69,15 @@ public class Comment {
     public int hashCode() {
         return Objects.hash(commentId, postId, createDate, commenterName, comment);
     }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "commentId=" + commentId +
+                ", postId=" + postId +
+                ", createDate=" + createDate +
+                ", commenterName='" + commenterName + '\'' +
+                ", comment='" + comment + '\'' +
+                '}';
+    }
 }
