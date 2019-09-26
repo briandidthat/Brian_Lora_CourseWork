@@ -29,5 +29,4 @@ public interface PostClient  {
     @GetMapping(value = "/posts/poster/{posterName}")
     public List<Post> getPostsByPoster(@PathVariable int posterName);
 
-
 }
