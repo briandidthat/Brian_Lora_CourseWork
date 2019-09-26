@@ -64,7 +64,7 @@ public class PostDaoTest {
         post.setPost("I am honestly enjoying Java. I never thought I would say this.");
         post = postDao.addPost(post);
 
-        List<Post> posts = postDao.getPostsByPoster("Alchemist");
+        List<Post> posts = postDao.getPostsByPoster(post.getPosterName());
         assertEquals(1, posts.size());
     }
 
