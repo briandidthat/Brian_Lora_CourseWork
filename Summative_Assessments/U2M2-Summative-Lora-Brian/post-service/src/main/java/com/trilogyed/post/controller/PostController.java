@@ -13,8 +13,7 @@ public class PostController {
 
     @RequestMapping(value = "/posts", method = RequestMethod.POST)
     public Post createPost(@RequestBody Post post) {
-        post = postDao.addPost(post);
-        return post;
+        return postDao.addPost(post);
     }
 
     @RequestMapping(value = "/posts/{id}", method = RequestMethod.GET)
@@ -32,7 +31,7 @@ public class PostController {
             post.setPostId(id);
         }
         if (id != post.getPostId()) {
-            throw new NotFoundException("Sorry, we do not have any posts with that id.");
+            throw new IllegalArgumentException("Sorry, we do not have any posts with that id.");
         }
         postDao.updatePost(post);
     }
