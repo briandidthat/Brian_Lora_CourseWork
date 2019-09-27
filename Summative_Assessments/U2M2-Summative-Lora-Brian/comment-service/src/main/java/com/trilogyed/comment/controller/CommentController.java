@@ -45,12 +45,6 @@ public class CommentController {
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateComment(@PathVariable int id, @RequestBody Comment comment) {
-        if (comment.getCommentId() == 0) {
-            comment.setCommentId(id);
-        }
-        if (id != comment.getCommentId()) {
-            throw new IllegalArgumentException("The path id and commentId do not match.");
-        }
         commentDao.updateComment(comment);
     }
 

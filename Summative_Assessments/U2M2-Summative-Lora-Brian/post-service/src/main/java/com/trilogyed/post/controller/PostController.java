@@ -42,12 +42,6 @@ public class PostController {
     @PutMapping(value = "/{id}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void updatePost(@RequestBody Post post, @PathVariable int id) {
-        if (post.getPostId() == 0) {
-            post.setPostId(id);
-        }
-        if (id != post.getPostId()) {
-            throw new IllegalArgumentException("The path id and post id do not match: " + id);
-        }
         postDao.updatePost(post);
     }
 
