@@ -14,8 +14,9 @@ import java.util.List;
 
 @Repository
 public class PostDaoJdbcTemplateImpl implements PostDao {
+
     private static final String INSERT_POST_SQL =
-            "insert into post (post_date, poster_name, post) values (?,?,?)";
+            "insert into post (post_date, poster_name, post) values (?, ?, ?)";
     private static final String SELECT_POST_SQL =
             "select * from post where post_id = ?";
     private static final String SELECT_ALL_POSTS_SQL =
@@ -52,7 +53,7 @@ public class PostDaoJdbcTemplateImpl implements PostDao {
     @Override
     public Post getPost(int id) {
         try {
-            return jdbcTemplate.queryForObject(SELECT_POST_SQL, this::mapPostToRow, id);
+            return jdbcTemplate.queryForObject(SELECT_POST_SQL, this::mapRowToPost, id);
         } catch (EmptyResultDataAccessException e) {
             return null;
         }
@@ -60,13 +61,13 @@ public class PostDaoJdbcTemplateImpl implements PostDao {
 
     @Override
     public List<Post> getAllPosts() {
-        return jdbcTemplate.query(SELECT_ALL_POSTS_SQL, this::mapPostToRow);
+        return jdbcTemplate.query(SELECT_ALL_POSTS_SQL, this::mapRowToPost);
     }
 
     @Override
     public List<Post> getPostsByPoster(String posterName) {
         try {
-            return jdbcTemplate.query(SELECT_POSTS_BY_POSTER_SQL, this::mapPostToRow, posterName);
+            return jdbcTemplate.query(SELECT_POSTS_BY_POSTER_SQL, this::mapRowToPost, posterName);
         } catch (EmptyResultDataAccessException e) {
             return null;
         }
@@ -87,7 +88,7 @@ public class PostDaoJdbcTemplateImpl implements PostDao {
         jdbcTemplate.update(DELETE_POST_SQL, postId);
     }
 
-    private Post mapPostToRow(ResultSet rs, int rowNum) throws SQLException {
+    private Post mapRowToPost(ResultSet rs, int rowNum) throws SQLException {
         Post post = new Post();
         post.setPostId(rs.getInt("post_id"));
         post.setPostDate(rs.getDate("post_date").toLocalDate());

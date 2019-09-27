@@ -1,6 +1,7 @@
 package com.trilogyed.post.dao;
 
 import com.trilogyed.post.model.Post;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,6 +38,7 @@ public class PostDaoTest {
         post = postDao.addPost(post);
 
         Post post1 = postDao.getPost(post.getPostId());
+        System.out.println(post);
         assertEquals(post1, post);
 
         postDao.deletePost(post.getPostId());

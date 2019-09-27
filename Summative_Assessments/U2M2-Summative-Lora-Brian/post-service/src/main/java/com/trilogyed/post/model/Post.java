@@ -10,7 +10,7 @@ public class Post {
     private String post;
 
     // SETTERS
-    public void setPostId(int postID) {
+    public void setPostId(int postId) {
         this.postId = postId;
     }
 
