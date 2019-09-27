@@ -1,17 +1,20 @@
 package com.trilogyed.stwitter.model;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.Objects;
 
 
 public class Post {
     private int postId;
+    @NotNull(message= "Must enter a value for postDate")
     private LocalDate postDate;
+    @NotNull(message = "Must enter")
     private String posterName;
     private String post;
 
     // SETTERS
-    public void setPostId(int postID) {
+    public void setPostId(int postId) {
         this.postId = postId;
     }
 

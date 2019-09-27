@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-@FeignClient(name = "comment-client")
+@FeignClient(name = "comment-service")
 public interface CommentClient {
     @GetMapping("/comments")
     List<Comment> getAllComments();
