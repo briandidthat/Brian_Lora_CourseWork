@@ -4,12 +4,14 @@ import com.trilogyed.post.dao.PostDao;
 import com.trilogyed.post.exception.NotFoundException;
 import com.trilogyed.post.model.Post;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RefreshScope
 @RequestMapping(value = "/posts")
 public class PostController {
     @Autowired

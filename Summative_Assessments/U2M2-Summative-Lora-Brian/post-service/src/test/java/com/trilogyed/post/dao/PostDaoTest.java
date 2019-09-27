@@ -1,7 +1,7 @@
 package com.trilogyed.post.dao;
 
 import com.trilogyed.post.model.Post;
-import org.junit.After;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

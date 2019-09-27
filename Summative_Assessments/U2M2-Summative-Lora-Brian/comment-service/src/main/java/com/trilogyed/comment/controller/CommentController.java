@@ -4,16 +4,16 @@ import com.trilogyed.comment.dao.CommentDao;
 import com.trilogyed.comment.exception.NotFoundException;
 import com.trilogyed.comment.model.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
 
-/*Task:
- *
- */
+
 @RestController
+@RefreshScope
 @RequestMapping("/comments")
 public class CommentController {
 

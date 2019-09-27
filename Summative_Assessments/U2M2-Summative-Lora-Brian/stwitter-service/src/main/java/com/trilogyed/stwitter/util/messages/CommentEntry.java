@@ -1,25 +1,16 @@
 package com.trilogyed.stwitter.util.messages;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDate;
 
 public class CommentEntry {
     private int commentId;
     private int postId;
+    @JsonFormat(pattern = "mm/dd/yyyy")
     private LocalDate createDate;
     private String commenterName;
     private String comment;
-
-    public CommentEntry(int commentId, int postId, LocalDate createDate, String commenterName, String comment) {
-        this.commentId = commentId;
-        this.postId = postId;
-        this.createDate = createDate;
-        this.commenterName = commenterName;
-        this.comment = comment;
-    }
-
-    public CommentEntry() {
-    }
 
     // SETTERS
     public void setComment(String comment) {
@@ -43,10 +34,6 @@ public class CommentEntry {
     }
 
     // GETTERS
-    public String getComment() {
-        return comment;
-    }
-
     public int getCommentId() {
         return commentId;
     }
@@ -63,4 +50,18 @@ public class CommentEntry {
         return commenterName;
     }
 
+    public String getComment() {
+        return comment;
+    }
+
+    @Override
+    public String toString() {
+        return "CommentEntry{" +
+                "commentId=" + commentId +
+                ", postId=" + postId +
+                ", createDate=" + createDate +
+                ", commenterName='" + commenterName + '\'' +
+                ", comment='" + comment + '\'' +
+                '}';
+    }
 }
