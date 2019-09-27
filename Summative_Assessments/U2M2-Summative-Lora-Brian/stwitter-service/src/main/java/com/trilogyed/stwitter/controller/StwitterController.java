@@ -129,5 +129,4 @@ public class StwitterController {
         return service.findAllCommentsByCommenter(commenterName);
     }
 
-
 }
