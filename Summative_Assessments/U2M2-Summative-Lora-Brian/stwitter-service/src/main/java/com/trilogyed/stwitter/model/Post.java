@@ -7,10 +7,11 @@ import java.util.Objects;
 
 public class Post {
     private int postId;
-    @NotNull(message= "Must enter a value for postDate")
+    @NotNull(message= "Must enter a value for postDate.")
     private LocalDate postDate;
-    @NotNull(message = "Must enter")
+    @NotNull(message = "Must enter a value for posterName.")
     private String posterName;
+    @NotNull(message = "Must enter a value for post.")
     private String post;
 
     // SETTERS
