@@ -2,14 +2,20 @@ package com.trilogyed.stwitter.util.messages;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+
 
 public class CommentEntry {
     private int commentId;
+    @NotNull(message = "Must enter a post Id.")
     private int postId;
     @JsonFormat(pattern = "mm/dd/yyyy")
+    @NotNull(message = "Must enter a value for createDate.")
     private LocalDate createDate;
+    @NotNull(message = "Must enter a value for commenterName.")
     private String commenterName;
+    @NotNull(message = "Must enter a value for comment.")
     private String comment;
 
     // SETTERS

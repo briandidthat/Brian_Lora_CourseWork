@@ -93,7 +93,7 @@ public class ServiceLayer {
         postViewModel.setPosterName(post.getPosterName());
         postViewModel.setPost(post.getPost());
 
-        List<Comment> comments = commentClient.getCommentsByPostId(post.getPostId());
+        List<Comment> comments = findCommentsByPostId(post.getPostId());
         postViewModel.setComments(comments);
 
         return postViewModel;
