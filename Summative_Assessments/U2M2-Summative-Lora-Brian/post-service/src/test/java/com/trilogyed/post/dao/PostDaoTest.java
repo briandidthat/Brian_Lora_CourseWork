@@ -38,7 +38,6 @@ public class PostDaoTest {
         post = postDao.addPost(post);
 
         Post post1 = postDao.getPost(post.getPostId());
-        System.out.println(post);
         assertEquals(post1, post);
 
         postDao.deletePost(post.getPostId());
