@@ -11,6 +11,12 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Service Layer
+ * Purpose: Perform all necessary business logic operations in order to keep our controller simple
+ */
+
+
 @Component
 public class ServiceLayer {
     PostClient postClient;

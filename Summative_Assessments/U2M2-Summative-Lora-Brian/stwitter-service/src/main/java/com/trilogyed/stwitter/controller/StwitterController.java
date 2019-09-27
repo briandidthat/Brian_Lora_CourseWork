@@ -7,6 +7,10 @@ import com.trilogyed.stwitter.util.messages.CommentEntry;
 import com.trilogyed.stwitter.viewmodel.PostViewModel;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +20,7 @@ import java.util.List;
 
 @RestController
 @RefreshScope
+@CacheConfig(cacheNames = {"posts"})
 @RequestMapping(value = "/posts")
 public class StwitterController {
     private ServiceLayer service;
@@ -38,12 +43,14 @@ public class StwitterController {
         return service.findAllPosts();
     }
 
+    @CachePut(key = "#result.getPostId()")
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
     public PostViewModel createPost(@RequestBody @Valid Post post) {
         return service.savePost(post);
     }
 
+    @CacheEvict(key = "#post.getPostId()")
     @PutMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updatePost(@PathVariable int id, @RequestBody @Valid Post post) {
@@ -56,12 +63,14 @@ public class StwitterController {
         service.updatePost(post);
     }
 
+    @CacheEvict
     @DeleteMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletePost(@PathVariable int id) {
         service.removePost(id);
     }
 
+    @Cacheable
     @GetMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.OK)
     public PostViewModel getPost(@PathVariable int id) {
