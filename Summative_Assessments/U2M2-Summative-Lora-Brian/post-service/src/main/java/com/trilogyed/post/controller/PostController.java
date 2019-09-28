@@ -1,7 +1,6 @@
 package com.trilogyed.post.controller;
 
 import com.trilogyed.post.dao.PostDao;
-import com.trilogyed.post.exception.NotFoundException;
 import com.trilogyed.post.model.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -32,11 +31,7 @@ public class PostController {
     @GetMapping(value = "/{id}")
     @ResponseStatus(value = HttpStatus.OK)
     public Post getPost(@PathVariable int id) {
-        Post post = postDao.getPost(id);
-        if (post == null) {
-            throw new NotFoundException("Sorry, we do not have any posts wit the id: " + id);
-        }
-        return post;
+        return postDao.getPost(id);
     }
 
     @PutMapping(value = "/{id}")
@@ -54,10 +49,6 @@ public class PostController {
     @GetMapping("/user/{posterName}")
     @ResponseStatus(value = HttpStatus.OK)
     public List<Post> getPostsByPoster(@PathVariable String posterName) {
-        List<Post> posts = postDao.getPostsByPoster(posterName);
-        if (posts == null) {
-            throw new NotFoundException("Sorry, we do not have any posts by the user: " + posterName);
-        }
-        return posts;
+        return postDao.getPostsByPoster(posterName);
     }
 }

@@ -1,5 +1,6 @@
 package com.trilogyed.stwitter.service;
 
+import com.trilogyed.stwitter.exception.NotFoundException;
 import com.trilogyed.stwitter.model.Comment;
 import com.trilogyed.stwitter.model.Post;
 import com.trilogyed.stwitter.util.feign.CommentClient;
@@ -36,6 +37,9 @@ public class ServiceLayer {
 
     public PostViewModel findPost(int id) {
         Post post = postClient.getPost(id);
+        if (post == null) {
+            throw new NotFoundException("Sorry, we cannot find a post with that id. ");
+        }
         return buildPostViewModel(post);
     }
 

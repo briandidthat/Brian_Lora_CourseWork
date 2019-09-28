@@ -1,5 +1,6 @@
 package com.trilogyed.stwitter.controller;
 
+import com.trilogyed.stwitter.exception.NotFoundException;
 import com.trilogyed.stwitter.model.Comment;
 import com.trilogyed.stwitter.model.Post;
 import com.trilogyed.stwitter.service.ServiceLayer;
@@ -102,7 +103,11 @@ public class StwitterController {
     @GetMapping("/comments/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Comment getComment(@PathVariable int id) {
-        return service.findCommentById(id);
+        Comment comment = service.findCommentById(id);
+        if (comment == null) {
+            throw new NotFoundException("Sorry, we do not have a comment with that id.");
+        }
+        return comment;
     }
 
     @PutMapping(value = "/comments/{id}")
@@ -129,13 +134,21 @@ public class StwitterController {
     @GetMapping(value = "/comments/post/{postId}")
     @ResponseStatus(HttpStatus.OK)
     public List<Comment> getCommentsByPostId(@PathVariable int postId) {
-        return service.findCommentsByPostId(postId);
+        List<Comment> comments = service.findCommentsByPostId(postId);
+        if (comments == null) {
+            throw new NotFoundException("Sorry, we do not have a comment with that post id.");
+        }
+        return comments;
     }
 
     @GetMapping(value = "/comments/user/{commenterName}")
     @ResponseStatus(HttpStatus.OK)
     public List<Comment> getCommentsByCommenter(@PathVariable String commenterName) {
-        return service.findAllCommentsByCommenter(commenterName);
+        List<Comment> comments = service.findAllCommentsByCommenter(commenterName);
+        if (comments == null) {
+            throw new NotFoundException("Sorry, we do not have a comment with that post id.");
+        }
+        return comments;
     }
 
 }

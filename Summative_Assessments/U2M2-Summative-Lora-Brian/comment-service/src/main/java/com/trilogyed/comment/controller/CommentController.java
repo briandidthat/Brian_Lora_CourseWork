@@ -1,7 +1,7 @@
 package com.trilogyed.comment.controller;
 
 import com.trilogyed.comment.dao.CommentDao;
-import com.trilogyed.comment.exception.NotFoundException;
+
 import com.trilogyed.comment.model.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -35,11 +35,7 @@ public class CommentController {
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Comment findCommentById(@PathVariable int id) {
-        Comment comment = commentDao.getComment(id);
-        if (comment == null) {
-            throw new NotFoundException("Sorry, that comment does not exist.");
-        }
-        return comment;
+        return commentDao.getComment(id);
     }
 
     @PutMapping("/{id}")
@@ -57,23 +53,13 @@ public class CommentController {
     @GetMapping("/post/{postId}")
     @ResponseStatus(HttpStatus.OK)
     public List<Comment> findCommentsByPostId(@PathVariable int postId) {
-        List<Comment> comments = commentDao.getCommentsByPostId(postId);
-        if (comments == null) {
-            throw new NotFoundException("Sorry, that post does not exist.");
-        } else {
-            return comments;
-        }
+        return commentDao.getCommentsByPostId(postId);
     }
 
     @GetMapping("/commenter/{commenterName}")
     @ResponseStatus(HttpStatus.OK)
     public List<Comment> findCommentsByCommenter(@PathVariable String commenterName) {
-        List<Comment> comments = commentDao.getCommentsByCommenter(commenterName);
-        if (comments == null) {
-            throw new NotFoundException("Sorry, that user has not left any comments.");
-        } else {
-            return comments;
-        }
+        return commentDao.getCommentsByCommenter(commenterName);
     }
 
 }
