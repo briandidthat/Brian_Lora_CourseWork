@@ -113,6 +113,7 @@ public class ServiceLayerTest {
 
         doReturn(post).when(postClient).createPost(post1);
         doReturn(posts).when(postClient).getPosts();
+        doReturn(post).when(postClient).getPost(1);
         doReturn(postsByTheAlchemist).when(postClient).getPostsByPoster("The Alchemist");
         doNothing().when(postClient).deletePost(1);
         doNothing().when(postClient).updatePost(2, post3);
