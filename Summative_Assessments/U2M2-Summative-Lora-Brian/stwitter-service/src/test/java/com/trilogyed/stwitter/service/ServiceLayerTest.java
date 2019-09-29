@@ -16,7 +16,6 @@ import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
 
 public class ServiceLayerTest {
-
     PostClient postClient;
     CommentClient commentClient;
     ServiceLayer serviceLayer;
@@ -44,8 +43,19 @@ public class ServiceLayerTest {
     }
 
     @Test
-    public void findPostByPoster() {
+    public void findAllFindPostsByPoster() {
+        // FIND ALL POSTS BY POSTER
+        List<PostViewModel> postsByPoster = serviceLayer.findPostsByPoster("The Alchemist");
+        assertEquals(3, postsByPoster.size());
+        // FIND ALL
+        List<PostViewModel> posts = serviceLayer.findAllPosts();
+        assertEquals(3, posts.size());
+    }
 
+    @Test
+    public void findCommentsByPostId() {
+        List<Comment> comments = serviceLayer.findCommentsByPostId(2);
+        assertEquals(2, comments.size());
     }
 
     private void setUpCommentMock() {
@@ -64,7 +74,6 @@ public class ServiceLayerTest {
         comment1.setCreateDate(LocalDate.of(2019,11,12));
         comment1.setCommenterName("Neo");
         comment1.setComment("I disagree, this is a horrible take.");
-
 
         Comment comment2 = new Comment();
         comment2.setCommentId(3);
@@ -114,18 +123,21 @@ public class ServiceLayerTest {
 
         // ALL POSTS
         List<Post> posts = new ArrayList<>();
-        posts.add(post);
+        posts.add(post1);
+        posts.add(post2);
+        posts.add(post3);
+
         // POSTS BY POSTER
         List<Post> postsByTheAlchemist = new ArrayList<>();
         postsByTheAlchemist.add(post1);
         postsByTheAlchemist.add(post2);
+        postsByTheAlchemist.add(post3);
 
         doReturn(post).when(postClient).createPost(post1);
-        doReturn(posts).when(postClient).getPosts();
         doReturn(post).when(postClient).getPost(1);
         doReturn(post2).when(postClient).getPost(2);
+        doReturn(posts).when(postClient).getPosts();
         doReturn(postsByTheAlchemist).when(postClient).getPostsByPoster("The Alchemist");
-        doNothing().when(postClient).deletePost(1);
         doNothing().when(postClient).updatePost(2, post3);
     }
 }
