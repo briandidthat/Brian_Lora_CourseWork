@@ -4,10 +4,9 @@ import com.trilogyed.stwitter.model.Comment;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
-/*Task:
- *
- */
+
 public class PostViewModel {
     private int postId;
     private LocalDate postDate;
@@ -55,5 +54,22 @@ public class PostViewModel {
 
     public List<Comment> getComments() {
         return comments;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PostViewModel that = (PostViewModel) o;
+        return postId == that.postId &&
+                postDate.equals(that.postDate) &&
+                posterName.equals(that.posterName) &&
+                post.equals(that.post) &&
+                comments.equals(that.comments);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(postId, postDate, posterName, post, comments);
     }
 }
