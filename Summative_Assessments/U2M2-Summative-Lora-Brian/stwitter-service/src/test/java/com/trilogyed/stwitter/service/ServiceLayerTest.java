@@ -29,15 +29,23 @@ public class ServiceLayerTest {
     }
 
     @Test
-    public void AddGetDeletePost() {
+    public void saveFindPost() {
         Post post = new Post();
         post.setPostDate(LocalDate.of(2019, 11, 11));
         post.setPosterName("The Alchemist");
         post.setPost("Let's put Tomi Lahren in a rocket and send her off into space to never return.");
-        PostViewModel postViewModel = serviceLayer.savePost(post);
 
+        PostViewModel postViewModel = serviceLayer.savePost(post);
         PostViewModel fromService = serviceLayer.findPost(postViewModel.getPostId());
         assertEquals(fromService, postViewModel);
+
+        PostViewModel postViewModel1 = serviceLayer.findPost(2);
+        assertEquals(2, postViewModel1.getComments().size());
+    }
+
+    @Test
+    public void findPostByPoster() {
+
     }
 
     private void setUpCommentMock() {
@@ -50,7 +58,16 @@ public class ServiceLayerTest {
         comment.setCommenterName("Morpheus");
         comment.setComment("Can we add Laura Ingram?!");
 
+        Comment comment1 = new Comment();
+        comment1.setCommentId(2);
+        comment1.setPostId(2);
+        comment1.setCreateDate(LocalDate.of(2019,11,12));
+        comment1.setCommenterName("Neo");
+        comment1.setComment("I disagree, this is a horrible take.");
+
+
         Comment comment2 = new Comment();
+        comment2.setCommentId(3);
         comment2.setPostId(2);
         comment2.setCreateDate(LocalDate.of(2019,11,12));
         comment2.setCommenterName("Morpheus");
@@ -58,13 +75,6 @@ public class ServiceLayerTest {
 
         List<Comment> commentsByMorpheus = new ArrayList<>();
         commentsByMorpheus.add(comment);
-
-        Comment comment1 = new Comment();
-        comment1.setCommentId(2);
-        comment1.setPostId(2);
-        comment1.setCreateDate(LocalDate.of(2019,11,12));
-        comment1.setCommenterName("Neo");
-        comment1.setComment("I disagree, this is a horrible take.");
 
         List<Comment> comments = new ArrayList<>();
         comments.add(comment);
@@ -96,7 +106,6 @@ public class ServiceLayerTest {
         post2.setPosterName("The Alchemist");
         post2.setPost("My take yesterday was modest. Lets send Laura Ingram too.");
 
-
         Post post3 = new Post();
         post3.setPostId(3);
         post3.setPostDate(LocalDate.of(2019,11,12));
@@ -114,6 +123,7 @@ public class ServiceLayerTest {
         doReturn(post).when(postClient).createPost(post1);
         doReturn(posts).when(postClient).getPosts();
         doReturn(post).when(postClient).getPost(1);
+        doReturn(post2).when(postClient).getPost(2);
         doReturn(postsByTheAlchemist).when(postClient).getPostsByPoster("The Alchemist");
         doNothing().when(postClient).deletePost(1);
         doNothing().when(postClient).updatePost(2, post3);
