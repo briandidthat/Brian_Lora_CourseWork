@@ -21,6 +21,6 @@ public interface CommentClient {
     @GetMapping("/commenter/{commenterName}")
     List<Comment> getCommentsByCommenter(@PathVariable String commenterName);
 
-    @GetMapping("/notes/{postId}")
+    @GetMapping("/comments/post/{postId}")
     List<Comment> getCommentsByPostId(@PathVariable int postId);
 }
