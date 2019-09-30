@@ -12,8 +12,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Primary;
-import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 @SpringBootApplication
 @EnableFeignClients
@@ -42,18 +40,9 @@ public class CommentQueueConsumerApplication {
 	}
 
 	@Bean
-	@Primary
-	public ObjectMapper objectMapper(Jackson2ObjectMapperBuilder builder) {
-		ObjectMapper objectMapper = builder.build();
-		objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
-		return objectMapper;
-	}
-
-	// Finally, defining the Jackson converter we will need to convert NoteEntry object json
-	// Producer(Book service) calls convertAndSend --> Consumer(NoteQueueConsumer) receives as Json for use.
-	@Bean
 	public Jackson2JsonMessageConverter jackson2JsonMessageConverter() {
-		return new Jackson2JsonMessageConverter();
+		ObjectMapper objectMapper = new ObjectMapper().findAndRegisterModules();
+		return new Jackson2JsonMessageConverter(objectMapper);
 	}
 
 	public static void main(String[] args) {

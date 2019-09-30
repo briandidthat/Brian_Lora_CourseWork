@@ -10,7 +10,7 @@ public class CommentEntry {
     private int commentId;
     @NotNull(message = "Must enter a post Id.")
     private int postId;
-    @JsonFormat(pattern = "mm/dd/yyyy")
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
     @NotNull(message = "Must enter a value for createDate.")
     private LocalDate createDate;
     @NotNull(message = "Must enter a value for commenterName.")

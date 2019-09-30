@@ -1,11 +1,14 @@
 package com.trilogyed.commentqueueconsumer.util.messages;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDate;
 
 
 public class CommentEntry {
     private int commentId;
     private int postId;
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
     private LocalDate createDate;
     private String commenterName;
     private String comment;
