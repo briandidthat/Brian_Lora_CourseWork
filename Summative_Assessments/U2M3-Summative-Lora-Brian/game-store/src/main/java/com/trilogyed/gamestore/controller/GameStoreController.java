@@ -1,8 +1,9 @@
 package com.trilogyed.gamestore.controller;
 
-/*Task:
- *
- */
+import org.springframework.web.bind.annotation.RestController;
+
+
+@RestController
 public class GameStoreController {
 
 }
