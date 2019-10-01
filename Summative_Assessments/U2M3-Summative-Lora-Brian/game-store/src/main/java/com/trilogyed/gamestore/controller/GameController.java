@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.List;
 
 
@@ -19,7 +20,7 @@ public class GameController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Game createGame(@RequestBody @Valid Game game) {
+    public Game createGame(Principal principal, @RequestBody @Valid Game game) {
         return gameService.saveGame(game);
     }
 
@@ -41,7 +42,7 @@ public class GameController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteGame(@PathVariable("id") int id) {
+    public void deleteGame(Principal principal, @PathVariable("id") int id) {
         gameService.removeGame(id);
     }
 

@@ -8,19 +8,19 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.List;
 
-/*Task:
- *
- */
+
 @RestController
+@RequestMapping("/gameStore/tShirts")
 public class TShirtController {
     @Autowired
     TShirtService tShirtService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public TShirt createTShirt(@RequestBody @Valid TShirt tShirt) {
+    public TShirt createTShirt(Principal principal, @RequestBody @Valid TShirt tShirt) {
         return tShirtService.saveTShirt(tShirt);
     }
 
@@ -43,7 +43,7 @@ public class TShirtController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateTShirt(@PathVariable("id") int id, @RequestBody @Valid TShirt tShirt) {
+    public void updateTShirt(Principal principal, @PathVariable("id") int id, @RequestBody @Valid TShirt tShirt) {
         if (tShirt.getTShirtId() == 0) {
             tShirt.setTShirtId(id);
         }
@@ -55,7 +55,7 @@ public class TShirtController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteTShirt(@PathVariable("id") int id) {
+    public void deleteTShirt(Principal principal, @PathVariable("id") int id) {
         tShirtService.removeShirt(id);
     }
 

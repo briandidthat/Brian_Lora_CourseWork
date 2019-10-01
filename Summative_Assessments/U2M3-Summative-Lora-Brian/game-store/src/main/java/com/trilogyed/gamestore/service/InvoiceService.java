@@ -4,7 +4,7 @@ import com.trilogyed.gamestore.dao.*;
 import com.trilogyed.gamestore.exception.NotFoundException;
 import com.trilogyed.gamestore.model.*;
 import com.trilogyed.gamestore.viewmodel.InvoiceViewModel;
-import com.trilogyed.gamestore.viewmodel.OrderViewModel;
+import com.trilogyed.gamestore.model.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,24 +34,24 @@ public class InvoiceService {
 
 
     @Transactional
-    public InvoiceViewModel saveInvoice(OrderViewModel orderViewModel) {
+    public InvoiceViewModel saveInvoice(Order order) {
         // validate inventory before performing any calculations
-        if (validateInventory(orderViewModel.getItemId(), orderViewModel.getQuantity(), orderViewModel.getItemType())) {
+        if (validateInventory(order.getItemId(), order.getQuantity(), order.getItemType())) {
             Invoice invoice = new Invoice();
-            invoice.setName(orderViewModel.getName());
-            invoice.setStreet(orderViewModel.getStreet());
-            invoice.setCity(orderViewModel.getCity());
-            invoice.setState(orderViewModel.getState());
-            invoice.setZipCode(orderViewModel.getZip());
-            invoice.setItemType(orderViewModel.getItemType());
-            invoice.setItemId(orderViewModel.getItemId());
-            invoice.setQuantity(orderViewModel.getQuantity());
+            invoice.setName(order.getName());
+            invoice.setStreet(order.getStreet());
+            invoice.setCity(order.getCity());
+            invoice.setState(order.getState());
+            invoice.setZipCode(order.getZip());
+            invoice.setItemType(order.getItemType());
+            invoice.setItemId(order.getItemId());
+            invoice.setQuantity(order.getQuantity());
 
             // calculate values
-            BigDecimal unitPrice = getItemPrice(orderViewModel.getItemId(), orderViewModel.getItemType());
-            BigDecimal subTotal = calculateSubTotal(orderViewModel.getQuantity(), unitPrice);
-            BigDecimal tax = calculateTax(subTotal, orderViewModel.getState());
-            BigDecimal processingFee = calculateProcessingFee(orderViewModel.getItemType(), orderViewModel.getQuantity());
+            BigDecimal unitPrice = getItemPrice(order.getItemId(), order.getItemType());
+            BigDecimal subTotal = calculateSubTotal(order.getQuantity(), unitPrice);
+            BigDecimal tax = calculateTax(subTotal, order.getState());
+            BigDecimal processingFee = calculateProcessingFee(order.getItemType(), order.getQuantity());
             BigDecimal total = calculateTotal(subTotal, tax, processingFee);
 
             // STORE VALUES

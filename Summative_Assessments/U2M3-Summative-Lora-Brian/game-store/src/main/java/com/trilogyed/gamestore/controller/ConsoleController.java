@@ -8,11 +8,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.List;
 
-/*Task:
- *
- */
+
 @RestController
 @RequestMapping("/gameStore/consoles")
 public class ConsoleController {
@@ -21,7 +20,7 @@ public class ConsoleController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Console createConsole(@RequestBody @Valid Console console) {
+    public Console createConsole(Principal principal, @RequestBody @Valid Console console) {
         return consoleService.saveConsole(console);
     }
 
@@ -44,7 +43,7 @@ public class ConsoleController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateConsole(@PathVariable("id") int id, @RequestBody @Valid Console console) {
+    public void updateConsole(Principal principal, @PathVariable("id") int id, @RequestBody @Valid Console console) {
         if (console.getConsoleId() == 0) {
             console.setConsoleId(id);
         }
@@ -56,7 +55,7 @@ public class ConsoleController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteConsole(@PathVariable("id") int id) {
+    public void deleteConsole(Principal principal, @PathVariable("id") int id) {
         consoleService.removeConsole(id);
     }
 

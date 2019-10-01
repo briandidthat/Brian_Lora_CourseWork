@@ -1,10 +1,10 @@
-package com.trilogyed.gamestore.viewmodel;
+package com.trilogyed.gamestore.model;
 
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 
-public class OrderViewModel {
+public class Order {
     private int id;
     @NotNull(message="Please supply a value for name")
     private String name;
@@ -99,7 +99,7 @@ public class OrderViewModel {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        OrderViewModel that = (OrderViewModel) o;
+        Order that = (Order) o;
         return id == that.id &&
                 itemId == that.itemId &&
                 quantity == that.quantity &&
