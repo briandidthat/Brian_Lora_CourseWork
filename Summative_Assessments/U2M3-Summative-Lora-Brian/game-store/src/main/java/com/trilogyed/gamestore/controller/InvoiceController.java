@@ -9,11 +9,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.security.Principal;
 
 
 @RestController
-@RequestMapping("/invoice")
-public class GameStoreController {
+@RequestMapping("/gameStore/invoice")
+public class InvoiceController {
     @Autowired
     InvoiceService invoiceService;
 
@@ -26,7 +27,7 @@ public class GameStoreController {
     // ID PATH VARIABLE
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public InvoiceViewModel getInvoice(@PathVariable("id") int invoiceId) {
+    public InvoiceViewModel getInvoice(Principal principal, @PathVariable("id") int invoiceId) {
         InvoiceViewModel invoiceViewModel = invoiceService.findInvoiceById(invoiceId);
         if (invoiceViewModel == null) {
             throw new NotFoundException("Sorry, an invoice could not be retrieved for id: " + invoiceId + ".");
@@ -36,7 +37,8 @@ public class GameStoreController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateInvoice(@PathVariable("id") int invoiceId, @RequestBody @Valid InvoiceViewModel invoiceViewModel) {
+    public void updateInvoice(Principal principal,@PathVariable("id") int invoiceId,
+                              @RequestBody @Valid InvoiceViewModel invoiceViewModel) {
         if (invoiceViewModel.getId() == 0) {
             invoiceViewModel.setId(invoiceId);
         }
@@ -48,7 +50,7 @@ public class GameStoreController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteInvoice(@PathVariable("id") int invoiceId) {
+    public void deleteInvoice(Principal principal, @PathVariable("id") int invoiceId) {
         invoiceService.removeInvoice(invoiceId);
     }
 
