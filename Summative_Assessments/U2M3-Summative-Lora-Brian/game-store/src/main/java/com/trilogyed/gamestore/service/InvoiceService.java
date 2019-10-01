@@ -70,6 +70,38 @@ public class InvoiceService {
         }
     }
 
+    public InvoiceViewModel findInvoiceById(int id) {
+        Invoice invoice = invoiceDao.getInvoiceById(id);
+        if (invoice == null) {
+            return null;
+        } else {
+            return buildInvoiceViewModel(invoice);
+        }
+    }
+
+    public void updateInvoice(InvoiceViewModel invoiceViewModel) {
+        Invoice invoice = new Invoice();
+        invoice.setInvoiceId(invoiceViewModel.getId());
+        invoice.setName(invoiceViewModel.getName());
+        invoice.setStreet(invoiceViewModel.getStreet());
+        invoice.setCity(invoiceViewModel.getCity());
+        invoice.setState(invoiceViewModel.getState());
+        invoice.setZipCode(invoiceViewModel.getZipCode());
+        invoice.setItemType(invoiceViewModel.getItemType());
+        invoice.setItemId(invoiceViewModel.getItemId());
+        invoice.setUnitPrice(invoiceViewModel.getUnitPrice());
+        invoice.setQuantity(invoiceViewModel.getQuantity());
+        invoice.setSubTotal(invoiceViewModel.getSubTotal());
+        invoice.setTax(invoiceViewModel.getTax());
+        invoice.setProcessingFee(invoiceViewModel.getProcessingFee());
+        invoice.setTotal(invoiceViewModel.getTotal());
+
+        invoiceDao.updateInvoice(invoice);
+    }
+
+    public void removeInvoice(int id) {
+        invoiceDao.deleteInvoice(id);
+    }
 
     // INVOICE CALCULATION METHODS
     // ======================================================================================================
