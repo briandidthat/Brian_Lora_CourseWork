@@ -4,6 +4,7 @@ import com.trilogyed.gamestore.model.Game;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.ResultSet;
@@ -13,6 +14,7 @@ import java.util.List;
 /*Task:
  *
  */
+@Repository
 public class GameDaoJdbcTemplateImpl implements GameDao{
     private JdbcTemplate jdbcTemplate;
 

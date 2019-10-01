@@ -1,0 +1,8 @@
+applications:
+- name: GAME-SERVICE
+  memory: 1024M
+  instances: 1
+  random-route: true
+  path: ./target/game-store-0.0.1-SNAPSHOT.jar
+  services:
+    - GAME-STORE-SERVICE
