@@ -2,6 +2,7 @@ package com.trilogyed.gamestore.service;
 
 import com.trilogyed.gamestore.dao.*;
 import com.trilogyed.gamestore.model.*;
+import com.trilogyed.gamestore.viewmodel.InvoiceViewModel;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -35,7 +36,14 @@ public class ServiceLayerTest {
 
     @Test
     public void saveFindInvoice() {
-        Invoice invoice = new Invoice();
+        // Must pass invoice object without any tax, total, subtotal, unit-price values, processingFee
+        // Actual values will be created inside of the service layer
+
+
+    }
+
+    @Test
+    public void updateInvoice() {
 
     }
 
@@ -71,6 +79,27 @@ public class ServiceLayerTest {
         gameDao = mock(GameDaoJdbcTemplateImpl.class);
 
         Game game = new Game();
+        game.setGameId(1);
+        game.setTitle("Tekken 6");
+        game.setEsrbRating("E");
+        game.setDescription("Fight using your favorite characters.");
+        game.setPrice(BigDecimal.valueOf(60.00));
+        game.setStudio("2K Studios");
+        game.setQuantity(10);
+
+        Game game1 = new Game();
+        game.setTitle("Tekken 6");
+        game.setEsrbRating("E");
+        game.setDescription("Fight using your favorite characters.");
+        game.setPrice(BigDecimal.valueOf(60.00));
+        game.setStudio("2K Studios");
+        game.setQuantity(10);
+
+        List<Game> games = new ArrayList<>();
+
+        doReturn(game).when(gameDao).addGame(game1);
+        doReturn(game).when(gameDao).getGameById(1);
+        doReturn(games).when(gameDao).getAllGames();
     }
 
     private void setUpTShirtDaoMock() {
@@ -106,32 +135,32 @@ public class ServiceLayerTest {
         invoice.setInvoiceId(1);
         invoice.setName("Brian Lora");
         invoice.setStreet("502 Broadway");
-        invoice.setCity("Los Angeles");
-        invoice.setState("CA");
-        invoice.setZipCode("90201");
+        invoice.setCity("New York");
+        invoice.setState("NY");
+        invoice.setZipCode("10040");
         invoice.setItemType("Console");
         invoice.setItemId(1);
         invoice.setQuantity(2);
         invoice.setUnitPrice(BigDecimal.valueOf(30.00));
         invoice.setSubTotal(BigDecimal.valueOf(60.00));
-        invoice.setTax(BigDecimal.valueOf(17.78));
+        invoice.setTax(BigDecimal.valueOf(3.59f));
         invoice.setProcessingFee(BigDecimal.valueOf(14.99));
-        invoice.setTotal(BigDecimal.valueOf(100.00));
+        invoice.setTotal(BigDecimal.valueOf(78.58));
 
         Invoice invoice1 = new Invoice();
         invoice1.setName("Brian Lora");
         invoice1.setStreet("502 Broadway");
-        invoice1.setCity("Los Angeles");
-        invoice1.setState("CA");
-        invoice1.setZipCode("90201");
+        invoice1.setCity("New York");
+        invoice1.setState("NY");
+        invoice1.setZipCode("10040");
         invoice1.setItemType("Console");
         invoice1.setItemId(1);
         invoice1.setQuantity(2);
         invoice1.setUnitPrice(BigDecimal.valueOf(30.00));
         invoice1.setSubTotal(BigDecimal.valueOf(60.00));
-        invoice1.setTax(BigDecimal.valueOf(17.78));
+        invoice1.setTax(BigDecimal.valueOf(3.59f));
         invoice1.setProcessingFee(BigDecimal.valueOf(14.99));
-        invoice1.setTotal(BigDecimal.valueOf(100.00));
+        invoice1.setTotal(BigDecimal.valueOf(78.58));
 
         List<Invoice> invoices = new ArrayList<>();
         invoices.add(invoice);
@@ -175,6 +204,5 @@ public class ServiceLayerTest {
         doReturn(salesTaxRate).when(salesTaxRateDao).getSalesTaxRate("NY");
         doReturn(salesTaxRate).when(salesTaxRateDao).getSalesTaxRate("NJ");
     }
-
 
 }
