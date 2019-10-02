@@ -4,12 +4,18 @@ import com.trilogyed.gamestore.dao.*;
 import com.trilogyed.gamestore.exception.NotFoundException;
 import com.trilogyed.gamestore.model.*;
 import com.trilogyed.gamestore.viewmodel.InvoiceViewModel;
-import com.trilogyed.gamestore.model.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+
+/**
+ * INVOICE SERVICE:
+ * Purpose: To perform all CRUD operations and necessary calculations needed for Invoices.
+ * Private Methods: calculateTax(), calculateProcessingFee(),
+ */
+
 
 @Component
 public class InvoiceService {
@@ -31,29 +37,16 @@ public class InvoiceService {
         this.processingFeeDao = processingFeeDao;
     }
 
-
-
     @Transactional
-    public InvoiceViewModel saveInvoice(Order order) {
-        // validate inventory before performing any calculations
-        if (validateInventory(order.getItemId(), order.getQuantity(), order.getItemType())) {
-            Invoice invoice = new Invoice();
-            invoice.setName(order.getName());
-            invoice.setStreet(order.getStreet());
-            invoice.setCity(order.getCity());
-            invoice.setState(order.getState());
-            invoice.setZipCode(order.getZip());
-            invoice.setItemType(order.getItemType());
-            invoice.setItemId(order.getItemId());
-            invoice.setQuantity(order.getQuantity());
-
-            // calculate values
-            BigDecimal unitPrice = getItemPrice(order.getItemId(), order.getItemType());
-            BigDecimal subTotal = calculateSubTotal(order.getQuantity(), unitPrice);
-            BigDecimal tax = calculateTax(subTotal, order.getState());
-            BigDecimal processingFee = calculateProcessingFee(order.getItemType(), order.getQuantity());
+    public InvoiceViewModel saveInvoice(Invoice invoice) {
+        // VALIDATE INVENTORY BEFORE PERFORMING ANY VALUES
+        if (validateInventory(invoice.getItemId(), invoice.getQuantity(), invoice.getItemType())) {
+            // CALCULATE VALUES
+            BigDecimal unitPrice = getItemPrice(invoice.getItemId(), invoice.getItemType());
+            BigDecimal subTotal = calculateSubTotal(invoice.getQuantity(), unitPrice);
+            BigDecimal tax = calculateTax(subTotal, invoice.getState());
+            BigDecimal processingFee = calculateProcessingFee(invoice.getItemType(), invoice.getQuantity());
             BigDecimal total = calculateTotal(subTotal, tax, processingFee);
-
             // STORE VALUES
             invoice.setUnitPrice(unitPrice);
             invoice.setSubTotal(subTotal);
@@ -79,23 +72,7 @@ public class InvoiceService {
         }
     }
 
-    public void updateInvoice(InvoiceViewModel invoiceViewModel) {
-        Invoice invoice = new Invoice();
-        invoice.setInvoiceId(invoiceViewModel.getId());
-        invoice.setName(invoiceViewModel.getName());
-        invoice.setStreet(invoiceViewModel.getStreet());
-        invoice.setCity(invoiceViewModel.getCity());
-        invoice.setState(invoiceViewModel.getState());
-        invoice.setZipCode(invoiceViewModel.getZipCode());
-        invoice.setItemType(invoiceViewModel.getItemType());
-        invoice.setItemId(invoiceViewModel.getItemId());
-        invoice.setUnitPrice(invoiceViewModel.getUnitPrice());
-        invoice.setQuantity(invoiceViewModel.getQuantity());
-        invoice.setSubTotal(invoiceViewModel.getSubTotal());
-        invoice.setTax(invoiceViewModel.getTax());
-        invoice.setProcessingFee(invoiceViewModel.getProcessingFee());
-        invoice.setTotal(invoiceViewModel.getTotal());
-
+    public void updateInvoice(Invoice invoice) {
         invoiceDao.updateInvoice(invoice);
     }
 
@@ -135,23 +112,24 @@ public class InvoiceService {
     // VALIDATE INVENTORY AND UPDATE
     private boolean validateInventory(int id, int quantity, String itemType) {
         int updatedValue;
+        String fixedItem = itemType.toLowerCase();
         boolean inStock = false;
 
-        if (itemType.equalsIgnoreCase("consoles")) {
+        if (fixedItem.equals("consoles")) {
             Console console = consoleDao.getConsoleById(id);
             if (console.getQuantity() >= quantity) {
                 inStock = true;
                 updatedValue = console.getQuantity() - quantity;
                 consoleDao.updateConsoleInventory(id, updatedValue);
             }
-        } else if (itemType.equalsIgnoreCase("tshirts")) {
+        } else if (fixedItem.equals("tshirts")) {
             TShirt tShirt = tShirtDao.getTShirtById(id);
             if (tShirt.getQuantity() >= quantity) {
                 inStock = true;
                 updatedValue = tShirt.getQuantity() - quantity;
                 tShirtDao.updateTShirtInventory(id, updatedValue);
             }
-        } else if (itemType.equalsIgnoreCase("games")) {
+        } else if (fixedItem.equals("games")) {
             Game game = gameDao.getGameById(id);
             if (game.getQuantity() >= quantity) {
                 inStock = true;
@@ -165,7 +143,7 @@ public class InvoiceService {
         return inStock;
     }
 
-    // get the item price based on the itemType
+    // GET THE ITEM PRICE BASED ON THE ID AND ITEM-TYPE
     private BigDecimal getItemPrice(int id, String itemType) {
         BigDecimal price;
         String fixedItemType = itemType.toLowerCase();

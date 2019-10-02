@@ -1,19 +1,28 @@
 package com.trilogyed.gamestore.model;
 
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Objects;
 
 
 public class Invoice {
     private int invoiceId;
+    @NotNull(message = "Please enter a value for name.")
     private String name;
+    @NotNull(message = "Please enter a value for street.")
     private String street;
+    @NotNull(message = "Please enter a value for city.")
     private String city;
+    @NotNull(message = "Please enter a value for state.")
     private String state;
+    @NotNull(message = "Please enter a value for zipCode.")
     private String zipCode;
+    @NotNull(message = "Please enter a value for itemType.")
     private String itemType;
+    @NotNull(message = "Please enter a value for itemId.")
     private int itemId;
     private BigDecimal unitPrice;
+    @NotNull(message = "Please enter a value for quantity.")
     private int quantity;
     private BigDecimal subTotal;
     private BigDecimal tax;

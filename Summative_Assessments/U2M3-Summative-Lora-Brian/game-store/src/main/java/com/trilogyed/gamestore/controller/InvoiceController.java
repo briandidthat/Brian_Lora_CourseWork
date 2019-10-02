@@ -1,7 +1,7 @@
 package com.trilogyed.gamestore.controller;
 
 import com.trilogyed.gamestore.exception.NotFoundException;
-import com.trilogyed.gamestore.model.Order;
+import com.trilogyed.gamestore.model.Invoice;
 import com.trilogyed.gamestore.service.InvoiceService;
 import com.trilogyed.gamestore.viewmodel.InvoiceViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +20,8 @@ public class InvoiceController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public InvoiceViewModel createInvoice(Principal principal, @RequestBody @Valid Order order) {
-        return invoiceService.saveInvoice(order);
+    public InvoiceViewModel createInvoice(Principal principal, @RequestBody @Valid Invoice invoice) {
+        return invoiceService.saveInvoice(invoice);
     }
 
     // ID PATH VARIABLE
@@ -38,14 +38,14 @@ public class InvoiceController {
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateInvoice(Principal principal, @PathVariable("id") int invoiceId,
-                              @RequestBody @Valid InvoiceViewModel invoiceViewModel) {
-        if (invoiceViewModel.getId() == 0) {
-            invoiceViewModel.setId(invoiceId);
+                              @RequestBody @Valid Invoice invoice) {
+        if (invoice.getInvoiceId() == 0) {
+            invoice.setInvoiceId(invoiceId);
         }
-        if (invoiceId != invoiceViewModel.getId()) {
+        if (invoiceId != invoice.getInvoiceId()) {
             throw new IllegalArgumentException("Invoice ID on path must match the ID in the Customer object");
         }
-        invoiceService.updateInvoice(invoiceViewModel);
+        invoiceService.updateInvoice(invoice);
     }
 
     @DeleteMapping("/{id}")
