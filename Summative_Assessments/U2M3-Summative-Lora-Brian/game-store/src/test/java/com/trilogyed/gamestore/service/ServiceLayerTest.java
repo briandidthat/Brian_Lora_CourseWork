@@ -1,9 +1,7 @@
 package com.trilogyed.gamestore.service;
 
 import com.trilogyed.gamestore.dao.*;
-import com.trilogyed.gamestore.model.Console;
-import com.trilogyed.gamestore.model.Invoice;
-import com.trilogyed.gamestore.model.ProcessingFee;
+import com.trilogyed.gamestore.model.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -32,7 +30,7 @@ public class ServiceLayerTest {
         setUpTShirtDaoMock();
         setUpSalesTaxRateDao();
         setUpProcessingFeeDaoMock();
-        invoiceService = new InvoiceService(consoleDao,gameDao,invoiceDao,tShirtDao,salesTaxRateDao,processingFeeDao);
+        invoiceService = new InvoiceService(consoleDao,gameDao,invoiceDao,tShirtDao,processingFeeDao,salesTaxRateDao);
     }
 
     @Test
@@ -42,6 +40,65 @@ public class ServiceLayerTest {
     }
 
     // SETUP METHODS
+    private void setUpConsoleDaoMock() {
+        consoleDao = mock(ConsoleDaoJdbcTemplateImpl.class);
+        Console console = new Console();
+        console.setConsoleId(1);
+        console.setModel("PS4");
+        console.setManufacturer("Sony");
+        console.setMemoryAmount("2TB");
+        console.setProcessor("i7");
+        console.setPrice(BigDecimal.valueOf(30.00));
+        console.setQuantity(10);
+
+        Console console1 = new Console();
+        console.setModel("PS4");
+        console.setManufacturer("Sony");
+        console.setMemoryAmount("2TB");
+        console.setProcessor("i7");
+        console.setPrice(BigDecimal.valueOf(30.00));
+        console.setQuantity(10);
+
+        List<Console> consoles = new ArrayList<>();
+        consoles.add(console);
+
+        doReturn(console).when(consoleDao).addConsole(console1);
+        doReturn(consoles).when(consoleDao).getAllConsoles();
+        doReturn(console).when(consoleDao).getConsoleById(1);
+    }
+
+    private void setUpGameDaoMock() {
+        gameDao = mock(GameDaoJdbcTemplateImpl.class);
+
+        Game game = new Game();
+    }
+
+    private void setUpTShirtDaoMock() {
+        tShirtDao = mock(TShirtDaoJdbcTemplateImpl.class);
+
+        TShirt tShirt = new TShirt();
+        tShirt.setTShirtId(1);
+        tShirt.setSize("M");
+        tShirt.setColor("Blue");
+        tShirt.setDescription("New Gucci shirt.");
+        tShirt.setPrice(BigDecimal.valueOf(20.00));
+        tShirt.setQuantity(10);
+
+        TShirt tShirt1 = new TShirt();
+        tShirt1.setSize("M");
+        tShirt1.setColor("Blue");
+        tShirt1.setDescription("New Gucci shirt.");
+        tShirt1.setPrice(BigDecimal.valueOf(20.00));
+        tShirt1.setQuantity(10);
+
+        List<TShirt> tShirts = new ArrayList<>();
+        tShirts.add(tShirt);
+
+        doReturn(tShirt).when(tShirtDao).addTShirt(tShirt1);
+        doReturn(tShirt).when(tShirtDao).getTShirtById(1);
+        doReturn(tShirts).when(tShirtDao).getAllTShirts();
+    }
+
     private void setUpInvoiceDaoMock() {
         invoiceDao = mock(InvoiceDaoJdbcTemplateImpl.class);
 
@@ -84,46 +141,40 @@ public class ServiceLayerTest {
         doReturn(invoice).when(invoiceDao).getInvoiceById(1);
     }
 
-    private void setUpConsoleDaoMock() {
-        consoleDao = mock(ConsoleDaoJdbcTemplateImpl.class);
-        Console console = new Console();
-        console.setConsoleId(1);
-        console.setModel("PS4");
-        console.setManufacturer("Sony");
-        console.setMemoryAmount("2TB");
-        console.setProcessor("i7");
-        console.setPrice(BigDecimal.valueOf(30.00));
-        console.setQuantity(10);
+    private void setUpProcessingFeeDaoMock() {
+        processingFeeDao = mock(ProcessingFeeDaoJdbcTemplateImpl.class);
 
-        Console console1 = new Console();
-        console.setModel("PS4");
-        console.setManufacturer("Sony");
-        console.setMemoryAmount("2TB");
-        console.setProcessor("i7");
-        console.setPrice(BigDecimal.valueOf(30.00));
-        console.setQuantity(10);
+        ProcessingFee processingFee = new ProcessingFee();
+        processingFee.setProductType("consoles");
+        processingFee.setFee(BigDecimal.valueOf(14.99));
 
-        List<Console> consoles = new ArrayList<>();
-        consoles.add(console);
+        ProcessingFee processingFee1 = new ProcessingFee();
+        processingFee1.setProductType("games");
+        processingFee1.setFee(BigDecimal.valueOf(1.98));
 
-        doReturn(console).when(consoleDao).addConsole(console);
-        doReturn(consoles).when(consoleDao).getAllConsoles();
-        doReturn(console).when(consoleDao).getConsoleById(1);
-    }
+        ProcessingFee processingFee2 = new ProcessingFee();
+        processingFee2.setProductType("tshirts");
+        processingFee2.setFee(BigDecimal.valueOf(1.49));
 
-    private void setUpGameDaoMock() {
-        gameDao = mock(GameDaoJdbcTemplateImpl.class);
-    }
-
-    private void setUpTShirtDaoMock() {
-        tShirtDao = mock(TShirtDaoJdbcTemplateImpl.class);
+        doReturn(processingFee).when(processingFeeDao).getProcessingFee("consoles");
+        doReturn(processingFee1).when(processingFeeDao).getProcessingFee("games");
+        doReturn(processingFee2).when(processingFeeDao).getProcessingFee("tshirts");
     }
 
     private void setUpSalesTaxRateDao() {
         salesTaxRateDao = mock(SalesTaxRateDaoJdbcTemplateImpl.class);
+
+        SalesTaxRate salesTaxRate = new SalesTaxRate();
+        salesTaxRate.setState("NY");
+        salesTaxRate.setRate(BigDecimal.valueOf(0.06));
+
+        SalesTaxRate salesTaxRate1 = new SalesTaxRate();
+        salesTaxRate1.setState("NJ");
+        salesTaxRate1.setRate(BigDecimal.valueOf(0.05));
+
+        doReturn(salesTaxRate).when(salesTaxRateDao).getSalesTaxRate("NY");
+        doReturn(salesTaxRate).when(salesTaxRateDao).getSalesTaxRate("NJ");
     }
 
-    private void setUpProcessingFeeDaoMock() {
-        processingFeeDao = mock(ProcessingFeeDaoJdbcTemplateImpl.class);
-    }
+
 }

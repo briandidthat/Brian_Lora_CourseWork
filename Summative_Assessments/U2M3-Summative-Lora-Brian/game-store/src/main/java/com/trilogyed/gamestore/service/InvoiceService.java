@@ -13,9 +13,10 @@ import java.math.BigDecimal;
 /**
  * INVOICE SERVICE:
  * Purpose: To perform all CRUD operations and necessary calculations needed for Invoices.
- * Private Methods: calculateTax(), calculateProcessingFee(),
+ * Private Methods:
+ * calculateTax(), calculateTotal(), calculateProcessingFee(), calculateSubtotal(), getItemPrice(), validateInventory()
+ *
  */
-
 
 @Component
 public class InvoiceService {
@@ -28,13 +29,14 @@ public class InvoiceService {
 
     @Autowired
     public InvoiceService(ConsoleDao consoleDao, GameDao gameDao, InvoiceDao invoiceDao, TShirtDao tShirtDao,
-                          SalesTaxRateDao salesTaxRateDao, ProcessingFeeDao processingFeeDao) {
+                          ProcessingFeeDao processingFeeDao, SalesTaxRateDao salesTaxRateDao) {
         this.consoleDao = consoleDao;
         this.gameDao = gameDao;
         this.tShirtDao = tShirtDao;
         this.invoiceDao = invoiceDao;
-        this.salesTaxRateDao = salesTaxRateDao;
         this.processingFeeDao = processingFeeDao;
+        this.salesTaxRateDao = salesTaxRateDao;
+
     }
 
     @Transactional
