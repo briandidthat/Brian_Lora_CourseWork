@@ -38,7 +38,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // Any staff member can update a product.
         // Only Managers and above can create new products.
         // Only Admin users can delete a product.
-
         httpSecurity.httpBasic();
 
         httpSecurity.authorizeRequests()
@@ -60,7 +59,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .mvcMatchers(HttpMethod.PUT, "/gamestore/tshirts/*").hasAnyRole( "ADMIN","MANAGER")
                 .anyRequest().permitAll();
 
-
         httpSecurity
                 .logout()
                 .clearAuthentication(true)
@@ -71,8 +69,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .invalidateHttpSession(true);
 
         httpSecurity
-                .csrf()
-                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+                .csrf().disable();
+                //.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
 
     }
 }
