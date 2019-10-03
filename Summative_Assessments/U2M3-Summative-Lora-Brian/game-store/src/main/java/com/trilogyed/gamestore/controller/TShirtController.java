@@ -13,7 +13,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/gameStore/tShirts")
+@RequestMapping("/gamestore/tshirts")
 public class TShirtController {
     @Autowired
     TShirtService tShirtService;

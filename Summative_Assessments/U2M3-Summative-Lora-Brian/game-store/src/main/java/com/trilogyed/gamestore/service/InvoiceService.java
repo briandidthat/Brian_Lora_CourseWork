@@ -6,7 +6,6 @@ import com.trilogyed.gamestore.model.*;
 import com.trilogyed.gamestore.viewmodel.InvoiceViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 
@@ -39,7 +38,6 @@ public class InvoiceService {
 
     }
 
-    @Transactional
     public InvoiceViewModel saveInvoice(Invoice invoice) {
         // VALIDATE INVENTORY BEFORE PERFORMING ANY VALUES
         if (validateInventory(invoice.getItemId(), invoice.getQuantity(), invoice.getItemType())) {

@@ -13,7 +13,7 @@ import java.security.Principal;
 
 
 @RestController
-@RequestMapping("/gameStore/invoice")
+@RequestMapping("/gamestore/invoices")
 public class InvoiceController {
     @Autowired
     InvoiceService invoiceService;

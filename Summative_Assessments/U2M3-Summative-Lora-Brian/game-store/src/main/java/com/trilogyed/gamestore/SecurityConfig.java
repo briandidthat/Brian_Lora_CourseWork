@@ -43,21 +43,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         httpSecurity.authorizeRequests()
                 // Console Routes
-                .mvcMatchers(HttpMethod.POST, "/gameStore/console").hasAnyRole("MANAGER", "ADMIN")
-                .mvcMatchers(HttpMethod.DELETE, "/gameStore/console/*").hasAuthority("ADMIN")
-                .mvcMatchers(HttpMethod.PUT, "/gameStore/console/*").hasAnyRole("MANAGER", "ADMIN")
+                .mvcMatchers(HttpMethod.POST, "/gamestore/consoles").hasAnyRole("MANAGER", "ADMIN")
+                .mvcMatchers(HttpMethod.DELETE, "/gamestore/consoles/*").hasAuthority("ADMIN")
+                .mvcMatchers(HttpMethod.PUT, "/gamestore/consoles/*").hasAnyRole("MANAGER", "ADMIN")
                 // Game Routes
-                .mvcMatchers(HttpMethod.POST, "/gameStore/tShirts").hasAuthority("MANAGER")
-                .mvcMatchers(HttpMethod.DELETE, "/gameStore/tShirts/*").hasAuthority("ADMIN")
-                .mvcMatchers(HttpMethod.PUT, "/gameStore/console/*").hasAnyRole("MANAGER", "ADMIN")
+                .mvcMatchers(HttpMethod.POST, "/gamestore/games").hasAnyRole("ADMIN","MANAGER")
+                .mvcMatchers(HttpMethod.DELETE, "/gamestore/games/*").hasAuthority("ADMIN")
+                .mvcMatchers(HttpMethod.PUT, "/gamestore/games/*").hasAnyRole( "ADMIN", "MANAGER")
                 // Invoice Routes
-                .mvcMatchers(HttpMethod.POST, "/gameStore/invoices").hasAnyRole("USER", "ADMIN", "MANAGER")
-                .mvcMatchers(HttpMethod.DELETE, "/gameStore/invoices/*").hasAuthority("ADMIN")
-                .mvcMatchers(HttpMethod.PUT, "/gameStore/invoices/*").hasAnyRole("MANAGER", "ADMIN")
+                .mvcMatchers(HttpMethod.POST, "/gamestore/invoices").hasAnyRole("USER", "ADMIN", "MANAGER")
+                .mvcMatchers(HttpMethod.DELETE, "/gamestore/invoices/*").hasAuthority("ADMIN")
+                .mvcMatchers(HttpMethod.PUT, "/gamestore/invoices/*").hasAnyRole("ADMIN","MANAGER")
                 // T-Shirt Routes
-                .mvcMatchers(HttpMethod.POST, "/gameStore/tShirts").hasAuthority("MANAGER")
-                .mvcMatchers(HttpMethod.DELETE, "/gameStore/tShirts/*").hasAuthority("ADMIN")
-                .mvcMatchers(HttpMethod.PUT, "/gameStore/tShirts/*").hasAnyRole("MANAGER", "ADMIN")
+                .mvcMatchers(HttpMethod.POST, "/gamestore/tshirts").hasAnyRole("ADMIN","MANAGER")
+                .mvcMatchers(HttpMethod.DELETE, "/gamestore/tshirts/*").hasAuthority("ADMIN")
+                .mvcMatchers(HttpMethod.PUT, "/gamestore/tshirts/*").hasAnyRole( "ADMIN","MANAGER")
                 .anyRequest().permitAll();
 
 

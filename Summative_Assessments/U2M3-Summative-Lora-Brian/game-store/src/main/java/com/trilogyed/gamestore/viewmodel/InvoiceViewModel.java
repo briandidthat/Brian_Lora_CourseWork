@@ -4,9 +4,7 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-/*Task:
- *
- */
+
 public class InvoiceViewModel {
     private int id;
     @NotNull(message="Please supply a value for name")

@@ -13,7 +13,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/gameStore/consoles")
+@RequestMapping("/gamestore/consoles")
 public class ConsoleController {
     @Autowired
     ConsoleService consoleService;

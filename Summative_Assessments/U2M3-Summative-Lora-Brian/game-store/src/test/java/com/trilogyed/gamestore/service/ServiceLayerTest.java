@@ -38,12 +38,24 @@ public class ServiceLayerTest {
     public void saveFindInvoice() {
         // Must pass invoice object without any tax, total, subtotal, unit-price values, processingFee
         // Actual values will be created inside of the service layer
+        Invoice invoice = new Invoice();
+        invoice.setName("Brian Lora");
+        invoice.setStreet("502 Broadway");
+        invoice.setCity("New York");
+        invoice.setState("NY");
+        invoice.setZipCode("10040");
+        invoice.setItemType("consoles");
+        invoice.setItemId(1);
+        invoice.setQuantity(2);
 
-
+        InvoiceViewModel invoiceViewModel = invoiceService.saveInvoice(invoice);
+        InvoiceViewModel invoiceViewModel1 = invoiceService.findInvoiceById(invoiceViewModel.getId());
+        assertEquals(invoiceViewModel1, invoiceViewModel);
     }
 
     @Test
     public void updateInvoice() {
+        Invoice invoice = new Invoice();
 
     }
 
@@ -138,7 +150,7 @@ public class ServiceLayerTest {
         invoice.setCity("New York");
         invoice.setState("NY");
         invoice.setZipCode("10040");
-        invoice.setItemType("Console");
+        invoice.setItemType("consoles");
         invoice.setItemId(1);
         invoice.setQuantity(2);
         invoice.setUnitPrice(BigDecimal.valueOf(30.00));
@@ -153,7 +165,7 @@ public class ServiceLayerTest {
         invoice1.setCity("New York");
         invoice1.setState("NY");
         invoice1.setZipCode("10040");
-        invoice1.setItemType("Console");
+        invoice1.setItemType("consoles");
         invoice1.setItemId(1);
         invoice1.setQuantity(2);
         invoice1.setUnitPrice(BigDecimal.valueOf(30.00));
