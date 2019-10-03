@@ -1,0 +1,231 @@
+openapi: 3.0.0
+info:
+  title: Switter Service
+  description: A simplified Twitter service for Posts and comments.
+  version: 0.0.1
+servers:
+  - url: http://localhost:8889
+    description: My local Switter Service.
+paths:
+# GET/POST/PUT POSTS
+  /posts:
+    get:
+      description: Get a list of posts.
+      summary: Retrieve a list of all existing posts.
+      responses:
+        '200':
+          description: A list of all existing posts.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PostViewModel'
+    post:
+      description: Create a new post.
+      summary: Create a new post object and store it in database.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+      responses:
+        '201':
+          description: Successful post creation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostViewModel'
+        '422':
+          description: Invalid post object format.
+# GET/DELETE POSTS BY ID
+  /posts/{postId}:
+    get:
+      description: Get a single post.
+      summary: Retrieve a certain post by the id provided.
+      parameters:
+        - name: postId
+          in: path
+          required: true
+          description: The id of the post you'd like to retrieve.
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: The post object that matches the given id.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostViewModel'
+        '404':
+          description: The post object provided was not found. 
+    put:
+      description: Update a post.
+      summary: Locate and update an existing post object in the database.
+      parameters:
+        - name: postId
+          in: path
+          required: true
+          description: The id of the post you'd like to update.
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+      responses:
+        '204':
+          description: Successful task update.
+        '400':
+          description: Invalid task object format.
+        '404':
+          description: Post object not found.
+        '422':
+          description: Invalid post id.
+    delete:
+      summary: Delete a certain post by the id.
+      parameters:
+        - name: postId
+          in: path
+          required: true
+          description: The id of the post you'd like to delete.
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '204':
+          description: Successful post deletion.
+  # GET BY POSTER NAME        
+  /posts/user/{posterName}:
+    get:
+      description: Get a list of posts by poster.
+      summary: Retrieve a lists of posts by the provided user.
+      parameters:
+        - name: posterName
+          in: path
+          required: true
+          description: The name of the user whos posts you'd like to retrieve.
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: List of post objects that match the given user.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PostViewModel'
+        '404':
+          description: The post object provided was not found. 
+          
+  /posts/comments:
+    get:
+      description: Get a list of comments.
+      summary: Retrieve a list of all existing comments.
+      responses:
+        '200':
+          description: A list of posts with their respective comments.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Comment'
+    post:
+      description: Create a new comment.
+      summary: Create a new comment object and store it in database.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Comment'
+      responses:
+        '201':
+          description: Successful comment creation.
+        '422':
+          description: Invalid comment object format.
+    
+  /posts/comments/{postId}:
+    get:
+      description: Get a list of comments by post.
+      summary: Retrieve a list of all existing comments for that post.
+      parameters:
+        - name: postId
+          in: path
+          required: true
+          description: The post id of the comments you'd like to receive.
+          schema:
+            type: string
+            format: String
+      responses:
+        '200':
+          description: A list of comments that match the given post id.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Comment'
+
+components:
+  schemas:
+    Post:
+      properties:
+        postId:
+          type: number
+        postDate:
+          type: string
+        posterName:
+          type: string
+        post:
+          type: string
+      required:
+        - postDate
+        - posterName
+        - post
+    Comment:
+      properties:
+        commentId:
+          type: number
+        postId:
+          type: number
+        createDate:
+          type: string
+        commenterName:
+          type: string
+        comment: 
+          type: string
+      required: 
+        - postId
+        - createDate
+        - commenterName
+        - comment
+    PostViewModel:
+      properties:
+        postId:
+          type: number
+        postDate:
+          type: string
+        posterName:
+          type: string
+        post:
+          type: string
+        comments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Comment'
+      required:
+        - commentId
+        - postId
+        - postDate
+        - posterName
+        - post
+        - comments
