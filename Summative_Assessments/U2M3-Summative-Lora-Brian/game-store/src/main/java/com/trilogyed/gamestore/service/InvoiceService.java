@@ -14,7 +14,8 @@ import java.math.BigDecimal;
  * Purpose: To perform all CRUD operations and necessary calculations needed for Invoices.
  * Private Methods:
  * calculateTax(), calculateTotal(), calculateProcessingFee(), calculateSubtotal(), getItemPrice(), validateInventory()
- *
+ * Public Methods:
+ * saveInvoice(), findInvoiceById(), findAllInvoices(), updateInvoice(), removeInvoice()
  */
 
 @Component

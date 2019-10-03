@@ -70,6 +70,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         httpSecurity
                 .csrf().disable();
+                // disabled for postman testing ----->
                 //.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
 
     }

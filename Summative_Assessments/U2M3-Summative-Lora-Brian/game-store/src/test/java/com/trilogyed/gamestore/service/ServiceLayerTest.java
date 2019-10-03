@@ -83,8 +83,8 @@ public class ServiceLayerTest {
         consoles.add(console);
 
         doReturn(console).when(consoleDao).addConsole(console1);
-        doReturn(consoles).when(consoleDao).getAllConsoles();
         doReturn(console).when(consoleDao).getConsoleById(1);
+        doReturn(consoles).when(consoleDao).getAllConsoles();
     }
 
     private void setUpGameDaoMock() {
