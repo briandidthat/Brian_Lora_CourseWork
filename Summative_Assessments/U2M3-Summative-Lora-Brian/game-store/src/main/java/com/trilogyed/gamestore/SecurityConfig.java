@@ -42,21 +42,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         httpSecurity.authorizeRequests()
                 // Console Routes
-                .mvcMatchers(HttpMethod.POST, "/gamestore/consoles").hasAnyRole("MANAGER", "ADMIN")
+                .mvcMatchers(HttpMethod.POST, "/gamestore/consoles").hasAnyAuthority("MANAGER", "ADMIN")
                 .mvcMatchers(HttpMethod.DELETE, "/gamestore/consoles/*").hasAuthority("ADMIN")
-                .mvcMatchers(HttpMethod.PUT, "/gamestore/consoles/*").hasAnyRole("MANAGER", "ADMIN")
+                .mvcMatchers(HttpMethod.PUT, "/gamestore/consoles/*").hasAnyAuthority("MANAGER", "ADMIN")
                 // Game Routes
-                .mvcMatchers(HttpMethod.POST, "/gamestore/games").hasAnyRole("ADMIN","MANAGER")
+                .mvcMatchers(HttpMethod.POST, "/gamestore/games").hasAnyAuthority("ADMIN","MANAGER")
                 .mvcMatchers(HttpMethod.DELETE, "/gamestore/games/*").hasAuthority("ADMIN")
-                .mvcMatchers(HttpMethod.PUT, "/gamestore/games/*").hasAnyRole( "ADMIN", "MANAGER")
+                .mvcMatchers(HttpMethod.PUT, "/gamestore/games/*").hasAnyAuthority( "ADMIN", "MANAGER")
                 // Invoice Routes
-                .mvcMatchers(HttpMethod.POST, "/gamestore/invoices").hasAnyRole("USER", "ADMIN", "MANAGER")
+                .mvcMatchers(HttpMethod.POST, "/gamestore/invoices").hasAnyAuthority("USER", "ADMIN", "MANAGER")
                 .mvcMatchers(HttpMethod.DELETE, "/gamestore/invoices/*").hasAuthority("ADMIN")
-                .mvcMatchers(HttpMethod.PUT, "/gamestore/invoices/*").hasAnyRole("ADMIN","MANAGER")
+                .mvcMatchers(HttpMethod.PUT, "/gamestore/invoices/*").hasAnyAuthority("ADMIN","MANAGER")
                 // T-Shirt Routes
-                .mvcMatchers(HttpMethod.POST, "/gamestore/tshirts").hasAnyRole("ADMIN","MANAGER")
+                .mvcMatchers(HttpMethod.POST, "/gamestore/tshirts").hasAnyAuthority("ADMIN","MANAGER")
                 .mvcMatchers(HttpMethod.DELETE, "/gamestore/tshirts/*").hasAuthority("ADMIN")
-                .mvcMatchers(HttpMethod.PUT, "/gamestore/tshirts/*").hasAnyRole( "ADMIN","MANAGER")
+                .mvcMatchers(HttpMethod.PUT, "/gamestore/tshirts/*").hasAnyAuthority( "ADMIN","MANAGER")
                 .anyRequest().permitAll();
 
         httpSecurity
