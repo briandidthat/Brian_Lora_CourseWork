@@ -53,11 +53,6 @@ public class ServiceLayerTest {
         assertEquals(invoiceViewModel1, invoiceViewModel);
     }
 
-    @Test
-    public void updateInvoice() {
-
-    }
-
     // VERIFY RETURN VALUES
     @Test
     public void testAllValues() {
@@ -99,14 +94,14 @@ public class ServiceLayerTest {
         SalesTaxRate salesTaxRate = new SalesTaxRate();
         salesTaxRate.setState("NY");
         salesTaxRate.setRate(new BigDecimal(".06"));
-
+        // ASSERT TAX RATE
         SalesTaxRate salesTaxRate1 = salesTaxRateDao.getSalesTaxRate("NY");
         assertEquals(salesTaxRate1, salesTaxRate);
 
         ProcessingFee processingFee = new ProcessingFee();
         processingFee.setProductType("consoles");
         processingFee.setFee(new BigDecimal("14.99"));
-
+        // ASSERT PROCESSING FEE
         ProcessingFee processingFee1 = processingFeeDao.getProcessingFee("consoles");
         assertEquals(processingFee1, processingFee);
     }
