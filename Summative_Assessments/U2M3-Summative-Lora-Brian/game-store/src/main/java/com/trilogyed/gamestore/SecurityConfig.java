@@ -42,21 +42,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         httpSecurity.authorizeRequests()
                 // Console Routes
-                .mvcMatchers(HttpMethod.POST, "/gamestore/consoles").hasAnyAuthority("MANAGER", "ADMIN")
+                .mvcMatchers(HttpMethod.POST, "/gamestore/consoles").hasAnyAuthority("ADMIN","MANAGER")
                 .mvcMatchers(HttpMethod.DELETE, "/gamestore/consoles/*").hasAuthority("ADMIN")
-                .mvcMatchers(HttpMethod.PUT, "/gamestore/consoles/*").hasAnyAuthority("MANAGER", "ADMIN")
+                .mvcMatchers(HttpMethod.PUT, "/gamestore/consoles/*").hasAnyAuthority("STAFF","ADMIN","MANAGER")
                 // Game Routes
                 .mvcMatchers(HttpMethod.POST, "/gamestore/games").hasAnyAuthority("ADMIN","MANAGER")
                 .mvcMatchers(HttpMethod.DELETE, "/gamestore/games/*").hasAuthority("ADMIN")
-                .mvcMatchers(HttpMethod.PUT, "/gamestore/games/*").hasAnyAuthority( "ADMIN", "MANAGER")
+                .mvcMatchers(HttpMethod.PUT, "/gamestore/games/*").hasAnyAuthority( "STAFF","ADMIN", "MANAGER")
                 // Invoice Routes
-                .mvcMatchers(HttpMethod.POST, "/gamestore/invoices").hasAnyAuthority("USER", "ADMIN", "MANAGER")
+                .mvcMatchers(HttpMethod.POST, "/gamestore/invoices").hasAnyAuthority("ADMIN", "MANAGER")
                 .mvcMatchers(HttpMethod.DELETE, "/gamestore/invoices/*").hasAuthority("ADMIN")
-                .mvcMatchers(HttpMethod.PUT, "/gamestore/invoices/*").hasAnyAuthority("ADMIN","MANAGER")
+                .mvcMatchers(HttpMethod.PUT, "/gamestore/invoices/*").hasAnyAuthority("STAFF","ADMIN","MANAGER")
                 // T-Shirt Routes
                 .mvcMatchers(HttpMethod.POST, "/gamestore/tshirts").hasAnyAuthority("ADMIN","MANAGER")
                 .mvcMatchers(HttpMethod.DELETE, "/gamestore/tshirts/*").hasAuthority("ADMIN")
-                .mvcMatchers(HttpMethod.PUT, "/gamestore/tshirts/*").hasAnyAuthority( "ADMIN","MANAGER")
+                .mvcMatchers(HttpMethod.PUT, "/gamestore/tshirts/*").hasAnyAuthority( "STAFF","ADMIN","MANAGER")
                 .anyRequest().permitAll();
 
         httpSecurity

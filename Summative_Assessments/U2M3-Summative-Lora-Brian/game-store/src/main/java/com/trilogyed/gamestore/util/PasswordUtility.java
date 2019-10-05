@@ -8,11 +8,18 @@ public class PasswordUtility {
     public static void main(String[] args) {
         PasswordEncoder enc = new BCryptPasswordEncoder();
 
-        String password = "password";
+        String staffPassword = "password";
+        String managerPassword = "password1";
+        String adminPassword = "password2";
 
-        String encodedPassword = enc.encode(password);
+        String encodedStaff = enc.encode(staffPassword);
+        String encodedManager = enc.encode(managerPassword);
+        String encodedAdmin = enc.encode(adminPassword);
 
-        System.out.println(encodedPassword);
+
+        System.out.println("Staff: " + encodedStaff);
+        System.out.println("Manager: " + encodedManager);
+        System.out.println("Admin: " + encodedAdmin);
     }
 
 }
