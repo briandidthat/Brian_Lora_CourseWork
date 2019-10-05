@@ -143,6 +143,7 @@ public class Invoice {
         return total;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -157,7 +158,7 @@ public class Invoice {
                 state.equals(invoice.state) &&
                 zipCode.equals(invoice.zipCode) &&
                 itemType.equals(invoice.itemType) &&
-                unitPrice.equals(invoice.unitPrice) &&
+                Objects.equals(unitPrice, invoice.unitPrice) &&
                 Objects.equals(subTotal, invoice.subTotal) &&
                 Objects.equals(tax, invoice.tax) &&
                 Objects.equals(processingFee, invoice.processingFee) &&
@@ -166,7 +167,7 @@ public class Invoice {
 
     @Override
     public int hashCode() {
-        return Objects.hash(invoiceId, name, street, city, state, zipCode, itemType, itemId,
-                unitPrice, quantity, subTotal, tax, processingFee, total);
+        return Objects.hash(invoiceId, name, street, city, state, zipCode, itemType, itemId, unitPrice,
+                quantity, subTotal, tax, processingFee, total);
     }
 }

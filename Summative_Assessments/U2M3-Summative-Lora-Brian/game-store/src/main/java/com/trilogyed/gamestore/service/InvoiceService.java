@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  * INVOICE SERVICE:
@@ -56,7 +57,6 @@ public class InvoiceService {
             invoice.setTotal(total);
 
             invoice = invoiceDao.addInvoice(invoice);
-
             return buildInvoiceViewModel(invoice);
 
         } else {

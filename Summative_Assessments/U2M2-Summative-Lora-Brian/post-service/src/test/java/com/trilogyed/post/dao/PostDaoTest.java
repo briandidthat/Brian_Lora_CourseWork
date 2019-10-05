@@ -33,7 +33,7 @@ public class PostDaoTest {
     public void addGetDeletePost() {
         Post post = new Post();
         post.setPostDate(LocalDate.of(2019, 12, 22));
-        post.setPosterName("Alchemist");
+        post.setPosterName("The Alchemist");
         post.setPost("I am honestly enjoying Java. I never thought I would say this.");
         post = postDao.addPost(post);
 
